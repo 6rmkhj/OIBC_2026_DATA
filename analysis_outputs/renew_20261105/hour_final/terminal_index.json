@@ -1,0 +1,120 @@
+{
+  "state": "TERMINAL_VALIDATED_EXPORT",
+  "utc": "2026-11-05T05:20:02.777246+00:00",
+  "passed": true,
+  "candidate": "submission\\renew_hour_candidate_20261105",
+  "submission_zip": "submission\\renew_hour_candidate_20261105\\submission_files.zip",
+  "candidate_sha256": {
+    "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast.csv": "d3ba0ab008d37edc72762f7b162727992ea754f0d64e1edef18dc78441515138",
+    "manifest.json": "cbcb86d0be504e9ca21d6c30b9a6f681add8751abf1ab10f957844b9cff9739c",
+    "README.md": "03926cce44d26c4cbf04a0fd7882ce98dbfafc7f9740440b35a4df3e312e9d21",
+    "submission_files.zip": "df9aa33420aba686184c909f8332155013a221268d2fd6d699bb008b0bd50e5e"
+  },
+  "new_scalar_fits": 0,
+  "new_tree_fits": 0,
+  "validator_exit_code": 0,
+  "external_exit_code": 0,
+  "criteria": [
+    {
+      "scenario": "Accepted immutable no-fit recipe; predictions frozen before diagnostic labels",
+      "invocation": "python submission/score_push_renew/hour_final_run.py",
+      "observable": "0scalar/tree fits;3 prediction splits frozen before diagnostic label reads; fixed recipe, no reselection",
+      "artifacts": [
+        "protocol.json",
+        "selected_hour_coefficients.json",
+        "prediction_freeze.json",
+        "evidence/diagnostic_label_reads.json",
+        "diagnostic_metrics.json",
+        "controller_receipt.json"
+      ]
+    },
+    {
+      "scenario": "Full 26352-row formula and descriptive score replay",
+      "invocation": "python analysis_outputs/renew_20261105/hour_final/evidence/verify_terminal.py",
+      "observable": "PASS exact current prior p and staticcapacity; hour stage once; maxpredictionerror0; scores exact",
+      "artifacts": [
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt02.log"
+      ]
+    },
+    {
+      "scenario": "Submission contract, CSV rounding and ZIP exact members/bytes",
+      "invocation": "python submission/validate_artifacts.py submission/renew_hour_candidate_20261105 --self-check; verify_terminal.py CSV/ZIP audit",
+      "observable": "PASS253sites17520rows,0above-capacity; sorted keys,3decimal round exact; ZIP composition.csv/forecast.csv only",
+      "artifacts": [
+        "export_validation.log",
+        "export_receipt.json",
+        "candidate_artifact_hashes.json",
+        "evidence/terminal_audit.json"
+      ]
+    },
+    {
+      "scenario": "Preserve existing official-score candidate, hour wave and all other originals",
+      "invocation": "verify_terminal.py source/input/protected SHA256 checks",
+      "observable": "PASS2409protected files unchanged",
+      "artifacts": [
+        "preservation.json",
+        "evidence/terminal_audit.json"
+      ]
+    },
+    {
+      "scenario": "Sources, native lifecycle/resources and owned cleanup",
+      "invocation": "check-no-excuse-rules.py hour_final*.py verify_terminal.py; retained Process.Handle before WaitForExit; CIM PID+CreationDate; native contained no-reparse tmp removal",
+      "observable": "PASS4files;actualOSexit0;CPU16/BLAS16/Normal/Arrow4;exactworkerabsent;tmpabsent",
+      "artifacts": [
+        "evidence/programming_check_terminal.log",
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json",
+        "evidence/terminal_cleanup.json"
+      ]
+    }
+  ],
+  "diagnostics": {
+    "scores": {
+      "old_cutoff_march_may": {
+        "p_reference": {
+          "W": 483103331.86492485,
+          "W_pct": 9.760636832305014,
+          "revenue": 2208093632.2506676,
+          "S": 2159783299.064175,
+          "rows": 4416
+        },
+        "p": {
+          "W": 481748175.0703911,
+          "W_pct": 9.73325719641798,
+          "revenue": 2208093632.2506676,
+          "S": 2159918814.7436285,
+          "rows": 4416
+        }
+      },
+      "latest_cutoff_march_may": {
+        "p_reference": {
+          "W": 464781752.5177579,
+          "W_pct": 9.390466994080926,
+          "revenue": 2208093632.2506676,
+          "S": 2161615456.998892,
+          "rows": 4416
+        },
+        "p": {
+          "W": 464176484.6324241,
+          "W_pct": 9.378238140282312,
+          "revenue": 2208093632.2506676,
+          "S": 2161675983.787425,
+          "rows": 4416
+        }
+      }
+    },
+    "descriptive_only": true,
+    "no_reselection": true,
+    "all_history_exposed": true,
+    "new_fits": 0
+  },
+  "manifest": "terminal_manifest.json",
+  "manifest_format": "Plain path relative to hour_final ->SHA256; includes candidate_artifact_hashes.json for candidate files; excludes self,lock,root independent_* files.",
+  "original_official_score_user_reported": 6454220836,
+  "new_official_score_available": false,
+  "uploaded": false,
+  "historical_exposure": "All historical periods exposed; primary calibration improvement partly in-sample; March-May descriptive only, no reselection.",
+  "audit_history": "Attempt01 audit strict > timestamp failed on identical Windows clock tick. Attempt02 uses >= plus recorded SHA of already-written freeze and frozen source ordering. Failed log/localization preserved; predictions and export not rerun."
+}

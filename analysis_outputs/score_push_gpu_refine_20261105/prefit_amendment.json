@@ -1,0 +1,42 @@
+{
+  "active_revision": 1,
+  "utc": "2026-11-04T15:13:05.8804044Z",
+  "original_protocol_sha256": "f65d65970e6444d9cf68c0321e5af21b5ad2ac6217ab8235fd557414bb4e7f46",
+  "reason": "Root-authorized prefit correction: official historical SMP has legitimate zeros; exact monetary formula produces six zero-weight recent training rows. Preserve those rows, no floor or deletion.",
+  "original_preflight_log": "evidence/prepare_attempt.log",
+  "model_fits_before_amendment": 0,
+  "zero_SMP_timestamps_KST": [
+    "2024-02-10T12:00:00+09:00",
+    "2024-02-11T13:00:00+09:00",
+    "2024-02-12T13:00:00+09:00"
+  ],
+  "zero_weight_rows": {
+    "primary": 0,
+    "recent": 6
+  },
+  "weight_contract": "Finite and nonnegative; strictly positive training mean(capacity*SMP*k) and total sample-weight mass. Scientific formula and all24predefined fits unchanged.",
+  "own_sources": {
+    "gpu_common.py": {
+      "original": "submission/score_push_gpu_refine/gpu_common.py",
+      "sha256": "7c14db4066ed84a2d52da770fdfdec4197addb13cbfb8d2a35c82971a3a339b3"
+    },
+    "gpu_data.py": {
+      "original": "submission/score_push_gpu_refine/gpu_data.py",
+      "sha256": "e695f12246c3c28635b5278db2d9ee4d678e315de86372ac1319763cf049a8ab"
+    },
+    "gpu_fit.py": {
+      "original": "submission/score_push_gpu_refine/gpu_fit.py",
+      "sha256": "ab94d97d0481babd54557ef097b3567064cf477c4a8097aed9a3e189c78b5828"
+    },
+    "gpu_run.py": {
+      "original": "submission/score_push_gpu_refine/gpu_run.py",
+      "sha256": "02a08bdef2c32a7294666b7eb1566ad7f654a7f7061ae485b451e744f92d63ad"
+    },
+    "gpu_score.py": {
+      "original": "submission/score_push_gpu_refine/gpu_score.py",
+      "sha256": "a2dca5c2145e7b823d02aa6512518c6f43d0b025566797f71714ad26ebd469e7"
+    }
+  },
+  "original_source_snapshots_retained": "sources/own",
+  "active_source_snapshots": "sources/prefit_amendment"
+}

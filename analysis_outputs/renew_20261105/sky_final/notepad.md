@@ -1,0 +1,2 @@
+
+TERMINAL VALIDATED EXPORT: renew_sky_candidate_20261105,0newfits. Realvalidator+selfchecksPASS253sites17520rows0above-capacity. Full26352formula/weatherjoin/diagnostic rows,CSVrounding/keys/ZIPauditPASS. Originalofficial/hourcandidates and allprotectedfiles unchanged. Descriptiveold Wpct9.751804613011211 vs9.73325719641798;latest9.39759569058443 vs9.378238140282312: both worsened; no reselection. ActualOSexit0,exactworkerabsent,tmpremoved. Newofficialunknown/no upload. Canonical terminal_index.json and terminal_manifest.json follow after all logs and this note.

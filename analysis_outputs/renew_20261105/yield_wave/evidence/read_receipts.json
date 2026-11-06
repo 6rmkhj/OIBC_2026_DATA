@@ -1,0 +1,106 @@
+[
+  {
+    "fold": "primary",
+    "train_rows": 21086,
+    "evaluation_rows": 9642,
+    "site_train_rows": 521423,
+    "site_eval_rows": 681694,
+    "max_site_target_ts": "2023-05-31 20:00:00+09:00",
+    "target_cutoff": "2023-06-01 00:00:00+09:00",
+    "site_train_projection": [
+      "ts",
+      "site_id",
+      "cf",
+      "cosz",
+      "wa_cloud",
+      "wb_cloud",
+      "capacity_kw"
+    ],
+    "site_eval_projection": [
+      "ts",
+      "site_id",
+      "capacity_kw"
+    ],
+    "site_eval_filters": [
+      [
+        "ts",
+        ">",
+        "2023-06-01 00:00:00+09:00"
+      ],
+      [
+        "ts",
+        "<=",
+        "2024-06-01 00:00:00+09:00"
+      ],
+      [
+        "night",
+        "==",
+        false
+      ]
+    ],
+    "capacity_max_errors": {
+      "train": 0.0,
+      "evaluation": 0.0
+    },
+    "capacity_tolerance": {
+      "rtol": 1e-12,
+      "atol": 1e-08,
+      "justification": "At most253 float64 additions of decimal capacities; tolerance below1e-7kW, no row rounding or dropping."
+    },
+    "exact_daylight_keys": true,
+    "real_quantile_fits": 0,
+    "no_evaluation_site_targets": true
+  },
+  {
+    "fold": "recent",
+    "train_rows": 30728,
+    "evaluation_rows": 7015,
+    "site_train_rows": 1203117,
+    "site_eval_rows": 852369,
+    "max_site_target_ts": "2024-05-31 20:00:00+09:00",
+    "target_cutoff": "2024-06-01 00:00:00+09:00",
+    "site_train_projection": [
+      "ts",
+      "site_id",
+      "cf",
+      "cosz",
+      "wa_cloud",
+      "wb_cloud",
+      "capacity_kw"
+    ],
+    "site_eval_projection": [
+      "ts",
+      "site_id",
+      "capacity_kw"
+    ],
+    "site_eval_filters": [
+      [
+        "ts",
+        ">",
+        "2024-06-01 00:00:00+09:00"
+      ],
+      [
+        "ts",
+        "<=",
+        "2025-03-01 00:00:00+09:00"
+      ],
+      [
+        "night",
+        "==",
+        false
+      ]
+    ],
+    "capacity_max_errors": {
+      "train": 0.0,
+      "evaluation": 0.0
+    },
+    "capacity_tolerance": {
+      "rtol": 1e-12,
+      "atol": 1e-08,
+      "justification": "At most253 float64 additions of decimal capacities; tolerance below1e-7kW, no row rounding or dropping."
+    },
+    "exact_daylight_keys": true,
+    "real_quantile_fits": 0,
+    "no_evaluation_site_targets": true
+  }
+]

@@ -1,0 +1,124 @@
+{
+  "state": "complete",
+  "outcome": "rejected_reference_retained",
+  "criteria": [
+    {
+      "criterion": "One fixed train-range transform per fold, no refit",
+      "scenario": "Exact training minima/maxima; bitwise training identity; exact bounded evaluation matrix and per-feature change counts",
+      "invocation": "python analysis_outputs/renew_20261105/bounds_wave/evidence/verify_terminal.py",
+      "binary_observable": "PASS: all exact array and SHA assertions; 2 transforms, 0 fits",
+      "artifacts": [
+        "protocol.json",
+        "evidence/selfchecks.json",
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt01.log",
+        "data/primary/bounds.parquet",
+        "data/recent/bounds.parquet",
+        "data/primary/bounds_receipt.json",
+        "data/recent/bounds_receipt.json"
+      ]
+    },
+    {
+      "criterion": "Six serial inference-only workers reuse original model bytes",
+      "scenario": "Load each original model and scaler, full independent replay against saved signed raw kWh; verify preserved hashes and nonoverlap",
+      "invocation": "python submission/score_push_renew/bound_run.py (native retained-handle launcher evidence/run_attempt01_launcher.ps1); python analysis_outputs/renew_20261105/bounds_wave/evidence/verify_terminal.py",
+      "binary_observable": "PASS: 6 native inferences, 0 model fits, 6 full replay errors exactly zero, source/model hashes unchanged",
+      "artifacts": [
+        "protocol.json",
+        "preservation.json",
+        "evidence/terminal_audit.json",
+        "controller_receipt.json",
+        "trials/primary/seed0/config.json",
+        "trials/primary/seed0/daylight_raw.parquet",
+        "trials/primary/seed0/replay.json",
+        "trials/primary/seed0/runtime.json",
+        "trials/primary/seed0/worker_status.json",
+        "trials/primary/seed0/controller_receipt.json",
+        "trials/primary/seed1/config.json",
+        "trials/primary/seed1/daylight_raw.parquet",
+        "trials/primary/seed1/replay.json",
+        "trials/primary/seed1/runtime.json",
+        "trials/primary/seed1/worker_status.json",
+        "trials/primary/seed1/controller_receipt.json",
+        "trials/primary/seed2/config.json",
+        "trials/primary/seed2/daylight_raw.parquet",
+        "trials/primary/seed2/replay.json",
+        "trials/primary/seed2/runtime.json",
+        "trials/primary/seed2/worker_status.json",
+        "trials/primary/seed2/controller_receipt.json",
+        "trials/recent/seed0/config.json",
+        "trials/recent/seed0/daylight_raw.parquet",
+        "trials/recent/seed0/replay.json",
+        "trials/recent/seed0/runtime.json",
+        "trials/recent/seed0/worker_status.json",
+        "trials/recent/seed0/controller_receipt.json",
+        "trials/recent/seed1/config.json",
+        "trials/recent/seed1/daylight_raw.parquet",
+        "trials/recent/seed1/replay.json",
+        "trials/recent/seed1/runtime.json",
+        "trials/recent/seed1/worker_status.json",
+        "trials/recent/seed1/controller_receipt.json",
+        "trials/recent/seed2/config.json",
+        "trials/recent/seed2/daylight_raw.parquet",
+        "trials/recent/seed2/replay.json",
+        "trials/recent/seed2/runtime.json",
+        "trials/recent/seed2/worker_status.json",
+        "trials/recent/seed2/controller_receipt.json"
+      ]
+    },
+    {
+      "criterion": "Primary-only alpha and frozen stage order, strict two-fold gate",
+      "scenario": "Independent signed mean, cap, original weather/hour/cloud, weighted median alpha, exact predictions and metrics",
+      "invocation": "python analysis_outputs/renew_20261105/bounds_wave/evidence/verify_terminal.py",
+      "binary_observable": "PASS: every stage/metric exact; alpha 0.05295488349252161; eligible false; reference retained",
+      "artifacts": [
+        "results.json",
+        "evidence/terminal_audit.json",
+        "comparisons/primary/predictions.parquet",
+        "comparisons/recent/predictions.parquet"
+      ]
+    },
+    {
+      "criterion": "Resource caps and native terminal lifecycle",
+      "scenario": "Runtime/status receipts for six workers; controller exit from retained handle; seven PID+creation absence checks",
+      "invocation": "python submission/score_push_renew/bound_run.py (native retained-handle launcher evidence/run_attempt01_launcher.ps1); powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/bounds_wave/evidence/check_native.ps1",
+      "binary_observable": "PASS: OS exit 0; all workers pools exactly 16/Normal/Arrow4, serial; controller pools [16,2,2,1] <=16; seven exact identities absent",
+      "artifacts": [
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json",
+        "evidence/native_terminal_identities.json",
+        "evidence/terminal_audit.json",
+        "controller_receipt.json"
+      ]
+    },
+    {
+      "criterion": "Owned temporary cleanup only",
+      "scenario": "Absolute containment and reparse inspection, native removal only of bounds_wave/tmp, exact process recheck",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/bounds_wave/evidence/cleanup.ps1",
+      "binary_observable": "PASS: target absent; 0 reparse points; seven identities absent",
+      "artifacts": [
+        "evidence/terminal_cleanup.json",
+        "evidence/terminal_cleanup.log",
+        "evidence/native_terminal_identities.json"
+      ]
+    },
+    {
+      "criterion": "Source quality and immutable result seal",
+      "scenario": "Programming checker on six implementation and two audit files; hash all terminal artifacts after writes stop",
+      "invocation": "python <programming skill>/scripts/python/check-no-excuse-rules.py submission/score_push_renew/bound_*.py analysis_outputs/renew_20261105/bounds_wave/evidence/verify_*.py",
+      "binary_observable": "PASS: no violations in 8 files; plain relative-path SHA256 manifest",
+      "artifacts": [
+        "evidence/programming_check_terminal.log",
+        "terminal_manifest.json"
+      ]
+    }
+  ],
+  "terminal_audit": "evidence/terminal_audit.json",
+  "counts": {
+    "model_fits": 0,
+    "native_inferences": 6,
+    "bounds_transforms": 2,
+    "calibration_fits": 0
+  },
+  "manifest": "terminal_manifest.json"
+}

@@ -1,0 +1,19 @@
+{
+  "retrieved_via": "Context7 resolve-library-id and query-docs, 2026-11-06 Asia/Seoul",
+  "library_id": "/lightgbm-org/lightgbm",
+  "sources": [
+    "https://github.com/lightgbm-org/lightgbm/blob/main/src/objective/regression_objective.hpp",
+    "https://github.com/lightgbm-org/lightgbm/blob/main/docs/Parameters.rst",
+    "https://github.com/lightgbm-org/lightgbm/blob/main/python-package/lightgbm/sklearn.py"
+  ],
+  "documented_behavior": {
+    "raw_score": "log mean eta; response prediction is exp(eta)",
+    "gradient": "sample_weight * (exp(eta) - target)",
+    "safeguarded_hessian": "sample_weight * exp(eta) * exp(poisson_max_delta_step)",
+    "poisson_max_delta_step_default": 0.7,
+    "initial_score": "log of weighted mean label",
+    "fit_interface": "LGBMRegressor.fit accepts sample_weight; no eval_set or early stopping needed"
+  },
+  "root_math": "Poisson deviance D is homogeneous: n*D(y/n,mu/n)=D(y,mu), for n>0,y>=0,mu>0 including y=0. Thus n*mean1_decay180 weights preserve the CF-scale quasi-loss under normalization. This is not a claim that solar energy is integer-count data.",
+  "limits": "Documentation URLs point to moving main; no commit pin inferred. Experiment must independently pin installed LightGBM4.7.0 DLL SHA256 and actual native model parameters. No performance evidence from documentation."
+}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\rescore.py", line 40, in <module>
+    main()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\rescore.py", line 26, in main
+    assert {k: v for k, v in asdict(config).items() if k not in metadata} == {k: v for k, v in asdict(original).items() if k not in metadata}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\calibrate.py", line 66, in <module>
+    main()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\calibrate.py", line 57, in main
+    subprocess.run([sys.executable, str(SOURCE / "rescore.py"), source_id, str(path)], check=True)
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['C:\\Users\\slowg\\AppData\\Local\\Programs\\Python\\Python312\\python.exe', 'C:\\Users\\slowg\\Downloads\\OIBC_2026_DATA\\submission\\autoresearch\\rescore.py', 'baseline', 'C:\\Users\\slowg\\Downloads\\OIBC_2026_DATA\\analysis_outputs\\autoresearch_20261103\\w5_original_calibrated_config.json']' returned non-zero exit status 1.

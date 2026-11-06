@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_aux.py", line 68, in <module>
+    main()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_aux.py", line 32, in main
+    train = labels.merge(train,on=[station,'ts'],how='left',validate='one_to_one',indicator=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 16192, in merge
+    return merge(
+           ^^^^^^
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\reshape\merge.py", line 391, in merge
+    op = _MergeOperation(
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\reshape\merge.py", line 1033, in __init__
+    self._validate_validate_kwd(validate)
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\reshape\merge.py", line 2009, in _validate_validate_kwd
+    raise MergeError(
+pandas.errors.MergeError: Merge keys are not unique in left dataset; not a one-to-one merge
+Duplicates in left:
+ wa_station                        ts
+     WA044 2022-01-01 01:00:00+09:00 ...
+Default metric period is 5 because MAE is/are not implemented for GPU
+0:	learn: 37.9242932	total: 7.6s	remaining: 2h 6m 34s
+200:	learn: 17.1131332	total: 12.5s	remaining: 49.6s
+400:	learn: 16.3856181	total: 17.2s	remaining: 25.7s
+600:	learn: 15.9406640	total: 21.9s	remaining: 14.6s
+800:	learn: 15.6666180	total: 26.7s	remaining: 6.63s
+999:	learn: 15.4394896	total: 31.5s	remaining: 0us
+AUXILIARY TERMINAL wa 2022-06-01

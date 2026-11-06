@@ -1,0 +1,187 @@
+{
+  "status": "PASS",
+  "auxiliary_models": [
+    {
+      "provider": "wa",
+      "cutoff": "2021-06-01",
+      "training_rows": 219600,
+      "prediction_rows": 267912,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wa",
+      "cutoff": "2021-12-01",
+      "training_rows": 487512,
+      "prediction_rows": 266448,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wa",
+      "cutoff": "2022-06-01",
+      "training_rows": 753961,
+      "prediction_rows": 267912,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wa",
+      "cutoff": "2022-12-01",
+      "training_rows": 1021873,
+      "prediction_rows": 266448,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wa",
+      "cutoff": "2023-06-01",
+      "training_rows": 1288322,
+      "prediction_rows": 535824,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wa",
+      "cutoff": "2023-12-01",
+      "training_rows": 1556234,
+      "prediction_rows": 267912,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wa",
+      "cutoff": "2024-06-01",
+      "training_rows": 1824148,
+      "prediction_rows": 399672,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2021-06-01",
+      "training_rows": 262800,
+      "prediction_rows": 320616,
+      "invalid_targets_excluded": 0,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2021-12-01",
+      "training_rows": 582983,
+      "prediction_rows": 318864,
+      "invalid_targets_excluded": 433,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2022-06-01",
+      "training_rows": 901847,
+      "prediction_rows": 320616,
+      "invalid_targets_excluded": 433,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2022-12-01",
+      "training_rows": 1222463,
+      "prediction_rows": 318864,
+      "invalid_targets_excluded": 433,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2023-06-01",
+      "training_rows": 1541327,
+      "prediction_rows": 641232,
+      "invalid_targets_excluded": 433,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2023-12-01",
+      "training_rows": 1861943,
+      "prediction_rows": 320616,
+      "invalid_targets_excluded": 433,
+      "exact_raw_observation_rows_preserved": true
+    },
+    {
+      "provider": "wb",
+      "cutoff": "2024-06-01",
+      "training_rows": 2182558,
+      "prediction_rows": 478296,
+      "invalid_targets_excluded": 433,
+      "exact_raw_observation_rows_preserved": true
+    }
+  ],
+  "feature_checks": [
+    {
+      "fold": "primary",
+      "kind": "train",
+      "provider": "wa",
+      "group_rows": 21086,
+      "lineage_rows": 156033,
+      "station_columns": 61
+    },
+    {
+      "fold": "primary",
+      "kind": "train",
+      "provider": "wb",
+      "group_rows": 21086,
+      "lineage_rows": 184898,
+      "station_columns": 73
+    },
+    {
+      "fold": "primary",
+      "kind": "evaluation",
+      "provider": "wa",
+      "group_rows": 9642,
+      "lineage_rows": 180372,
+      "station_columns": 61
+    },
+    {
+      "fold": "primary",
+      "kind": "evaluation",
+      "provider": "wb",
+      "group_rows": 9642,
+      "lineage_rows": 207101,
+      "station_columns": 73
+    },
+    {
+      "fold": "recent",
+      "kind": "train",
+      "provider": "wa",
+      "group_rows": 30728,
+      "lineage_rows": 336405,
+      "station_columns": 61
+    },
+    {
+      "fold": "recent",
+      "kind": "train",
+      "provider": "wb",
+      "group_rows": 30728,
+      "lineage_rows": 391999,
+      "station_columns": 73
+    },
+    {
+      "fold": "recent",
+      "kind": "evaluation",
+      "provider": "wa",
+      "group_rows": 7015,
+      "lineage_rows": 208531,
+      "station_columns": 61
+    },
+    {
+      "fold": "recent",
+      "kind": "evaluation",
+      "provider": "wb",
+      "group_rows": 7015,
+      "lineage_rows": 248551,
+      "station_columns": 73
+    }
+  ],
+  "observed_rows_including_duplicates_preserved": true,
+  "embargo_days": 1,
+  "fixed_outer_cutoffs_verified": true,
+  "independent_capacity_aggregation": true
+}

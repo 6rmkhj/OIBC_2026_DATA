@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "source": "submission/autoresearch_spatial.py",
+  "manifest": "analysis_outputs/autoresearch_20261103/spatial/manifest.json",
+  "manifest_sha256": "6486175af5297a76de66eb871d76dcd74c29750d76c5a3b60ecb19506d9f7f1c",
+  "checks": [
+    {
+      "scenario": "Hand-computed unequal capacities, per-feature NaN denominators, constants, strict cloud thresholds, omitted night-only groups, and rejected labels",
+      "invocation": "python submission/autoresearch_spatial.py --self-check",
+      "observable": "self_check PASS; actual G1 SDs sqrt(1875), sqrt(675), sqrt(3), 0, 0; cloud fractions .25, .75, 0, 0; G2 missing features remain NaN; G3 omitted; energy/cf/actual/y rejected",
+      "artifact": "analysis_outputs/autoresearch_20261103/spatial/self_check.log"
+    },
+    {
+      "scenario": "Self-check sensitivity to a broken weighted variance formula",
+      "invocation": "Compile an in-memory copy of submission/autoresearch_spatial.py replacing mean.pow(2) with mean.pow(2) * 0.0; invoke self_check and require AssertionError",
+      "observable": "PASS: removing the weighted mean-square term is rejected; mutated sp_wa_cloud_sd values 86.60254 and 50 differ from 43.30127 and 0",
+      "artifact": "analysis_outputs/autoresearch_20261103/spatial/mutation_check.log"
+    },
+    {
+      "scenario": "Single sequential real weather-only build with frozen input hashes, selection cutoff, exact keys, and parquet roundtrip",
+      "invocation": "python -c \"import ctypes,runpy; from ctypes import wintypes; kernel=ctypes.WinDLL('kernel32',use_last_error=True); kernel.GetCurrentProcess.restype=wintypes.HANDLE; kernel.SetPriorityClass.argtypes=(wintypes.HANDLE,wintypes.DWORD); assert kernel.SetPriorityClass(kernel.GetCurrentProcess(),0x4000); print('Process priority: BelowNormal',flush=True); runpy.run_path('submission/autoresearch_spatial.py',run_name='__main__')\"",
+      "observable": "Exit 0; BelowNormal priority; 2221921 input rows projected to 9 approved columns with max timestamp 2024-06-01 00:00:00+09:00; train 21086 rows and selection 9642 rows; both outputs keys_exact true and roundtrip assertions pass; Arrow CPU/IO 2, BLAS environment 1",
+      "artifact": "analysis_outputs/autoresearch_20261103/spatial/build.log"
+    },
+    {
+      "scenario": "Programming rule check and source size",
+      "invocation": "python C:/Users/slowg/.codex/plugins/cache/sisyphuslabs/omo/5.1.59/skills/programming/scripts/python/check-no-excuse-rules.py submission/autoresearch_spatial.py",
+      "observable": "no violations in 1 file(s); 152 pure LOC measured in mutation_check.log",
+      "artifact": "analysis_outputs/autoresearch_20261103/spatial/code_check.log"
+    }
+  ],
+  "review": {
+    "responsibility": "Weather spatial feature construction",
+    "boundary": "Exact weather-only columns, timezone-aware timestamps, finite positive capacity, unique site/time keys, complete frozen assignments",
+    "variants_and_escape_hatches": "No tagged variants, Any, casts, or type ignores",
+    "scope": "Only the assigned new builder and spatial artifacts were changed; reusable aggregate_spatial accepts already projected weather-only frames",
+    "limits": "Model integration, model performance, and final outer/test aggregation are owned by the caller and were not run here. Training all-missing values are preserved for downstream native missing-value handling."
+  }
+}

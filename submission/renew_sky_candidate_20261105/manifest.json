@@ -1,0 +1,131 @@
+{
+  "protocol_sha256": "3fd9f58fe1d84a93b7ec4d7d9f4078944fc9b1c09b5758a39aa392beea609255",
+  "coefficient_sha256": "b4ddc35d6c4c1f712c5dfd6f52e64e3fce2c07437247756d2dc8a56645751cee",
+  "prediction_freeze_sha256": "0e4ebaef78e8739104cce0b7c3cd659fe4f40505f93cbd2bfed8029c2e6fac9f",
+  "source_input_sha256": {
+    "analysis_outputs\\renew_20261105\\hour_final\\predictions\\old_cutoff_march_may\\predictions.parquet": "153bbeb32120df2da9f61a77ca885ebb01d1af139845bd55a02fe2a2f8a6f420",
+    "analysis_outputs\\renew_20261105\\hour_final\\predictions\\latest_cutoff_march_may\\predictions.parquet": "0577b5c099df74d01473437d681774475521da92159dbe4544249ed3fae79863",
+    "analysis_outputs\\renew_20261105\\hour_final\\predictions\\test\\predictions.parquet": "3e086a650014d5e0690e284c897254cbd854ed00db04e8480c18d7ce1e5b545f",
+    "analysis_outputs\\renew_20261105\\hour_final\\predictions\\old_cutoff_march_may\\scored_predictions.parquet": "27c0e0eb01374b154b974c1ab1233478b2f14f6139881b0ae553e97ddb1e0e83",
+    "analysis_outputs\\renew_20261105\\hour_final\\predictions\\latest_cutoff_march_may\\scored_predictions.parquet": "b1033e67b6015345d5ee839ce36ec6032303ca294f76d87ff578f475dc0490a1",
+    "analysis_outputs\\renew_20261105\\sky_wave\\coefficients.json": "b4ddc35d6c4c1f712c5dfd6f52e64e3fce2c07437247756d2dc8a56645751cee",
+    "analysis_outputs\\renew_20261105\\sky_wave\\results.json": "a054a26b252e2cef7f959efec05aaea70f6c916c4a02b0b1c4eaef3cdf2062bc",
+    "analysis_outputs\\renew_20261105\\sky_wave\\protocol.json": "9fcf77359d06b507afb00411ce8434aa0addbe4c52ecfe55a421d54afe08e6af",
+    "analysis_outputs\\renew_20261105\\sky_wave\\terminal_manifest.json": "5f02729cf5ce6f353b57221d66246b87b08ac422f64790739f10ad77e4340be9",
+    "analysis_outputs\\renew_20261105\\final\\data\\march_may\\evaluation.parquet": "19a1230615dbd93e03230419ac56295e3632548fc9b61770314da897cf54dfef",
+    "analysis_outputs\\renew_20261105\\final\\data\\march_may\\coverage.parquet": "f400f36a32618beb37b9f68709b34a190712715dc67fc97c9a8f1fb70887e20c",
+    "analysis_outputs\\renew_20261105\\final\\data\\test\\evaluation.parquet": "bd73e00b8416c22ec89fa0f091db8ab178d501324357565453d4758892292102",
+    "analysis_outputs\\renew_20261105\\final\\data\\test\\coverage.parquet": "c4e59bc759757752df49876a08f7c2d016f988c13e98275222ff1f5d803bf253",
+    "analysis_outputs\\renew_20261105\\final\\static_capacity.json": "2424f21555bf7a9314353bf6cf7aea59e44ea30d73e546984e0def971fc3807f",
+    "analysis_outputs\\renew_20261105\\final\\selected_coefficients.json": "7f02f8e5cefab2a7674a739d9e40669e630916b80c4e430802451099a253fef0",
+    "submission\\autoresearch_candidate\\composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "submission\\validate_artifacts.py": "89e4a757bdada17cc523c948a59408caadc641566d454533021e9c5a3475031f",
+    "handover 2\\01_participant_dataset\\sites.csv": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2"
+  },
+  "recipe": "Frozen sky_math.apply once: finite wb_cloud bins[-inf20),[20,50),[50,80),[80,inf), nonfinite identity; retain finite values above100. effective=1+.5*(bounded_cloud_factor-1); clip(current weather+hour calibrated p*effective,0,static_capacity). No prior-stage refit/collapse/repeated shrink.",
+  "new_scalar_fits": 0,
+  "new_tree_fits": 0,
+  "development_gain": {
+    "primary": {
+      "reference": {
+        "W": 976625966.0430048,
+        "W_pct": 11.912571076235176,
+        "revenue": 3546697701.5127397,
+        "S": 3449035104.908439,
+        "rows": 17568
+      },
+      "cloud": {
+        "W": 966809845.4447374,
+        "W_pct": 11.792837177705382,
+        "revenue": 3546697701.5127397,
+        "S": 3450016716.968266,
+        "rows": 17568
+      },
+      "W_reduction": 9816120.598267317,
+      "W_pct_reduction": 0.11973389852979466
+    },
+    "recent": {
+      "reference": {
+        "W": 1356432319.1075268,
+        "W_pct": 10.998534992012488,
+        "revenue": 5289489854.18509,
+        "S": 5153846622.274338,
+        "rows": 13104
+      },
+      "cloud": {
+        "W": 1351114547.400751,
+        "W_pct": 10.955416218320197,
+        "revenue": 5289489854.18509,
+        "S": 5154378399.445015,
+        "rows": 13104
+      },
+      "W_reduction": 5317771.706775665,
+      "W_pct_reduction": 0.043118773692290446
+    }
+  },
+  "diagnostic_metrics": {
+    "old_cutoff_march_may": {
+      "p_reference": {
+        "W": 481748175.0703911,
+        "W_pct": 9.73325719641798,
+        "revenue": 2208093632.2506676,
+        "S": 2159918814.7436285,
+        "rows": 4416
+      },
+      "p": {
+        "W": 482666180.6173264,
+        "W_pct": 9.751804613011211,
+        "revenue": 2208093632.2506676,
+        "S": 2159827014.188935,
+        "rows": 4416
+      }
+    },
+    "latest_cutoff_march_may": {
+      "p_reference": {
+        "W": 464176484.6324241,
+        "W_pct": 9.378238140282312,
+        "revenue": 2208093632.2506676,
+        "S": 2161675983.787425,
+        "rows": 4416
+      },
+      "p": {
+        "W": 465134587.79806435,
+        "W_pct": 9.39759569058443,
+        "revenue": 2208093632.2506676,
+        "S": 2161580173.470861,
+        "rows": 4416
+      }
+    }
+  },
+  "diagnostics_descriptive_only": true,
+  "no_reselection": true,
+  "all_history_exposed": true,
+  "primary_calibration_partly_in_sample": true,
+  "reference_candidate": "submission/renew_hour_candidate_20261105",
+  "original_candidate": "submission/renew_candidate_20261105",
+  "preserved_candidate_sha256": {
+    "renew_candidate_20261105": {
+      "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+      "forecast.csv": "948c672c918732ce47ac181ac3ac0325a15d35429594e9c3375036d4c1c413c0",
+      "manifest.json": "7e790b38bae67984c0aaaae41dcc648ab9eaf0d8256c64751d34f6a37f0f9a70",
+      "README.md": "ae16f1b9d6cd4873eb85cf8b86d2f0e35b76aaae0a25bef810ebd77dd5040189",
+      "submission_files.zip": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434"
+    },
+    "renew_hour_candidate_20261105": {
+      "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+      "forecast.csv": "d3ba0ab008d37edc72762f7b162727992ea754f0d64e1edef18dc78441515138",
+      "manifest.json": "cbcb86d0be504e9ca21d6c30b9a6f681add8751abf1ab10f957844b9cff9739c",
+      "README.md": "03926cce44d26c4cbf04a0fd7882ce98dbfafc7f9740440b35a4df3e312e9d21",
+      "submission_files.zip": "df9aa33420aba686184c909f8332155013a221268d2fd6d699bb008b0bd50e5e"
+    }
+  },
+  "original_user_reported_official_score": 6454220836,
+  "original_score_provenance": "User-reported; original submission unchanged",
+  "official_score_available": false,
+  "uploaded": false,
+  "files_sha256": {
+    "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast.csv": "6a11c5a94753b7ff5e614ac1c1084bcfee0d093e5090f77a4cd01dd7b96cc10b",
+    "submission_files.zip": "7ad65bcd3053358b62cfbc316626ea64f2bb4af7419e393707cc43562601d1d7"
+  }
+}

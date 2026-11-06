@@ -1,0 +1,157 @@
+{
+  "passed": true,
+  "utc": "2026-11-05T05:45:21.071423+00:00",
+  "invocation": "python analysis_outputs/renew_20261105/refresh_wave/evidence/verify_terminal.py",
+  "scenario": "all3rawcohorts/originalstages,32scalarrecords includingunusedsnow,alltraining/evaluationstages,6strictcomparisons,chronologicalisolation,hashes/resources/lifecycle",
+  "binary_observable": "all assertions passed",
+  "protected_files": 2677,
+  "sources": [
+    {
+      "source": "primary",
+      "rows": 17568,
+      "raw_inputs_exact": true,
+      "old_three_stage_full_replay_max_error": 0.0
+    },
+    {
+      "source": "recent",
+      "rows": 13104,
+      "raw_inputs_exact": true,
+      "old_three_stage_full_replay_max_error": 0.0
+    },
+    {
+      "source": "latest",
+      "rows": 4416,
+      "raw_inputs_exact": true,
+      "old_three_stage_full_replay_max_error": 0.0
+    }
+  ],
+  "folds": [
+    {
+      "fold": "late_recent",
+      "train_rows": 26352,
+      "evaluation_rows": 4320,
+      "scalar_records_verified": 16,
+      "train_all_stage_error": 0.0,
+      "evaluation_all_stage_error": 0.0,
+      "cutoff_and_no_leakage_passed": true,
+      "scores": {
+        "p": {
+          "W": 365196867.9068747,
+          "W_pct": 9.485826405840843,
+          "revenue": 1548420415.896204,
+          "S": 1511900729.1055164,
+          "rows": 4320
+        },
+        "frozen_weather": {
+          "W": 362205312.5311181,
+          "W_pct": 9.408122083948566,
+          "revenue": 1548420415.896204,
+          "S": 1512199884.6430922,
+          "rows": 4320
+        },
+        "frozen_hour": {
+          "W": 364632372.806095,
+          "W_pct": 9.471163896374005,
+          "revenue": 1548420415.896204,
+          "S": 1511957178.6155944,
+          "rows": 4320
+        },
+        "frozen_cloud": {
+          "W": 365393533.1370792,
+          "W_pct": 9.490934697827235,
+          "revenue": 1548420415.896204,
+          "S": 1511881062.5824962,
+          "rows": 4320
+        }
+      }
+    },
+    {
+      "fold": "latest",
+      "train_rows": 30672,
+      "evaluation_rows": 4416,
+      "scalar_records_verified": 16,
+      "train_all_stage_error": 0.0,
+      "evaluation_all_stage_error": 0.0,
+      "cutoff_and_no_leakage_passed": true,
+      "scores": {
+        "p": {
+          "W": 466291002.1968488,
+          "W_pct": 9.420959928066733,
+          "revenue": 2208093632.2506676,
+          "S": 2161464532.0309825,
+          "rows": 4416
+        },
+        "frozen_weather": {
+          "W": 464781752.5177579,
+          "W_pct": 9.390466994080926,
+          "revenue": 2208093632.2506676,
+          "S": 2161615456.998892,
+          "rows": 4416
+        },
+        "frozen_hour": {
+          "W": 464176484.6324241,
+          "W_pct": 9.378238140282312,
+          "revenue": 2208093632.2506676,
+          "S": 2161675983.787425,
+          "rows": 4416
+        },
+        "frozen_cloud": {
+          "W": 465134587.79806435,
+          "W_pct": 9.39759569058443,
+          "revenue": 2208093632.2506676,
+          "S": 2161580173.470861,
+          "rows": 4416
+        }
+      }
+    }
+  ],
+  "gate_comparisons": [
+    {
+      "fold": "late_recent",
+      "reference": "frozen_weather",
+      "new_W": 365196867.9068747,
+      "reference_W": 362205312.5311181,
+      "strictly_improves": false
+    },
+    {
+      "fold": "late_recent",
+      "reference": "frozen_hour",
+      "new_W": 365196867.9068747,
+      "reference_W": 364632372.806095,
+      "strictly_improves": false
+    },
+    {
+      "fold": "late_recent",
+      "reference": "frozen_cloud",
+      "new_W": 365196867.9068747,
+      "reference_W": 365393533.1370792,
+      "strictly_improves": true
+    },
+    {
+      "fold": "latest",
+      "reference": "frozen_weather",
+      "new_W": 466291002.1968488,
+      "reference_W": 464781752.5177579,
+      "strictly_improves": false
+    },
+    {
+      "fold": "latest",
+      "reference": "frozen_hour",
+      "new_W": 466291002.1968488,
+      "reference_W": 464176484.6324241,
+      "strictly_improves": false
+    },
+    {
+      "fold": "latest",
+      "reference": "frozen_cloud",
+      "new_W": 466291002.1968488,
+      "reference_W": 465134587.79806435,
+      "strictly_improves": false
+    }
+  ],
+  "eligible": false,
+  "real_scalar_fits": 32,
+  "tree_fits": 0,
+  "extra_fit_calls": 0,
+  "external_exit_code": 0
+}

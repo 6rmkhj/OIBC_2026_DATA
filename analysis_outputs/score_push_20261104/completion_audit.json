@@ -1,0 +1,109 @@
+{
+  "status": "COMPLETE",
+  "scope": "CPU research, cutoff diagnostic, 8 initial GPU fits and 24 refinement fits completed and independently verified. New CSV pair/ZIP delivered; additional GPU blends rejected by the declared two-fold gate. Measured local plateau only, no official score or prize claim.",
+  "requirements": [
+    {
+      "requirement": "Reflect actual user-reported scores, rank160 and leader>6.5B",
+      "status": "COMPLETE",
+      "evidence": "analysis_outputs/reports/score_push_성능검증보고서_20261104.md",
+      "limit": "User-reported leaderboard data, not fetched independently"
+    },
+    {
+      "requirement": "Audit baseline, chronological splits, labels, weights and prediction integrity",
+      "status": "COMPLETE",
+      "evidence": [
+        "independent_primary_check.json",
+        "independent_development_check.json",
+        "independent_learner_check.json",
+        "independent_refinement_check.json",
+        "independent_profile_check.json",
+        "independent_closing_check.json",
+        "final/independent_check.json"
+      ]
+    },
+    {
+      "requirement": "Explore high-value performance hypotheses and retain evidence",
+      "status": "COMPLETE",
+      "evidence": [
+        "closing_wave",
+        "final/freeze.json",
+        "deployment_check/independent_check.json",
+        "../score_push_gpu_20261104/independent_check.json",
+        "../score_push_gpu_refine_20261105/independent_check.json",
+        "../score_push_gpu_refine_20261105/evidence/EVIDENCE.md"
+      ],
+      "finding": "All four predefined three-seed/two-fold GPU variants regress recent development and are rejected. Verified CPU candidate retained. Original CPU confirmation regression remains disclosed; no universal superiority or global optimum claim."
+    },
+    {
+      "requirement": "Produce a new valid CSV pair and ZIP using confirmed composition",
+      "status": "COMPLETE",
+      "evidence": [
+        "../../submission/score_push_candidate/manifest.json",
+        "final/root_artifact_validation.json",
+        "final/independent_check.json"
+      ],
+      "observable": "253sites/17520rows/8760hours pergroup,9malformed cases rejected; ZIP exact CSV bytes; confirmed composition hash"
+    },
+    {
+      "requirement": "Preserve previous submissions, sources and experimental evidence",
+      "status": "COMPLETE",
+      "evidence": [
+        "final/preservation.json",
+        "deployment_check/preservation.json",
+        "../score_push_gpu_20261104/independent_check.json",
+        "../score_push_gpu_refine_20261105/independent_check.json"
+      ],
+      "observable": "1852 original frozen files,315 cutoff-diagnostic protected files,189 GPU-stage protected files verified by relevant snapshots; 412 refinement-stage protected files verified unchanged"
+    },
+    {
+      "requirement": "One model fit at a time; honor latest user resource expansion",
+      "status": "COMPLETE",
+      "evidence": [
+        "resource_policy.json",
+        "deployment_check/resource_amendment.json",
+        "deployment_check/resume/models/station",
+        "../score_push_gpu_20261104/independent_check.json",
+        "../score_push_gpu_refine_20261105/independent_check.json",
+        "../score_push_gpu_refine_20261105/root_closing_checks.json"
+      ],
+      "observable": "CPU16/BLAS16/Normal, one fit;32 GPU fits total,peak21065MiB/60%sampled utilization. Root independently checked nonoverlap of all24 refinement controller intervals; base Python unchanged."
+    },
+    {
+      "requirement": "Provide Korean documentation, reproduction and measured limitations",
+      "status": "COMPLETE",
+      "evidence": [
+        "../reports/score_push_성능검증보고서_20261104.md",
+        "../../submission/score_push_candidate/README.md",
+        "final/REPRODUCTION.txt",
+        "deployment_check/evidence/EVIDENCE.md",
+        "../score_push_gpu_20261104/evidence/EVIDENCE.md",
+        "../score_push_gpu_refine_20261105/evidence/EVIDENCE.md"
+      ]
+    },
+    {
+      "requirement": "Finish owned jobs and clean task-only temporary files",
+      "status": "COMPLETE",
+      "evidence": [
+        "cleanup_receipt.json",
+        "../score_push_gpu_refine_20261105/cleanup_receipt.json",
+        "../score_push_gpu_refine_20261105/evidence/process_terminal.json"
+      ],
+      "observable": "Initial8 and refinement24 original GPU worker identities absent; per-fit controllers exited0; both exact owned temporary directories removed; models/logs/sources/GPU environment retained."
+    }
+  ],
+  "self_review": {
+    "mode": "Main-session manual QA and inline review; user did not request a strict separate review panel",
+    "real_surface": "Root CSV validator, raw-Parquet independent fsum scoring/blend/bootstrap/hash checks, actual CUDA synthetic training and GPU trial receipts",
+    "source_checks": "Both new root verifiers pass programming no-excuse checker; worker source checks retained in evidence ledgers",
+    "recovery": "No duplicated completed fits; original interruption retained,only3unfinishedstationfits resumed;269completed plus3resumed =272models",
+    "boundary_review": "Exact keysets,time-zone boundaries,finite raw predictions,mean-before-clip,train-only masks,no future labels in features,protected path/hash and ZIP checks",
+    "science_review": "Frozen CPU recipe preserved; GPU exploratory results disclosed. All4 refinement ensembles evaluated using all3 seeds, primary-only alpha transferred unchanged, rejected for recent regression. Zero-SMP contract amendment occurred before any model fit.",
+    "limitations": [
+      "LSP unavailable; user declined installation",
+      "No Git repository; source snapshots and SHA256 used",
+      "GPU retraining is nondeterministic",
+      "No upload or official new score measurement"
+    ],
+    "verdict": "PASS for declared artifact, integrity, resource and cleanup requirements; performance evidence mixed and no leaderboard improvement claimed"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "state": "COMPLETE",
+  "outcome": "fixed_candidate_rejected_frozen_sky_reference_retained",
+  "real_model_fit_count": 0,
+  "native_model_inferences": 12,
+  "native_workers": 6,
+  "additional_audit_model_inferences": 0,
+  "criteria": [
+    {
+      "criterion": "Exactly six released original models and twelve native inferences, zero fits",
+      "scenario": "Eachworker historicalBLAS1 originalfullprediction matches sourcebitwise before boundedinference; same scalers/models,0newmodels",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/run_attempt01_launcher.ps1; python analysis_outputs/renew_20261105/incbound_wave/evidence/verify_terminal.py",
+      "binary_observable": "PASS:6sourceoriginalraw fullbitwisematches;12productioninferences;0auditextra/0fits; savedbounded outputs finite/exactkeys and unchangedrows bitwise",
+      "artifacts": [
+        "release.json",
+        "protocol.json",
+        "controller_receipt.json",
+        "run_attempt01.log",
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt01.log",
+        "trials/primary/seed0/config.json",
+        "trials/primary/seed0/original_raw.parquet",
+        "trials/primary/seed0/bounded_raw.parquet",
+        "trials/primary/seed0/replay.json",
+        "trials/primary/seed0/runtime.json",
+        "trials/primary/seed0/worker_status.json",
+        "trials/primary/seed0/controller_receipt.json",
+        "trials/primary/seed1/config.json",
+        "trials/primary/seed1/original_raw.parquet",
+        "trials/primary/seed1/bounded_raw.parquet",
+        "trials/primary/seed1/replay.json",
+        "trials/primary/seed1/runtime.json",
+        "trials/primary/seed1/worker_status.json",
+        "trials/primary/seed1/controller_receipt.json",
+        "trials/primary/seed2/config.json",
+        "trials/primary/seed2/original_raw.parquet",
+        "trials/primary/seed2/bounded_raw.parquet",
+        "trials/primary/seed2/replay.json",
+        "trials/primary/seed2/runtime.json",
+        "trials/primary/seed2/worker_status.json",
+        "trials/primary/seed2/controller_receipt.json",
+        "trials/recent/seed0/config.json",
+        "trials/recent/seed0/original_raw.parquet",
+        "trials/recent/seed0/bounded_raw.parquet",
+        "trials/recent/seed0/replay.json",
+        "trials/recent/seed0/runtime.json",
+        "trials/recent/seed0/worker_status.json",
+        "trials/recent/seed0/controller_receipt.json",
+        "trials/recent/seed1/config.json",
+        "trials/recent/seed1/original_raw.parquet",
+        "trials/recent/seed1/bounded_raw.parquet",
+        "trials/recent/seed1/replay.json",
+        "trials/recent/seed1/runtime.json",
+        "trials/recent/seed1/worker_status.json",
+        "trials/recent/seed1/controller_receipt.json",
+        "trials/recent/seed2/config.json",
+        "trials/recent/seed2/original_raw.parquet",
+        "trials/recent/seed2/bounded_raw.parquet",
+        "trials/recent/seed2/replay.json",
+        "trials/recent/seed2/runtime.json",
+        "trials/recent/seed2/worker_status.json",
+        "trials/recent/seed2/controller_receipt.json"
+      ]
+    },
+    {
+      "criterion": "Fixed canonical component substitution and unchanged stage arithmetic",
+      "scenario": "Historicalpandasmean thenmax0; effectiveweightfromlineage; canonicalrawtemporalbits when delta0; original+candidateweather/hour/cloud; noearlycap/noalpha",
+      "invocation": "python analysis_outputs/renew_20261105/incbound_wave/evidence/verify_terminal.py",
+      "binary_observable": "PASS allensemble/stage/zero-deltabit/metric assertions;fixedweight.13263687875028513; strictbothfoldgate rejects",
+      "artifacts": [
+        "lineage.json",
+        "results.json",
+        "comparisons/primary/predictions.parquet",
+        "comparisons/recent/predictions.parquet",
+        "evidence/terminal_audit.json"
+      ]
+    },
+    {
+      "criterion": "All frozen inputs/models/sources and prior artifacts preserved",
+      "scenario": "Preparedsource/input hashes exact and3477protectedfile hashes unchanged; no model copies/newfits",
+      "invocation": "python analysis_outputs/renew_20261105/incbound_wave/evidence/verify_terminal.py",
+      "binary_observable": "PASS protected_hashes_unchanged; fit/alpha/weight/calibrationcounts0; no confirmation/test/export",
+      "artifacts": [
+        "prepared_manifest.json",
+        "preservation.json",
+        "evidence/terminal_audit.json",
+        "results.json"
+      ]
+    },
+    {
+      "criterion": "BLAS1 inference/CPUmax16/Normal/Arrow4 and native lifecycle",
+      "scenario": "Sixruntime/statusreceipts; controller actualOSexit via retainedhandle;6serialintervals;7PIDcreationabsencechecks",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/run_attempt01_launcher.ps1; powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/check_native.ps1",
+      "binary_observable": "PASS workerBLAS1/otherpools<=16; NormalArrow4; actualexit0;7exactidentitiesabsent",
+      "artifacts": [
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json",
+        "evidence/native_terminal_identities.json",
+        "evidence/terminal_audit.json"
+      ]
+    },
+    {
+      "criterion": "Owned cleanup and final evidence seal",
+      "scenario": "Native deletiononly incbound_wave/tmp afterabsolutecontainment/reparsecheck; sourcechecker8files; allownlogs/notepadstop beforemanifest",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/cleanup.ps1; python <programming skill>/scripts/python/check-no-excuse-rules.py incbound_*.py evidence/verify_terminal.py",
+      "binary_observable": "PASS tmpabsent/reparse0; no violations8files; plainrelativepathSHA256manifest",
+      "artifacts": [
+        "evidence/terminal_cleanup.json",
+        "evidence/terminal_cleanup.log",
+        "evidence/programming_check_terminal.log",
+        "terminal_manifest.json"
+      ]
+    }
+  ],
+  "historical_exposure": "Allhistoryexposed; no independentholdout/newofficialscore claim.",
+  "manifest": "terminal_manifest.json"
+}

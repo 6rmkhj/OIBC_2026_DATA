@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "independent_refinement": {
+    "command": "python submission/score_push_verify_gpu.py --refinement",
+    "exit_code": 0,
+    "models": 24,
+    "comparisons": 4,
+    "protected_files": 412,
+    "selected": null,
+    "evidence": "independent_check.json"
+  },
+  "artifact_validator": {
+    "command": "python submission/validate_artifacts.py submission/score_push_candidate --self-check",
+    "exit_code": 0,
+    "sites": 253,
+    "forecast_rows": 17520,
+    "hours_per_group": 8760,
+    "malformed_cases_rejected": 9,
+    "composition_sha256": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast_sha256": "886461035abd19c80daa021f46e17577642807c7396b528c4c95f27bedfde9a0"
+  },
+  "source_checker": {
+    "command": "python C:/Users/slowg/.codex/plugins/cache/sisyphuslabs/omo/5.1.60/skills/programming/scripts/python/check-no-excuse-rules.py submission/score_push_verify_gpu.py",
+    "exit_code": 0,
+    "result": "no violations in 1 file(s)"
+  },
+  "concurrency": {
+    "method": "Root read all24 controller_pid.json start and controller_receipt.json end timestamps, sorted by start, asserted every previous end<=next start",
+    "intervals": 24,
+    "nonoverlapping": true,
+    "first_start_utc": "2026-11-04T15:13:38.928123+00:00",
+    "final_finish_utc": "2026-11-04T15:35:22.831146+00:00"
+  },
+  "resource_summary": {
+    "model_count": 24,
+    "fit_predict_replay_seconds": 706.756,
+    "peak_cpu_bytes": 1145143296,
+    "max_gpu_memory_mib": 21065,
+    "max_sampled_gpu_utilization_percent": 60,
+    "cpu_threads": 16,
+    "blas_threads": 16,
+    "simultaneous_fits": 1
+  },
+  "limitations": [
+    "No new official submission or score",
+    "CPU candidate remains an experiment with adverse final confirmation evidence",
+    "GPU training nondeterministic; saved-model inference replay is exact",
+    "No LSP installed per user preference"
+  ]
+}

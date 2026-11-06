@@ -1,0 +1,28 @@
+{
+  "members": {
+    "station": [
+      "stations_lgb/ensemble/complement/predictions.parquet",
+      "p"
+    ],
+    "cell_lgb": [
+      "cells_lgb/screen/pure/predictions.parquet",
+      "p_new"
+    ],
+    "cell_mlp": [
+      "cells_mlp/screen/pure/predictions.parquet",
+      "p_new"
+    ]
+  },
+  "primary_only_solver": "Sparse HiGHS nonnegative unit-sum LP,threads2",
+  "reference_scores": {
+    "primary": 12.041603595410752,
+    "recent": 11.064366712650248
+  },
+  "adoption_gate": "Both folds strictly improve; otherwise retain station complete forecast",
+  "model_fits": 0,
+  "new_families": 0,
+  "optimizer_calls": 1,
+  "confirmation_closed": true,
+  "test_closed": true,
+  "search_ends_after_this_check": true
+}

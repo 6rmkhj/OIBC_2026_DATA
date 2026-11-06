@@ -1,0 +1,169 @@
+{
+  "state": "READY",
+  "utc": "2026-11-05T06:04:33.391008+00:00",
+  "protocol_sha256": "f16219f1df858279e0f1c9c28315e29ba46f3497a3540e67109b8d1119249940",
+  "prepared_manifest_sha256": "9ba967d2655d924767524190d49e2b10636bbbe2c2bf5529c8786d2461b7e159",
+  "source_amendment_sha256": "b383261412cb069cf25cc2c14788eba3397acbec323e218abc854b3be222ce54",
+  "release_required": true,
+  "released_command": "python submission/score_push_renew/mlp_run.py --run",
+  "release_fields": {
+    "approved": true,
+    "protocol_sha256": "f16219f1df858279e0f1c9c28315e29ba46f3497a3540e67109b8d1119249940",
+    "prepared_manifest_sha256": "9ba967d2655d924767524190d49e2b10636bbbe2c2bf5529c8786d2461b7e159",
+    "source_amendment_sha256": "b383261412cb069cf25cc2c14788eba3397acbec323e218abc854b3be222ce54"
+  },
+  "real_model_fits": 0,
+  "real_calibration_fits": 0,
+  "future_fit_budget": 6,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "folds": [
+    {
+      "fold": "primary",
+      "train_rows": 21086,
+      "evaluation_rows": 9642,
+      "full_rows": 17568,
+      "selected_features": 460,
+      "all_arrays_float64": true,
+      "raw_projections_exact": true,
+      "train_only_mask_exact": true,
+      "medians_exact": true,
+      "scaler_means_variances_train_only_rtol": 1e-12,
+      "full_matrices_exact": true,
+      "target_scaler_train_only_and_full_replay": true,
+      "normalizer_age_decay_weight_exact": true,
+      "base_weight_sum": 6476.624576011434,
+      "sample_weight_sum": 6476.624576011434,
+      "weight_mass_error": 0.0,
+      "reference_W_pct": 11.792837177705382,
+      "full_reference_weather_coverage_exact": true,
+      "allzero_component_pipeline_stays_zero": true,
+      "original_OUT_unchanged": true
+    },
+    {
+      "fold": "recent",
+      "train_rows": 30728,
+      "evaluation_rows": 7015,
+      "full_rows": 13104,
+      "selected_features": 790,
+      "all_arrays_float64": true,
+      "raw_projections_exact": true,
+      "train_only_mask_exact": true,
+      "medians_exact": true,
+      "scaler_means_variances_train_only_rtol": 1e-12,
+      "full_matrices_exact": true,
+      "target_scaler_train_only_and_full_replay": true,
+      "normalizer_age_decay_weight_exact": true,
+      "base_weight_sum": 9425.812485930437,
+      "sample_weight_sum": 9425.812485930437,
+      "weight_mass_error": 0.0,
+      "reference_W_pct": 10.955416218320197,
+      "full_reference_weather_coverage_exact": true,
+      "allzero_component_pipeline_stays_zero": true,
+      "original_OUT_unchanged": true
+    }
+  ],
+  "feature_mask_keys": [
+    "candidate_columns",
+    "selected_columns",
+    "dropped_columns",
+    "fitted_on",
+    "selected_cast_dtype",
+    "cutoff",
+    "end",
+    "train_rows",
+    "evaluation_rows"
+  ],
+  "coefficient_copies": [
+    "original_weather_coefficients.json",
+    "original_hour_coefficients.json",
+    "original_cloud_coefficients.json"
+  ],
+  "training_transform_schema": [
+    "ts",
+    "grp",
+    "normalizer",
+    "age_days",
+    "base_weight",
+    "decay",
+    "weight_normalization",
+    "sample_weight",
+    "target_normalized",
+    "target_scaled"
+  ],
+  "evaluation_transform_schema": [
+    "ts",
+    "grp",
+    "normalizer",
+    "capacity_kw",
+    "inverse_kwh"
+  ],
+  "application_input_schema": [
+    "ts",
+    "grp",
+    "wa_temp",
+    "extra_wa_snow",
+    "wb_cloud",
+    "static_capacity"
+  ],
+  "criteria": [
+    {
+      "scenario": "Single fixed MLP recipe and zero-model prefit barrier",
+      "invocation": "python submission/score_push_renew/mlp_run.py --prepare",
+      "observable": "READY;0actualmodel/scalarfits;no trials/models/results;installedsklearn1.9.1sample_weight supported",
+      "artifacts": [
+        "protocol.json",
+        "evidence/environment.json",
+        "evidence/prefit_checks.json",
+        "evidence/prepare_terminal.json"
+      ]
+    },
+    {
+      "scenario": "Train-only float64 preprocessing/normalized target/half-life weights",
+      "invocation": "mlp_prepare.prepare;python analysis_outputs/renew_20261105/mlp_wave/evidence/verify_prepare.py",
+      "observable": "PASS both full matrices exact;trainmedianexact/meansvariancechecked;targetscaler and normalization exact;positivefloat64weights,masserror0bothfolds",
+      "artifacts": [
+        "prepared_manifest.json",
+        "evidence/read_receipts.json",
+        "evidence/prepare_terminal.json",
+        "evidence/prepare_audit_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "No evaluation leakage/missing future and normalized weighted-MSE/mean-before-clip proofs",
+      "invocation": "mlp_math.self_check and verify_prepare.py",
+      "observable": "PASS10syntheticproofs;unseen/allmissing handled;futuretransformstateless;targetinverseonce;weightedMSEequivalence;signedmeanbeforeclip;frozenstagezero stayszero",
+      "artifacts": [
+        "evidence/selfchecks.json",
+        "evidence/prepare_terminal.json"
+      ]
+    },
+    {
+      "scenario": "Exact cachedfeatures/reference/coverage and protected source artifacts",
+      "invocation": "verify_prepare.py rawparquet andSHAchecks;check-no-excuse-rules.py mlp_*.py verify_prepare.py",
+      "observable": "PASS2801protectedfiles;sourcechecker7files;onlyTypedDict/hashhandlingamendment;prepareddataunchanged",
+      "artifacts": [
+        "source_amendment.json",
+        "evidence/source_check_localization.json",
+        "evidence/programming_check.log",
+        "evidence/programming_check_terminal.log",
+        "evidence/prepare_terminal.json"
+      ]
+    },
+    {
+      "scenario": "Native lifecycle/resources and owned temporary cleanup",
+      "invocation": "nativeProcess.Handle retained beforeWaitForExit;CIM PID+CreationDate;absolutecontainment/no-reparse native tmp removal",
+      "observable": "actualOSexit0;CPU16/BLAS16/Normal/Arrow4;exactworkerabsent;tmpabsent",
+      "artifacts": [
+        "evidence/prepare_attempt01_start.json",
+        "evidence/prepare_attempt01_exit.json",
+        "evidence/prepare_cleanup.json"
+      ]
+    }
+  ],
+  "source_check_provenance": "Initial bare dict return annotation violation preserved. Root-approved TypedDict correction leaves compare function body AST unchanged; source-amendment verification binds active sources and release. No preparation/scaler rerun.",
+  "manifest": "readiness_manifest.json"
+}

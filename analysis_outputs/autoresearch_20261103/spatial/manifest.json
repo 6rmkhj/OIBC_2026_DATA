@@ -1,0 +1,79 @@
+{
+  "input_path": "analysis_outputs\\award_run\\cache\\b86526d83ae2eb08b2de2b3d92989fcd5ecddfd598a3a025f814fa6795666328\\feat_train.parquet",
+  "input_sha256": "1ef96741472bf0e26ac41288652d995782a14cb0665266196aac91f2578f0af2",
+  "provenance_sha256": "395de0f810ae7692e88115aa1704999fa65f34e55c616fc104c4dbf7c3d4d42d",
+  "assignment_sha256": "03e37e6ff9cc4cc100799a1ef26806b55772b7f818585c540c1dec6c35275c0c",
+  "builder_sha256": "c80c17457c01f2ed3c55d56dddb7168acbf1034a694ae4cbcdfecac3c020de19",
+  "feature_names": [
+    "sp_wa_cloud_sd",
+    "sp_wb_cloud_sd",
+    "sp_wb_uv_idx_sd",
+    "sp_csa_sd",
+    "sp_csb_sd",
+    "sp_wa_cloud_clear",
+    "sp_wa_cloud_overcast",
+    "sp_wb_cloud_clear",
+    "sp_wb_cloud_overcast"
+  ],
+  "projection": [
+    "site_id",
+    "ts",
+    "night",
+    "capacity_kw",
+    "wa_cloud",
+    "wb_cloud",
+    "wb_uv_idx",
+    "csa",
+    "csb"
+  ],
+  "filter": "ts <= 2024-06-01 00:00:00+09:00",
+  "train_end": "2023-06-01 00:00:00+09:00",
+  "selection_end": "2024-06-01 00:00:00+09:00",
+  "input_rows": 2221921,
+  "daylight_rows": 1203117,
+  "threads": {
+    "arrow_cpu": 2,
+    "arrow_io": 2,
+    "blas": 1
+  },
+  "outputs": {
+    "train": {
+      "path": "analysis_outputs\\autoresearch_20261103\\spatial\\train.parquet",
+      "sha256": "27b8b23c275c36ca568a9210a2fd4d0bc2f539c6213c7c9f123987bda416c8b1",
+      "rows": 21086,
+      "keys_exact": true,
+      "min_ts": "2021-01-19 13:00:00+09:00",
+      "max_ts": "2023-05-31 20:00:00+09:00",
+      "missing": {
+        "sp_wa_cloud_sd": 70,
+        "sp_wb_cloud_sd": 101,
+        "sp_wb_uv_idx_sd": 101,
+        "sp_csa_sd": 70,
+        "sp_csb_sd": 101,
+        "sp_wa_cloud_clear": 70,
+        "sp_wa_cloud_overcast": 70,
+        "sp_wb_cloud_clear": 101,
+        "sp_wb_cloud_overcast": 101
+      }
+    },
+    "selection": {
+      "path": "analysis_outputs\\autoresearch_20261103\\spatial\\selection.parquet",
+      "sha256": "da1a2eebaef264ec3d7ed35ad5752bab805319cb012402b0c59162d1a41a743c",
+      "rows": 9642,
+      "keys_exact": true,
+      "min_ts": "2023-06-01 06:00:00+09:00",
+      "max_ts": "2024-05-31 20:00:00+09:00",
+      "missing": {
+        "sp_wa_cloud_sd": 0,
+        "sp_wb_cloud_sd": 0,
+        "sp_wb_uv_idx_sd": 0,
+        "sp_csa_sd": 0,
+        "sp_csb_sd": 0,
+        "sp_wa_cloud_clear": 0,
+        "sp_wa_cloud_overcast": 0,
+        "sp_wb_cloud_clear": 0,
+        "sp_wb_cloud_overcast": 0
+      }
+    }
+  }
+}

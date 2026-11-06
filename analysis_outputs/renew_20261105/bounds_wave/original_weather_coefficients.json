@@ -1,0 +1,78 @@
+{
+  "fit_period": [
+    "2023-06-01",
+    "2024-06-01"
+  ],
+  "target_source": "data/primary/rows.parquet",
+  "target_source_sha256": "0fd574c6afee06b1ecc99f10d2d64b8a42b497e029be6da7cf725b56f6fff1e4",
+  "fit_columns": [
+    "ts",
+    "y",
+    "p_reference",
+    "smp",
+    "k",
+    "wa_temp",
+    "extra_wa_snow"
+  ],
+  "temperature_then_snow_second_fit": "FULL temperature-adjusted PRIMARY prediction in ratio denominator and monetary weight; NO shrink before second fit",
+  "factors": {
+    "temperature": [
+      {
+        "raw_median": 0.972852402322809,
+        "factor": 0.972852402322809,
+        "support_rows": 415,
+        "support_days": 52,
+        "weight_mass": 332063979.8478062,
+        "supported": true
+      },
+      {
+        "raw_median": 0.986981974228839,
+        "factor": 0.986981974228839,
+        "support_rows": 2383,
+        "support_days": 153,
+        "weight_mass": 2166330950.6856947,
+        "supported": true
+      },
+      {
+        "raw_median": 1.0087966975097165,
+        "factor": 1.0087966975097165,
+        "support_rows": 2621,
+        "support_days": 181,
+        "weight_mass": 2107365760.6479313,
+        "supported": true
+      },
+      {
+        "raw_median": 1.0126140932371772,
+        "factor": 1.0126140932371772,
+        "support_rows": 3827,
+        "support_days": 189,
+        "weight_mass": 3114640118.7634563,
+        "supported": true
+      },
+      {
+        "raw_median": 0.9927350535454641,
+        "factor": 0.9927350535454641,
+        "support_rows": 390,
+        "support_days": 32,
+        "weight_mass": 476697174.8627245,
+        "supported": true
+      }
+    ],
+    "snow": {
+      "raw_median": 0.957609763119521,
+      "factor": 0.957609763119521,
+      "support_rows": 386,
+      "support_days": 38,
+      "weight_mass": 332909028.17826766,
+      "supported": true
+    },
+    "conditional_snow": {
+      "raw_median": 0.9780293103257823,
+      "factor": 0.9780293103257823,
+      "support_rows": 386,
+      "support_days": 38,
+      "weight_mass": 326658598.4997676,
+      "supported": true
+    }
+  }
+}

@@ -1,0 +1,11 @@
+FROZEN; beginning outer preparation
+PREPARED outer: site_rows=2170645 group_rows=17520 daylight_rows=9609
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\final_run.py", line 161, in <module>
+    worker()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\final_run.py", line 92, in worker
+    report(outer, FINAL)
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\final_metrics.py", line 40, in report
+    slices = {"all": frame, "2025_Jan_May": fleet, "k11_15": frame[frame.k == 3], **dict(frame.groupby(months))}
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Series' object is not callable

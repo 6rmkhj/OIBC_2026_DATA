@@ -1,0 +1,75 @@
+{
+  "state": "READY_NOT_RELEASED",
+  "protocol_sha256": "78821d74202ad3f6bb1c6a33187070c2e86563de39454e844aafd79f6bee2ecb",
+  "prepared_manifest_sha256": "7ce7d144db0f9b10387d491c7d68975f32aeb073ded0ff1b0a9358ebaaa112ab",
+  "criteria": [
+    {
+      "criterion": "Input-only TRAIN bounds and unchanged preprocessors",
+      "scenario": "Project TRAIN/EVAL rich100 without generationlabels; apply all3 storedpreprocessors; exactmin/max and bitwiseTRAINidentity; native allcolumnfutureclip",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/prepare_attempt01_launcher.ps1",
+      "binary_observable": "PASS: identicalpreprocessors/scalers, outputs and unchangedobjects; changed263/273 primary,43/60 recent; no constants",
+      "artifacts": [
+        "evidence/read_receipts.json",
+        "data/primary/bounds_receipt.json",
+        "data/recent/bounds_receipt.json",
+        "data/primary/bounds.parquet",
+        "data/recent/bounds.parquet",
+        "prepared_manifest.json"
+      ]
+    },
+    {
+      "criterion": "Exact stored accepted-component lineage and original3stage replay",
+      "scenario": "pandas signedseedmean; stored refinement/profile/temporal equations; fixed effectiveweight; originalweather/hour/cloud p exact; zero-delta bits",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/prepare_attempt01_launcher.ps1",
+      "binary_observable": "PASS bothfolds every storedlineage/stage exact; effectiveweight.13263687875028513;0newweight/alpha fits",
+      "artifacts": [
+        "lineage.json",
+        "data/primary/lineage.parquet",
+        "data/recent/lineage.parquet",
+        "evidence/selfchecks.json"
+      ]
+    },
+    {
+      "criterion": "READY barrier before model loads/inference/scoring",
+      "scenario": "Only --prepare invoked; source gated require_release; no trials/model/results/release",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/prepare_attempt01_launcher.ps1",
+      "binary_observable": "INCBOUND PREFIT READY; actualexit0; allfour computationcounts0",
+      "artifacts": [
+        "protocol.json",
+        "prepare_attempt01.log",
+        "evidence/prefit_checks.json",
+        "evidence/prefit_seal_checks.json"
+      ]
+    },
+    {
+      "criterion": "Frozen source/input/protected preservation",
+      "scenario": "Hash allprepared/ownsource/protectedfiles; programming checker sevenfiles",
+      "invocation": "python <programming skill>/scripts/python/check-no-excuse-rules.py submission/score_push_renew/incbound_*.py; prefit hash seal",
+      "binary_observable": "no violations7files; all_hashes_exacttrue",
+      "artifacts": [
+        "evidence/programming_check.log",
+        "preservation.json",
+        "evidence/prefit_seal_checks.json"
+      ]
+    },
+    {
+      "criterion": "Native lifecycle/resource receipt and owned cleanup",
+      "scenario": "Retain nativehandle before wait, actualexit0/PIDcreationabsent; removeonly absoluteincbound_wave/tmp aftercontainment/reparsecheck",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/prepare_attempt01_launcher.ps1; powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/incbound_wave/evidence/prefit_cleanup.ps1",
+      "binary_observable": "PASS exit0/Normal/Arrow4/pools16; exactidentityabsent; tmpabsent/reparse0",
+      "artifacts": [
+        "evidence/prepare_attempt01_start.json",
+        "evidence/prepare_attempt01_exit.json",
+        "evidence/prefit_checks.json",
+        "evidence/prefit_cleanup.json",
+        "evidence/prefit_cleanup.log"
+      ]
+    }
+  ],
+  "model_inferences": 0,
+  "model_loads": 0,
+  "real_model_fits": 0,
+  "candidate_scores": 0,
+  "future_native_inference_budget": 12,
+  "future_native_workers": 6
+}

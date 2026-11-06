@@ -1,0 +1,9 @@
+{
+  "failure": "Strict greater-than timestamp audit assertion; freeze creation and first label-read receipt share same Windows clock tick",
+  "freeze_utc": "2026-11-05T05:16:15.374307+00:00",
+  "first_label_read_utc": "2026-11-05T05:16:15.374307+00:00",
+  "proof": "Frozen hour_final_run source writes prediction_freeze then computes its file SHA in label receipt before pd.read_parquet(labels); recorded digest matches written freeze",
+  "correct_audit": "Timestamp nondecreasing plus exact freeze SHA check",
+  "production_changes": false,
+  "export_rerun": false
+}

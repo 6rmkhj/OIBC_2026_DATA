@@ -1,0 +1,68 @@
+[
+  {
+    "fold": "primary",
+    "cutoff": "2023-06-01 00:00:00+09:00",
+    "raw_columns": [
+      "ts",
+      "site_id",
+      "energy"
+    ],
+    "raw_filter": [
+      "ts",
+      "<=",
+      "2023-06-01 00:00:00+09:00"
+    ],
+    "cache_columns": [
+      "ts",
+      "site_id",
+      "energy",
+      "night",
+      "capacity_kw"
+    ],
+    "raw_rows": 965326,
+    "max_ts": "2023-06-01 00:00:00+09:00",
+    "keys_exact": true,
+    "raw_float32_projection_exact": true,
+    "target_source": "original raw float64",
+    "night_energy_sum": 463.607073345,
+    "training_allnight_groups": 17340,
+    "day_groups_with_night_energy": 147,
+    "normalization": 26449.805087185356,
+    "zero_price_rows": 0,
+    "categories_metadata_only": true,
+    "no_future_target_read": true
+  },
+  {
+    "fold": "recent",
+    "cutoff": "2024-06-01 00:00:00+09:00",
+    "raw_columns": [
+      "ts",
+      "site_id",
+      "energy"
+    ],
+    "raw_filter": [
+      "ts",
+      "<=",
+      "2024-06-01 00:00:00+09:00"
+    ],
+    "cache_columns": [
+      "ts",
+      "site_id",
+      "energy",
+      "night",
+      "capacity_kw"
+    ],
+    "raw_rows": 2221921,
+    "max_ts": "2024-06-01 00:00:00+09:00",
+    "keys_exact": true,
+    "raw_float32_projection_exact": true,
+    "target_source": "original raw float64",
+    "night_energy_sum": 2098.61780955,
+    "training_allnight_groups": 25266,
+    "day_groups_with_night_energy": 275,
+    "normalization": 30306.18178103356,
+    "zero_price_rows": 516,
+    "categories_metadata_only": true,
+    "no_future_target_read": true
+  }
+]

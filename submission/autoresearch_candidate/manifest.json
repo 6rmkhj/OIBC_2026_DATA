@@ -1,0 +1,190 @@
+{
+  "frozen_selection": {
+    "frozen_at_utc": "2026-11-03T14:03:13.788400+00:00",
+    "winner": "w5_lgb_calibrated",
+    "outer_decision_rule": "No tuning or reselection after this freeze",
+    "current_snapshot_sha256": "947571405891466e8fea39e76aa191cac8312b5b87fb5d02e210bc51c926a1cc",
+    "selected_fitted_parent_source_sha256": "c0289a385c92fb8980e702c28235f5ed92bc1ff6803a9ffa314e71cfb54bb373",
+    "config_sha256": "787f6db34941efc33484ddc934d4d9ae55c90dca592f6a730a2d9fd52275497c",
+    "assignment_sha256": "03e37e6ff9cc4cc100799a1ef26806b55772b7f818585c540c1dec6c35275c0c",
+    "scientific_manifest_sha256": "39cff8b7eb11129966c304088c8b400aa5ed81c6e31f105bd66b5cd1ef2e7202",
+    "original_aggregation_source_sha256": "7fd0ef9dabacfd0b7f99d6da20cf5bc61f3a53c043f6b317b0fca5dcbfa51ecc",
+    "final_code_sha256": {
+      "final_run.py": "7bcc992c98fdc2e4b0b7ab6632e8b852d44ea5c0cccac864a09383a1e65865b9",
+      "final_data.py": "1782292903c247b7e425c317ba6541f7e0a23f1100fe1d3488ea136ac4576d22",
+      "final_fit.py": "ee40cc13a89960f4e20338eb264fdb1b51b9e1a6a9d6e1950a107bc59355d92e",
+      "final_metrics.py": "4dab84f8155332bedf4cb6656e60acfaa0528596df228cd02e3ac5855120ca50"
+    },
+    "preserved_before_sha256": {
+      "submission\\award_candidate\\composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+      "submission\\award_candidate\\forecast.csv": "b067df0bdc5cf55a01b4a2cfa4b6b62b462509338bd1cf0b917961b870621169",
+      "submission\\award_candidate\\manifest.json": "1f0299f42753014e8fe02606387ca56290ea7a85d68a575b59f44ce6f4999785",
+      "submission\\award_candidate\\README.md": "7bfb9203da3a6a299979cd6d16dce155df695c4a031927081e1259c263d65f30",
+      "submission\\award_candidate\\submission_files.zip": "879849fe47a9e19ca407504a525f8929d0abed7f7b5ddba0ae00b3ca29355510",
+      "submission\\composition.csv": "66c87d1b7a61417fe227d2c4b17c86e8a40d5ef7b24810fe69cedda5bda7314c",
+      "submission\\forecast.csv": "3231d8edd21471a4650d43c5769963024ce60324a2afd5a64986e17f6bbab64e"
+    },
+    "resource_policy": {
+      "version": 2,
+      "effective_after": "wave4",
+      "reason": "Explicit user preference: all future trials one at a time after this parallel batch",
+      "max_concurrent_trials": 1,
+      "threads_per_trial": 2,
+      "blas_threads": 1,
+      "priority": "below_normal",
+      "hidden_processes": true,
+      "historical_max_concurrent_trials": 2,
+      "scientific_protocol_changed": false,
+      "new_fits_started_for_policy_change": false
+    }
+  },
+  "selection_metrics": {
+    "W": 1040849577.6966548,
+    "W_pct": 12.695950143757269
+  },
+  "configuration": {
+    "id": "w5_lgb_calibrated",
+    "parent_id": "w4_blend7",
+    "hypothesis": "Analytical weighted-median single blend coefficient fitted only on inner selection; no model fit",
+    "n_estimators": 400,
+    "learning_rate": 0.03,
+    "num_leaves": 31,
+    "min_child_samples": 50,
+    "objective": "regression_l1",
+    "weighting": "none",
+    "recency_days": 0,
+    "direct_weight": 0.7149301735712863,
+    "feature_mode": "ramps_daily_lead",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "pooled_groups": true,
+    "spatial": false,
+    "spatial_manifest_sha256": "",
+    "learner": "lightgbm"
+  },
+  "files_sha256": {
+    "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast.csv": "f5c72f4b8dfe301af2063c6001f5fd436985329b0e4996a3d0475b79731bb314",
+    "submission_files.zip": "14ae1af45141aae173766fdc195ee34a75ee2003b2589f800e277858e533af99"
+  },
+  "models_sha256": {
+    "full_selected\\pooled_seed0.txt": "b181eb60e94551c33dc44efe5fc6e675f4d3548c19b3a50b39ade6699e704cb1",
+    "full_selected\\pooled_seed1.txt": "d044470862677cb737ad61f99517beb92b4aa0d222157b0a7cabf0c07dec7fb5",
+    "full_selected\\pooled_seed2.txt": "9488038a5ee13f7b0e12e350c551a0e028db3e063d6e3fd3d36b211a0c6cd35d",
+    "outer_previous\\G1_seed0.txt": "0a6491ebcf43e636bf0f1892bc2f6094156556e0d5bf25960ed995b9654ebdc2",
+    "outer_previous\\G2_seed0.txt": "a5f3e7008b8aeabdc8bba3392e07d41b10da6811aea442815f8be98f7a38e4fb",
+    "outer_selected\\pooled_seed0.txt": "d3d407acd5354dbdc69e857f7223c953672b924abdd8c422b51f59e87b34bfef",
+    "outer_selected\\pooled_seed1.txt": "a8a496a2e577954dee3f85afa90f13e781f18fd650789632dd9758f9d72b249f",
+    "outer_selected\\pooled_seed2.txt": "c512ab486a34e907757251c334288b66a7d8bd8ed8e61aeea5dd05d491c1a0fd"
+  },
+  "input_hashes": {
+    "feature_cache": {
+      "feat_test.parquet": "88ae5e6605a4f11ad1186bf9def140794e642bfd87810ae8b0940ba9e95f4157",
+      "feat_train.parquet": "1ef96741472bf0e26ac41288652d995782a14cb0665266196aac91f2578f0af2",
+      "smp.parquet": "d0d6bc2fc58ec4339bd2fa6790b8561766b40e02acdeea8c3f7b27a6ede30977"
+    },
+    "bottom_up": {
+      "outer_site_predictions.parquet": "2d8fdd7bf47506f6e380b29c91ab0b60dbf875995a01511d5fea9c6d951258ee",
+      "test_site_predictions.parquet": "c50b5fcf1ed161720f0efa0b57eee7ec0a07a595c1f4a11d5305f2f9b5bfbdbe"
+    }
+  },
+  "outer_metrics": {
+    "p_previous": {
+      "W": 1996558623.3033285,
+      "W_pct": 11.552586472040375,
+      "revenue": 7497583486.435757,
+      "S": 7297927624.105424,
+      "rows": 17520
+    },
+    "p_candidate": {
+      "W": 1909499870.5258822,
+      "W_pct": 11.04884280137099,
+      "revenue": 7497583486.435757,
+      "S": 7306633499.383168,
+      "rows": 17520
+    }
+  },
+  "splits": {
+    "selection": "2023-06-01 < ts <= 2024-06-01 KST",
+    "outer_train": "ts <= 2024-06-01 KST",
+    "outer": "2024-06-01 < ts <= 2025-06-01 KST",
+    "full_train": "ts <= 2025-06-01 KST",
+    "test": "2025-06-01 < ts <= 2026-06-01 KST"
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "pyarrow": "26.0.0",
+    "lightgbm": "4.7.0",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "execution": {
+    "elapsed_seconds": 17.014999999999418,
+    "through_outer_seconds": 0.7339999999967404,
+    "refit_export_seconds": 16.281000000002678,
+    "pid": 12232,
+    "priority_class": 16384,
+    "concurrent_fit_processes": 1,
+    "threads_per_fit": 2,
+    "pyarrow_cpu_threads": 2,
+    "pyarrow_io_threads": 2,
+    "validation": {
+      "status": "PASS",
+      "sites": 253,
+      "forecast_rows": 17520,
+      "hours_per_group": 8760,
+      "G1_capacity_kw": 21208.195,
+      "G2_capacity_kw": 21447.175,
+      "annual_gwh": 60.101824453,
+      "zero_rows": 7903,
+      "max_forecast_kwh": 17526.629,
+      "rows_above_own_capacity": 0,
+      "first_ts": "2025-06-01T01:00:00+09:00",
+      "last_ts": "2026-06-01T00:00:00+09:00",
+      "composition.csv_sha256": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+      "forecast.csv_sha256": "f5c72f4b8dfe301af2063c6001f5fd436985329b0e4996a3d0475b79731bb314",
+      "self_checks_passed": "duplicate_site, invalid_groups, capacity_below_minimum, duplicate_timestamp, wrong_timestamp, naive_timestamp, negative, infinite, nan"
+    },
+    "baseline_reproduced": {
+      "W": 1996558623.3033285,
+      "W_pct": 11.552586472040375,
+      "revenue": 7497583486.435757,
+      "S": 7297927624.105424,
+      "rows": 17520
+    },
+    "outer_rows": 17520,
+    "full_fleet_rows": 7248
+  },
+  "limitations": [
+    "Adaptive inner-selection search and calibrated blend; outer not used for further tuning",
+    "Historical baseline and assignment were previously explored; no pristine holdout claim",
+    "Observed-site historical coverage; strict full-fleet January-May sensitivity reported separately",
+    "Missing generation rows excluded, never zero-imputed",
+    "Competition test labels unavailable"
+  ],
+  "diagnostic_correction": {
+    "timestamp_utc": "2026-11-03T14:05:45.046570+00:00",
+    "reason": "Pandas GroupBy keys mapping conversion failed; use explicit month comprehension and resume saved outer predictions",
+    "original_code_sha256": {
+      "final_run.py": "7bcc992c98fdc2e4b0b7ab6632e8b852d44ea5c0cccac864a09383a1e65865b9",
+      "final_data.py": "1782292903c247b7e425c317ba6541f7e0a23f1100fe1d3488ea136ac4576d22",
+      "final_fit.py": "ee40cc13a89960f4e20338eb264fdb1b51b9e1a6a9d6e1950a107bc59355d92e",
+      "final_metrics.py": "4dab84f8155332bedf4cb6656e60acfaa0528596df228cd02e3ac5855120ca50"
+    },
+    "corrected_code_sha256": {
+      "final_run.py": "4bdf652912fd71dda8ef78d71e6ff8b68e9b7ae3185f661f1fead69aad8db052",
+      "final_data.py": "1782292903c247b7e425c317ba6541f7e0a23f1100fe1d3488ea136ac4576d22",
+      "final_fit.py": "ee40cc13a89960f4e20338eb264fdb1b51b9e1a6a9d6e1950a107bc59355d92e",
+      "final_metrics.py": "90ec0989c643c673b3c95ac1df8f91ea6b03eed5161c8dde09d8200480514268"
+    },
+    "outer_predictions_sha256_before": "93430969a0d349cd524df2151239d3fff989ae0658ab4fa0fcfa227b65450b65",
+    "model_config_unchanged": true,
+    "outer_refits": 0,
+    "outer_predictions_sha256_after": "93430969a0d349cd524df2151239d3fff989ae0658ab4fa0fcfa227b65450b65",
+    "outer_unchanged": true
+  }
+}

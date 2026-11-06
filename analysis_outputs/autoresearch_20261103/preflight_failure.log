@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\run.py", line 98, in <module>
+    main()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\run.py", line 89, in main
+    record(execute(configs.pop(0)))
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\run.py", line 54, in record
+    score = evaluate(trial, config.direct_weight)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\evaluate.py", line 47, in evaluate
+    diagnostics = [{"slice": month, **metrics(rows)} for month, rows in frame.groupby(frame.ts.dt.strftime("%Y-%m"))]
+                                      ^^^^^^^^^^^^^
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\autoresearch\evaluate.py", line 27, in metrics
+    assert denominator > 0
+           ^^^^^^^^^^^^^^^
+AssertionError

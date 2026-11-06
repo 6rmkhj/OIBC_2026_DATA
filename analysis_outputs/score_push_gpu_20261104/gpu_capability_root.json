@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "executed_by": "root",
+  "interpreter": "analysis_outputs/score_push_gpu_20261104/environment/Scripts/python.exe",
+  "library": "catboost",
+  "version": "1.2.10",
+  "cuda_devices": 1,
+  "gpu": "NVIDIA GeForce RTX 5090 Laptop GPU",
+  "synthetic_rows": 2048,
+  "synthetic_features": 16,
+  "parameters": {
+    "iterations": 20,
+    "learning_rate": 0.05,
+    "depth": 4,
+    "loss_function": "MAE",
+    "thread_count": 16,
+    "random_seed": 20261104,
+    "verbose": false,
+    "gpu_ram_part": 0.9,
+    "allow_writing_files": false,
+    "task_type": "GPU",
+    "devices": "0"
+  },
+  "finite_predictions": true,
+  "exit_code": 0,
+  "timed_out": false,
+  "diagnostic_message": "Default metric period is 5 because MAE is/are not implemented for GPU",
+  "scope": "GPU training capability only; synthetic data, no competition performance conclusion.",
+  "installation": "Official PyPI catboost1.2.10 binary wheel in workspace venv with existing system science packages; base environment unmodified.",
+  "references": [
+    "https://catboost.ai/docs/en/concepts/python-installation",
+    "https://catboost.ai/docs/en/features/training-on-gpu"
+  ],
+  "reproducibility_limit": "GPU training reductions are nondeterministic; verify saved-model inference, do not claim bitwise identical retraining."
+}

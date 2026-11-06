@@ -1,0 +1,13 @@
+# Fixed weather calibration wave
+Tier HEAVY: distinct scalar fit and label-free application surface. Skills previously read: ultrawork, programming/Python, Ponytail, data-scientist. Parent active goal and independent verifier.
+Ownership cal_*.py/calibration_wave only. No prior artifact edits, tree/neural fits, exports, fullhistory refits or newfamilies.
+Plan: implement exact three recipes -> expectedvalue synthetic fixtures -> freeze source/input/protocol -> tracked prepare -> rootrelease -> one serial scalar fit/apply/score process -> terminal/protected audit -> native ownedtmp cleanup -> finalmanifest.
+Criteria: --prepare exits0 with numerical/applicationfixtures and exact sourcefeature/referencekey alignment. Root releases exactprotocol/preparedhash. --run exits0 with all3completefoldcomparisons, saved bounded coefficients/support, exact label-free application and candidate selection. Terminal PID+creation receipts, no priorinput changes, ownedtmp absent.
+Resources calibration_wave/tmp with explicit TMPDIR/TMP/TEMP/node/bun; CPU/BLAS16 PyArrow4 Normal. Tracked PowerShell preparation with uniqueattemptlogs. One actual calibration process only afterrelease.
+Fit uses PRIMARY only; primary improvement partlyin-sample byconstruction. Five tempfactors reused in sequentialrecipe; second snowfit uses FULL temp-adjustedPRIMARYp in denominator AND weight; clipproduct then shrinkONCE. Noalpha optimization. Missing conditions identity; support rows150/days20.
+Now: implementation complete, preparing fixtures/frozen data.
+
+READY: tracked prepare attempt01 exit0 and exact PID+creation terminal verified. Allsynthetic weighting/support/boundary/sequential/label-free fixtures PASS; exact fullreferencekey and allnightfeaturealignment PASS. Protocol/data/source hashes frozen; awaitrootrelease. No actualcalibrationfits.
+
+COMPLETE: root released exact protocol/prepared hashes. --run toolchunk0b7d09 exited0 after all3fixed recipes fitPRIMARYonly and appliedunchangedRECENT. All3eligible; temperature_then_snow selected W11.959229078372204/11.000952828788678. Primary partlyin-sample byconstruction, allperiodshistoricallyexposed. All7scalar factors supported; noalpha tuning or treefits. Terminal/resource/source/input/prepared/selection audit PASS in evidence/terminal_audit.json. Priorwave/candidate artifacts unchanged. Native exactpath no-reparse ownedtmpcleanup andabsence PASS in evidence/cleanup.json. No export/fullrefit/newwave.
+Self-review: five small single-responsibility files (max79 code lines), existing hash/resource/metric contracts reused. fit andapply separated; adversariallabelssentinel and realapplication replay exact. Source no-excusechecker clean. Parent owns final independent coefficient/optimality/prediction verification.

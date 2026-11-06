@@ -1,0 +1,22 @@
+{
+  "reference_scores": {
+    "primary": 12.161987873994034,
+    "recent": 11.18733758871567
+  },
+  "representations": [
+    "cells",
+    "stations"
+  ],
+  "learners": [
+    "lgb",
+    "mlp"
+  ],
+  "screen_seed": 0,
+  "lgb_seed_zero": "None, matching existing direct sentinel",
+  "mlp_seed_zero": "explicit0",
+  "mask": "Drop all-missing or <=1 distinct nonmissing training value, applied before either learner",
+  "followup": "At most one best paired-mean variant improving BOTH folds gets seeds1,2; final adoption requires its ensemble still improves BOTH",
+  "blend": "New member complements complete current refinement; alpha fitted primary only",
+  "confirmation_closed": true,
+  "test_closed": true
+}

@@ -1,0 +1,72 @@
+{
+  "state": "READY_NOT_RELEASED",
+  "real_model_fits": 0,
+  "protocol_sha256": "37ab5b8c5aaea27ef6a6a416d5c9ccfba66dbea635f22861412bb0023f5f993c",
+  "prepared_manifest_sha256": "598b427f227259ef649fffa80c105867a5d8675ce3f3a9a547fdc2461fa340f1",
+  "criteria": [
+    {
+      "criterion": "Frozen exact two-arm protocol with zero prefit training",
+      "scenario": "mono_run.py --prepare completes without trials/model/release",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/mono_wave/evidence/prepare_attempt02_launcher.ps1",
+      "binary_observable": "MONO PREFIT READY; actual native exit0; model/trials/release absent",
+      "artifacts": [
+        "protocol.json",
+        "prepare_attempt02.log",
+        "evidence/prepare_attempt02_exit.json",
+        "evidence/prefit_seal_checks.json"
+      ]
+    },
+    {
+      "criterion": "Exact sign-safe vectors, native inputs and 180day weights",
+      "scenario": "TRAIN-only masks460/790; constraints -62/+62 and -117/+117; exact prior recency weights; immutable raw/scoring bytes",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/mono_wave/evidence/prepare_attempt02_launcher.ps1",
+      "binary_observable": "PASS all assertions; raw/scoring identical; recency180 weights exact; zero fits",
+      "artifacts": [
+        "evidence/read_receipts.json",
+        "prepared_manifest.json",
+        "data/primary/feature_mask.json",
+        "data/recent/feature_mask.json",
+        "data/primary/constraints.parquet",
+        "data/recent/constraints.parquet",
+        "data/primary/training_transform.parquet",
+        "data/recent/training_transform.parquet"
+      ]
+    },
+    {
+      "criterion": "Boundary and stage fixtures",
+      "scenario": "Exact-name and decoy constraints; csa/csb0; training-only mask; native missing; weights; signed mean; original stage order/caps; nights",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/mono_wave/evidence/prepare_attempt02_launcher.ps1",
+      "binary_observable": "selfchecks passed true,9 named fixture groups",
+      "artifacts": [
+        "evidence/selfchecks.json",
+        "sources/own/mono_math.py"
+      ]
+    },
+    {
+      "criterion": "Immutable sources/input/protected artifacts and source hygiene",
+      "scenario": "All prepared and protected hashes rechecked; six source checker",
+      "invocation": "python <programming skill>/scripts/python/check-no-excuse-rules.py submission/score_push_renew/mono_*.py; prefit hash seal",
+      "binary_observable": "no violations in6files; all_hashes_exact true",
+      "artifacts": [
+        "evidence/programming_check_attempt02.log",
+        "preservation.json",
+        "evidence/prefit_seal_checks.json"
+      ]
+    },
+    {
+      "criterion": "Native resources, lifecycle and owned cleanup",
+      "scenario": "Retain handle before wait, actual exit, PID+creation absence, contained native tmp deletion",
+      "invocation": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/mono_wave/evidence/prepare_attempt02_launcher.ps1; powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File analysis_outputs/renew_20261105/mono_wave/evidence/prefit_cleanup.ps1",
+      "binary_observable": "successful native exit0; all pools16/Normal/Arrow4;2exact identities absent; tmp absent/reparse0",
+      "artifacts": [
+        "evidence/prefit_checks.json",
+        "evidence/prepare_attempt02_start.json",
+        "evidence/prepare_attempt02_exit.json",
+        "evidence/prefit_cleanup.json",
+        "evidence/prefit_cleanup.log"
+      ]
+    }
+  ],
+  "preserved_failed_attempt": "evidence/prepare_attempt01_exit.json",
+  "future_fit_budget": 12
+}

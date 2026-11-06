@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-11-05T01:25:43.190271+00:00",
+  "original_protocol_sha256": "f2b8a01db9b3f4e20f9441d864009f3b831dddefec0b3e45646c59f71cc4d2e4",
+  "reason": "Raw observed WA has duplicate station-hours including conflicting valid cloud targets. Preserve ALL provided valid measurement rows in original order. Change labels-to-unique-forecast join validation one_to_one -> many_to_one. No dedup/averaging/winner; model parameters, inputs and selection unchanged.",
+  "state_at_amendment": "2 auxiliary fits completed; third failed at join before model fit; no generation fits. Completed models never rerun.",
+  "root_approved": true,
+  "max_authorized_duplicate_diagnostic": {
+    "wa_duplicate_keys": 4,
+    "wa_conflicting_keys": 2,
+    "wb_duplicate_keys": 0,
+    "cutoff": "2024-05-31 Asia/Seoul"
+  },
+  "own_sources": {
+    "cloud_common.py": {
+      "original": "submission\\score_push_renew\\cloud_common.py",
+      "snapshot": "sources\\amendment1\\cloud_common.py",
+      "sha256": "db01036d838ff1ee398325d4831ca469123ce7749945c5d78b635b325c8f65d3"
+    },
+    "cloud_aux.py": {
+      "original": "submission\\score_push_renew\\cloud_aux.py",
+      "snapshot": "sources\\amendment1\\cloud_aux.py",
+      "sha256": "e1a4cf344d3cd394c5e72cd1b7f4659295f230ffe487c1743d3a1a0b7b143f22"
+    }
+  },
+  "preserved_completed_artifacts": {
+    "auxiliary\\wa\\2021-06-01\\config.json": "53ba190a29e0313ab3c6773160840c8cc2fbace15ae53e01e987c3b372f8ac92",
+    "auxiliary\\wa\\2021-06-01\\controller_receipt.json": "b13ed5f1d389e640695be74e670ffc3ddf1b5b8f3bc0a1b90b8fd46b15608e51",
+    "auxiliary\\wa\\2021-06-01\\fit.log": "b5f7bb2b90aff33a5aa5799f396226827bd646f32d922bb60ab787f4cb75ac55",
+    "auxiliary\\wa\\2021-06-01\\gpu_samples.csv": "f8882648099ab486f6d9cbb8a97e03db3a94b6b521efb2efb5d002fd57340761",
+    "auxiliary\\wa\\2021-06-01\\labels.parquet": "119aa29e745d7415773cd95ce9e27ce1d7d01a4ba92a7cac8e676d6b544e2def",
+    "auxiliary\\wa\\2021-06-01\\launch_checkpoint.json": "babff02b9096b5ea0259ec4fa82637022616c68accf5dee02e42996e6d8415a6",
+    "auxiliary\\wa\\2021-06-01\\model.cbm": "1e5c273af4be02d9dd6dcff2bd54b775e4fef983f6fdc3dea378d9c3e4a5fe95",
+    "auxiliary\\wa\\2021-06-01\\predictions.parquet": "d9f7b3d67061599fe421aabf4f1f15311687308dbe34a5afee6cc873295f2d98",
+    "auxiliary\\wa\\2021-06-01\\replay.json": "5c9742c02502e602012a9e0c1fc0c5a164854a8cbb02fb89fc852dc97cba5b1b",
+    "auxiliary\\wa\\2021-06-01\\runtime.json": "94abdc0816616dbde8521b414f98ea6679b68c4f8b2c44dcd5db1987279fc831",
+    "auxiliary\\wa\\2021-06-01\\training.snapshot": "26de92ea30b0e61bbf30d3fd5d9cb55d6fb1d26d61144978b7d152e8f363b9a5",
+    "auxiliary\\wa\\2021-06-01\\worker_status.json": "9b485db84c75223b25636632f094a967a32759b6576645ecf28f74c64be9722b",
+    "auxiliary\\wa\\2021-06-01\\catboost\\catboost_training.json": "f8f0ad6d8cf6c11a7a61975d5ad6a67722d00ea72d3a24833f34059adc716a8e",
+    "auxiliary\\wa\\2021-06-01\\catboost\\learn_error.tsv": "1567264a394555039c0ae0b50bd6a4ffe3adf0506210da0b897ac529d916c5f0",
+    "auxiliary\\wa\\2021-06-01\\catboost\\time_left.tsv": "eb2b1484ae16470873d9fcaf993dee01faca23f42b0931c9843b5d6f5770c776",
+    "auxiliary\\wa\\2021-06-01\\catboost\\learn\\events.out.tfevents": "299f243225962dd029bdddf1865bd7cadc10ec8c7cb73f7bfa52c40e14d5a7c5",
+    "auxiliary\\wa\\2021-12-01\\config.json": "42ee42261b2d9236f56b2615d9f79d83117113c5a205749edfe114990d09e59a",
+    "auxiliary\\wa\\2021-12-01\\controller_receipt.json": "a44d0f2b0f6c794be047ad51c5486cd93b2c920db994e31cca7535e49e653f17",
+    "auxiliary\\wa\\2021-12-01\\fit.log": "0031e05a25ca391e77a82afbc512cafb67d6fd84bfd09eba733561d4229c0498",
+    "auxiliary\\wa\\2021-12-01\\gpu_samples.csv": "871132e8c11d74e898f3abd3f3d288dc67bbd53dea754529bd94aec137bdd1cf",
+    "auxiliary\\wa\\2021-12-01\\labels.parquet": "bd1ec0b7a894e90a2596677d124f4ec81f6319a8815aecc0caf81bbe7c91fbcc",
+    "auxiliary\\wa\\2021-12-01\\launch_checkpoint.json": "c74a4ce84cae70c18151a1b79eb5154dc5d794c04041fbd6d173e5b3df851694",
+    "auxiliary\\wa\\2021-12-01\\model.cbm": "fca673938aff6a83e079fed780d060abd3ef7e1030c238b0d6baa2673e691776",
+    "auxiliary\\wa\\2021-12-01\\predictions.parquet": "94e017980daa73e97d97a280cb58719a978089e499288b9b15338000e74c08f7",
+    "auxiliary\\wa\\2021-12-01\\replay.json": "3086a7f6b5b840e0bafa8ddda809f32bb8f63f964eb7e9aa6264ded7ccd5fdf7",
+    "auxiliary\\wa\\2021-12-01\\runtime.json": "5f6d50cea23a2fec8bef7916e27ef546d8f589ae7e308da6c4ecbf281a58360d",
+    "auxiliary\\wa\\2021-12-01\\training.snapshot": "9032f661cd3f877d337016b6ce47f9253217d0b89b3b2949a486f065ac0e3b8f",
+    "auxiliary\\wa\\2021-12-01\\worker_status.json": "0627ef55c6b48026f5ec35c58de665104d7de1b8bfd813d9d94b9fb9e55cb1e1",
+    "auxiliary\\wa\\2021-12-01\\catboost\\catboost_training.json": "d24d9141af2cf87dbf2ca730f651537f80dfbda986a40564096f7333ddcc3e9d",
+    "auxiliary\\wa\\2021-12-01\\catboost\\learn_error.tsv": "eba60665b84a0cd4efa1c90e27036b141da633132e3aaed744b5c7cc49e89e52",
+    "auxiliary\\wa\\2021-12-01\\catboost\\time_left.tsv": "611b9cf49cdb6e72dcb659c7fe5e2525f4b9516606941f7262aa048de9635f6b",
+    "auxiliary\\wa\\2021-12-01\\catboost\\learn\\events.out.tfevents": "5ab3ace5a64d2f048cba37c6a2fa32bbeed4df22056886ce1e92b36812e0ab7c"
+  },
+  "failure_artifacts": "evidence/failed_before_fit_2022-06-01",
+  "self_check": {
+    "passed": true,
+    "two_targets_retained": [
+      67.0,
+      75.0
+    ],
+    "unique_feature_reused": [
+      80.0,
+      80.0
+    ],
+    "duplicate_forecast_keys_rejected": true
+  }
+}

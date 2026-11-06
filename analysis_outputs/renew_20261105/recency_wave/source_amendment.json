@@ -1,0 +1,22 @@
+{
+  "original_protocol_sha256": "71cc610aea7326902b9e6ff7260f52cad34350b0ade52c52dabfae18dc6c8beb",
+  "reason": "Correct Windows terminal-process check: completed Popen handle can remain queryable; require process exit code != STILL_ACTIVE or different identity. Explicit expected-NaN fixture assertion. Science unchanged; first completed model reused.",
+  "own_sources": {
+    "temporal_common.py": {
+      "original": "submission\\score_push_renew\\temporal_common.py",
+      "snapshot": "sources\\amendment2\\temporal_common.py",
+      "sha256": "249726ee2de8036e01e310635cf22624c8f17c6d138d337bb0496a5ddadc64b1"
+    },
+    "temporal_prepare.py": {
+      "original": "submission\\score_push_renew\\temporal_prepare.py",
+      "snapshot": "sources\\amendment1\\temporal_prepare.py",
+      "sha256": "be3201fd43382b785f7ebd00839421f4fe293b830a9e39da09c0f835906dacf0"
+    },
+    "temporal_run.py": {
+      "original": "submission\\score_push_renew\\temporal_run.py",
+      "snapshot": "sources\\amendment1\\temporal_run.py",
+      "sha256": "846080157207b4b9b1893389ee6772e011049cd60fa774ae31e87ce85b4561f8"
+    }
+  },
+  "final_review_correction": "Compare creation_filetime field rather than entire identity dictionary so rich resource receipts cannot mask exact live PID identity. Fit outputs unaffected; final terminal audit uses corrected helper."
+}

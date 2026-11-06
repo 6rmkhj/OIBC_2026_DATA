@@ -1,0 +1,39 @@
+{
+  "id": "leaves63_trees400_ensemble",
+  "members": [
+    "p_reference",
+    "norm",
+    "mlp"
+  ],
+  "weights_primary_only": [
+    0.380705173762783,
+    0.41926809371483975,
+    0.2000267325223772
+  ],
+  "scores": {
+    "primary": 12.161987873994034,
+    "recent": 11.18733758871567
+  },
+  "both_folds_beat_prior": true,
+  "mean_relative_loss": 0.9877514447398439,
+  "member_artifacts_relative_to_score_push_output": {
+    "p_reference": {
+      "path_pattern": "learner_wave/{fold}/reference.parquet",
+      "column": "p_reference"
+    },
+    "norm": {
+      "path_pattern": "refinement_wave/{fold}/leaves63_trees400/ensemble/pure/predictions.parquet",
+      "column": "p_new"
+    },
+    "mlp": {
+      "path_pattern": "learner_wave/{fold}/mlp_cf/ensemble/pure/predictions.parquet",
+      "column": "p_new"
+    }
+  },
+  "reference_definition": {
+    "rich_direct_weight": 0.7642694482340047,
+    "bottom_up_weight": 0.23573055176599533
+  },
+  "weights_fit_on": "primary only",
+  "confirmation_loaded": false
+}

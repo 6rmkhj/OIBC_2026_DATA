@@ -1,0 +1,23 @@
+# First richer-issued-weather family: execution evidence
+
+Scope: primary train ts <= 2023-06-01 00:00 Asia/Seoul; selection 2023-06-01 < ts <= 2024-06-01. Fixed incumbent assignment, labels, bottom-up predictions, weighted metric and actual timestamp-hour k. No outer evaluation or test-data load. All paths below are relative to `analysis_outputs/score_push_20261104/`.
+
+| Scenario and invocation | Binary observable | Captured artifact |
+| --- | --- | --- |
+| Exact incumbent: `python submission/score_push/run.py` | PASS exact prediction DataFrame and identical Parquet SHA256; W_pct 12.695950143757269 | `baseline_exact.json`, `trials/baseline_exact/predictions.parquet`, `run.stdout.log` |
+| Fixed primary experiment family: same invocation | PASS seven distinct model configurations, three sequential seeds each; one no-fit analytical blend; process exit 0 | `journal.jsonl`, `ranking.json`, `trials/*/config.json`, `trials/*/score.json`, `trials/*/predictions.parquet` |
+| Prediction boundaries: frozen `evaluate.evaluate` invoked by runner | PASS all 17,568 evaluation keys finite, nonnegative, unique and exactly aligned to unchanged labels | `trials/*/predictions.parquet`, `trials/*/score.json`, `cache/manifest.json` |
+| Weather-only inputs and exact site coverage: `python submission/score_push/verify.py` | PASS exact sidecar replay and round-key mismatch rejection; only site_id/ts/night projected from old site cache; no generation/target column used in feature builder | `evidence/verification.json`, `evidence/verification.stdout.log`, `evidence/cache_replay/cache/weather.parquet`, `cache/weather.parquet` |
+| Numerical and leakage checks: same verification invocation | PASS capacity means, circular wind, missing values, round revisions, label perturbation, target-day midnight/gap isolation; deliberately broken weighting fails | `evidence/verification.stdout.log`, `submission/score_push/check_features.py` (workspace-relative source) |
+| Frozen provenance: same verification invocation | PASS input, cache and actually executed source SHA256 values rechecked | `cache/manifest.json`, `sources/`, `evidence/verification.json` |
+| Resource bounds: runner plus no-fit verification invocation | PASS all seven runtime receipts report one sequential fit, model threads 2, OMP2, BLAS1, PyArrow CPU/IO2, Windows priority16384; measured feature-rebuild peak 3,624,312,832 bytes | `trials/*/runtime.json`, `evidence/verification.json` |
+| Monthly/right-closed and halfyear diagnostics: frozen evaluator plus verification invocation | PASS saved per-trial slices; winner comparison shows both halfyears improve and six of twelve months regress | `trials/*/diagnostics.csv`, `evidence/winner_slice_comparison.csv` |
+| Source audit: `python C:/Users/slowg/.codex/plugins/cache/sisyphuslabs/omo/5.1.60/skills/programming/scripts/python/check-no-excuse-rules.py submission/score_push/features.py submission/score_push/check_features.py submission/score_push/run.py submission/score_push/verify.py` | PASS no violations in four files | `evidence/source_audit.log` |
+
+Best fixed-alpha model is `combined_physics`, W_pct 12.624983590285055. One selection-only analytical blend gives alpha 0.7642694482340047 and W_pct 12.622155808512135, an improvement of 0.073794335245134 percentage points over incumbent. This is development selection evidence, not an outer or leaderboard claim. The 63-leaf/600-tree followup and extended trajectory were discarded. Complete rankings are in `ranking.json`.
+
+The final source adds a round-key rejection guard after fitting. Original executed snapshots were preserved unchanged; a full no-fit rebuild proves exact equality of the final feature code's primary weather cache. Both source versions are fingerprinted in `evidence/verification.json` and `cache/manifest.json`. Separate source responsibilities are weather construction, synthetic behavior checks, sequential trials, and no-fit evidence verification. No new dependencies or abstraction framework were introduced.
+
+Initial launch issues occurred before any fit: a detached child did not start successfully, then a 64-bit Windows handle prototype error was corrected. The subsequent synchronous runner completed with exit0. The preserved `evidence/priority_prototype_failure.log` belongs to that failed pre-fit launch; the successful run has an empty `run.stderr.log`. Peak memory was measured on the exact no-fit feature rebuild, not retrospectively on the model process.
+
+Not checked or performed: installed LSP/typechecker (user declined installation), outer-period model evaluation, test features, full-data training, submission export, or actual leaderboard scoring. Selection adaptivity and six monthly regressions limit generalization claims.

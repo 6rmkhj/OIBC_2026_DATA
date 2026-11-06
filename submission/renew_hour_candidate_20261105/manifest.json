@@ -1,0 +1,111 @@
+{
+  "protocol_sha256": "094bcc737188473d1e81645109f50b56dd99b9d08044fb7d478fc2899d456efd",
+  "coefficient_sha256": "7c7702086192c6882f5c2c25408aeaf45aa5d2a70706218eda96d255f038f28e",
+  "prediction_freeze_sha256": "45d3ff35fdb30330d217c1b2b78126f6c228a760c6cd01c1846a622ed9ec9093",
+  "source_input_sha256": {
+    "analysis_outputs\\renew_20261105\\final\\predictions\\old_cutoff_march_may\\predictions.parquet": "3dd092ac382bf61b75c42bfa8cb5391a10f9b47e83c7fcf34442a75570d2c395",
+    "analysis_outputs\\renew_20261105\\final\\predictions\\latest_cutoff_march_may\\predictions.parquet": "b9dfbf1bdd9e414295748d0015fa519fa3ab29815f415ea47b432ebca8bf9b2a",
+    "analysis_outputs\\renew_20261105\\final\\predictions\\test\\predictions.parquet": "6386ee3522a32bd8be6fb4294ec6f84960b4ae0e948ea7c5dfb955f4a2c2cb7e",
+    "analysis_outputs\\renew_20261105\\final\\predictions\\old_cutoff_march_may\\scored_predictions.parquet": "fc5d3766e48a4be9fce542ec1264ee79714c2c3004a3f43e7dfdfff46e05b073",
+    "analysis_outputs\\renew_20261105\\final\\predictions\\latest_cutoff_march_may\\scored_predictions.parquet": "d8bd67220e4ccea90efe518ffcb555c05dd92da0224b8062080fc08e0d26fc0a",
+    "analysis_outputs\\renew_20261105\\hour_wave\\coefficients.json": "7c7702086192c6882f5c2c25408aeaf45aa5d2a70706218eda96d255f038f28e",
+    "analysis_outputs\\renew_20261105\\hour_wave\\results.json": "247b12fbd3c26d5be953d84cb2df177bae86e79edb0d9bf5120b89ffa9e8abac",
+    "analysis_outputs\\renew_20261105\\hour_wave\\protocol.json": "e35f5fadd4a118ec255f38b7895fb3d51d333a3419ca5365203eb92d6148daef",
+    "analysis_outputs\\renew_20261105\\hour_wave\\source_amendment.json": "d4b4fe210a5ae12790cdf5f7264a80b1331a830cd5409a187b67396cf004061a",
+    "analysis_outputs\\renew_20261105\\hour_wave\\terminal_manifest.json": "671b75500ef5d41b0af589c816466d75066c9d3eb37133af7a9b70942162f6b1",
+    "analysis_outputs\\renew_20261105\\final\\static_capacity.json": "2424f21555bf7a9314353bf6cf7aea59e44ea30d73e546984e0def971fc3807f",
+    "analysis_outputs\\renew_20261105\\final\\selected_coefficients.json": "7f02f8e5cefab2a7674a739d9e40669e630916b80c4e430802451099a253fef0",
+    "submission\\autoresearch_candidate\\composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "submission\\validate_artifacts.py": "89e4a757bdada17cc523c948a59408caadc641566d454533021e9c5a3475031f",
+    "handover 2\\01_participant_dataset\\sites.csv": "93d166fffd009c3643db748fc6d5a1d48851e5f70b314171130e6ab6b7997ea2"
+  },
+  "recipe": "Frozen hour_math.apply exactly once: KST bins [0,10),[10,12),[12,14),[14,16),[16,24); effective=1+.5*(bounded_hour_factor-1); clip(current calibrated p*effective,0,static_capacity). No temperature/snow refit or repeated shrink.",
+  "new_scalar_fits": 0,
+  "new_tree_fits": 0,
+  "development_gain": {
+    "primary": {
+      "reference": {
+        "W": 980451119.833828,
+        "W_pct": 11.959229078372204,
+        "revenue": 3546697701.5127397,
+        "S": 3448652589.529357,
+        "rows": 17568
+      },
+      "hour": {
+        "W": 976625966.0430048,
+        "W_pct": 11.912571076235176,
+        "revenue": 3546697701.5127397,
+        "S": 3449035104.908439,
+        "rows": 17568
+      },
+      "W_reduction": 3825153.790823221,
+      "W_pct_reduction": 0.04665800213702731
+    },
+    "recent": {
+      "reference": {
+        "W": 1356730507.1796594,
+        "W_pct": 11.000952828788678,
+        "revenue": 5289489854.18509,
+        "S": 5153816803.467124,
+        "rows": 13104
+      },
+      "hour": {
+        "W": 1356432319.1075268,
+        "W_pct": 10.998534992012488,
+        "revenue": 5289489854.18509,
+        "S": 5153846622.274338,
+        "rows": 13104
+      },
+      "W_reduction": 298188.07213258743,
+      "W_pct_reduction": 0.002417836776190896
+    }
+  },
+  "diagnostic_metrics": {
+    "old_cutoff_march_may": {
+      "p_reference": {
+        "W": 483103331.86492485,
+        "W_pct": 9.760636832305014,
+        "revenue": 2208093632.2506676,
+        "S": 2159783299.064175,
+        "rows": 4416
+      },
+      "p": {
+        "W": 481748175.0703911,
+        "W_pct": 9.73325719641798,
+        "revenue": 2208093632.2506676,
+        "S": 2159918814.7436285,
+        "rows": 4416
+      }
+    },
+    "latest_cutoff_march_may": {
+      "p_reference": {
+        "W": 464781752.5177579,
+        "W_pct": 9.390466994080926,
+        "revenue": 2208093632.2506676,
+        "S": 2161615456.998892,
+        "rows": 4416
+      },
+      "p": {
+        "W": 464176484.6324241,
+        "W_pct": 9.378238140282312,
+        "revenue": 2208093632.2506676,
+        "S": 2161675983.787425,
+        "rows": 4416
+      }
+    }
+  },
+  "diagnostics_descriptive_only": true,
+  "no_reselection": true,
+  "all_history_exposed": true,
+  "primary_calibration_partly_in_sample": true,
+  "original_candidate": "submission/renew_candidate_20261105",
+  "original_user_reported_official_score": 6454220836,
+  "original_score_provenance": "User-reported; original submission unchanged",
+  "official_score_available": false,
+  "uploaded": false,
+  "files_sha256": {
+    "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast.csv": "d3ba0ab008d37edc72762f7b162727992ea754f0d64e1edef18dc78441515138",
+    "submission_files.zip": "df9aa33420aba686184c909f8332155013a221268d2fd6d699bb008b0bd50e5e"
+  }
+}

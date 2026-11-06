@@ -1,0 +1,110 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = ["numpy", "pandas", "pyarrow", "lightgbm"]
+# ///
+# Run through run.py to enforce the fit deadline.
+"""Mutable candidate: direct group models with fixed bottom-up predictions."""
+import json
+import sys
+import time
+from dataclasses import dataclass
+from pathlib import Path
+import lightgbm as lgb
+import numpy as np
+import pandas as pd  # noqa: PANDAS_OK -- preserve existing model interface
+from common import CACHE, save_json
+
+
+@dataclass(frozen=True, slots=True)
+class Config:
+    id: str
+    parent_id: str
+    hypothesis: str
+    n_estimators: int = 400
+    learning_rate: float = .03
+    num_leaves: int = 31
+    min_child_samples: int = 50
+    objective: str = "regression_l1"
+    weighting: str = "none"
+    recency_days: float = 0
+    direct_weight: float = .5
+    feature_mode: str = "base"
+    seeds: tuple[int, ...] = (0,)
+
+    def __post_init__(self) -> None:
+        assert self.id and all(c.isalnum() or c in "_-" for c in self.id)
+        assert self.parent_id and self.hypothesis
+        assert self.n_estimators > 0 and self.num_leaves > 1 and self.min_child_samples > 0
+        assert 0 < self.learning_rate <= 1 and self.recency_days >= 0 and 0 <= self.direct_weight <= 1
+        assert self.objective in {"regression_l1", "regression_l2"}
+        assert self.weighting in {"none", "capacity", "scored"}
+        assert self.feature_mode in {"base", "ramps"}
+        assert self.seeds and all(isinstance(seed, int) and seed >= 0 for seed in self.seeds)
+
+
+def ramp_features(frame: pd.DataFrame) -> pd.DataFrame:
+    """Backward issued-forecast differences within one target day, never across gaps."""
+    result = frame.sort_values(["grp", "ts"]).copy()
+    day = (result.ts - pd.Timedelta(hours=1)).dt.floor("D")
+    grouped = result.groupby([result.grp, day], sort=False)
+    adjacent = grouped.ts.diff().eq(pd.Timedelta(hours=1))
+    for name in ["wa_cloud", "wb_cloud", "wb_uv_idx", "toaa", "toab", "wa_temp"]:
+        result[f"{name}_ramp"] = grouped[name].diff().where(adjacent)
+    return result
+
+
+def predict_frames(train: pd.DataFrame, selection: pd.DataFrame, config: Config) -> tuple[pd.DataFrame, dict[str, lgb.LGBMRegressor], dict[str, float]]:
+    """Fit direct models and predict label-free frames for any caller-supplied split."""
+    features = json.loads((CACHE / "features.json").read_text())
+    assert not {"energy", "cf", "y"} & set(selection.columns)
+    if config.feature_mode == "ramps":
+        train = ramp_features(train)
+        selection = ramp_features(selection)
+        features += [f"{name}_ramp" for name in ["wa_cloud", "wb_cloud", "wb_uv_idx", "toaa", "toab", "wa_temp"]]
+    selection = selection.copy()
+    selection["p_dir"] = 0.
+    fit_seconds = {}
+    models = {}
+    for group, rows in train.groupby("grp"):
+        weights = np.ones(len(rows))
+        if config.weighting in {"capacity", "scored"}:
+            weights *= rows.capacity_kw.to_numpy()
+        if config.weighting == "scored":
+            weights *= (rows.smp * rows.k).to_numpy()
+        if config.recency_days:
+            age = (train.ts.max() - rows.ts).dt.total_seconds().to_numpy() / 86400
+            weights *= np.exp2(-age/config.recency_days)
+        weights /= weights.mean()
+        sample_weight = None if config.weighting == "none" and not config.recency_days else weights
+        mask = selection.grp == group
+        predictions = np.zeros(int(mask.sum()))
+        for seed in config.seeds:
+            # Seed zero denotes the original omitted-seed recipe; explicit 0 changes LightGBM's internal seeds.
+            model = lgb.LGBMRegressor(n_estimators=config.n_estimators, learning_rate=config.learning_rate, num_leaves=config.num_leaves, min_child_samples=config.min_child_samples, subsample=.8, subsample_freq=1, colsample_bytree=.8, objective=config.objective, verbose=-1, n_jobs=2, random_state=None if seed == 0 else seed)
+            t0 = time.monotonic()
+            model.fit(rows[features], rows.cf, sample_weight=sample_weight)
+            key = f"{group}_seed{seed}"
+            fit_seconds[key] = time.monotonic()-t0
+            models[key] = model
+            predictions += model.predict(selection.loc[mask, features]) / len(config.seeds)
+        selection.loc[mask, "p_dir"] = np.clip(predictions, 0, None) * selection.loc[mask, "capacity_kw"].to_numpy()
+    return selection[["ts", "grp", "p_dir"]], models, fit_seconds
+
+
+def main(trial: Path) -> None:
+    config = Config(**json.loads((trial / "config.json").read_text()))
+    train = pd.read_parquet(CACHE / "train.parquet")
+    selection = pd.read_parquet(CACHE / "selection_features.parquet")
+    keys = pd.read_parquet(CACHE / "selection_labels.parquet", columns=["ts", "grp"])
+    start = time.monotonic()
+    selection, models, fit_seconds = predict_frames(train, selection, config)
+    for name, model in models.items():
+        model.booster_.save_model(str(trial / f"{name}.txt"))
+    predictions = keys.merge(selection[["ts", "grp", "p_dir"]], on=["ts", "grp"], how="left", validate="one_to_one").fillna({"p_dir": 0.})
+    predictions.to_parquet(trial / "predictions.parquet", index=False)
+    save_json(trial / "runtime.json", {"fit_seconds": fit_seconds, "total_seconds": time.monotonic()-start})
+    print(config.id, fit_seconds, flush=True)
+
+
+if __name__ == "__main__":
+    main(Path(sys.argv[1]))

@@ -1,0 +1,189 @@
+{
+  "status": "EXPORTED_VERIFIED_USER_REPORTED_OFFICIAL_IMPROVEMENT",
+  "base": "submission/score_push_candidate",
+  "selected_temporal": {
+    "variant": "decay180",
+    "stage": "ensemble",
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "alpha_primary_only": 0.07794876465304705,
+    "scores": {
+      "primary": {
+        "p": {
+          "W": 986517612.5780271,
+          "W_pct": 12.033226215978063,
+          "revenue": 3546697701.5127397,
+          "S": 3448045940.254937,
+          "rows": 17568
+        },
+        "p_reference": {
+          "W": 987204413.6245017,
+          "W_pct": 12.041603595410752,
+          "revenue": 3546697701.5127397,
+          "S": 3447977260.1502895,
+          "rows": 17568
+        },
+        "p_new": {
+          "W": 1084694534.7319553,
+          "W_pct": 13.230756902104808,
+          "revenue": 3546697701.5127397,
+          "S": 3438228248.039544,
+          "rows": 17568
+        },
+        "p_incumbent": {
+          "W": 1040849577.6966548,
+          "W_pct": 12.695950143757269,
+          "revenue": 3546697701.5127397,
+          "S": 3442612743.7430744,
+          "rows": 17568
+        }
+      },
+      "recent": {
+        "p": {
+          "W": 1363917146.6832924,
+          "W_pct": 11.059225184100658,
+          "revenue": 5289489854.18509,
+          "S": 5153098139.516761,
+          "rows": 13104
+        },
+        "p_reference": {
+          "W": 1364551243.451575,
+          "W_pct": 11.064366712650248,
+          "revenue": 5289489854.18509,
+          "S": 5153034729.839932,
+          "rows": 13104
+        },
+        "p_new": {
+          "W": 1563362763.8505235,
+          "W_pct": 12.67641578662229,
+          "revenue": 5289489854.18509,
+          "S": 5133153577.800037,
+          "rows": 13104
+        },
+        "p_incumbent": {
+          "W": 1435529249.2968502,
+          "W_pct": 11.639886825195314,
+          "revenue": 5289489854.18509,
+          "S": 5145936929.255405,
+          "rows": 13104
+        }
+      }
+    },
+    "both_folds_improve": true,
+    "eligible": true,
+    "mean_relative_W": 0.9994198022485106
+  },
+  "paths": {
+    "primary": "analysis_outputs/renew_20261105/calibration_wave/comparisons/temperature_then_snow/primary/predictions.parquet",
+    "recent": "analysis_outputs/renew_20261105/calibration_wave/comparisons/temperature_then_snow/recent/predictions.parquet"
+  },
+  "independent_check": "analysis_outputs/renew_20261105/recency_wave/independent_check.json",
+  "confirmation_evaluated": true,
+  "full_refit_done": true,
+  "export_done": true,
+  "limitations": "Primary calibration performance partly in-sample. All historical periods exposed through adaptive development. Temporal-only bootstrap does not evaluate the calibrated recipe. New official score 6454220836 reported by user, not independently fetched; private leaderboard and prize outcome unknown.",
+  "selected_calibration": {
+    "arm": "temperature_then_snow",
+    "coefficients": "analysis_outputs/renew_20261105/calibration_wave/coefficients.json",
+    "coefficients_sha256": "7f02f8e5cefab2a7674a739d9e40669e630916b80c4e430802451099a253fef0",
+    "scores_W_pct": {
+      "primary": 11.959229078372204,
+      "recent": 11.000952828788678
+    },
+    "mean_relative_W_vs_temporal": 0.9942907406463919,
+    "both_folds_improve": true,
+    "fit_period": "2023-06-01 < ts <= 2024-06-01 Asia/Seoul",
+    "shrink_once": 0.5,
+    "product_bounds": [
+      0.85,
+      1.15
+    ],
+    "snow_threshold": 0.001,
+    "temperature_factors": [
+      0.972852402322809,
+      0.986981974228839,
+      1.0087966975097165,
+      1.0126140932371772,
+      0.9927350535454641
+    ],
+    "conditional_snow_factor": 0.9780293103257823,
+    "static_capacity": {
+      "G1": 21208.195,
+      "G2": 21447.175
+    },
+    "independent_check": "analysis_outputs/renew_20261105/calibration_wave/independent_check.json",
+    "independent_data_check": "analysis_outputs/renew_20261105/calibration_wave/independent_data_check.json",
+    "final_manifest_sha256": "1ccf7817193e56cc26c9a27baa0f833537dc92597c72e4cb9904505d448c47eb"
+  },
+  "temporal_only_paths": {
+    "primary": "analysis_outputs/renew_20261105/recency_wave/comparisons/decay180/ensemble/primary/predictions.parquet",
+    "recent": "analysis_outputs/renew_20261105/recency_wave/comparisons/decay180/ensemble/recent/predictions.parquet"
+  },
+  "temporal_only_bootstrap": {
+    "primary": {
+      "days": 366,
+      "delta_W": -686801.0464745599,
+      "delta_W_pct": -0.008377379432691252,
+      "paired_day_bootstrap_95pct_pp": [
+        -0.04442626074608964,
+        0.027634222090946656
+      ],
+      "replicates": 2000,
+      "seed": 20261105
+    },
+    "recent": {
+      "days": 273,
+      "delta_W": -634096.7682827049,
+      "delta_W_pct": -0.005141528549591063,
+      "paired_day_bootstrap_95pct_pp": [
+        -0.0516091590762315,
+        0.041606567679377114
+      ],
+      "replicates": 2000,
+      "seed": 20261105
+    }
+  },
+  "export": {
+    "candidate": "submission/renew_candidate_20261105",
+    "composition_sha256": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast_sha256": "948c672c918732ce47ac181ac3ac0325a15d35429594e9c3375036d4c1c413c0",
+    "zip_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+    "independent_check": "analysis_outputs/renew_20261105/final/independent_check.json",
+    "model_fits": 6,
+    "sites": 253,
+    "forecast_rows": 17520,
+    "uploaded": false
+  },
+  "descriptive_confirmation": {
+    "old_cutoff": {
+      "cpu": 9.84850652119269,
+      "temporal": 9.83853674430008,
+      "calibrated": 9.760636832305014,
+      "official_incumbent_recipe": 9.576119223065254
+    },
+    "latest_cutoff": {
+      "cpu": 9.446583241641658,
+      "temporal": 9.4610854308255,
+      "calibrated": 9.390466994080926,
+      "official_incumbent_recipe": 9.43777524221884
+    },
+    "metric": "W_pct; lower is better",
+    "no_reselection": true
+  },
+  "official_feedback": {
+    "score": 6454220836,
+    "previous_reported_best": 6447820797,
+    "improvement": 6400039,
+    "original_reported_score": 6443559992,
+    "improvement_from_original": 10660844,
+    "source": "User reported successful submission of renew_candidate_20261105/submission_files.zip in this conversation.",
+    "candidate": "submission/renew_candidate_20261105",
+    "forecast_sha256": "948c672c918732ce47ac181ac3ac0325a15d35429594e9c3375036d4c1c413c0",
+    "zip_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+    "agent_uploaded": false,
+    "independently_fetched_from_leaderboard": false
+  }
+}

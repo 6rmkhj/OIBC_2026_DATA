@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "utc": "2026-11-05T03:43:46.747601+00:00",
+  "no_target_columns_read": true,
+  "no_scoring": true,
+  "recipe": {
+    "rich_alpha": 0.7642694482340047,
+    "refined_weights": [
+      0.380705173762783,
+      0.41926809371483975,
+      0.2000267325223772
+    ],
+    "station_weight": 0.2808471620447986,
+    "closing_weights": [
+      1,
+      0,
+      0
+    ],
+    "lightgbm_seeds": [
+      null,
+      1,
+      2
+    ],
+    "mlp_seeds": [
+      0,
+      1,
+      2
+    ],
+    "trees": 400,
+    "rich_leaves": 31,
+    "normalized_station_leaves": 63,
+    "station_mask": "train-only constant mask refitted on full training",
+    "mlp_mask": "none; train-only median and standard scaling"
+  },
+  "records": {
+    "outer": {
+      "rows": 17520,
+      "max_absolute_error": 0.0,
+      "exact": true,
+      "read_columns": [
+        "ts",
+        "grp",
+        "p_bu",
+        "rich",
+        "normalized",
+        "mlp",
+        "station",
+        "p_candidate"
+      ]
+    },
+    "test": {
+      "rows": 17520,
+      "max_absolute_error": 0.0,
+      "exact": true,
+      "read_columns": [
+        "ts",
+        "grp",
+        "p_bu",
+        "rich",
+        "normalized",
+        "mlp",
+        "station",
+        "p_candidate"
+      ]
+    },
+    "latest": {
+      "rows": 4416,
+      "max_absolute_error": 0.0,
+      "exact": true,
+      "read_columns": [
+        "ts",
+        "grp",
+        "p_bu",
+        "rich",
+        "normalized",
+        "mlp",
+        "station",
+        "p_candidate"
+      ]
+    }
+  }
+}

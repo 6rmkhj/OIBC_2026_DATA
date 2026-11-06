@@ -1,0 +1,76 @@
+{
+  "state": "READY",
+  "utc": "2026-11-05T04:35:33.986938+00:00",
+  "protocol_sha256": "64146a8a8f1f42bb682010fe9d733b2bec1a55cc1a5158258b80ae382ff31ebb",
+  "prepared_manifest_sha256": "ff82082742cfe06f54fb14c0bbdad35351f8ecd2cd42702c0064ced71fc541f2",
+  "source_amendment_sha256": "9d065774594689dd45dd1cddd11bcf6ffb8126b1c7bcf94baf4b62864c1fc49b",
+  "release_required": true,
+  "released_command": "python submission/score_push_renew/yield_run.py --run",
+  "actual_site_gain_fits": 0,
+  "actual_tree_fits": 0,
+  "rows_and_schemas": {
+    "primary": {
+      "site_train": {
+        "rows": 521423,
+        "columns": [
+          "ts",
+          "site_id",
+          "cf",
+          "cosz",
+          "wa_cloud",
+          "wb_cloud",
+          "capacity_kw"
+        ]
+      },
+      "site_evaluation": {
+        "rows": 681694,
+        "columns": [
+          "ts",
+          "site_id",
+          "capacity_kw"
+        ]
+      }
+    },
+    "recent": {
+      "site_train": {
+        "rows": 1203117,
+        "columns": [
+          "ts",
+          "site_id",
+          "cf",
+          "cosz",
+          "wa_cloud",
+          "wb_cloud",
+          "capacity_kw"
+        ]
+      },
+      "site_evaluation": {
+        "rows": 852369,
+        "columns": [
+          "ts",
+          "site_id",
+          "capacity_kw"
+        ]
+      }
+    }
+  },
+  "direct_verification": {
+    "invocation": "PYTHONDONTWRITEBYTECODE=1 python stdin: SHA256 every prepared/protected/amended source, ensure_terminal both attempt identities, parquet metadata/schema, absence assertions",
+    "binary_observable": "all assertions passed",
+    "prepared_files_verified": 19,
+    "protected_files_verified": 1532,
+    "exact_workers_absent": true,
+    "real_coefficients_transforms_trials_absent": true,
+    "temporary_directory_absent": true
+  },
+  "evidence": [
+    "evidence/prefit_checks.json",
+    "evidence/selfchecks.json",
+    "evidence/read_receipts.json",
+    "evidence/prepare_terminal.json",
+    "evidence/prepare_cleanup.json",
+    "evidence/programming_check.log",
+    "evidence/programming_check_attempt02.log"
+  ],
+  "failed_attempt": "Attempt01 preserved; synthetic support fixture corrected by source_amendment.json; attempt02 exited0."
+}

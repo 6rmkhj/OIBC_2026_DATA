@@ -1,0 +1,31 @@
+[    0.0s] == features
+[    0.0s] features cached
+[    0.0s] == val
+[    0.0s] val cached
+[    0.0s] == compose
+[    0.3s] composition saved {'G1': 21369.47, 'G2': 21285.899999999998} pairs 126
+[    0.3s]    PV004 G1
+[    0.3s]    PV011 G2
+[    0.3s]    PV188 G2
+[    0.3s]    PV189 G2
+[    0.3s]    PV215 G1
+[    0.3s]    PV143 G2
+[    0.3s]    PV240 G1
+[    0.3s]    PV059 G2
+[    0.3s]    PV246 G1
+[    0.6s] VAL bottom-up, reference split {'W_pct': 12.223, 'W_pool_pct': 11.946, 'bias_G1': 51.877, 'bias_G2': 10.908, 'hours': 8760}
+[    0.9s] VAL bottom-up, twin split {'W_pct': 12.067, 'W_pool_pct': 11.946, 'bias_G1': 19.664, 'bias_G2': 43.121, 'hours': 8760}
+[    3.9s] VAL final recipe (bottom-up 50% + direct 50%, twin split): W% = 11.551   (direct alone 11.785)
+[    4.0s] == predict
+[    4.4s] full train rows 2379495 test rows 2216280
+[  101.2s] pooled seeds done
+[  167.6s] site models 253
+[  170.1s] direct models done
+[  238.0s] forecast saved 17520 rows; annual GWh 60.57 bottom-up vs direct annual ratio 1.0054
+[  238.2s] == check
+composition OK: capacities {'G1': 21369.5, 'G2': 21285.9}
+forecast OK: rows 17520 | annual GWh 60.57 | share in ts 11-15h 65.4 % | zero hours 7901 | max kWh 17397.6
+ts      0    1    2    3    4    5     6      7       8       9       10       11       12       13       14      15      16      17      18     19    20   21   22   23
+group                                                                                                                                                                   
+G1     0.0  0.0  0.0  0.0  0.0  0.0  51.0  516.0  1933.0  4592.0  7711.0  10163.0  11476.0  11877.0  11301.0  9777.0  7312.0  4367.0  1842.0  492.0  53.0  0.0  0.0  0.0
+G2     0.0  0.0  0.0  0.0  0.0  0.0  53.0  515.0  1913.0  4578.0  7685.0  10062.0  11376.0  11770.0  11164.0  9638.0  7187.0  4228.0  1781.0  474.0  53.0  0.0  0.0  0.0

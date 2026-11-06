@@ -1,0 +1,27 @@
+{
+  "models": [
+    "lgb_normalized",
+    "mlp_cf",
+    "mlp_normalized",
+    "kernel_l1"
+  ],
+  "reference_scores": {
+    "primary": 12.622155808512135,
+    "recent": 11.536044344428209
+  },
+  "screen_seeds": {
+    "lgb_normalized": [
+      0,
+      1,
+      2
+    ],
+    "others": [
+      0
+    ]
+  },
+  "nontrivial_learner_weight": 0.02,
+  "followup_gate": "One neural/kernel member with both-fold improvement over richer reference and alpha>=.02; add seeds1,2 only; no iteration extension/grid",
+  "blend_weights_fit_on": "primary only",
+  "confirmation_closed": true,
+  "test_closed": true
+}

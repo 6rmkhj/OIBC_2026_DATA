@@ -1,0 +1,98 @@
+{
+  "sources": [
+    {
+      "source": "primary",
+      "rows": 17568,
+      "night_rows": 7926,
+      "weather_rows": 9642,
+      "projected_columns": [
+        "ts",
+        "grp",
+        "wa_temp",
+        "extra_wa_snow",
+        "wb_cloud"
+      ],
+      "raw_prediction_column": "p",
+      "unmatched_exact_allnight": true,
+      "reference_zero_allnight": true,
+      "raw_ts_min": "2023-06-01 01:00:00+09:00",
+      "raw_ts_max": "2024-06-01 00:00:00+09:00"
+    },
+    {
+      "source": "recent",
+      "rows": 13104,
+      "night_rows": 6089,
+      "weather_rows": 7015,
+      "projected_columns": [
+        "ts",
+        "grp",
+        "wa_temp",
+        "extra_wa_snow",
+        "wb_cloud"
+      ],
+      "raw_prediction_column": "p",
+      "unmatched_exact_allnight": true,
+      "reference_zero_allnight": true,
+      "raw_ts_min": "2024-06-01 01:00:00+09:00",
+      "raw_ts_max": "2025-03-01 00:00:00+09:00"
+    },
+    {
+      "source": "latest",
+      "rows": 4416,
+      "night_rows": 1822,
+      "weather_rows": 2594,
+      "projected_columns": [
+        "ts",
+        "grp",
+        "wa_temp",
+        "extra_wa_snow",
+        "wb_cloud"
+      ],
+      "raw_prediction_column": "p_reference",
+      "unmatched_exact_allnight": true,
+      "reference_zero_allnight": true,
+      "raw_ts_min": "2025-03-01 01:00:00+09:00",
+      "raw_ts_max": "2025-06-01 00:00:00+09:00"
+    }
+  ],
+  "folds": [
+    {
+      "fold": "late_recent",
+      "cutoff_inclusive": "2024-12-01 00:00:00+09:00",
+      "end_inclusive": "2025-03-01 00:00:00+09:00",
+      "train_rows": 26352,
+      "evaluation_rows": 4320,
+      "train_max_ts": "2024-12-01 00:00:00+09:00",
+      "evaluation_min_ts": "2024-12-01 01:00:00+09:00",
+      "evaluation_columns": [
+        "ts",
+        "grp",
+        "p_reference",
+        "wa_temp",
+        "extra_wa_snow",
+        "wb_cloud",
+        "static_capacity"
+      ],
+      "no_key_overlap": true
+    },
+    {
+      "fold": "latest",
+      "cutoff_inclusive": "2025-03-01 00:00:00+09:00",
+      "end_inclusive": "2025-06-01 00:00:00+09:00",
+      "train_rows": 30672,
+      "evaluation_rows": 4416,
+      "train_max_ts": "2025-03-01 00:00:00+09:00",
+      "evaluation_min_ts": "2025-03-01 01:00:00+09:00",
+      "evaluation_columns": [
+        "ts",
+        "grp",
+        "p_reference",
+        "wa_temp",
+        "extra_wa_snow",
+        "wb_cloud",
+        "static_capacity"
+      ],
+      "no_key_overlap": true
+    }
+  ]
+}

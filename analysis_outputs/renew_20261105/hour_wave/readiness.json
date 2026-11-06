@@ -1,0 +1,143 @@
+{
+  "state": "READY",
+  "utc": "2026-11-05T05:02:11.561026+00:00",
+  "protocol_sha256": "e35f5fadd4a118ec255f38b7895fb3d51d333a3419ca5365203eb92d6148daef",
+  "prepared_manifest_sha256": "d17d81b724c46d38067bffd630252e4cf150adf9a4a1f5e91d7108edd45ec1fe",
+  "source_amendment_sha256": "d4b4fe210a5ae12790cdf5f7264a80b1331a830cd5409a187b67396cf004061a",
+  "release_required": true,
+  "released_command": "python submission/score_push_renew/hour_run.py --run",
+  "release_fields": {
+    "approved": true,
+    "protocol_sha256": "e35f5fadd4a118ec255f38b7895fb3d51d333a3419ca5365203eb92d6148daef",
+    "prepared_manifest_sha256": "d17d81b724c46d38067bffd630252e4cf150adf9a4a1f5e91d7108edd45ec1fe",
+    "source_amendment_sha256": "d4b4fe210a5ae12790cdf5f7264a80b1331a830cd5409a187b67396cf004061a"
+  },
+  "real_scalar_fits": 0,
+  "tree_fits": 0,
+  "candidate_count": 1,
+  "after_release_scalar_fit_budget": 5,
+  "folds": [
+    {
+      "fold": "primary",
+      "rows": 17568,
+      "schema": [
+        "ts",
+        "grp",
+        "y",
+        "smp",
+        "k",
+        "p_reference",
+        "night",
+        "static_capacity"
+      ],
+      "apply_schema": [
+        "ts",
+        "grp",
+        "p_reference",
+        "static_capacity"
+      ],
+      "columns_exact_reference": true,
+      "W_pct": 11.959229078372204
+    },
+    {
+      "fold": "recent",
+      "rows": 13104,
+      "schema": [
+        "ts",
+        "grp",
+        "y",
+        "smp",
+        "k",
+        "p_reference",
+        "night",
+        "static_capacity"
+      ],
+      "apply_schema": [
+        "ts",
+        "grp",
+        "p_reference",
+        "static_capacity"
+      ],
+      "columns_exact_reference": true,
+      "W_pct": 11.000952828788678
+    }
+  ],
+  "coefficient_schema": {
+    "fit_period": "primary start/end",
+    "target_source": "data/primary/rows.parquet",
+    "target_source_sha256": "sha256",
+    "fit_columns": [
+      "ts",
+      "p_reference",
+      "y",
+      "smp",
+      "k"
+    ],
+    "timezone": "Asia/Seoul",
+    "hour_bins": [
+      "[0,10)",
+      "[10,12)",
+      "[12,14)",
+      "[14,16)",
+      "[16,24)"
+    ],
+    "factors": {
+      "hours": "5 Factor records: raw_median,factor,support_rows,support_days,weight_mass,supported"
+    }
+  },
+  "criteria": [
+    {
+      "scenario": "One fixed hour recipe and release barrier",
+      "invocation": "python submission/score_push_renew/hour_run.py --prepare",
+      "observable": "PASS; no real scalar or tree fits; coefficients/results/models absent",
+      "artifacts": [
+        "protocol.json",
+        "evidence/prefit_checks.json",
+        "evidence/prepare_terminal.json"
+      ]
+    },
+    {
+      "scenario": "Production-function synthetic bins, timestamp validation, support, weighted median, new-stage-only shrink, labels ignored",
+      "invocation": "hour_run.py --prepare -> hour_checks.self_check",
+      "observable": "PASS all synthetic fixtures; original low-weight-majority case preserved and corrected high-weight-majority case passes",
+      "artifacts": [
+        "evidence/selfchecks.json",
+        "source_amendment.json",
+        "evidence/attempt01_localization.json"
+      ]
+    },
+    {
+      "scenario": "Exact current calibrated full rows, label-free projections, original W scores",
+      "invocation": "hour_prepare.prepare plus pandas exact equality and metrics audit",
+      "observable": "PASS both folds; exact reference values/order; night0",
+      "artifacts": [
+        "evidence/read_receipts.json",
+        "prepared_manifest.json",
+        "evidence/prepare_terminal.json"
+      ]
+    },
+    {
+      "scenario": "Immutable sources/inputs/prior artifacts and source check",
+      "invocation": "SHA256 every protected/prepared/source artifact; check-no-excuse-rules.py hour_*.py",
+      "observable": "PASS 2416 protected files; source checker5files",
+      "artifacts": [
+        "evidence/programming_check_attempt02.log",
+        "evidence/prepare_terminal.json"
+      ]
+    },
+    {
+      "scenario": "Native lifecycle/resource/cleanup",
+      "invocation": "retained Process.Handle before WaitForExit; native CIM PID+CreationDate; containment/no-reparse Remove-Item owned tmp",
+      "observable": "attempt01exit1 preserved, attempt02exit0; both exact identities absent; CPU16/BLAS16/Normal/Arrow4; tmp absent",
+      "artifacts": [
+        "evidence/prepare_attempt01_exit.json",
+        "evidence/prepare_attempt02_exit.json",
+        "evidence/prepare_cleanup.json",
+        "evidence/prepare_terminal.json"
+      ]
+    }
+  ],
+  "historical_exposure": "All periods historically exposed; primary fitted improvement partly in-sample. No independent holdout claim.",
+  "failed_attempt_provenance": "attempt01 fixture expected wrong weighted median. Original sources/protocol/log/exit1 preserved. Root-approved amendment retains original case with correct low median and adds explicitly dominant high-weight case. No production math changes.",
+  "manifest": "readiness_manifest.json"
+}

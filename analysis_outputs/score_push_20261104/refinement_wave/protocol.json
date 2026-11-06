@@ -1,0 +1,45 @@
+{
+  "prior_scores": {
+    "primary": 12.32194072929294,
+    "recent": 11.317671544395346
+  },
+  "initial_no_fit_members": [
+    "p_reference",
+    "norm",
+    "mlp"
+  ],
+  "five_member_alternative_adds": [
+    "norm_mlp",
+    "kernel"
+  ],
+  "weights": "Nonnegative sum1; sparse HiGHS LP fitted on primary only; threads2",
+  "extra_mlp_seeds": [
+    3,
+    4
+  ],
+  "adopt_mlp5_only_if": "Both folds strictly improve over same three-way blend with MLP3",
+  "complexity_variants": [
+    [
+      "leaves15_trees400",
+      15,
+      400
+    ],
+    [
+      "leaves63_trees400",
+      63,
+      400
+    ],
+    [
+      "leaves31_trees800",
+      31,
+      800
+    ]
+  ],
+  "complexity_screen_seeds": [
+    0
+  ],
+  "complexity_followup": "At most one screen beating default normalized3seed+selectedMLP on BOTH folds receives seeds1,2; retain only if ensemble also beats both",
+  "final_ranking": "Eligible complete recipes beating best prior on both folds, equal mean relative loss; single-seed screens excluded",
+  "confirmation_closed": true,
+  "test_closed": true
+}

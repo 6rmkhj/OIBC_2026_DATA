@@ -1,0 +1,196 @@
+{
+  "state": "TERMINAL_ELIGIBLE",
+  "utc": "2026-11-05T05:28:55.710606+00:00",
+  "passed": true,
+  "real_scalar_fits": 4,
+  "tree_fits": 0,
+  "candidate_count": 1,
+  "factors": [
+    {
+      "raw_median": 0.9884657905892551,
+      "factor": 0.9884657905892551,
+      "support_rows": 2367,
+      "support_days": 170,
+      "weight_mass": 2706697382.901561,
+      "supported": true
+    },
+    {
+      "raw_median": 0.9970979662648182,
+      "factor": 0.9970979662648182,
+      "support_rows": 1873,
+      "support_days": 202,
+      "weight_mass": 1869348604.278419,
+      "supported": true
+    },
+    {
+      "raw_median": 1.0324384227322725,
+      "factor": 1.0324384227322725,
+      "support_rows": 1864,
+      "support_days": 205,
+      "weight_mass": 1492830837.4806366,
+      "supported": true
+    },
+    {
+      "raw_median": 1.0344924424675241,
+      "factor": 1.0344924424675241,
+      "support_rows": 3532,
+      "support_days": 201,
+      "weight_mass": 2143429357.8234148,
+      "supported": true
+    }
+  ],
+  "coefficients_sha256": "b4ddc35d6c4c1f712c5dfd6f52e64e3fce2c07437247756d2dc8a56645751cee",
+  "results": {
+    "records": [
+      {
+        "arm": "cloud_bias",
+        "scores": {
+          "primary": {
+            "p": {
+              "W": 966809845.4447374,
+              "W_pct": 11.792837177705382,
+              "revenue": 3546697701.5127397,
+              "S": 3450016716.968266,
+              "rows": 17568
+            },
+            "p_reference": {
+              "W": 976625966.0430048,
+              "W_pct": 11.912571076235176,
+              "revenue": 3546697701.5127397,
+              "S": 3449035104.908439,
+              "rows": 17568
+            }
+          },
+          "recent": {
+            "p": {
+              "W": 1351114547.400751,
+              "W_pct": 10.955416218320197,
+              "revenue": 5289489854.18509,
+              "S": 5154378399.445015,
+              "rows": 13104
+            },
+            "p_reference": {
+              "W": 1356432319.1075268,
+              "W_pct": 10.998534992012488,
+              "revenue": 5289489854.18509,
+              "S": 5153846622.274338,
+              "rows": 13104
+            }
+          }
+        },
+        "eligible": true,
+        "fixed_cloud_shrink": 0.5,
+        "alpha_optimization": false
+      }
+    ],
+    "selected": {
+      "arm": "cloud_bias",
+      "scores": {
+        "primary": {
+          "p": {
+            "W": 966809845.4447374,
+            "W_pct": 11.792837177705382,
+            "revenue": 3546697701.5127397,
+            "S": 3450016716.968266,
+            "rows": 17568
+          },
+          "p_reference": {
+            "W": 976625966.0430048,
+            "W_pct": 11.912571076235176,
+            "revenue": 3546697701.5127397,
+            "S": 3449035104.908439,
+            "rows": 17568
+          }
+        },
+        "recent": {
+          "p": {
+            "W": 1351114547.400751,
+            "W_pct": 10.955416218320197,
+            "revenue": 5289489854.18509,
+            "S": 5154378399.445015,
+            "rows": 13104
+          },
+          "p_reference": {
+            "W": 1356432319.1075268,
+            "W_pct": 10.998534992012488,
+            "revenue": 5289489854.18509,
+            "S": 5153846622.274338,
+            "rows": 13104
+          }
+        }
+      },
+      "eligible": true,
+      "fixed_cloud_shrink": 0.5,
+      "alpha_optimization": false
+    },
+    "reference_retained": false,
+    "candidate_count": 1,
+    "real_scalar_fit_count": 4,
+    "tree_fits": 0,
+    "loaded_existing_coefficients": false,
+    "confirmation_loaded": false,
+    "test_loaded": false,
+    "exported": false,
+    "primary_fit_partly_in_sample": true,
+    "all_history_exposed": true
+  },
+  "criteria": [
+    {
+      "scenario": "One preregistered four-scalar cloud candidate",
+      "invocation": "python submission/score_push_renew/sky_run.py",
+      "observable": "4freshPRIMARYscalarfits,0trees;onecandidate;strictbothfoldimprovement",
+      "artifacts": [
+        "protocol.json",
+        "coefficients.json",
+        "results.json",
+        "controller_receipt.json",
+        "run_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "Synthetic boundaries/missing/support/weightedmedian/shrink/labels/cap/night",
+      "invocation": "sky_run.py -> sky_math.self_check",
+      "observable": "PASS14fixture groups; all finite values retained; nonfiniteidentity; new stage once",
+      "artifacts": [
+        "evidence/selfchecks.json"
+      ]
+    },
+    {
+      "scenario": "Raw projections/reference/night/staticcap and full arithmetic replay",
+      "invocation": "python analysis_outputs/renew_20261105/sky_wave/evidence/verify_terminal.py",
+      "observable": "PASS rawprojectionvalues,4weightedmedians/support,30672predictions/metrics/decision;55primary and2recent finite>100 rows retainedbin3",
+      "artifacts": [
+        "prepared_manifest.json",
+        "evidence/read_receipts.json",
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "Preserve original sources/inputs/candidates/best_development",
+      "invocation": "verify_terminal.py all SHA256 checks; check-no-excuse-rules.py sky_*.py verify_terminal.py",
+      "observable": "PASS2508protectedfiles;sourcechecker4files",
+      "artifacts": [
+        "preservation.json",
+        "evidence/terminal_audit.json",
+        "evidence/programming_check_terminal.log"
+      ]
+    },
+    {
+      "scenario": "Native lifecycle/resources and safe owned temporary cleanup",
+      "invocation": "retained Process.Handle before WaitForExit; CIM PID+CreationDate; contained no-reparse native Remove-Item tmp",
+      "observable": "actualOSexit0;CPU16/BLAS16/Normal/Arrow4;exactPID11160creation134383299701962960absent;tmpabsent",
+      "artifacts": [
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json",
+        "evidence/terminal_cleanup.json"
+      ]
+    }
+  ],
+  "manifest": "terminal_manifest.json",
+  "manifest_format": "Plain relativepath->SHA256; excludes self,controller.lock,root independent_* files; created after terminal logs/notepad",
+  "confirmation_loaded": false,
+  "test_loaded": false,
+  "exported": false,
+  "historical_exposure": "All history exposed; PRIMARY fit improvement partly in-sample; no independent holdout claim."
+}

@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "utc": "2026-11-05T05:01:01.943094+00:00",
+  "scenario": "Exact current calibrated reference rows and label-free inputs, immutable inputs/sources/prior artifacts, preparation resources and prefit barrier",
+  "invocation": "PYTHONDONTWRITEBYTECODE=1 python stdin audit: pandas exact equality, all manifest hashes, exit/resource/absence assertions",
+  "binary_observable": "all assertions passed",
+  "prepared_files": 4,
+  "protected_files": 2416,
+  "folds": [
+    {
+      "fold": "primary",
+      "rows": 17568,
+      "schema": [
+        "ts",
+        "grp",
+        "y",
+        "smp",
+        "k",
+        "p_reference",
+        "night",
+        "static_capacity"
+      ],
+      "apply_schema": [
+        "ts",
+        "grp",
+        "p_reference",
+        "static_capacity"
+      ],
+      "columns_exact_reference": true,
+      "W_pct": 11.959229078372204
+    },
+    {
+      "fold": "recent",
+      "rows": 13104,
+      "schema": [
+        "ts",
+        "grp",
+        "y",
+        "smp",
+        "k",
+        "p_reference",
+        "night",
+        "static_capacity"
+      ],
+      "apply_schema": [
+        "ts",
+        "grp",
+        "p_reference",
+        "static_capacity"
+      ],
+      "columns_exact_reference": true,
+      "W_pct": 11.000952828788678
+    }
+  ],
+  "attempts": [
+    {
+      "exit_code": 1,
+      "has_exited": true,
+      "pid": 3472,
+      "exact_worker_absent": true,
+      "creation_filetime": 134383283152327571,
+      "native_handle_retained_before_wait": true,
+      "utc": "2026-11-05T04:58:37.9897606Z"
+    },
+    {
+      "exit_code": 0,
+      "has_exited": true,
+      "pid": 7176,
+      "exact_worker_absent": true,
+      "creation_filetime": 134383284235754762,
+      "native_handle_retained_before_wait": true,
+      "utc": "2026-11-05T05:00:24.9799375Z"
+    }
+  ],
+  "real_scalar_fits": 0,
+  "tree_fits": 0,
+  "real_coefficient_results_models_absent": true,
+  "resource": {
+    "pid": 7176,
+    "creation_filetime": 134383284235754762,
+    "priority_class": 32,
+    "parallel_fits": 1,
+    "model_threads": 16,
+    "peak_working_set_bytes": 121430016,
+    "working_set_bytes": 121430016,
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 16,
+        "prefix": "libscipy_openblas",
+        "filepath": "C:\\Users\\slowg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
+        "version": "0.3.34.106.0",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ],
+    "pyarrow_cpu": 4,
+    "pyarrow_io": 4,
+    "utc": "2026-11-05T05:00:24.717609+00:00"
+  }
+}

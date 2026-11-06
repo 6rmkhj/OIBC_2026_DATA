@@ -1,0 +1,120 @@
+{
+  "state": "TERMINAL_VALIDATED_EXPORT",
+  "utc": "2026-11-05T05:34:08.781162+00:00",
+  "passed": true,
+  "candidate": "submission\\renew_sky_candidate_20261105",
+  "submission_zip": "submission\\renew_sky_candidate_20261105\\submission_files.zip",
+  "candidate_sha256": {
+    "composition.csv": "68216d1f6b8b6f9c026703e3bfaf7b0470cc8e018580826c866ee0f7357cc141",
+    "forecast.csv": "6a11c5a94753b7ff5e614ac1c1084bcfee0d093e5090f77a4cd01dd7b96cc10b",
+    "manifest.json": "a86f7efce36c98ab537ed1bb0d669a88cc0a52487eac526b7f0c2218c9daeb1e",
+    "README.md": "79cdba43cdddf0fd2a0342332156bf702114993f92e9d7370e0d5737367cc349",
+    "submission_files.zip": "7ad65bcd3053358b62cfbc316626ea64f2bb4af7419e393707cc43562601d1d7"
+  },
+  "new_scalar_fits": 0,
+  "new_tree_fits": 0,
+  "validator_exit_code": 0,
+  "external_exit_code": 0,
+  "criteria": [
+    {
+      "scenario": "Frozen accepted cloud stage, zero fits, prediction-first diagnostics",
+      "invocation": "python submission/score_push_renew/sky_final_run.py",
+      "observable": "0scalar/tree fits;byte-identical accepted coefficients;3prediction tables frozen before label reads;no reselection",
+      "artifacts": [
+        "protocol.json",
+        "selected_cloud_coefficients.json",
+        "prediction_freeze.json",
+        "evidence/diagnostic_label_reads.json",
+        "diagnostic_metrics.json",
+        "controller_receipt.json"
+      ]
+    },
+    {
+      "scenario": "Exact hour reference and wb_cloud projection/coverage; full formula/diagnostic replay",
+      "invocation": "python analysis_outputs/renew_20261105/sky_final/evidence/verify_terminal.py",
+      "observable": "PASS26352rows;uniqueweatherkeys;unmatchediffallnight/p0;staticcap exact;new cloud stage once;maxerror0",
+      "artifacts": [
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "CSV/ZIP submission and real validator selfchecks",
+      "invocation": "python submission/validate_artifacts.py submission/renew_sky_candidate_20261105 --self-check; verify_terminal.py",
+      "observable": "PASS253sites17520rows0above-cap;keys/3decimalroundingexact;compositionbyte-identical;ZIPonly2exactCSVmembers",
+      "artifacts": [
+        "export_validation.log",
+        "export_receipt.json",
+        "candidate_artifact_hashes.json",
+        "evidence/terminal_audit.json"
+      ]
+    },
+    {
+      "scenario": "Preserve original official-score/hour candidates,waves,oldbest and inputs",
+      "invocation": "verify_terminal.py every protected/source/input hash; source checker sky_final*.py verify_terminal.py",
+      "observable": "PASS2580protectedfiles;sourcechecker4files",
+      "artifacts": [
+        "preservation.json",
+        "evidence/terminal_audit.json",
+        "evidence/programming_check_terminal.log"
+      ]
+    },
+    {
+      "scenario": "Native lifecycle/resources and owned safe cleanup",
+      "invocation": "retained Process.Handle before WaitForExit; nativeCIM PID+CreationDate; absolute containment/no-reparse native tmp removal",
+      "observable": "actualOSexit0;CPU16/BLAS16/Normal/Arrow4;exactPID18396creation134383303156521898absent;tmpabsent",
+      "artifacts": [
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json",
+        "evidence/terminal_cleanup.json"
+      ]
+    }
+  ],
+  "diagnostics": {
+    "scores": {
+      "old_cutoff_march_may": {
+        "p_reference": {
+          "W": 481748175.0703911,
+          "W_pct": 9.73325719641798,
+          "revenue": 2208093632.2506676,
+          "S": 2159918814.7436285,
+          "rows": 4416
+        },
+        "p": {
+          "W": 482666180.6173264,
+          "W_pct": 9.751804613011211,
+          "revenue": 2208093632.2506676,
+          "S": 2159827014.188935,
+          "rows": 4416
+        }
+      },
+      "latest_cutoff_march_may": {
+        "p_reference": {
+          "W": 464176484.6324241,
+          "W_pct": 9.378238140282312,
+          "revenue": 2208093632.2506676,
+          "S": 2161675983.787425,
+          "rows": 4416
+        },
+        "p": {
+          "W": 465134587.79806435,
+          "W_pct": 9.39759569058443,
+          "revenue": 2208093632.2506676,
+          "S": 2161580173.470861,
+          "rows": 4416
+        }
+      }
+    },
+    "descriptive_only": true,
+    "no_reselection": true,
+    "all_history_exposed": true,
+    "new_fits": 0
+  },
+  "descriptive_outcome": "Old/latest March-May W both worsened versus hour candidate. Recorded honestly; no reselection per frozen protocol.",
+  "manifest": "terminal_manifest.json",
+  "manifest_format": "Plain path relative to sky_final->SHA256;includes candidate_artifact_hashes.json;excludes self,lock,rootindependent_*",
+  "original_official_score_user_reported": 6454220836,
+  "new_official_score_available": false,
+  "uploaded": false,
+  "historical_exposure": "All periods historically exposed; primary calibration partly in-sample; diagnostics descriptive only."
+}

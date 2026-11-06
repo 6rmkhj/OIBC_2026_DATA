@@ -1,0 +1,4 @@
+
+READY: one fixed KST hour stage; current calibrated reference exactly copied. Attempt01 synthetic expected median corrected under root-approved amendment, all evidence preserved; attempt02 native exit0, all fixtures PASS. Zero real scalar/tree fits. Owned tmp removed; exact workers absent. Await release with protocol/prepared/source_amendment hashes. Final preparation index: readiness.json; manifest created after this note and all process logs terminal.
+
+TERMINAL ELIGIBLE: exactly5 PRIMARY scalar fits,0trees. Actual OSexit0 with retained native handle; exact PID+creation absent; owned tmp removed. Full arithmetic audit PASS all5factors/all30672predictions;2416protectedfiles unchanged. W_pct primary11.912571076235176 vs11.959229078372204; recent10.998534992012488 vs11.000952828788678. Both improve, hour_bias selected. No extra fits/confirmation/test/export. Canonical terminal_index.json and plain terminal_manifest.json follow after this note and terminal logs.

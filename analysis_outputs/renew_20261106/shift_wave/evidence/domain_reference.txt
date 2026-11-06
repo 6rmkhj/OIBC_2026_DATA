@@ -1,0 +1,117 @@
+### Binary Case
+
+Source: https://github.com/scikit-learn/scikit-learn/blob/1.9.1/doc/modules/linear_model.rst
+
+For notational ease, we assume that the target :math:`y_i` takes values in the
+set :math:`\{0, 1\}` for data point :math:`i`.
+Once fitted, the :meth:`~sklearn.linear_model.LogisticRegression.predict_proba`
+method of :class:`~sklearn.linear_model.LogisticRegression` predicts
+the probability of the positive class :math:`P(y_i=1|X_i)` as
+
+.. math:: \hat{p}(X_i) = \operatorname{expit}(X_i w + w_0) = \frac{1}{1 + \exp(-X_i w - w_0)}.
+
+
+As an optimization problem, binary
+class logistic regression with regularization term :math:`r(w)` minimizes the
+following cost function:
+
+.. math::
+    :name: regularized-logistic-loss
+
+    \min_{w} \frac{1}{S}\sum_{i=1}^n s_i
+    \left(-y_i \log(\hat{p}(X_i)) - (1 - y_i) \log(1 - \hat{p}(X_i))\right)
+    + \frac{r(w)}{S C}\,,
+
+where :math:`{s_i}` corresponds to the weights assigned by the user to a
+specific training sample (the vector :math:`s` is formed by element-wise
+multiplication of the class weights and sample weights),
+and the sum :math:`S = \sum_{i=1}^n s_i`.
+
+We currently provide four choices for the regularization or penalty term :math:`r(w)`
+via the arguments `C` and `l1_ratio`:
+
++-------------------------------+-------------------------------------------------+
+| penalty                       | :math:`r(w)`                                    |
++===============================+=================================================+
+| none (`C=np.inf`)             | :math:`0`                                       |
++-------------------------------+-------------------------------------------------+
+| :math:`\ell_1` (`l1_ratio=1`) | :math:`\|w\|_1`                                 |
++-------------------------------+-------------------------------------------------+
+| :math:`\ell_2` (`l1_ratio=0`) | :math:`\frac{1}{2}\|w\|_2^2 = \frac{1}{2}w^T w` |
++-------------------------------+-------------------------------------------------+
+| ElasticNet (`0<l1_ratio<1`)   | :math:`\frac{1 - \rho}{2}w^T w + \rho \|w\|_1`  |
++-------------------------------+-------------------------------------------------+
+
+For ElasticNet, :math:`\rho` (which corresponds to the `l1_ratio` parameter)
+controls the strength of :math:`\ell_1` regularization vs. :math:`\ell_2`
+regularization. Elastic-Net is equivalent to :math:`\ell_1` when
+:math:`\rho = 1` and equivalent to :math:`\ell_2` when :math:`\rho=0`.
+
+Note that the scale of the class weights and the sample weights will influence
+the optimization problem. For instance, multiplying the sample weights by a
+constant :math:`b>0` is equivalent to multiplying the (inverse) regularization
+strength `C` by :math:`b`.
+
+--------------------------------
+
+### Version 1.4.0 > Changed models
+
+Source: https://github.com/scikit-learn/scikit-learn/blob/1.9.1/doc/whats_new/v1.4.rst
+
+The following estimators and functions, when fit with the same data and
+parameters, may produce different models from the previous version. This often
+occurs due to changes in the modelling logic (bug fixes or enhancements), or in
+random sampling procedures.
+
+- |Efficiency| :class:`linear_model.LogisticRegression` and
+  :class:`linear_model.LogisticRegressionCV` now have much better convergence for
+solvers `"lbfgs"` and `"newton-cg"`. Both solvers can now reach much higher precision
+  for the coefficients depending on the specified `tol`. Additionally, lbfgs can
+  make better use of `tol`, i.e., stop sooner or reach higher precision.
+  Note: The lbfgs is the default solver, so this change might affect many models.
+  This change also means that with this new version of scikit-learn, the resulting
+  coefficients `coef_` and `intercept_` of your models will change for these two
+  solvers (when fit on the same data again). The amount of change depends on the
+  specified `tol`, for small values you will get more precise results.
+  :pr:`26721` by :user:`Christian Lorentzen <lorentzenchr>`.
+
+--------------------------------
+
+### Tips on Practical Use
+
+Source: https://github.com/scikit-learn/scikit-learn/blob/1.9.1/doc/modules/svm.rst
+
+* **Setting C**: ``C`` is ``1`` by default and it's a reasonable default
+  choice.  If you have a lot of noisy observations you should decrease it:
+  decreasing C corresponds to more regularization.
+
+  :class:`LinearSVC` and :class:`LinearSVR` are less sensitive to ``C`` when
+  it becomes large, and prediction results stop improving after a certain
+  threshold. Meanwhile, larger ``C`` values will take more time to train,
+  sometimes up to 10 times longer, as shown in [#3]_.
+
+--------------------------------
+
+### Implement Classifier predict Using decision_function and classes_
+
+Source: https://github.com/scikit-learn/scikit-learn/blob/1.9.1/doc/developers/develop.rst
+
+Return an array containing class labels from classes_ corresponding to the maximum decision function value. Use this implementation pattern in classifiers that define decision_function.
+
+```python
+def predict(self, X):
+    D = self.decision_function(X)
+    return self.classes_[np.argmax(D, axis=1)]
+```
+
+--------------------------------
+
+### :mod:`sklearn.linear_model`
+
+Source: https://github.com/scikit-learn/scikit-learn/blob/1.9.1/doc/whats_new/v1.7.rst
+
+- |Fix| :class:`linear_model.LogisticRegression` and
+  :class:`linear_model.LogisticRegressionCV` now properly pass sample weights to
+  :func:`utils.class_weight.compute_class_weight` when fit with
+  `class_weight="balanced"`.
+  By :user:`Shruti Nath <snath-xoc>` and :user:`Olivier Grisel <ogrisel>` :pr:`30057`

@@ -1,0 +1,70 @@
+{
+  "invocation": "python submission/score_push/final_execute.py",
+  "status": "PASS",
+  "controller_exit_code": 0,
+  "scenarios": [
+    {
+      "scenario": "target-free feature invariants and train-only preprocessing",
+      "observable": "PASS fixtures and deliberate weighting mutant rejected",
+      "artifact": "preflight.log"
+    },
+    {
+      "scenario": "frozen recent component and final reproduction before confirmation scoring",
+      "observable": "all 5 passed atol1e-6 rtol1e-10, 13104 rows each",
+      "artifact": "development_replay.json"
+    },
+    {
+      "scenario": "untuned confirmation and full outer assessment",
+      "observable": "17520 outer rows,4416 confirmation rows; scores and paired day bootstrap recorded",
+      "artifact": "outer_metrics.json"
+    },
+    {
+      "scenario": "12 sequential full fits and serialized replay",
+      "observable": "all4 members replay passed; 12 runtime/config/model directories",
+      "artifact": "full_model_replay.json"
+    },
+    {
+      "scenario": "competition export validation",
+      "invocation": "python submission/validate_artifacts.py submission/score_push_candidate --self-check",
+      "observable": "PASS 253 sites,17520 forecasts,8760/group,9 malformed inputs rejected",
+      "artifact": "export_validation.log"
+    },
+    {
+      "scenario": "preserve every pinned prior artifact",
+      "observable": "unchanged true",
+      "artifact": "preservation.json"
+    },
+    {
+      "scenario": "frozen sources and exact ZIP/CSV packaging",
+      "observable": "all source hashes and manifest hashes match, ZIP members byte-identical",
+      "artifact": "postrun_integrity.json"
+    },
+    {
+      "scenario": "resource and terminal completion",
+      "observable": "exit0,1 fit at a time,threads<=2,priority16384,peak1708789760 bytes",
+      "artifact": "runtime.json"
+    }
+  ],
+  "artifact_sha256": {
+    "preflight.log": "ffae431c55a47de5f204bea25b21dd4e3b2bd7324a5aa9fa54f516e8ad92672f",
+    "freeze.json": "bfbea4279bfd56ce3e0b00543cd2ae17574c3cfde4ad5797e14085f64f457e04",
+    "development_replay.json": "73d412bca341dc4577f1461456a4c1454d7be6e81841c8c01d2100adc2daca24",
+    "outer_predictions.parquet": "1f60c59297bbb6da9d10d225b73fcfdbe56b57fd426cb77a5f2edfdc454d963c",
+    "outer_metrics.json": "80920943d55e5961d99e2d82c01dc83cd40e9120dfe7674c368773b8ef20f8d5",
+    "bootstrap.json": "881818cfc2e82bafeaeea0919dfdb9fbb81334f9f53de4441f5857c55e435bf2",
+    "full_model_replay.json": "f314ff166aba9f8107d079ffe085f30acc349771df60c3d93339216073092761",
+    "test_predictions.parquet": "d2f07bd79ee3a68970552aae1d1754fbe3182811a37a62236da83e80acbc784a",
+    "export_validation.log": "70a627cdb77330d345a7250aca54d1f3a2ed019048205a9a51c24edcf35f2ace",
+    "preservation.json": "257f56cb119f9aa0e1d9bd1e988cfe51ffd61ec4060cc63247c7550dd9d3a296",
+    "runtime.json": "2a875135797a92d9c025fcac05ba48a6b28e61b7ddb60ec79cb9644ea5ec86b1",
+    "controller_receipt.json": "615b528c5c005c3fa1f565a5f58bb0f9fb327229716a5ea9a8143c5524daf9b8",
+    "run.log": "7512b413d711f1683f069005970a3bd9a4100cb781815797f6a99471f1eba778"
+  },
+  "limitations": [
+    "Confirmation candidate9.8485065212 worse than incumbent9.5761192231; no retuning",
+    "Jan-May candidate9.7461297970 worse than incumbent9.6633074349",
+    "Historical development exposure; no pristine holdout or leaderboard claim",
+    "Git Bash caller transport timeout300s; synchronous Python controller finished independently and recorded exit0"
+  ],
+  "temporary_paths_created": []
+}

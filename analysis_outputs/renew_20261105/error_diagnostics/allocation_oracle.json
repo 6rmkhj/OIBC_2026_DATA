@@ -1,0 +1,26 @@
+{
+  "status": "DESCRIPTIVE_ONLY",
+  "source": "recency_wave/comparisons/decay180/ensemble/{primary,recent}/predictions.parquet",
+  "input_hashes_manifest": "manifest.json",
+  "formula": "e_g=p_g-y_g; current W=sum(w*(abs(e1)+abs(e2))); oracle allocation W=sum(w*abs(e1+e2)), with p1+p2 unchanged. Group timestamps, SMP and k match exactly. Pearson correlation uses hours with positive total prediction.",
+  "records": [
+    {
+      "fold": "primary",
+      "daylight_residual_correlation": 0.9425338927790258,
+      "current_W": 986517612.5780271,
+      "W_if_oracle_split_with_unchanged_total": 962357404.6448044,
+      "maximum_allocation_only_loss_reduction_pct": 2.4490396953061855,
+      "opposite_sign_daylight_fraction": 0.13355454168394856
+    },
+    {
+      "fold": "recent",
+      "daylight_residual_correlation": 0.9485089654333002,
+      "current_W": 1363917146.6832924,
+      "W_if_oracle_split_with_unchanged_total": 1341686424.3553183,
+      "maximum_allocation_only_loss_reduction_pct": 1.6299173583992015,
+      "opposite_sign_daylight_fraction": 0.12140210886292391
+    }
+  ],
+  "models_fitted": 0,
+  "limitations": "Oracle uses known development targets and is not an attainable prediction result. It bounds reallocation-only changes that keep each current predicted total unchanged, not new forecasts or changes to the fixed composition. No official score inference."
+}

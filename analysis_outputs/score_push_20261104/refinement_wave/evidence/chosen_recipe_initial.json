@@ -1,0 +1,51 @@
+{
+  "id": "five_default_mlp3",
+  "members": [
+    "p_reference",
+    "norm",
+    "mlp",
+    "norm_mlp",
+    "kernel"
+  ],
+  "weights_primary_only": [
+    0.38584522307191077,
+    0.3942819898877126,
+    0.20432530056005685,
+    0.0,
+    0.015547486480319669
+  ],
+  "scores": {
+    "primary": 12.15743052182801,
+    "recent": 11.215642859121353
+  },
+  "both_folds_beat_prior": true,
+  "mean_relative_loss": 0.9888170064067403,
+  "member_artifacts_relative_to_score_push_output": {
+    "p_reference": {
+      "path_pattern": "learner_wave/{fold}/reference.parquet",
+      "column": "p_reference"
+    },
+    "norm": {
+      "path_pattern": "learner_wave/{fold}/lgb_normalized/screen/pure/predictions.parquet",
+      "column": "p_new"
+    },
+    "mlp": {
+      "path_pattern": "learner_wave/{fold}/mlp_cf/ensemble/pure/predictions.parquet",
+      "column": "p_new"
+    },
+    "norm_mlp": {
+      "path_pattern": "learner_wave/{fold}/mlp_normalized/screen/pure/predictions.parquet",
+      "column": "p_new"
+    },
+    "kernel": {
+      "path_pattern": "learner_wave/{fold}/kernel_l1/screen/pure/predictions.parquet",
+      "column": "p_new"
+    }
+  },
+  "reference_definition": {
+    "rich_direct_weight": 0.7642694482340047,
+    "bottom_up_weight": 0.23573055176599533
+  },
+  "weights_fit_on": "primary only",
+  "confirmation_loaded": false
+}

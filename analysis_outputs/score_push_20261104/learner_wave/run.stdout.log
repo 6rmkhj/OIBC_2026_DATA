@@ -1,0 +1,28 @@
+PASS train-only imputation/scaling, unseen/all-column NaN handling, group normalized CF-L1/CF-MSE equivalence
+FIT lgb_normalized 0 3.5469999999986612 warnings []
+FIT lgb_normalized 1 3.6719999999986612 warnings []
+FIT lgb_normalized 2 8.077999999994063 warnings []
+FIT lgb_normalized 0 10.218999999997322 warnings []
+FIT lgb_normalized 1 9.078999999997905 warnings []
+FIT lgb_normalized 2 8.764999999999418 warnings []
+BLEND {'variant': 'lgb_normalized', 'stage': 'screen', 'blend': 'old_bottom_up', 'base_column': 'p_bu_old', 'alpha_primary_only': 0.8111869786863506, 'scores': {'primary': 12.525411828214459, 'recent': 11.562567611701107}, 'mean_relative_loss': 0.9973172742918213, 'both_folds_improve': False, 'model_fits_for_calibration': 0}
+BLEND {'variant': 'lgb_normalized', 'stage': 'screen', 'blend': 'richer_reference', 'base_column': 'p_reference', 'alpha_primary_only': 0.5241801091278886, 'scores': {'primary': 12.357346863753458, 'recent': 11.378859805920394}, 'mean_relative_loss': 0.9826973966530278, 'both_folds_improve': True, 'model_fits_for_calibration': 0}
+FIT mlp_cf 0 22.610000000000582 warnings []
+FIT mlp_cf 0 36.609000000004016 warnings []
+BLEND {'variant': 'mlp_cf', 'stage': 'screen', 'blend': 'old_bottom_up', 'base_column': 'p_bu_old', 'alpha_primary_only': 0.32147025527785417, 'scores': {'primary': 13.025560321705795, 'recent': 12.274438093128268}, 'mean_relative_loss': 1.0479837832996386, 'both_folds_improve': False, 'model_fits_for_calibration': 0}
+BLEND {'variant': 'mlp_cf', 'stage': 'screen', 'blend': 'richer_reference', 'base_column': 'p_reference', 'alpha_primary_only': 0.20541863021636464, 'scores': {'primary': 12.380962049169772, 'recent': 11.478763812388694}, 'mean_relative_loss': 0.9879629429879114, 'both_folds_improve': True, 'model_fits_for_calibration': 0}
+FIT mlp_normalized 0 24.17199999999866 warnings []
+FIT mlp_normalized 0 22.20300000000134 warnings []
+BLEND {'variant': 'mlp_normalized', 'stage': 'screen', 'blend': 'old_bottom_up', 'base_column': 'p_bu_old', 'alpha_primary_only': 0.3009563469502356, 'scores': {'primary': 13.198281003457593, 'recent': 12.215356227796809}, 'mean_relative_loss': 1.0522649970977287, 'both_folds_improve': False, 'model_fits_for_calibration': 0}
+BLEND {'variant': 'mlp_normalized', 'stage': 'screen', 'blend': 'richer_reference', 'base_column': 'p_reference', 'alpha_primary_only': 0.17664950166758472, 'scores': {'primary': 12.483238555941185, 'recent': 11.428834008233562}, 'mean_relative_loss': 0.989850332236435, 'both_folds_improve': True, 'model_fits_for_calibration': 0}
+FIT kernel_l1 0 4.031999999999243 warnings []
+FIT kernel_l1 0 5.5310000000026776 warnings []
+BLEND {'variant': 'kernel_l1', 'stage': 'screen', 'blend': 'old_bottom_up', 'base_column': 'p_bu_old', 'alpha_primary_only': 0.28288488767051345, 'scores': {'primary': 13.240266776697851, 'recent': 12.361865147429338}, 'mean_relative_loss': 1.0602782248068205, 'both_folds_improve': False, 'model_fits_for_calibration': 0}
+BLEND {'variant': 'kernel_l1', 'stage': 'screen', 'blend': 'richer_reference', 'base_column': 'p_reference', 'alpha_primary_only': 0.1225716703781049, 'scores': {'primary': 12.542757263873186, 'recent': 11.484402513381896}, 'mean_relative_loss': 0.9946165130462883, 'both_folds_improve': True, 'model_fits_for_calibration': 0}
+FIT mlp_cf 1 24.07800000000134 warnings []
+FIT mlp_cf 2 25.281999999999243 warnings []
+FIT mlp_cf 1 23.45300000000134 warnings []
+FIT mlp_cf 2 34.86000000000058 warnings []
+BLEND {'variant': 'mlp_cf', 'stage': 'ensemble', 'blend': 'old_bottom_up', 'base_column': 'p_bu_old', 'alpha_primary_only': 0.3955104123769433, 'scores': {'primary': 12.924519250329984, 'recent': 11.935299755800388}, 'mean_relative_loss': 1.029282181082205, 'both_folds_improve': False, 'model_fits_for_calibration': 0}
+BLEND {'variant': 'mlp_cf', 'stage': 'ensemble', 'blend': 'richer_reference', 'base_column': 'p_reference', 'alpha_primary_only': 0.24368782387197704, 'scores': {'primary': 12.32194072929294, 'recent': 11.317671544395346}, 'mean_relative_loss': 0.9786428106281109, 'both_folds_improve': True, 'model_fits_for_calibration': 0}
+LEARNER FAMILY COMPLETE {'variant': 'mlp_cf', 'stage': 'ensemble', 'blend': 'richer_reference', 'base_column': 'p_reference', 'alpha_primary_only': 0.24368782387197704, 'scores': {'primary': 12.32194072929294, 'recent': 11.317671544395346}, 'mean_relative_loss': 0.9786428106281109, 'both_folds_improve': True, 'model_fits_for_calibration': 0}

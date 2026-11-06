@@ -1,0 +1,2 @@
+
+TERMINAL VALIDATED EXPORT: new renew_hour_candidate_20261105,0newfits. Real validator+selfchecks PASS253sites17520rows,0above-capacity. Full26352row formula/diagnostic replay and CSV/ZIP audit PASS. Original candidate/hour wave/all prior protected files unchanged. NativeOSexit0, exactworkerabsent, tmp removed. Audit attempt01 clock-tick assertion preserved; corrected audit passes without export rerun. Canonical terminal_index.json and terminal_manifest.json written after all logs and this note. No official new score or upload.

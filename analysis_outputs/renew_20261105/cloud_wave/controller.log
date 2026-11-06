@@ -1,0 +1,57 @@
+FIT TERMINAL aux wa 2021-06-01
+FIT TERMINAL aux wa 2021-12-01
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_run.py", line 104, in <module>
+    main()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_run.py", line 85, in main
+    launch('aux',[provider,cutoff],OUT/'auxiliary'/provider/cutoff)
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_run.py", line 51, in launch
+    assert code==0,f'See {directory}/fit.log'
+           ^^^^^^^
+AssertionError: See C:\Users\slowg\Downloads\OIBC_2026_DATA\analysis_outputs\renew_20261105\cloud_wave\auxiliary\wa\2022-06-01/fit.log
+FIT TERMINAL aux wa 2022-06-01
+FIT TERMINAL aux wa 2022-12-01
+FIT TERMINAL aux wa 2023-06-01
+FIT TERMINAL aux wa 2023-12-01
+FIT TERMINAL aux wa 2024-06-01
+FIT TERMINAL aux wb 2021-06-01
+FIT TERMINAL aux wb 2021-12-01
+FIT TERMINAL aux wb 2022-06-01
+FIT TERMINAL aux wb 2022-12-01
+FIT TERMINAL aux wb 2023-06-01
+FIT TERMINAL aux wb 2023-12-01
+FIT TERMINAL aux wb 2024-06-01
+Traceback (most recent call last):
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_run.py", line 104, in <module>
+    main()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_run.py", line 86, in main
+    aggregate()
+  File "C:\Users\slowg\Downloads\OIBC_2026_DATA\submission\score_push_renew\cloud_aggregate.py", line 66, in aggregate
+    pd.testing.assert_series_equal(pd.to_datetime(used.model_cutoff).reset_index(drop=True).astype('datetime64[ns, Asia/Seoul]'),expected_cutoffs(used.ts,cutoff,kind=='evaluation'),check_names=False)
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\util\_decorators.py", line 219, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\_testing\asserters.py", line 1226, in assert_series_equal
+    assert_attr_equal("dtype", left, right, obj=f"Attributes of {obj}")
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\_testing\asserters.py", line 589, in assert_attr_equal
+    raise_assert_detail(obj, msg, left_attr, right_attr)
+  File "C:\Users\slowg\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\_testing\asserters.py", line 782, in raise_assert_detail
+    raise AssertionError(msg)
+AssertionError: Attributes of Series are different
+
+Attribute "dtype" are different
+[left]:  datetime64[ns, Asia/Seoul]
+[right]: datetime64[us, UTC+09:00]
+FIT TERMINAL generation means primary 0
+FIT TERMINAL generation means primary 1
+FIT TERMINAL generation means primary 2
+FIT TERMINAL generation means recent 0
+FIT TERMINAL generation means recent 1
+FIT TERMINAL generation means recent 2
+FIT TERMINAL generation profiles primary 0
+FIT TERMINAL generation profiles primary 1
+FIT TERMINAL generation profiles primary 2
+FIT TERMINAL generation profiles recent 0
+FIT TERMINAL generation profiles recent 1
+FIT TERMINAL generation profiles recent 2
+CLOUD WAVE TERMINAL TEMPORAL REFERENCE RETAINED

@@ -1,0 +1,162 @@
+{
+  "state": "TERMINAL_REFERENCE_RETAINED",
+  "utc": "2026-11-05T04:46:39.477010+00:00",
+  "scientific_checks_passed": true,
+  "external_controller_os_exit_code": null,
+  "lifecycle_limitation": "Original PowerShell launcher did not retain native process handle, so OS exit code was null. No rerun, no fabricated recovery. Internal controller receipt exit0, all6 actual subprocess exits0, exact PID+creation absence verified.",
+  "results": {
+    "records": [
+      {
+        "arm": "site_yield",
+        "seeds": [
+          0,
+          1,
+          2
+        ],
+        "alpha_primary_only": 0.10055124923882246,
+        "scores": {
+          "primary": {
+            "p": {
+              "W": 979414918.9753308,
+              "W_pct": 11.94658983181795,
+              "revenue": 3546697701.5127397,
+              "S": 3448756209.6152067,
+              "rows": 17568
+            },
+            "p_reference": {
+              "W": 980451119.833828,
+              "W_pct": 11.959229078372204,
+              "revenue": 3546697701.5127397,
+              "S": 3448652589.529357,
+              "rows": 17568
+            },
+            "p_new": {
+              "W": 1052282233.7997818,
+              "W_pct": 12.835402025187848,
+              "revenue": 3546697701.5127397,
+              "S": 3441469478.1327615,
+              "rows": 17568
+            }
+          },
+          "recent": {
+            "p": {
+              "W": 1361317119.174392,
+              "W_pct": 11.03814304595487,
+              "revenue": 5289489854.18509,
+              "S": 5153358142.267651,
+              "rows": 13104
+            },
+            "p_reference": {
+              "W": 1356730507.1796594,
+              "W_pct": 11.000952828788678,
+              "revenue": 5289489854.18509,
+              "S": 5153816803.467124,
+              "rows": 13104
+            },
+            "p_new": {
+              "W": 1532077301.6796389,
+              "W_pct": 12.422739841585715,
+              "revenue": 5289489854.18509,
+              "S": 5136282124.017126,
+              "rows": 13104
+            }
+          }
+        },
+        "both_folds_improve": false,
+        "eligible": false,
+        "mean_relative_W": 1.0011618873431143
+      }
+    ],
+    "selected": null,
+    "reference_retained": true,
+    "confirmation_loaded": false,
+    "test_loaded": false,
+    "real_model_fit_count": 6,
+    "real_site_gain_fit_count": 2
+  },
+  "site_support": [
+    {
+      "fold": "primary",
+      "global_q90": 1.2277153627308452,
+      "fallback_counts": {
+        "no_clear_rows": 147,
+        "supported": 100,
+        "insufficient_rows": 6
+      }
+    },
+    {
+      "fold": "recent",
+      "global_q90": 1.2222999260856884,
+      "fallback_counts": {
+        "supported": 174,
+        "no_clear_rows": 48,
+        "insufficient_rows": 31
+      }
+    }
+  ],
+  "criteria": [
+    {
+      "scenario": "Released training budgets",
+      "invocation": "python submission/score_push_renew/yield_run.py --run",
+      "observable": "2 coefficient fits; 6 fresh model fits; reference retained",
+      "artifacts": [
+        "release.json",
+        "coefficient_fit_receipt.json",
+        "results.json",
+        "controller_receipt.json",
+        "run_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "All coefficient support/fallback and train-only cutoff; full transforms",
+      "invocation": "python analysis_outputs/renew_20261105/yield_wave/evidence/verify_terminal.py",
+      "observable": "PASS all253 sites per fold; every transform row exact; capacity maximum errors0",
+      "artifacts": [
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt02.log",
+        "transform_manifest.json"
+      ]
+    },
+    {
+      "scenario": "Six saved models full replay and native params/resources",
+      "invocation": "python analysis_outputs/renew_20261105/yield_wave/evidence/verify_terminal.py",
+      "observable": "PASS six full replays maximum error0, CPU16/BLAS16/PyArrow4/Normal,400 trees each",
+      "artifacts": [
+        "evidence/terminal_audit.json"
+      ]
+    },
+    {
+      "scenario": "Exact process identities and serial intervals",
+      "invocation": "Get-CimInstance Win32_Process PID+CreationDate and verify_terminal.py interval assertions",
+      "observable": "PASS seven exact identities absent; six serial child intervals and native subprocess exit0. Outer OS exit unavailable/null.",
+      "artifacts": [
+        "evidence/native_terminal_identities.json",
+        "evidence/terminal_audit.json",
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json"
+      ]
+    },
+    {
+      "scenario": "Source and protected artifact preservation",
+      "invocation": "check-no-excuse-rules.py yield_*.py verify_terminal.py; verify_terminal.py SHA256 checks",
+      "observable": "PASS9source files;1532 protected files unchanged; all prepared/transform/frozen hashes exact",
+      "artifacts": [
+        "evidence/programming_check_terminal.log",
+        "evidence/terminal_audit.json",
+        "preservation.json"
+      ]
+    },
+    {
+      "scenario": "Owned temporary directory cleanup",
+      "invocation": "Native PowerShell absolute containment/no-reparse Remove-Item -LiteralPath and absence assertion",
+      "observable": "PASS tmp absent",
+      "artifacts": [
+        "evidence/terminal_cleanup.json"
+      ]
+    }
+  ],
+  "historical_ready_receipt": "readiness.json",
+  "hash_manifest": "terminal_manifest.json",
+  "failed_audit_provenance": "evidence/terminal_audit_attempt01.log preserved: legacy ensure_terminal rejected Win32 error on retired PID; native CIM exact identity verification and full second audit PASS.",
+  "no_confirmation_test_full_refit_export_upload": true
+}

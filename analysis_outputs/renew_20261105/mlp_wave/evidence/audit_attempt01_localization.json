@@ -1,0 +1,48 @@
+{
+  "failure": "Audit asserted every non-fitting controller terminal threadpool equals16; actual pools16,2,2,1",
+  "original_failure_log": "terminal_audit_attempt01.log",
+  "original_audit_source": "verify_terminal_attempt01.py",
+  "model_workers_all_exact16": true,
+  "controller_terminal_pools": [
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 16,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\slowg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs\\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll",
+      "version": "0.3.34.106.0",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 2,
+      "prefix": "vcomp",
+      "filepath": "C:\\Windows\\System32\\vcomp140.dll",
+      "version": null
+    },
+    {
+      "user_api": "openmp",
+      "internal_api": "openmp",
+      "num_threads": 2,
+      "prefix": "vcomp",
+      "filepath": "C:\\Users\\slowg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+      "version": null
+    },
+    {
+      "user_api": "blas",
+      "internal_api": "openblas",
+      "num_threads": 1,
+      "prefix": "libscipy_openblas",
+      "filepath": "C:\\Users\\slowg\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll",
+      "version": "0.3.31.dev",
+      "threading_layer": "pthreads",
+      "architecture": "Haswell"
+    }
+  ],
+  "localization": "Frozen gpu_common.resource imports frozen verify.py which assigns OMP2/BLAS1 environment defaults. Controller later loads additional helper libraries during scoring; existing numpyBLAS remains16 while newlyloaded pools use2/1. All modelworker libraries already loaded and bounded16 during fitting/replay.",
+  "root_approved_audit_rule": "Exact16 for modelworkers/fullreplays;allcontrollerpools<=16 with precise disclosure,Normal/Arrow4",
+  "production_scientific_changes": false,
+  "model_or_controller_rerun": false
+}

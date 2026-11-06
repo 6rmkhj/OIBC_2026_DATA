@@ -1,0 +1,157 @@
+{
+  "state": "TERMINAL_ELIGIBLE",
+  "utc": "2026-11-05T05:12:42.378228+00:00",
+  "passed": true,
+  "real_scalar_fits": 5,
+  "tree_fits": 0,
+  "candidate_count": 1,
+  "results": {
+    "records": [
+      {
+        "arm": "hour_bias",
+        "scores": {
+          "primary": {
+            "p": {
+              "W": 976625966.0430048,
+              "W_pct": 11.912571076235176,
+              "revenue": 3546697701.5127397,
+              "S": 3449035104.908439,
+              "rows": 17568
+            },
+            "p_reference": {
+              "W": 980451119.833828,
+              "W_pct": 11.959229078372204,
+              "revenue": 3546697701.5127397,
+              "S": 3448652589.529357,
+              "rows": 17568
+            }
+          },
+          "recent": {
+            "p": {
+              "W": 1356432319.1075268,
+              "W_pct": 10.998534992012488,
+              "revenue": 5289489854.18509,
+              "S": 5153846622.274338,
+              "rows": 13104
+            },
+            "p_reference": {
+              "W": 1356730507.1796594,
+              "W_pct": 11.000952828788678,
+              "revenue": 5289489854.18509,
+              "S": 5153816803.467124,
+              "rows": 13104
+            }
+          }
+        },
+        "eligible": true,
+        "fixed_hour_shrink": 0.5,
+        "alpha_optimization": false
+      }
+    ],
+    "selected": {
+      "arm": "hour_bias",
+      "scores": {
+        "primary": {
+          "p": {
+            "W": 976625966.0430048,
+            "W_pct": 11.912571076235176,
+            "revenue": 3546697701.5127397,
+            "S": 3449035104.908439,
+            "rows": 17568
+          },
+          "p_reference": {
+            "W": 980451119.833828,
+            "W_pct": 11.959229078372204,
+            "revenue": 3546697701.5127397,
+            "S": 3448652589.529357,
+            "rows": 17568
+          }
+        },
+        "recent": {
+          "p": {
+            "W": 1356432319.1075268,
+            "W_pct": 10.998534992012488,
+            "revenue": 5289489854.18509,
+            "S": 5153846622.274338,
+            "rows": 13104
+          },
+          "p_reference": {
+            "W": 1356730507.1796594,
+            "W_pct": 11.000952828788678,
+            "revenue": 5289489854.18509,
+            "S": 5153816803.467124,
+            "rows": 13104
+          }
+        }
+      },
+      "eligible": true,
+      "fixed_hour_shrink": 0.5,
+      "alpha_optimization": false
+    },
+    "reference_retained": false,
+    "candidate_count": 1,
+    "real_scalar_fit_count": 5,
+    "loaded_existing_coefficients": false,
+    "tree_fits": 0,
+    "confirmation_loaded": false,
+    "test_loaded": false,
+    "primary_fit_partly_in_sample": true,
+    "historical_exposure": "All periods historically exposed; not independent holdout."
+  },
+  "criteria": [
+    {
+      "scenario": "Exactly one released five-scalar candidate",
+      "invocation": "python submission/score_push_renew/hour_run.py --run",
+      "observable": "5 fresh PRIMARY scalar fits;0trees;candidate eligible",
+      "artifacts": [
+        "coefficients.json",
+        "results.json",
+        "controller_receipt.json",
+        "run_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "Five weighted-median/support records and full-row mathematical replay",
+      "invocation": "python analysis_outputs/renew_20261105/hour_wave/evidence/verify_terminal.py",
+      "observable": "PASS five records and all30672 predictions, maximum replay error0; both W improvements and selection exact",
+      "artifacts": [
+        "evidence/terminal_audit.json",
+        "evidence/terminal_audit_attempt01.log"
+      ]
+    },
+    {
+      "scenario": "Source/input/prepared/protected integrity and resource limits",
+      "invocation": "verify_terminal.py SHA256 and native resource assertions; check-no-excuse-rules.py hour_*.py verify_terminal.py",
+      "observable": "PASS2416protectedfiles; source checker6files; CPU16/BLAS16/Normal/Arrow4",
+      "artifacts": [
+        "evidence/terminal_audit.json",
+        "evidence/programming_check_terminal.log",
+        "preservation.json"
+      ]
+    },
+    {
+      "scenario": "Actual OS exit and exact process absence",
+      "invocation": "retained native Process.Handle before WaitForExit; native CIM PID+CreationDate comparison",
+      "observable": "PASS actualOSexit0; PID10468 creation134383290188286164 absent",
+      "artifacts": [
+        "evidence/run_attempt01_start.json",
+        "evidence/run_attempt01_exit.json",
+        "evidence/terminal_cleanup.json"
+      ]
+    },
+    {
+      "scenario": "Safe owned temporary cleanup",
+      "invocation": "Native PowerShell absolute containment/no-reparse and Remove-Item -LiteralPath; Test-Path absence",
+      "observable": "PASS owned tmp absent",
+      "artifacts": [
+        "evidence/terminal_cleanup.json"
+      ]
+    }
+  ],
+  "release_sha256": "1ec8648cf80eb26b3165a31239e29c3f1fba07072a6be0f0148f6d8a1694b348",
+  "coefficients_sha256": "7c7702086192c6882f5c2c25408aeaf45aa5d2a70706218eda96d255f038f28e",
+  "manifest": "terminal_manifest.json",
+  "manifest_format": "Plain relative path to SHA256 mapping; excludes self, controller.lock, release.json, and root independent_* files. Canonical terminal manifest supersedes historical readiness manifest.",
+  "no_confirmation_test_full_refit_export_upload": true,
+  "historical_exposure": "All periods historically exposed; primary fitted improvement partly in-sample. No independent holdout claim."
+}
