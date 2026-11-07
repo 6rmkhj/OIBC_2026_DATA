@@ -1,0 +1,87 @@
+{
+  "created_utc": "2026-11-07T07:04:03.446425+00:00",
+  "bases_sha256": "4951a170a262bdac7d36868871c0d3b5e982ceb17cba46aa5bd43899a86b0356",
+  "configs_sha256": "c1f42bc5b3f1d9db148b10d4e437261307d98e36f1a9af09aea9b9b54d45332c",
+  "jobs_sha256": "a60b3f942406e1934a5d3dde4a89721fb31ad6833293a6f2e289a74c2f1985cf",
+  "old_protocol_sha256": "6cdc59a0480f4f683e1368ba47b580d0783589c16286e3e33dde5e1ac52be8e3",
+  "old_completed_trials_at_design": 241,
+  "source_sha256": {
+    "submission/score_push_22h/engine.py": "7e0996b144cae3bdebeb23f1eef8685525c24485d694f9e94ed5e672a60967fe",
+    "submission/score_push_22h/features.py": "7a2f919527311eac661bfb43175a63865ae2d3cde0e2065ad25a629e2f912f3c",
+    "submission/score_push_10h/engine.py": "c51a62cfb6cd011ee2054db05d2420c695a847a007343e258060b67bac592a95",
+    "submission/score_push_10h/data.py": "b1ee41b5f0b4a5c068c4c0fc29150664d89f6090f7d9f0d156697e883de51873"
+  },
+  "data_manifest_sha256": "b75c45a441041c76f86aa7ebde2bcfbef578bb461e95ce1f5f4c15acaba24f78",
+  "folds": {
+    "early2022": {
+      "origin": "2022-06-01",
+      "end": "2023-06-01"
+    },
+    "primary": {
+      "origin": "2023-06-01",
+      "end": "2024-06-01"
+    },
+    "winter": {
+      "origin": "2023-12-01",
+      "end": "2024-12-01"
+    },
+    "spring": {
+      "origin": "2024-03-01",
+      "end": "2025-03-01"
+    },
+    "recent": {
+      "origin": "2024-06-01",
+      "end": "2025-03-01"
+    }
+  },
+  "inner_origins": [
+    "2021-06-01",
+    "2021-09-01",
+    "2021-12-01",
+    "2022-03-01",
+    "2022-06-01",
+    "2022-09-01",
+    "2022-12-01",
+    "2023-03-01",
+    "2023-06-01",
+    "2023-09-01",
+    "2023-12-01",
+    "2024-03-01"
+  ],
+  "search_calibration_targets_end_kst": "2024-06-01 00:00:00+09:00",
+  "search_score_targets_end_kst": "2025-03-01 00:00:00+09:00",
+  "method": "Quarterly time-OOF generation residual calibration, never fitted/in-sample generation residuals",
+  "hypothesis": "Cold/snow overprediction and hot-season underprediction; bounded weather/season correction first, low-complexity age interactions second",
+  "residual_target": "(observed all-site y - raw clipped base p) / scale, with signed y preserved",
+  "scale": "capacity*Haurwitz for additive; max(p,.05*capacity*Haurwitz) for multiplicative",
+  "calibration_weights": "normalized SMP*k*scale*target-time-decay / duplicate_count(ts,grp) within outer train subset; exact transformed monetary L1",
+  "prediction": "clip(raw p + shrink*clip(delta,-bound,bound)*scale,0,static_capacity); all-night p=0",
+  "chronology": "Every calibration row satisfies actual generating origin < ts <= outer training cutoff; inner horizon <=366 days",
+  "reuse": "Existing matching-origin generation models/forecasts reused; no first-stage seed0 outer fits repeated",
+  "selection": {
+    "mean_W_ratio_vs_raw_below": 1.0,
+    "worst_W_ratio_vs_raw_at_most": 1.02,
+    "improved_raw_folds_at_least": 3,
+    "mean_W_ratio_vs_c000_below": 1.0,
+    "blend_alpha_minimum": 0.02,
+    "primary_and_recent_blend_strict_improvement": true,
+    "rank": "mean fivefold W ratio versus c000, then worst ratio versus raw, then id",
+    "completion_diversity": "different base_id preferred; up to three under measured conservative runtime budget",
+    "alpha": "primary-only monetary-L1 optimum, fixed unchanged for recent and deployment",
+    "seeds": "Residual model seeds0,1,2; generation seed0 remains fixed. Median correction is deterministic.",
+    "ensemble": "equal-weight corrected components; primary-only final alpha; both development folds must improve"
+  },
+  "completion_oof": "After recipe freeze, extend quarterly actual OOF generation origins through Sep/Dec2024 and Mar2025; predictions remain after their generating model cutoff. Calibrator uses labels only up to current deployment training cutoff.",
+  "late_audit": "March-May2025 labels excluded until recipe freeze; latest-cutoff predictions frozen before descriptive scoring; no reselection",
+  "deadline_utc": "2026-11-07T20:56:33+00:00",
+  "search_stop_utc": "2026-11-07T19:56:33+00:00",
+  "candidates": 2048,
+  "bases": 32,
+  "all_history_previously_exposed": true,
+  "base_selection_used_exposed_outer_results": true,
+  "chronological_oof_is_not_independent_holdout": true,
+  "folds_overlap": true,
+  "original_best_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+  "official_score_available": false,
+  "uploaded": false
+}

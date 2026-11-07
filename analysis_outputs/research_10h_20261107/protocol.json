@@ -1,0 +1,89 @@
+{
+  "created_utc": "2026-11-06T23:11:31.255377+00:00",
+  "configs_sha256": "2b1b528bcd447db77848676ea94adadf1e4122e568e3f6c415a34701544bb7da",
+  "data_manifest_sha256": "b75c45a441041c76f86aa7ebde2bcfbef578bb461e95ce1f5f4c15acaba24f78",
+  "source_sha256": {
+    "submission/score_push_10h/engine.py": "c51a62cfb6cd011ee2054db05d2420c695a847a007343e258060b67bac592a95",
+    "submission/score_push_10h/data.py": "b1ee41b5f0b4a5c068c4c0fc29150664d89f6090f7d9f0d156697e883de51873"
+  },
+  "folds": {
+    "early2022": {
+      "origin": "2022-06-01",
+      "end": "2023-06-01"
+    },
+    "primary": {
+      "origin": "2023-06-01",
+      "end": "2024-06-01"
+    },
+    "winter": {
+      "origin": "2023-12-01",
+      "end": "2024-12-01"
+    },
+    "spring": {
+      "origin": "2024-03-01",
+      "end": "2025-03-01"
+    },
+    "recent": {
+      "origin": "2024-06-01",
+      "end": "2025-03-01"
+    }
+  },
+  "baseline_id": "c000",
+  "search_end_kst": "2025-03-01 00:00:00+09:00",
+  "target": "exact all-site group y / (capacity_kw * max(Haurwitz, .05)); original_cf arms are explicit comparators",
+  "monetary_l1": "normalized SMP*k*inverse_kwh*recency; without recency this is exactly monetary absolute energy loss",
+  "monetary_l2": "normalized SMP*k*inverse_kwh**2*recency; monetary energy squared loss complement",
+  "legacy_weight": "Haurwitz * recency / mean(recency), preserving original baseline scale",
+  "recency": "exp2(-age_days/half_life), age measured from each training cutoff; none=1",
+  "features": "rich100 or station904, drop constants using training values only; native missing values",
+  "clipping": "raw model component clipped to [0, fixed group installed capacity]; all-night prediction zero; no historical weather correction",
+  "selection": {
+    "standalone_mean_W_ratio_below": 1.0,
+    "standalone_worst_W_ratio_at_most": 1.02,
+    "standalone_improved_folds_at_least": 3,
+    "primary_blend_minimum_alpha": 0.02,
+    "primary_and_recent_blend_strict_improvement": true,
+    "order": "mean fivefold W ratio, then worst ratio, then id",
+    "diversity": "first differing (features, objective, target, half_life), up to three",
+    "seed_ensemble": [
+      0,
+      1,
+      2
+    ],
+    "equal_model_weights": true,
+    "alpha": "monetary-L1 optimum on primary only; unchanged transfer to recent and deployment"
+  },
+  "late_audit": "March-May 2025 latest-cutoff labels opened only after development selection/alpha frozen; descriptive, never reselect",
+  "late_audit_labels_hash_only_sha256": "d8bd67220e4ccea90efe518ffcb555c05dd92da0224b8062080fc08e0d26fc0a",
+  "completion_budget": "up to three diverse eligible configs; reduce count before freeze using measured fit time and final-hour remaining budget",
+  "all_history_previously_exposed": true,
+  "new_independent_holdout": false,
+  "forecast_horizons_overlap": true,
+  "five_origins_are_not_five_independent_samples": true,
+  "hard_deadline_utc": "2026-11-07T08:56:33+00:00",
+  "candidate_count": 256,
+  "search_seeds": [
+    0
+  ],
+  "environment": {
+    "python": "3.12.14",
+    "lightgbm": "4.7.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "cpu_threads": 4,
+    "blas_threads": 1,
+    "parallel_fits": 1
+  },
+  "deployment_input_sha256": {
+    "analysis_outputs/renew_20261105/final/data/march_may/evaluation.parquet": "19a1230615dbd93e03230419ac56295e3632548fc9b61770314da897cf54dfef",
+    "analysis_outputs/renew_20261105/final/data/march_may/coverage.parquet": "f400f36a32618beb37b9f68709b34a190712715dc67fc97c9a8f1fb70887e20c",
+    "analysis_outputs/renew_20261105/final/predictions/latest_cutoff_march_may/predictions.parquet": "b9dfbf1bdd9e414295748d0015fa519fa3ab29815f415ea47b432ebca8bf9b2a",
+    "analysis_outputs/renew_20261105/final/data/test/evaluation.parquet": "bd73e00b8416c22ec89fa0f091db8ab178d501324357565453d4758892292102",
+    "analysis_outputs/renew_20261105/final/data/test/coverage.parquet": "c4e59bc759757752df49876a08f7c2d016f988c13e98275222ff1f5d803bf253",
+    "analysis_outputs/renew_20261105/final/predictions/test/predictions.parquet": "6386ee3522a32bd8be6fb4294ec6f84960b4ae0e948ea7c5dfb955f4a2c2cb7e"
+  },
+  "official_best_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+  "official_best_user_reported": 6454220836,
+  "official_score_available": false,
+  "uploaded": false
+}

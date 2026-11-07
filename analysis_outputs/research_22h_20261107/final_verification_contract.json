@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "created_utc": "2026-11-07T07:12:12.100975+00:00",
+  "source_sha256": {
+    "submission/score_push_22h/verify_completion.py": "e3610c650f9c1e9e2390893bc8658d61fe7223907f8647949ac00b5d94ad3d20",
+    "submission/score_push_10h/verify_trial.py": "f2b6591eab1ff3c591b5af9bf2e24c18824ec1a76f8ecb92b020dc37de83be80"
+  },
+  "argv": [
+    "/workspace/.venvs/oibc-2026/bin/python",
+    "/workspace/OIBC_2026_DATA/submission/score_push_22h/verify_completion.py"
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "working_directory": "/workspace/OIBC_2026_DATA",
+  "execution": "Externally after controller finishes; never as a job inside that controller",
+  "terminal_gate": [
+    "controller phase=finished",
+    "no unresolved or unknown job statuses",
+    "all recorded controller/wrapper/worker identities and same-boot groups terminal",
+    "controller source/manifest/input pins match"
+  ],
+  "checkpoint_behavior": {
+    "status": "CHECKPOINT_ONLY",
+    "exit_code": 0,
+    "actual_model_fits": 0,
+    "late_targets_loaded": false,
+    "writes_terminal_receipt": false
+  },
+  "terminal_behavior": {
+    "verification_status": "PASS or FAIL",
+    "outcome": "NO_QUALIFYING_RECIPE, SEED_STABILITY_GATE_FAILED or EXPORTED_UNSCORED_CANDIDATE",
+    "no_qualifier_is_improvement": false,
+    "official_improvement_claim": false,
+    "validation_failure_exit_code": 1,
+    "receipt": "/workspace/OIBC_2026_DATA/analysis_outputs/research_22h_20261107/independent_completion_check.json"
+  },
+  "scope": [
+    "Pinned code/configs/base artifacts and data",
+    "Chronological OOF provenance and duplicate/recency monetary weights",
+    "Saved calibration and deployed generation model replay without training",
+    "Frozen primary-only alpha, recent transfer and ensembles",
+    "Late audit metrics only after frozen eligible selection",
+    "Exact ZIP row keys, rounding, composition and preserved original best"
+  ],
+  "prelaunch_checks": {
+    "source_review": "PASS",
+    "independent_checkpoint_invocation": "CHECKPOINT_ONLY, exit0",
+    "child_transform_algebra_checks": "PASS",
+    "full_terminal_branches": "Await actual completion artifacts"
+  },
+  "actual_model_fits": 0,
+  "network_actions": 0,
+  "publication_enabled": false
+}

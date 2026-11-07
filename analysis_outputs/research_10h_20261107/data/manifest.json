@@ -1,0 +1,154 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-11-06T23:04:52.000383+00:00",
+  "folds": {
+    "early2022": {
+      "origin": "2022-06-01",
+      "end": "2023-06-01"
+    },
+    "primary": {
+      "origin": "2023-06-01",
+      "end": "2024-06-01"
+    },
+    "winter": {
+      "origin": "2023-12-01",
+      "end": "2024-12-01"
+    },
+    "spring": {
+      "origin": "2024-03-01",
+      "end": "2025-03-01"
+    },
+    "recent": {
+      "origin": "2024-06-01",
+      "end": "2025-03-01"
+    }
+  },
+  "search_end_kst": "2025-03-01 00:00:00+09:00",
+  "source_sha256": {
+    "analysis_outputs/renew_20261107/runtime_inputs/test_train.parquet": "5292b1301f7e090f2cb826309b5a3d9130f5b02272a7aaf2aacfc422babaf4d5",
+    "analysis_outputs/score_push_gpu_20261104/data/primary/features.json": "ae62dabac88b6109ddc3f60c4cfc3b00c6d0b5c9023da14bcbf9ca800858ca0e",
+    "submission/cache/feat_train.parquet": "ccde309cbd613589a961d730fc9de77fef14c86701229e21882b58923fa1db54",
+    "submission/cache/smp.parquet": "d0d6bc2fc58ec4339bd2fa6790b8561766b40e02acdeea8c3f7b27a6ede30977",
+    "analysis_outputs/autoresearch_20261103/cache/assignment.json": "d5cebd9b6dbc2c1cb6f3f34c3dac647fd588ec04c3e924ae30053615faac81a9",
+    "analysis_outputs/renew_20261105/final/static_capacity.json": "d2ccdd1c58c9fcee34f7d772bf46ae7c861eb28b1374bcd54634b26f58704d2d",
+    "submission/renew_candidate_20261105/submission_files.zip": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+    "submission/score_push_10h/data.py": "b1ee41b5f0b4a5c068c4c0fc29150664d89f6090f7d9f0d156697e883de51873",
+    "analysis_outputs/renew_20261106/shift_wave/data/primary/labels.parquet": "392b6ac799feb5a45c1e99ce9aeb17b0f72a3fa52f60cc9c3450fbd5ee35d1e7",
+    "analysis_outputs/renew_20261106/shift_wave/data/recent/labels.parquet": "0ce941c6a14ec19c444dfa46e6fbe14447eeb3e220203cb9aa3d3adea954ffcc"
+  },
+  "records": [
+    {
+      "name": "early2022",
+      "origin": "2022-06-01 00:00:00+09:00",
+      "end": "2023-06-01 00:00:00+09:00",
+      "train_rows": 11476,
+      "daylight_evaluation_rows": 9610,
+      "scoring_rows": 17520,
+      "night_rows": 7910,
+      "night_rows_with_nonzero_observed_y": 426,
+      "train_feature_counts": {
+        "rich": 100,
+        "station": 292
+      },
+      "reference_check": null
+    },
+    {
+      "name": "primary",
+      "origin": "2023-06-01 00:00:00+09:00",
+      "end": "2024-06-01 00:00:00+09:00",
+      "train_rows": 21086,
+      "daylight_evaluation_rows": 9642,
+      "scoring_rows": 17568,
+      "night_rows": 7926,
+      "night_rows_with_nonzero_observed_y": 1368,
+      "train_feature_counts": {
+        "rich": 100,
+        "station": 460
+      },
+      "reference_check": {
+        "exact_original_keys_and_targets": true,
+        "source_sha256": "392b6ac799feb5a45c1e99ce9aeb17b0f72a3fa52f60cc9c3450fbd5ee35d1e7"
+      }
+    },
+    {
+      "name": "winter",
+      "origin": "2023-12-01 00:00:00+09:00",
+      "end": "2024-12-01 00:00:00+09:00",
+      "train_rows": 26082,
+      "daylight_evaluation_rows": 9637,
+      "scoring_rows": 17568,
+      "night_rows": 7931,
+      "night_rows_with_nonzero_observed_y": 1463,
+      "train_feature_counts": {
+        "rich": 100,
+        "station": 580
+      },
+      "reference_check": null
+    },
+    {
+      "name": "spring",
+      "origin": "2024-03-01 00:00:00+09:00",
+      "end": "2025-03-01 00:00:00+09:00",
+      "train_rows": 28132,
+      "daylight_evaluation_rows": 9611,
+      "scoring_rows": 17520,
+      "night_rows": 7909,
+      "night_rows_with_nonzero_observed_y": 1359,
+      "train_feature_counts": {
+        "rich": 100,
+        "station": 706
+      },
+      "reference_check": null
+    },
+    {
+      "name": "recent",
+      "origin": "2024-06-01 00:00:00+09:00",
+      "end": "2025-03-01 00:00:00+09:00",
+      "train_rows": 30728,
+      "daylight_evaluation_rows": 7015,
+      "scoring_rows": 13104,
+      "night_rows": 6089,
+      "night_rows_with_nonzero_observed_y": 837,
+      "train_feature_counts": {
+        "rich": 100,
+        "station": 790
+      },
+      "reference_check": {
+        "exact_original_keys_and_targets": true,
+        "source_sha256": "0ce941c6a14ec19c444dfa46e6fbe14447eeb3e220203cb9aa3d3adea954ffcc"
+      }
+    }
+  ],
+  "search_daylight_rows": 37743,
+  "search_scoring_rows": 69098,
+  "search_night_rows_with_nonzero_observed_y": 2826,
+  "real_model_fits": 0,
+  "march_may_2025_targets_loaded": false,
+  "all_history_previously_exposed": true,
+  "data_sha256": {
+    "early2022/evaluation.parquet": "66f07e9c44909e15f75bd0aca5d3d858f4a34390dfbb607c4907af30e989f3dd",
+    "early2022/features.json": "cb526d7b8c075ba64645c3bb2e339a761355c04392e2a707583fa924109cf5a0",
+    "early2022/labels.parquet": "74dda0e076087a0c03637bc9e3a6fd2d09b94faf1b4f29a72dc5df94d7ba105b",
+    "early2022/train.parquet": "e9e8684a9ad9b464c6be280869016b90d19a917ed375f3b102dc4d53f1351ecb",
+    "features.json": "f8e233178d7a0dd0b9726c7df7907037bcd9e9371da749c36a0edf9e6a229ffd",
+    "primary/evaluation.parquet": "bc11730c0f4a06556033f0a2250d00201a4408234a195272c427ade2f58f5c98",
+    "primary/features.json": "73a80c5dee2adebd3cc09dc41f8a9f7f05232744430a16176f33a1fa4dbf5218",
+    "primary/labels.parquet": "44d389cb2506ba3ded9bd0e560a887691077af6044a3c97ad6df685abdf49121",
+    "primary/train.parquet": "8758b8b9a537d2d3dc44f2317c5edebe37842969f4d7d2559d2da3dcae3e3921",
+    "read_receipts.json": "020ccd44552c3ddf15dfed91f1fa2ebfbb3da46e64e67cd5ff73473191c86bd7",
+    "recent/evaluation.parquet": "61513419409b8207e8ca4bf9f855b24c5bb79924b8c7d502e1450f3c27709da1",
+    "recent/features.json": "a9c130fd3a6b7a12cfd16636cded5a19194c640b86200dd8a3bbf578cc872e88",
+    "recent/labels.parquet": "0101fccdd1f63b64582779d699fe50f850792cdb6a93d915d56fc93780f52b21",
+    "recent/train.parquet": "9704bb8343448287f50025376a37738204c94721b7ef110407aa29a423f2a6f2",
+    "search_features.parquet": "360149234c84d912c7e1f33b350b19f198f3f39b81209e0cfacc318294df497a",
+    "search_labels.parquet": "5e775b7567b8826d67c613d3ee71a841bff1b0242363730328c3039b0d03e583",
+    "spring/evaluation.parquet": "a5ca8a8386ee9a8e2e461d5dbae6ae48ee3873f7f9e4cbe6bfe9fe8b88b7fd28",
+    "spring/features.json": "260facf9d0716a721f44d55ea3781064afc9298f6c88482b28cefca01104188d",
+    "spring/labels.parquet": "85f73135ca3f2dfca5193fc3b0d2a20121fa75c3a2dd69ee965ef2dda836a19e",
+    "spring/train.parquet": "1c98cf6939b86839ee76ac9420b3c5c22d6917d09c8ac0a76077599c5fe2dded",
+    "winter/evaluation.parquet": "322741eea32ab9a16fa0585507515d75620d03e9b5f6f45207a2c00e4e6bc398",
+    "winter/features.json": "da8ca9a44683b81f6ba4901517a1d6b8ac12ed558507db9bab1a6f18549d99fc",
+    "winter/labels.parquet": "4dfa26ee69241a8053e775f56ac8e08bf8d5e4b05f7f3653574297a405631b33",
+    "winter/train.parquet": "0e0ab0cdc75e942c2aea93119aff449c3b36489b1064c9313d91bd25392c41c8"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_PRELAUNCH_AUDIT",
+  "utc": "2026-11-06T23:17:28.700296+00:00",
+  "scope": "Independent preparation reconstruction, baseline native replay and source review; campaign improvement or completion not yet established",
+  "source_sha256": {
+    "submission/score_push_10h/controller.py": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+    "submission/score_push_10h/data.py": "b1ee41b5f0b4a5c068c4c0fc29150664d89f6090f7d9f0d156697e883de51873",
+    "submission/score_push_10h/engine.py": "c51a62cfb6cd011ee2054db05d2420c695a847a007343e258060b67bac592a95",
+    "submission/score_push_10h/verify_preparation.py": "18f5da6c84ff18e34d97ff0ba40435cddcb6941dfacd0197bc72293e4a632cf3",
+    "submission/score_push_10h/verify_trial.py": "f2b6591eab1ff3c591b5af9bf2e24c18824ec1a76f8ecb92b020dc37de83be80",
+    "submission/score_push_10h/verify_completion.py": "ce3f9bc0b803c82108d681e2b185ecbe1310e5eea5ec8ad72275fa3146687edc"
+  },
+  "data_verification_receipt_sha256": "d12c922bda6a53710b9229bb8866728640cfd6221d421f76477ad914f712c92b",
+  "baseline_verification_receipt_sha256": "4b261b3bddfbc33f1c142ea2db8e4d4929b5ebd786773035d550d062670408cf",
+  "protocol_sha256": "6cdc59a0480f4f683e1368ba47b580d0783589c16286e3e33dde5e1ac52be8e3",
+  "actual_model_fits": 0,
+  "runtime_source_review": "Owned process groups, start ticks and boot identity, no duplicate launch on restart, independent wrapper watchdog, search cutoff and completion reserve reviewed",
+  "resolved_finding": "Wrapper now checks expired deadline and STOP before spawning worker",
+  "runtime_tests": "12 fake-job integration tests PASS reported by runtime owner; final guard source independently reviewed",
+  "methodology_review": "Exact all-site observed targets and nighttime rows, training-only masks, monetary normalized objectives, chronological origins, primary-only alpha with recent transfer, selection freeze before late audit targets, model replay and protected best ZIP",
+  "remaining_limitations": [
+    "Historical periods were previously exposed and rolling folds overlap",
+    "No official score or improvement claim",
+    "Completion verifier full exported-candidate branch awaits actual completion artifacts"
+  ],
+  "completion_verifier_checked": "CHECKPOINT_ONLY returned accurately with zero fits; native replay and weighted-median checks passed on baseline primary"
+}

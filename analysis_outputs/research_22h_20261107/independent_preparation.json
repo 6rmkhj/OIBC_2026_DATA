@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-07T07:05:58.058226+00:00",
+  "protocol_sha256": "c9475db374cc81101844ee6612499e8a39e77e424efcc15de946ab379809c8be",
+  "base_count": 32,
+  "calibration_config_count": 2048,
+  "job_count": 2080,
+  "inner_origins": [
+    "2021-06-01",
+    "2021-09-01",
+    "2021-12-01",
+    "2022-03-01",
+    "2022-06-01",
+    "2022-09-01",
+    "2022-12-01",
+    "2023-03-01",
+    "2023-06-01",
+    "2023-09-01",
+    "2023-12-01",
+    "2024-03-01"
+  ],
+  "source_sha256": {
+    "submission/score_push_22h/engine.py": "7e0996b144cae3bdebeb23f1eef8685525c24485d694f9e94ed5e672a60967fe",
+    "submission/score_push_22h/features.py": "7a2f919527311eac661bfb43175a63865ae2d3cde0e2065ad25a629e2f912f3c",
+    "submission/score_push_22h/controller.py": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+    "submission/score_push_22h/continuation.py": "dbdb9c27b6c11422b74a5f8b6f71dd02725fa3bf852bbef88a85067554f1ffcf",
+    "submission/score_push_22h/test_features.py": "a78d6817ef84953cc15637ec74b3f407f551e0f74e85c452edbcf289ced6b327",
+    "submission/score_push_22h/test_engine.py": "9c01604409cf307b0c20a68a59d3b0639b00a782730dce2da3ba15d01fc02222",
+    "submission/score_push_22h/test_continuation.py": "1412cd84ca2d8f23e6eca8f8e25561116ae66cff06741e3b28c60b7da6a62fa8"
+  },
+  "base_artifact_hashes_verified": 672,
+  "old_data_source_hashes_verified": 10,
+  "prepared_data_hashes_verified": 24,
+  "original_deployment_input_hashes_verified": 6,
+  "late_audit_label_hash_checked_without_decoding": true,
+  "test_results": {
+    "feature_invariants": {
+      "tests": 6,
+      "status": "PASS",
+      "independently_executed": true
+    },
+    "runtime_fake_processes": {
+      "tests": 11,
+      "status": "PASS",
+      "independently_executed": true
+    },
+    "engine_no_fit_invariants": {
+      "tests": 5,
+      "status": "PASS",
+      "independently_executed": true
+    }
+  },
+  "actual_model_fits": 0,
+  "existing_native_generation_models_replayed": 1,
+  "real_OOF_transform_checks": {
+    "status": "PASS",
+    "primary_cutoff": "2023-06-01",
+    "primary_rows": 9610,
+    "recent_cutoff": "2024-06-01",
+    "recent_rows": 26494,
+    "recent_unique_targets": 19252,
+    "maximum_duplicate_count": 3,
+    "origin_strictly_precedes_target": true,
+    "calibration_targets_within_cutoff": true,
+    "additive_and_multiplicative_monetary_L1_identities": true,
+    "inverse_duplicate_and_recency_weights": true,
+    "features_do_not_depend_on_targets_or_prices": true
+  },
+  "chronology_source_review": {
+    "search_calibration_targets_end": "2024-06-01 00:00:00+09:00",
+    "search_scoring_targets_end": "2025-03-01 00:00:00+09:00",
+    "inner_generation_train_end_before_prediction": true,
+    "deployment_OOF_extended_only_after_selection_freeze": true,
+    "primary_only_alpha_transferred_unchanged_to_recent": true,
+    "seed_ensemble_scope": "Residual seeds0,1,2; generationseed0 remains fixed",
+    "night_observations_and_negative_targets_preserved": true
+  },
+  "resolved_prefreeze_findings": [
+    "Original source/deployment hashes checked at crossfit and completion; used evaluation hashes checked in trial",
+    "Interrupted old-style generation receipt safely upgraded without repeating fit",
+    "Existing candidate manifest files rechecked before reuse"
+  ],
+  "all_history_previously_exposed": true,
+  "raw_base_selection_used_exposed_outer_results": true,
+  "new_independent_holdout": false,
+  "march_may_2025_targets_loaded": false,
+  "no_old_campaign_mutations": true,
+  "original_best_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+  "deadline_utc": "2026-11-07T20:56:33+00:00",
+  "improvement_established": false,
+  "limitations": [
+    "Preparation and methodology verification only; continuation fits have not started",
+    "Terminal verifier must run after controller and owned processes finish",
+    "No official score improvement or upload is established"
+  ]
+}

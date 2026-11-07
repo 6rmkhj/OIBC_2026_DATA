@@ -1,0 +1,117 @@
+{
+  "updated_kst": "2026-11-07T01:58:12.600918+09:00",
+  "official_best_user_reported": 6454220836,
+  "official_best_zip_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+  "official_submission_made": false,
+  "official_score_improvement_established": false,
+  "all_history_previously_exposed": true,
+  "reference_retained": true,
+  "comparison_reference": "Official-best weather-only baseline, not a claim to dominate every previous development candidate",
+  "fit_counts": {
+    "generation": 18,
+    "domain": 6,
+    "pca": 2,
+    "calibration": 6,
+    "alpha": 3
+  },
+  "experiments": [
+    {
+      "name": "shift_linux",
+      "label": "분포 변화 가중치",
+      "status": "verified",
+      "eligible": false,
+      "primary_W_pct": 11.946059821573511,
+      "recent_W_pct": 11.048252344596838,
+      "primary_delta": -0.013169256798692075,
+      "recent_delta": 0.0472995158081595,
+      "results_sha256": "c0ea2a1ad52306c421fc8437a28d52d3643fe661712f9bcce58a0541710fa555",
+      "alpha": 0.07974219341167516
+    },
+    {
+      "name": "pca_station",
+      "label": "관측소 PCA 16성분",
+      "status": "verified",
+      "eligible": false,
+      "primary_W_pct": 11.958166693613332,
+      "recent_W_pct": 11.004912073694642,
+      "primary_delta": -0.0010623847588711044,
+      "recent_delta": 0.003959244905963999,
+      "results_sha256": "6161319dda6cf90ade3f5f24d6c2aa61c9aca60fea614297d2e2907921fdec3f",
+      "alpha": 0.042770407356235475
+    },
+    {
+      "name": "dart_station",
+      "label": "DART 800트리",
+      "status": "verified",
+      "eligible": false,
+      "primary_W_pct": 11.956103187080302,
+      "recent_W_pct": 11.036162610342878,
+      "primary_delta": -0.0031258912919014392,
+      "recent_delta": 0.03520978155419918,
+      "results_sha256": "8752041aeff488ee9bfc77c3e46273c9ce1ef679cbca9f5784eb8ef715693b0d",
+      "alpha": 0.01767925096045587
+    },
+    {
+      "name": "cloud_curve",
+      "label": "연속 구름량 보정",
+      "status": "verified",
+      "eligible": true,
+      "primary_W_pct": 11.838567993438676,
+      "recent_W_pct": 10.946708424150037,
+      "primary_delta": -0.12066108493352701,
+      "recent_delta": -0.05424440463864144,
+      "results_sha256": "aae80175063bcde23108e12ef20c788c6d06339fc2ff150800895c8b57eef323",
+      "alpha": null,
+      "march_may_W_pct": 9.418259789353213,
+      "march_may_delta": 0.027792795272286952
+    },
+    {
+      "name": "cloud_solar_surface",
+      "label": "구름량·태양 고도 보정",
+      "status": "verified",
+      "eligible": true,
+      "primary_W_pct": 11.847838964279815,
+      "recent_W_pct": 10.945553955890896,
+      "primary_delta": -0.11139011409238897,
+      "recent_delta": -0.05539887289778278,
+      "results_sha256": "a82a29b3cfd6d1cf80750d1f98a7596cdc47b34f2ce470f19551d128b9e03d92",
+      "alpha": null,
+      "march_may_W_pct": 9.417728069639885,
+      "march_may_delta": 0.02726107555895929
+    },
+    {
+      "name": "weather_residual",
+      "label": "기상 잔여 오차 보정",
+      "status": "verified",
+      "eligible": true,
+      "primary_W_pct": 11.69486955199129,
+      "recent_W_pct": 10.927910874833806,
+      "primary_delta": -0.26435952638091287,
+      "recent_delta": -0.07304195395487234,
+      "results_sha256": "b34ab4d76cb13b8644cd9f62847b54d9504d90f8d946938b6ad86e334596da8e",
+      "alpha": null,
+      "march_may_W_pct": 9.441702998340435,
+      "march_may_delta": 0.05123600425950947
+    }
+  ],
+  "exported_candidates": [
+    {
+      "name": "cloud_curve",
+      "directory": "submission/renew_cloud_curve_candidate_20261107",
+      "zip_sha256": "b8c63dc60346e9fc2710eb917bfb0520782d4b98421eec325607156f96d16eb1",
+      "independently_verified": true
+    },
+    {
+      "name": "cloud_solar_surface",
+      "directory": "submission/renew_cloud_solar_candidate_20261107",
+      "zip_sha256": "e05ac9609aa39c6f09f0efb4d4579af01c43eb5c6384f694abe496442d604b60",
+      "independently_verified": true
+    },
+    {
+      "name": "weather_residual",
+      "directory": "submission/renew_weather_residual_candidate_20261107",
+      "zip_sha256": "b2474fe6c9c355b16ebc2a808605cd67ae26b57a52c8a1908f6c211ef71d382d",
+      "independently_verified": true
+    }
+  ]
+}
