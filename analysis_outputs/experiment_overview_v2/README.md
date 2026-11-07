@@ -1,6 +1,6 @@
 # 전체 연구·실험 상태표
 
-확인 시각: **2026-11-08 01:12:20 KST**.
+확인 시각: **2026-11-08 02:01:03 KST**.
 
 [프로젝트 요약](../../README.md)
 
@@ -2862,29 +2862,29 @@ model_results.csv의 25개 명명된 비교를 모두 보존했습니다. 150개
 
 | ID / 종류 | 상태 | 기초 / 비교 ID | 실제 설정 변경 / 비교 범위 | primary / recent W_pct | 영수증 / 새 학습 | 판정·근거 |
 |---|---|---|---:|---|---|---|
-| r0000 / new_calibration | 대기 | b00 / r0000 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 0 / 0 | 미평가 — |
-| r0001 / new_calibration | 대기 | b02 / r0001 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 0 / 0 | 미평가 — |
-| r0002 / new_calibration | 대기 | b09 / r0002 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 0 / 0 | 미평가 — |
-| r0003 / new_calibration | 대기 | b22 / r0003 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 0 / 0 | 미평가 — |
-| r0004 / new_calibration | 대기 | b00 / r0000 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| r0005 / new_calibration | 대기 | b02 / r0001 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| r0006 / new_calibration | 대기 | b09 / r0002 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| r0007 / new_calibration | 대기 | b22 / r0003 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| r0008 / new_calibration | 대기 | b00 / r0000 | group_mix: 0.0→0.5 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0009 / new_calibration | 대기 | b02 / r0001 | group_mix: 0.0→0.5 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0010 / new_calibration | 대기 | b09 / r0002 | group_mix: 0.0→0.5 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0011 / new_calibration | 대기 | b22 / r0003 | group_mix: 0.0→0.5 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0012 / new_calibration | 대기 | b00 / r0000 | weighting: money→horizon (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0013 / new_calibration | 대기 | b02 / r0001 | weighting: money→horizon (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0014 / new_calibration | 대기 | b09 / r0002 | weighting: money→horizon (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0015 / new_calibration | 대기 | b22 / r0003 | weighting: money→horizon (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0016 / new_calibration | 대기 | b00 / r0000 | features: weather_spread→rich_spread (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0017 / new_calibration | 대기 | b02 / r0001 | features: weather_spread→rich_spread (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0018 / new_calibration | 대기 | b09 / r0002 | features: weather_spread→rich_spread (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0019 / new_calibration | 대기 | b22 / r0003 | features: weather_spread→rich_spread (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0020 / new_calibration | 대기 | b00 / r0000 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| r0021 / new_calibration | 대기 | b02 / r0001 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| r0022 / new_calibration | 대기 | b09 / r0002 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
+| r0000 / new_calibration | 완료 | b00 / r0000 | 변경 없음(비교 기준 자체) (기준 자체) | 12.5160 / 11.4191 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0000/result.json` (로컬 근거) |
+| r0001 / new_calibration | 완료 | b02 / r0001 | 변경 없음(비교 기준 자체) (기준 자체) | 12.5854 / 11.6910 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0001/result.json` (로컬 근거) |
+| r0002 / new_calibration | 완료 | b09 / r0002 | 변경 없음(비교 기준 자체) (기준 자체) | 12.3359 / 11.9961 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0002/result.json` (로컬 근거) |
+| r0003 / new_calibration | 완료 | b22 / r0003 | 변경 없음(비교 기준 자체) (기준 자체) | 12.8354 / 11.6057 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0003/result.json` (로컬 근거) |
+| r0004 / new_calibration | 완료 | b00 / r0000 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | 12.6786 / 11.3830 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0004/result.json` (로컬 근거) |
+| r0005 / new_calibration | 완료 | b02 / r0001 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | 12.7628 / 11.7529 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0005/result.json` (로컬 근거) |
+| r0006 / new_calibration | 완료 | b09 / r0002 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | 12.5379 / 12.0343 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0006/result.json` (로컬 근거) |
+| r0007 / new_calibration | 완료 | b22 / r0003 | n_estimators: 160→240; num_leaves: 3→7; reg_lambda: 10.0→20.0; regularization: small→medium (여러 설정 동시 변경) | 13.0083 / 11.6279 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0007/result.json` (로컬 근거) |
+| r0008 / new_calibration | 완료 | b00 / r0000 | group_mix: 0.0→0.5 (단일 설정 차이) | 12.5114 / 11.4085 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0008/result.json` (로컬 근거) |
+| r0009 / new_calibration | 완료 | b02 / r0001 | group_mix: 0.0→0.5 (단일 설정 차이) | 12.5841 / 11.6979 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0009/result.json` (로컬 근거) |
+| r0010 / new_calibration | 완료 | b09 / r0002 | group_mix: 0.0→0.5 (단일 설정 차이) | 12.3347 / 11.9955 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0010/result.json` (로컬 근거) |
+| r0011 / new_calibration | 완료 | b22 / r0003 | group_mix: 0.0→0.5 (단일 설정 차이) | 12.8269 / 11.6141 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0011/result.json` (로컬 근거) |
+| r0012 / new_calibration | 완료 | b00 / r0000 | weighting: money→horizon (단일 설정 차이) | 12.5160 / 11.4191 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0012/result.json` (로컬 근거) |
+| r0013 / new_calibration | 완료 | b02 / r0001 | weighting: money→horizon (단일 설정 차이) | 12.5854 / 11.6910 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0013/result.json` (로컬 근거) |
+| r0014 / new_calibration | 완료 | b09 / r0002 | weighting: money→horizon (단일 설정 차이) | 12.3359 / 11.9961 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0014/result.json` (로컬 근거) |
+| r0015 / new_calibration | 완료 | b22 / r0003 | weighting: money→horizon (단일 설정 차이) | 12.8354 / 11.6057 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0015/result.json` (로컬 근거) |
+| r0016 / new_calibration | 완료 | b00 / r0000 | features: weather_spread→rich_spread (단일 설정 차이) | 12.6660 / 11.4113 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0016/result.json` (로컬 근거) |
+| r0017 / new_calibration | 완료 | b02 / r0001 | features: weather_spread→rich_spread (단일 설정 차이) | 12.7375 / 11.7005 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0017/result.json` (로컬 근거) |
+| r0018 / new_calibration | 완료 | b09 / r0002 | features: weather_spread→rich_spread (단일 설정 차이) | 12.4872 / 11.9987 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0018/result.json` (로컬 근거) |
+| r0019 / new_calibration | 완료 | b22 / r0003 | features: weather_spread→rich_spread (단일 설정 차이) | 12.9090 / 11.6368 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0019/result.json` (로컬 근거) |
+| r0020 / new_calibration | 완료 | b00 / r0000 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | 12.8659 / 11.4102 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0020/result.json` (로컬 근거) |
+| r0021 / new_calibration | 완료 | b02 / r0001 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | 12.8939 / 11.7905 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0021/result.json` (로컬 근거) |
+| r0022 / new_calibration | 진행 중 | b09 / r0002 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | — / — | 31 / 31 | 미평가 — |
 | r0023 / new_calibration | 대기 | b22 / r0003 | learning_rate: 0.03→0.025; min_child_samples: 500→1000; n_estimators: 160→320; num_leaves: 3→15; reg_lambda: 10.0→30.0; regularization: small→large (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
 | r0024 / new_calibration | 대기 | b00 / r0004 | group_mix: 0.0→0.5 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
 | r0025 / new_calibration | 대기 | b02 / r0005 | group_mix: 0.0→0.5 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
@@ -3150,35 +3150,35 @@ model_results.csv의 25개 명명된 비교를 모두 보존했습니다. 150개
 | r0285 / new_calibration | 대기 | b02 / r0245 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
 | r0286 / new_calibration | 대기 | b09 / r0246 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
 | r0287 / new_calibration | 대기 | b22 / r0247 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| n0132 / recovered_result | 완료 | b02 / n0132 | 변경 없음(비교 기준 자체) (기준 자체) | 12.8066 / 11.6631 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0132/result.json` (로컬 근거) |
-| n0135 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.3; half_life: 없음→180; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.9983 / 11.9073 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0135/result.json` (로컬 근거) |
-| n0142 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.2; features: core→season; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | 12.9675 / 11.5707 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0142/result.json` (로컬 근거) |
-| n0169 / recovered_result | 완료 | b02 / n0142 | bound: 0.2→0.3; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.0997 / 11.5783 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0169/result.json` (로컬 근거) |
-| n0171 / recovered_result | 완료 | b02 / n0135 | min_child_samples: 500→200; n_estimators: 80→160; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.3816 / 11.8208 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0171/result.json` (로컬 근거) |
-| n0173 / recovered_result | 완료 | b02 / n0169 | bound: 0.3→0.5; features: season→age; learning_rate: 0.025→0.05; n_estimators: 80→160; num_leaves: 3→7 (여러 설정 동시 변경) | 13.3129 / 11.7931 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0173/result.json` (로컬 근거) |
-| n0174 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.2; half_life: 없음→365; min_child_samples: 500→1000; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.2876 / 11.8879 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0174/result.json` (로컬 근거) |
-| n0186 / recovered_result | 완료 | b02 / n0174 | half_life: 365→180; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0964 / 11.8182 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0186/result.json` (로컬 근거) |
-| n0188 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.3; features: core→age; half_life: 없음→180; min_child_samples: 500→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.0145 / 11.8256 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0188/result.json` (로컬 근거) |
-| n0191 / recovered_result | 완료 | b02 / n0188 | bound: 0.3→0.15; min_child_samples: 200→500; mode: additive→multiplicative; n_estimators: 80→160 (여러 설정 동시 변경) | 13.1354 / 11.8606 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0191/result.json` (로컬 근거) |
-| n0582 / recovered_result | 완료 | b09 / n0582 | 변경 없음(비교 기준 자체) (기준 자체) | 12.9394 / 12.1521 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n0582/result.json` (로컬 근거) |
-| n1450 / recovered_result | 완료 | b22 / n1450 | 변경 없음(비교 기준 자체) (기준 자체) | 13.2132 / 11.9251 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 `analysis_outputs/research_23kst_20261108/recovered/n1450/result.json` (로컬 근거) |
-| n0132 / seed_validation | 완료 | b02 / n0132 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0132/result.json` (로컬 근거) |
-| n0135 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.3; half_life: 없음→180; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0135/result.json` (로컬 근거) |
-| n0142 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.2; features: core→season; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0142/result.json` (로컬 근거) |
-| n0169 / seed_validation | 완료 | b02 / n0142 | bound: 0.2→0.3; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0169/result.json` (로컬 근거) |
-| n0171 / seed_validation | 완료 | b02 / n0135 | min_child_samples: 500→200; n_estimators: 80→160; shrink: 0.5→1.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0171/result.json` (로컬 근거) |
-| n0173 / seed_validation | 완료 | b02 / n0169 | bound: 0.3→0.5; features: season→age; learning_rate: 0.025→0.05; n_estimators: 80→160; num_leaves: 3→7 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0173/result.json` (로컬 근거) |
-| n0174 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.2; half_life: 없음→365; min_child_samples: 500→1000; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n0174/result.json` (로컬 근거) |
-| n0186 / seed_validation | 진행 중 | b02 / n0174 | half_life: 365→180; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — / — | 3 / 3 | 미평가 — |
-| n0188 / seed_validation | 대기 | b02 / n0132 | bound: 0.1→0.3; features: core→age; half_life: 없음→180; min_child_samples: 500→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| n0191 / seed_validation | 대기 | b02 / n0188 | bound: 0.3→0.15; min_child_samples: 200→500; mode: additive→multiplicative; n_estimators: 80→160 (여러 설정 동시 변경) | — / — | 0 / 0 | 미평가 — |
-| n0582 / seed_validation | 대기 | b09 / n0582 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 0 / 0 | 미평가 — |
-| n1450 / seed_validation | 대기 | b22 / n1450 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 0 / 0 | 미평가 — |
-| b00 / reused_oof_inputs | 대기 | b00 /  |  () | — / — | — / 0 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. — |
-| b02 / reused_oof_inputs | 대기 | b02 /  |  () | — / — | — / 0 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. — |
-| b09 / reused_oof_inputs | 대기 | b09 /  |  () | — / — | — / 0 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. — |
-| b22 / reused_oof_inputs | 대기 | b22 /  |  () | — / — | — / 0 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. — |
-| assemble / assembled_search_inputs | 대기 |  /  |  () | — / — | — / 0 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. — |
+| n0132 / recovered_result | 완료 | b02 / n0132 | 변경 없음(비교 기준 자체) (기준 자체) | 12.8066 / 11.6631 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0132/result.json) |
+| n0135 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.3; half_life: 없음→180; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.9983 / 11.9073 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0135/result.json) |
+| n0142 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.2; features: core→season; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | 12.9675 / 11.5707 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0142/result.json) |
+| n0169 / recovered_result | 완료 | b02 / n0142 | bound: 0.2→0.3; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.0997 / 11.5783 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0169/result.json) |
+| n0171 / recovered_result | 완료 | b02 / n0135 | min_child_samples: 500→200; n_estimators: 80→160; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.3816 / 11.8208 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0171/result.json) |
+| n0173 / recovered_result | 완료 | b02 / n0169 | bound: 0.3→0.5; features: season→age; learning_rate: 0.025→0.05; n_estimators: 80→160; num_leaves: 3→7 (여러 설정 동시 변경) | 13.3129 / 11.7931 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0173/result.json) |
+| n0174 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.2; half_life: 없음→365; min_child_samples: 500→1000; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.2876 / 11.8879 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0174/result.json) |
+| n0186 / recovered_result | 완료 | b02 / n0174 | half_life: 365→180; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0964 / 11.8182 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0186/result.json) |
+| n0188 / recovered_result | 완료 | b02 / n0132 | bound: 0.1→0.3; features: core→age; half_life: 없음→180; min_child_samples: 500→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.0145 / 11.8256 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0188/result.json) |
+| n0191 / recovered_result | 완료 | b02 / n0188 | bound: 0.3→0.15; min_child_samples: 200→500; mode: additive→multiplicative; n_estimators: 80→160 (여러 설정 동시 변경) | 13.1354 / 11.8606 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0191/result.json) |
+| n0582 / recovered_result | 완료 | b09 / n0582 | 변경 없음(비교 기준 자체) (기준 자체) | 12.9394 / 12.1521 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n0582/result.json) |
+| n1450 / recovered_result | 완료 | b22 / n1450 | 변경 없음(비교 기준 자체) (기준 자체) | 13.2132 / 11.9251 | 0 / 0 | 옛 실패 결과 복원·새 후보 채택 아님 [근거](../../analysis_outputs/research_23kst_20261108/recovered/n1450/result.json) |
+| n0132 / seed_validation | 완료 | b02 / n0132 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0132/result.json) |
+| n0135 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.3; half_life: 없음→180; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0135/result.json) |
+| n0142 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.2; features: core→season; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0142/result.json) |
+| n0169 / seed_validation | 완료 | b02 / n0142 | bound: 0.2→0.3; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0169/result.json) |
+| n0171 / seed_validation | 완료 | b02 / n0135 | min_child_samples: 500→200; n_estimators: 80→160; shrink: 0.5→1.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0171/result.json) |
+| n0173 / seed_validation | 완료 | b02 / n0169 | bound: 0.3→0.5; features: season→age; learning_rate: 0.025→0.05; n_estimators: 80→160; num_leaves: 3→7 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0173/result.json) |
+| n0174 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.2; half_life: 없음→365; min_child_samples: 500→1000; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0174/result.json) |
+| n0186 / seed_validation | 완료 | b02 / n0174 | half_life: 365→180; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0186/result.json) |
+| n0188 / seed_validation | 완료 | b02 / n0132 | bound: 0.1→0.3; features: core→age; half_life: 없음→180; min_child_samples: 500→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0188/result.json) |
+| n0191 / seed_validation | 완료 | b02 / n0188 | bound: 0.3→0.15; min_child_samples: 200→500; mode: additive→multiplicative; n_estimators: 80→160 (여러 설정 동시 변경) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0191/result.json) |
+| n0582 / seed_validation | 완료 | b09 / n0582 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 [근거](../../analysis_outputs/research_23kst_20261108/validation/n0582/result.json) |
+| n1450 / seed_validation | 완료 | b22 / n1450 | 변경 없음(비교 기준 자체) (기준 자체) | — / — | 4 / 4 | 추가 시드 진단 전용·후보 자동 채택 없음 `analysis_outputs/research_23kst_20261108/validation/n1450/result.json` (로컬 근거) |
+| b00 / reused_oof_inputs | 완료 | b00 /  |  () | — / — | — / 2 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. `analysis_outputs/research_23kst_20261108/bases/b00/result.json` (로컬 근거) |
+| b02 / reused_oof_inputs | 완료 | b02 /  |  () | — / — | — / 2 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. `analysis_outputs/research_23kst_20261108/bases/b02/result.json` (로컬 근거) |
+| b09 / reused_oof_inputs | 완료 | b09 /  |  () | — / — | — / 2 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. `analysis_outputs/research_23kst_20261108/bases/b09/result.json` (로컬 근거) |
+| b22 / reused_oof_inputs | 완료 | b22 /  |  () | — / — | — / 2 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. `analysis_outputs/research_23kst_20261108/bases/b22/result.json` (로컬 근거) |
+| assemble / assembled_search_inputs | 완료 |  /  |  () | — / — | — / 0 | 기존 모델은 재사용하고 필요한 이후 학습 마감일 모델만 새 학습. 원점별 영수증의 새 학습만 합산; 후보 채택 결과가 아님. `analysis_outputs/research_23kst_20261108/assemble/result.json` (로컬 근거) |
 | completion / finalization | 대기 |  /  |  () | — / — | — / 0 | 최종 처리 결과: 미기록. 작업 종료·후보 생성·독립 검증·공식 제출은 서로 다른 상태이며 자동으로 추정하지 않음. — |
 
 설정 변경의 정확한 값은 CSV의 changed_settings와 config_json을 함께 확인하세요. 과거 기록의 지표·참조 기간·진단 여부를 유지하며 캠페인 간 자동 우승자를 만들지 않습니다.
