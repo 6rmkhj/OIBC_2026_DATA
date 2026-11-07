@@ -1,0 +1,62 @@
+{
+  "features": [
+    "wa_cloud",
+    "wa_temp",
+    "wa_humidity",
+    "wa_rain",
+    "wa_wind_speed",
+    "wb_cloud",
+    "wb_uv_idx",
+    "wb_precip_prob",
+    "wb_total_liq",
+    "wb_rel_hum",
+    "extra_wa_snow",
+    "cosz",
+    "grp_code",
+    "doy_sin",
+    "doy_cos",
+    "hour",
+    "raw_solar_fraction",
+    "cross_mean",
+    "cross_spread",
+    "cross_range",
+    "cross_delta_b00",
+    "cross_delta_b02",
+    "cross_delta_b22",
+    "forecast_age_days",
+    "model_history_days"
+  ],
+  "cutoff": "2022-06-01",
+  "horizon_days": 92,
+  "training_rows": 23648,
+  "unique_targets": 9599,
+  "training_target_start": "2021-06-01 06:00:00+09:00",
+  "training_target_end": "2022-05-31 20:00:00+09:00",
+  "generating_origin_start": "2021-06-01 00:00:00+09:00",
+  "generating_origin_end": "2022-03-01 00:00:00+09:00",
+  "chronology_keys_sha256": "bf1ccba7c7f433f87a6931c3a94acfaec98dbb614bd58c0b079968502b793442",
+  "every_origin_precedes_target": true,
+  "weight_min": 0.0006393169452135633,
+  "weight_max": 4.3004041434486036,
+  "weight_mean": 1.0,
+  "target_min": -0.6784059474889863,
+  "target_max": 0.7993328940390948,
+  "weight_formula": "money*solar_capacity/selected-subset duplicate count; optional equal group-season totals; normalized mean1",
+  "provenance": {
+    "shared_manifest_sha256": "9a40b4aecda096f60d5ac2060155609974411f0ae8dbdcccacf5310a0e0bbd06",
+    "matched_cross_base_ids": [
+      "b00",
+      "b02",
+      "b09",
+      "b22"
+    ]
+  },
+  "group_mix": 0.5,
+  "anchor_penalty": 0.25,
+  "train_only_feature_mask": true,
+  "model_files": [
+    "pooled.txt",
+    "G1.txt",
+    "G2.txt"
+  ]
+}
