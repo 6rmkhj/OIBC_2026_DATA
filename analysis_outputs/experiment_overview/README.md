@@ -1,12 +1,20 @@
 # 전체 실험·시도 상태표
 
-확인 시각: **2026-11-07 18:04:24 KST**.
+확인 시각: **2026-11-07 18:10:02 KST**.
 
 [프로젝트 요약](../../README.md) · [필터링 가능한 전체 CSV](experiments.csv)
 
 현재 단계의 ID는 고정된 전체 설정 큐를 포함합니다. `pending`은 아직 실행되지 않았다는 뜻이며 실패가 아닙니다. 과거 표의 `keep`/`discard`는 당시 탐색 결정이지 공식 점수 상승이나 실패를 뜻하지 않습니다. 같은 ID의 재시도는 별도 과거 로그 행으로 남깁니다.
 
 현재 5개 기간 검증에서 결과 저장이 실패한 실험은 완료 영수증 수와 별도로 `failed`로 표시합니다. 모델의 과학적 적격 여부를 최종 결과 없이 추정하지 않습니다.
+
+## 설정과 결과 비교 읽는 법
+
+설정 키의 한국어 설명·평가 날짜·대표 전후 비교는 [프로젝트 README](../../README.md#무엇을-바꾸며-실험하는가)에 있습니다. 아래 현재 실험 표는 **앞선 ID 중 설정 차이가 가장 적은 실험**을 비교 대상으로 고릅니다(동률이면 ID순, 점수는 선택에 사용하지 않음). 연장 단계는 동일한 기초 모델 안에서만 비교합니다. 비교 대상은 실험 설계의 공식 대조군을 뜻하지 않습니다.
+
+`primary/recent` 칸: **혼합 전 W_pct (비교 ID 대비 W 상대 변화)**. 낮을수록 좋으며 음수는 개선, 양수는 악화입니다. 두 결과가 모두 정상 완료된 경우만 상대 변화를 계산합니다. 여러 설정이 바뀐 행은 각각의 효과를 분리할 수 없습니다. 대기·실패 행도 설정 차이는 표시하지만 혼합 전 전후 점수를 성공으로 추정하지 않습니다.
+
+CSV에는 각 실험의 전체 `config_json`, `base_id→source_generation_id`, `comparison_id`, `changed_settings`, primary/recent 원래 W와 W_pct, 비교 대상·보정 전 기초 모델 대비 W 변화, `blend_alpha`, 최고 제출 대비 혼합 W 변화를 따로 제공합니다. 실패 후보의 감사로 복원한 혼합 수치는 기존 `audit_gate_pass`와 근거를 함께 확인하세요. 과거 캠페인은 평가 방식이 달라 자동으로 공통 기준을 붙이지 않고 기존 변경 설명·지표 단위·근거를 보존합니다.
 
 ## 기초 데이터·예보·구성·점수 검증
 
@@ -505,2350 +513,2351 @@ model_results.csv의 25개 명명된 비교를 모두 보존했습니다. 150개
 
 ## 기존 10시간 단계
 
-현재 고정된 실행 큐
-
-| ID | 종류 | 상태 | 완료 기간 / 예정 | 확인된 모델 학습 | 지표 | 값 | 비고·근거 |
-|---|---|---|---:|---:|---|---:|---|
-| c000 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0000 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c000/result.json) |
-| c001 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0894 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c001/result.json) |
-| c002 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9492 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c002/result.json) |
-| c003 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9211 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c003/result.json) |
-| c004 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9310 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c004/result.json) |
-| c005 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0558 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c005/result.json) |
-| c006 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9875 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c006/result.json) |
-| c007 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0799 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c007/result.json) |
-| c008 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9553 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c008/result.json) |
-| c009 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0270 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c009/result.json) |
-| c010 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9409 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c010/result.json) |
-| c011 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0843 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c011/result.json) |
-| c012 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9560 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c012/result.json) |
-| c013 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0849 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c013/result.json) |
-| c014 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9493 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c014/result.json) |
-| c015 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0478 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c015/result.json) |
-| c016 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1077 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c016/result.json) |
-| c017 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9811 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c017/result.json) |
-| c018 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1509 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c018/result.json) |
-| c019 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9706 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c019/result.json) |
-| c020 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1634 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c020/result.json) |
-| c021 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9503 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c021/result.json) |
-| c022 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0697 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c022/result.json) |
-| c023 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9831 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c023/result.json) |
-| c024 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0111 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c024/result.json) |
-| c025 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9676 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c025/result.json) |
-| c026 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0510 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c026/result.json) |
-| c027 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9430 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c027/result.json) |
-| c028 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0279 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c028/result.json) |
-| c029 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9469 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c029/result.json) |
-| c030 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0001 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c030/result.json) |
-| c031 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9841 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c031/result.json) |
-| c032 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9491 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c032/result.json) |
-| c033 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0688 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c033/result.json) |
-| c034 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9420 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c034/result.json) |
-| c035 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1657 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c035/result.json) |
-| c036 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9384 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c036/result.json) |
-| c037 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1621 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c037/result.json) |
-| c038 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9469 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c038/result.json) |
-| c039 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0317 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c039/result.json) |
-| c040 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9679 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c040/result.json) |
-| c041 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1689 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c041/result.json) |
-| c042 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9782 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c042/result.json) |
-| c043 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0525 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c043/result.json) |
-| c044 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9355 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c044/result.json) |
-| c045 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0562 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c045/result.json) |
-| c046 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9303 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c046/result.json) |
-| c047 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1474 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c047/result.json) |
-| c048 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1828 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c048/result.json) |
-| c049 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9504 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c049/result.json) |
-| c050 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0991 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c050/result.json) |
-| c051 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9604 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c051/result.json) |
-| c052 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1537 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c052/result.json) |
-| c053 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9441 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c053/result.json) |
-| c054 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1662 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c054/result.json) |
-| c055 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9930 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c055/result.json) |
-| c056 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1583 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c056/result.json) |
-| c057 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9657 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c057/result.json) |
-| c058 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1017 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c058/result.json) |
-| c059 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9614 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c059/result.json) |
-| c060 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0932 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c060/result.json) |
-| c061 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9610 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c061/result.json) |
-| c062 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1016 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c062/result.json) |
-| c063 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9812 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c063/result.json) |
-| c064 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9626 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c064/result.json) |
-| c065 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1621 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c065/result.json) |
-| c066 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9401 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c066/result.json) |
-| c067 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1703 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c067/result.json) |
-| c068 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9526 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c068/result.json) |
-| c069 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0816 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c069/result.json) |
-| c070 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9548 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c070/result.json) |
-| c071 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1872 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c071/result.json) |
-| c072 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9742 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c072/result.json) |
-| c073 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0091 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c073/result.json) |
-| c074 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9388 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c074/result.json) |
-| c075 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0707 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c075/result.json) |
-| c076 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9472 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c076/result.json) |
-| c077 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1425 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c077/result.json) |
-| c078 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9367 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c078/result.json) |
-| c079 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0727 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c079/result.json) |
-| c080 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0812 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c080/result.json) |
-| c081 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9308 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c081/result.json) |
-| c082 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0667 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c082/result.json) |
-| c083 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9512 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c083/result.json) |
-| c084 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0727 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c084/result.json) |
-| c085 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9384 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c085/result.json) |
-| c086 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0064 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c086/result.json) |
-| c087 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9931 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c087/result.json) |
-| c088 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0570 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c088/result.json) |
-| c089 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9484 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c089/result.json) |
-| c090 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0491 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c090/result.json) |
-| c091 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9477 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c091/result.json) |
-| c092 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0406 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c092/result.json) |
-| c093 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9288 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c093/result.json) |
-| c094 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0989 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c094/result.json) |
-| c095 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9653 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c095/result.json) |
-| c096 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9512 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c096/result.json) |
-| c097 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0723 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c097/result.json) |
-| c098 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9563 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c098/result.json) |
-| c099 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1677 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c099/result.json) |
-| c100 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9432 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c100/result.json) |
-| c101 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0522 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c101/result.json) |
-| c102 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9788 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c102/result.json) |
-| c103 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0997 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c103/result.json) |
-| c104 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9576 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c104/result.json) |
-| c105 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1597 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c105/result.json) |
-| c106 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9824 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c106/result.json) |
-| c107 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1360 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c107/result.json) |
-| c108 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9876 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c108/result.json) |
-| c109 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1456 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c109/result.json) |
-| c110 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9616 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c110/result.json) |
-| c111 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1127 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c111/result.json) |
-| c112 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0162 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c112/result.json) |
-| c113 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9750 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c113/result.json) |
-| c114 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0432 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c114/result.json) |
-| c115 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9458 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c115/result.json) |
-| c116 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0832 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c116/result.json) |
-| c117 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9339 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c117/result.json) |
-| c118 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0492 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c118/result.json) |
-| c119 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9941 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c119/result.json) |
-| c120 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0578 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c120/result.json) |
-| c121 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9725 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c121/result.json) |
-| c122 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0986 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c122/result.json) |
-| c123 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9781 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c123/result.json) |
-| c124 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0232 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c124/result.json) |
-| c125 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9522 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c125/result.json) |
-| c126 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0331 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c126/result.json) |
-| c127 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9624 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c127/result.json) |
-| c128 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9445 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c128/result.json) |
-| c129 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0443 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c129/result.json) |
-| c130 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9491 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c130/result.json) |
-| c131 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1704 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c131/result.json) |
-| c132 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9760 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c132/result.json) |
-| c133 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0315 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c133/result.json) |
-| c134 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9537 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c134/result.json) |
-| c135 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0442 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c135/result.json) |
-| c136 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9555 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c136/result.json) |
-| c137 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1434 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c137/result.json) |
-| c138 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9401 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c138/result.json) |
-| c139 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0427 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c139/result.json) |
-| c140 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9514 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c140/result.json) |
-| c141 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0893 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c141/result.json) |
-| c142 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9259 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c142/result.json) |
-| c143 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1007 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c143/result.json) |
-| c144 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1663 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c144/result.json) |
-| c145 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9494 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c145/result.json) |
-| c146 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0911 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c146/result.json) |
-| c147 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9574 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c147/result.json) |
-| c148 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0057 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c148/result.json) |
-| c149 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9718 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c149/result.json) |
-| c150 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0851 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c150/result.json) |
-| c151 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9692 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c151/result.json) |
-| c152 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0723 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c152/result.json) |
-| c153 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9836 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c153/result.json) |
-| c154 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0605 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c154/result.json) |
-| c155 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9587 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c155/result.json) |
-| c156 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1587 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c156/result.json) |
-| c157 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9410 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c157/result.json) |
-| c158 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9999 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c158/result.json) |
-| c159 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9712 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c159/result.json) |
-| c160 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9437 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c160/result.json) |
-| c161 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0155 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c161/result.json) |
-| c162 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9574 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c162/result.json) |
-| c163 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0510 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c163/result.json) |
-| c164 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9338 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c164/result.json) |
-| c165 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1462 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c165/result.json) |
-| c166 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9342 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c166/result.json) |
-| c167 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1632 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c167/result.json) |
-| c168 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9637 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c168/result.json) |
-| c169 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1336 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c169/result.json) |
-| c170 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9441 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c170/result.json) |
-| c171 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0554 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c171/result.json) |
-| c172 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9411 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c172/result.json) |
-| c173 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0085 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c173/result.json) |
-| c174 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9228 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c174/result.json) |
-| c175 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1407 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c175/result.json) |
-| c176 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0692 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c176/result.json) |
-| c177 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9602 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c177/result.json) |
-| c178 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1597 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c178/result.json) |
-| c179 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9802 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c179/result.json) |
-| c180 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0296 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c180/result.json) |
-| c181 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9668 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c181/result.json) |
-| c182 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1782 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c182/result.json) |
-| c183 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9642 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c183/result.json) |
-| c184 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0858 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c184/result.json) |
-| c185 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9326 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c185/result.json) |
-| c186 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0000 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c186/result.json) |
-| c187 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9632 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c187/result.json) |
-| c188 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1696 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c188/result.json) |
-| c189 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9570 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c189/result.json) |
-| c190 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0096 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c190/result.json) |
-| c191 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9413 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c191/result.json) |
-| c192 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9582 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c192/result.json) |
-| c193 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0628 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c193/result.json) |
-| c194 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9822 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c194/result.json) |
-| c195 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0441 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c195/result.json) |
-| c196 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9865 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c196/result.json) |
-| c197 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0516 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c197/result.json) |
-| c198 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9496 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c198/result.json) |
-| c199 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0528 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c199/result.json) |
-| c200 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9379 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c200/result.json) |
-| c201 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0579 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c201/result.json) |
-| c202 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9597 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c202/result.json) |
-| c203 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0268 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c203/result.json) |
-| c204 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9624 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c204/result.json) |
-| c205 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1515 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c205/result.json) |
-| c206 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9207 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c206/result.json) |
-| c207 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0974 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c207/result.json) |
-| c208 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1519 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c208/result.json) |
-| c209 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9785 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c209/result.json) |
-| c210 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0786 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c210/result.json) |
-| c211 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9600 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c211/result.json) |
-| c212 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1006 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c212/result.json) |
-| c213 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9330 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c213/result.json) |
-| c214 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0618 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c214/result.json) |
-| c215 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9691 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c215/result.json) |
-| c216 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1964 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c216/result.json) |
-| c217 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9814 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c217/result.json) |
-| c218 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0621 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c218/result.json) |
-| c219 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9526 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c219/result.json) |
-| c220 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1076 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c220/result.json) |
-| c221 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9418 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c221/result.json) |
-| c222 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0308 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c222/result.json) |
-| c223 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9586 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c223/result.json) |
-| c224 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9413 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c224/result.json) |
-| c225 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0860 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c225/result.json) |
-| c226 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9491 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c226/result.json) |
-| c227 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1827 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c227/result.json) |
-| c228 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9682 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c228/result.json) |
-| c229 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0604 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c229/result.json) |
-| c230 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9543 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c230/result.json) |
-| c231 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1694 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c231/result.json) |
-| c232 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9510 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c232/result.json) |
-| c233 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0302 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c233/result.json) |
-| c234 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9537 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c234/result.json) |
-| c235 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0156 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c235/result.json) |
-| c236 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9706 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c236/result.json) |
-| c237 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1641 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c237/result.json) |
-| c238 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9605 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c238/result.json) |
-| c239 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1053 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c239/result.json) |
-| c240 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0172 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c240/result.json) |
-| c241 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9323 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c241/result.json) |
-| c242 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1609 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c242/result.json) |
-| c243 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9487 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c243/result.json) |
-| c244 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0162 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c244/result.json) |
-| c245 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9743 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c245/result.json) |
-| c246 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0100 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c246/result.json) |
-| c247 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0081 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c247/result.json) |
-| c248 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0226 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c248/result.json) |
-| c249 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9788 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c249/result.json) |
-| c250 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0846 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c250/result.json) |
-| c251 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9572 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c251/result.json) |
-| c252 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.1445 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c252/result.json) |
-| c253 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9579 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c253/result.json) |
-| c254 | generation | 완료 | 5/5 | 5 | mean W / c000 | 1.0970 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c254/result.json) |
-| c255 | generation | 완료 | 5/5 | 5 | mean W / c000 | 0.9561 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c255/result.json) |
+| ID / 상태 | 기초 / 비교 ID | 바뀐 설정 | primary W_pct (W 변화) | recent W_pct (W 변화) | alpha / 최고 제출 대비 혼합 W 변화 primary, recent | 완료 기간 / 학습 횟수 | 비고·근거 |
+|---|---|---|---:|---:|---|---|---|
+| c000 / 완료 | c000 | 변경 없음(비교 기준 자체) (기준 자체) | 13.1606 (0.0000%) | 12.8018 (0.0000%) | 0.007840 / -0.0008%, 0.0218% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c000/result.json) |
+| c001 / 완료 | c000 | target: original_cf→exact_energy; weighting: legacy→monetary (여러 설정 동시 변경) | 14.4948 (10.1379%) | 14.5970 (14.0226%) | 0.051463 / -0.0731%, 0.5234% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c001/result.json) |
+| c002 / 완료 | c001 | features: station→rich (단일 설정 차이) | 13.1918 (-8.9894%) | 11.8937 (-18.5193%) | 0.028925 / -0.0100%, 0.0001% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c002/result.json) |
+| c003 / 완료 | c000 | features: station→rich (단일 설정 차이) | 12.7386 (-3.2060%) | 11.5981 (-9.4028%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c003/result.json) |
+| c004 / 완료 | c002 | colsample_bytree: 0.8→0.65; half_life: 180→없음; learning_rate: 0.03→0.025; min_child_samples: 50→100; n_estimators: 400→1400 (여러 설정 동시 변경) | 12.7371 (-3.4466%) | 11.9893 (0.8042%) | 0.109772 / -0.1132%, 0.5195% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c004/result.json) |
+| c005 / 완료 | c001 | colsample_bytree: 0.8→1.0; half_life: 180→365; learning_rate: 0.03→0.015; n_estimators: 400→1000; num_leaves: 63→127; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 14.2400 (-1.7574%) | 13.9756 (-4.2565%) | 0.051759 / -0.0642%, 0.4352% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c005/result.json) |
+| c006 / 완료 | c002 | colsample_bytree: 0.8→1.0; half_life: 180→90; learning_rate: 0.03→0.055; min_child_samples: 50→200; n_estimators: 400→2000; num_leaves: 63→15; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 13.6787 (3.6909%) | 12.5383 (5.4193%) | 0.019264 / -0.0086%, -0.0037% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c006/result.json) |
+| c007 / 완료 | c005 | colsample_bytree: 1.0→0.65; learning_rate: 0.015→0.07; min_child_samples: 50→300; n_estimators: 1000→400; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.8602 (-2.6673%) | 14.3406 (2.6112%) | 0.010088 / -0.0024%, 0.0781% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c007/result.json) |
+| c008 / 완료 | c002 | colsample_bytree: 0.8→1.0; learning_rate: 0.03→0.04; min_child_samples: 50→200; num_leaves: 63→127; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 13.2202 (0.2153%) | 12.1603 (2.2419%) | 0.066218 / -0.0721%, 0.2044% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c008/result.json) |
+| c009 / 완료 | c007 | half_life: 365→없음; num_leaves: 127→15; objective: regression_l2→regression_l1; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.0981 (-5.4983%) | 12.6914 (-11.4997%) | 0.096191 / -0.1535%, 0.4693% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c009/result.json) |
+| c010 / 완료 | c005 | colsample_bytree: 1.0→0.8; features: station→rich; num_leaves: 127→31; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 12.8987 (-9.4197%) | 12.0231 (-13.9708%) | 0.084305 / -0.0729%, 0.2499% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c010/result.json) |
+| c011 / 완료 | c001 | colsample_bytree: 0.8→0.65; learning_rate: 0.03→0.025; n_estimators: 400→700; num_leaves: 63→31; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 14.8116 (2.1857%) | 14.0410 (-3.8085%) | 0.053686 / -0.0950%, 0.4666% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c011/result.json) |
+| c012 / 완료 | c008 | colsample_bytree: 1.0→0.65; learning_rate: 0.04→0.07; min_child_samples: 200→100; n_estimators: 400→700 (여러 설정 동시 변경) | 13.1511 (-0.5224%) | 11.9831 (-1.4579%) | 0.035287 / -0.0175%, 0.0182% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c012/result.json) |
+| c013 / 완료 | c005 | half_life: 365→180; learning_rate: 0.015→0.025; min_child_samples: 50→100; n_estimators: 1000→2000; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 14.7607 (3.6565%) | 14.4213 (3.1887%) | 0.051435 / -0.0775%, 0.4150% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c013/result.json) |
+| c014 / 완료 | c003 | half_life: 180→90; learning_rate: 0.03→0.015; min_child_samples: 50→100; n_estimators: 400→1000; num_leaves: 63→31 (여러 설정 동시 변경) | 13.0694 (2.5966%) | 12.0661 (4.0354%) | 0.012466 / -0.0008%, 0.0260% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c014/result.json) |
+| c015 / 완료 | c011 | half_life: 180→없음; learning_rate: 0.025→0.07; min_child_samples: 50→200; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.8106 (-6.7581%) | 13.1183 (-6.5714%) | 0.012167 / -0.0035%, 0.0545% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c015/result.json) |
+| c016 / 완료 | c013 | colsample_bytree: 1.0→0.65; learning_rate: 0.025→0.055; reg_lambda: 8.0→2.0 (여러 설정 동시 변경) | 15.0885 (2.2208%) | 14.7004 (1.9354%) | 0.049324 / -0.1093%, 0.4966% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c016/result.json) |
+| c017 / 완료 | c006 | learning_rate: 0.055→0.04; min_child_samples: 200→50; reg_lambda: 8.0→20.0 (여러 설정 동시 변경) | 13.5461 (-0.9694%) | 12.4879 (-0.4014%) | 0.031245 / -0.0172%, 0.0134% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c017/result.json) |
+| c018 / 완료 | c001 | colsample_bytree: 0.8→0.65; half_life: 180→90; learning_rate: 0.03→0.04; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 15.6719 (8.1210%) | 15.2821 (4.6940%) | 0.034611 / -0.0542%, 0.2257% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c018/result.json) |
+| c019 / 완료 | c002 | half_life: 180→90; learning_rate: 0.03→0.04; min_child_samples: 50→100; n_estimators: 400→1000; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 13.5879 (3.0032%) | 12.0343 (1.1821%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c019/result.json) |
+| c020 / 완료 | c005 | colsample_bytree: 1.0→0.8; half_life: 365→90; min_child_samples: 50→200; n_estimators: 1000→1400; num_leaves: 127→31 (여러 설정 동시 변경) | 15.4412 (8.4348%) | 15.6629 (12.0728%) | 0.039026 / -0.0667%, 0.4113% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c020/result.json) |
+| c021 / 완료 | c006 | colsample_bytree: 1.0→0.65; half_life: 90→365; n_estimators: 2000→400 (여러 설정 동시 변경) | 12.8506 (-6.0537%) | 12.1310 (-3.2481%) | 0.144174 / -0.2559%, 0.5003% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c021/result.json) |
+| c022 / 완료 | c005 | colsample_bytree: 1.0→0.65; learning_rate: 0.015→0.055; n_estimators: 1000→700; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 14.3227 (0.5806%) | 13.9469 (-0.2053%) | 0.059638 / -0.0969%, 0.5255% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c022/result.json) |
+| c023 / 완료 | c006 | half_life: 90→365; min_child_samples: 200→100; n_estimators: 2000→700; objective: regression_l1→regression_l2; reg_lambda: 8.0→2.0 (여러 설정 동시 변경) | 13.1858 (-3.6028%) | 12.6928 (1.2329%) | 0.066847 / -0.0508%, 0.3281% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c023/result.json) |
+| c024 / 완료 | c009 | colsample_bytree: 0.65→1.0; learning_rate: 0.07→0.025; n_estimators: 400→1400 (여러 설정 동시 변경) | 12.9602 (-1.0529%) | 12.8399 (1.1701%) | 0.074783 / -0.0781%, 0.4359% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c024/result.json) |
+| c025 / 완료 | c012 | min_child_samples: 100→50; n_estimators: 700→1400; num_leaves: 127→15 (여러 설정 동시 변경) | 13.1517 (0.0045%) | 12.3937 (3.4265%) | 0.080200 / -0.0923%, 0.2256% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c025/result.json) |
+| c026 / 완료 | c013 | colsample_bytree: 1.0→0.8; half_life: 180→365; num_leaves: 127→31; reg_lambda: 8.0→20.0 (여러 설정 동시 변경) | 13.9314 (-5.6186%) | 13.7423 (-4.7081%) | 0.069651 / -0.1079%, 0.5825% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c026/result.json) |
+| c027 / 완료 | c024 | colsample_bytree: 1.0→0.8; features: station→rich; n_estimators: 1400→1000; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 12.7684 (-1.4800%) | 12.1929 (-5.0392%) | 0.132571 / -0.1908%, 0.5980% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c027/result.json) |
+| c028 / 완료 | c024 | colsample_bytree: 1.0→0.8; learning_rate: 0.025→0.055; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 13.0752 (0.8871%) | 12.7629 (-0.5999%) | 0.131997 / -0.2618%, 0.6702% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c028/result.json) |
+| c029 / 완료 | c004 | half_life: 없음→365; min_child_samples: 100→200; n_estimators: 1400→2000; num_leaves: 63→31 (여러 설정 동시 변경) | 12.7758 (0.3039%) | 12.2123 (1.8597%) | 0.136825 / -0.1836%, 0.6833% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c029/result.json) |
+| c030 / 완료 | c000 | learning_rate: 0.03→0.025; min_child_samples: 50→200; n_estimators: 400→2000 (여러 설정 동시 변경) | 13.1621 (0.0118%) | 12.7992 (-0.0203%) | 0.073268 / -0.0761%, 0.3121% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c030/result.json) |
+| c031 / 완료 | c003 | colsample_bytree: 0.8→1.0; half_life: 180→90; learning_rate: 0.03→0.055; min_child_samples: 50→200; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.5439 (6.3213%) | 12.5321 (8.0536%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c031/result.json) |
+| c032 / 완료 | c017 | half_life: 90→없음; n_estimators: 2000→1000; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 12.7858 (-5.6126%) | 12.2914 (-1.5740%) | 0.121863 / -0.1390%, 0.6271% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c032/result.json) |
+| c033 / 완료 | c005 | learning_rate: 0.015→0.07; n_estimators: 1000→700; num_leaves: 127→15 (여러 설정 동시 변경) | 13.8095 (-3.0235%) | 14.0011 (0.1825%) | 0.097302 / -0.1943%, 0.8919% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c033/result.json) |
+| c034 / 완료 | c010 | min_child_samples: 50→100; n_estimators: 1000→2000; reg_lambda: 2.0→8.0 (여러 설정 동시 변경) | 12.8394 (-0.4594%) | 11.9351 (-0.7319%) | 0.100208 / -0.1079%, 0.2416% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c034/result.json) |
+| c035 / 완료 | c006 | features: rich→station; learning_rate: 0.055→0.07; num_leaves: 15→127 (여러 설정 동시 변경) | 15.1091 (10.4574%) | 15.3442 (22.3794%) | 0.026573 / -0.0312%, 0.2498% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c035/result.json) |
+| c036 / 완료 | c019 | half_life: 90→없음; min_child_samples: 100→200; n_estimators: 1000→2000; reg_lambda: 8.0→2.0 (여러 설정 동시 변경) | 12.7515 (-6.1560%) | 12.0808 (0.3864%) | 0.139050 / -0.1619%, 0.6541% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c036/result.json) |
+| c037 / 완료 | c018 | n_estimators: 400→1400; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 15.8015 (0.8272%) | 15.6853 (2.6383%) | 0.056476 / -0.1365%, 0.6071% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c037/result.json) |
+| c038 / 완료 | c005 | features: station→rich; learning_rate: 0.015→0.055; n_estimators: 1000→2000 (여러 설정 동시 변경) | 13.4003 (-5.8967%) | 11.9232 (-14.6856%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c038/result.json) |
+| c039 / 완료 | c005 | colsample_bytree: 1.0→0.8; half_life: 365→없음; min_child_samples: 50→300; objective: regression_l1→regression_l2; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 13.1729 (-7.4940%) | 13.1010 (-6.2584%) | 0.057691 / -0.0519%, 0.3233% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c039/result.json) |
+| c040 / 완료 | c006 | half_life: 90→180; n_estimators: 2000→700 (여러 설정 동시 변경) | 13.3756 (-2.2153%) | 12.3091 (-1.8280%) | 0.051177 / -0.0314%, 0.1142% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c040/result.json) |
+| c041 / 완료 | c018 | min_child_samples: 50→200; num_leaves: 63→127; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 15.7347 (0.4010%) | 15.6112 (2.1536%) | 0.030104 / -0.0386%, 0.2338% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c041/result.json) |
+| c042 / 완료 | c019 | learning_rate: 0.04→0.025; n_estimators: 1000→1400; num_leaves: 63→15 (여러 설정 동시 변경) | 13.4880 (-0.7353%) | 12.4689 (3.6117%) | 0.019078 / -0.0067%, 0.0331% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c042/result.json) |
+| c043 / 완료 | c009 | learning_rate: 0.07→0.055; min_child_samples: 300→50; num_leaves: 15→31 (여러 설정 동시 변경) | 13.3940 (2.2589%) | 13.0320 (2.6833%) | 0.073792 / -0.0873%, 0.4349% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c043/result.json) |
+| c044 / 완료 | c032 | learning_rate: 0.04→0.015; n_estimators: 1000→400 (여러 설정 동시 변경) | 12.8269 (0.3214%) | 12.1208 (-1.3873%) | 0.170747 / -0.3356%, 0.7480% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c044/result.json) |
+| c045 / 완료 | c041 | half_life: 90→365; n_estimators: 400→1000; num_leaves: 127→63 (여러 설정 동시 변경) | 13.6732 (-13.1019%) | 14.2058 (-9.0030%) | 0.077867 / -0.1289%, 0.8138% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c045/result.json) |
+| c046 / 완료 | c044 | learning_rate: 0.015→0.055; num_leaves: 15→127; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 13.0814 (1.9842%) | 11.6046 (-4.2592%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c046/result.json) |
+| c047 / 완료 | c005 | half_life: 365→90; min_child_samples: 50→100; num_leaves: 127→15; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 14.5280 (2.0221%) | 14.9999 (7.3290%) | 0.007456 / -0.0011%, 0.0619% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c047/result.json) |
+| c048 / 완료 | c020 | colsample_bytree: 0.8→0.65; learning_rate: 0.015→0.055; num_leaves: 31→15 (여러 설정 동시 변경) | 15.5118 (0.4573%) | 15.8991 (1.5079%) | 0.036099 / -0.0605%, 0.4943% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c048/result.json) |
+| c049 / 완료 | c022 | features: station→rich; num_leaves: 127→31 (여러 설정 동시 변경) | 13.0736 (-8.7210%) | 12.1106 (-13.1665%) | 0.067719 / -0.0467%, 0.2413% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c049/result.json) |
+| c050 / 완료 | c001 | colsample_bytree: 0.8→1.0; learning_rate: 0.03→0.07; min_child_samples: 50→300; n_estimators: 400→2000 (여러 설정 동시 변경) | 14.2610 (-1.6127%) | 14.6569 (0.4110%) | 0.048728 / -0.0639%, 0.5031% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c050/result.json) |
+| c051 / 완료 | c040 | colsample_bytree: 1.0→0.8; min_child_samples: 200→100 (여러 설정 동시 변경) | 13.2148 (-1.2026%) | 12.1812 (-1.0386%) | 0.066211 / -0.0644%, 0.1191% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c051/result.json) |
+| c052 / 완료 | c041 | colsample_bytree: 0.65→0.8; min_child_samples: 200→100; n_estimators: 400→700 (여러 설정 동시 변경) | 15.2350 (-3.1760%) | 15.7062 (0.6084%) | 0.063643 / -0.1567%, 0.6491% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c052/result.json) |
+| c053 / 완료 | c035 | features: station→rich; half_life: 90→없음; n_estimators: 2000→700 (여러 설정 동시 변경) | 12.9756 (-14.1204%) | 12.0181 (-21.6765%) | 0.086811 / -0.0898%, 0.2617% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c053/result.json) |
+| c054 / 완료 | c037 | colsample_bytree: 0.65→1.0; n_estimators: 1400→1000 (여러 설정 동시 변경) | 15.7115 (-0.5695%) | 15.3787 (-1.9549%) | 0.045354 / -0.1001%, 0.4005% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c054/result.json) |
+| c055 / 완료 | c051 | learning_rate: 0.055→0.07; objective: regression_l1→regression_l2; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 13.3092 (0.7144%) | 12.7830 (4.9407%) | 0.014875 / -0.0028%, 0.0651% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c055/result.json) |
+| c056 / 완료 | c035 | colsample_bytree: 1.0→0.65; learning_rate: 0.07→0.025 (여러 설정 동시 변경) | 15.6054 (3.2846%) | 15.4581 (0.7422%) | 0.036417 / -0.0642%, 0.2670% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c056/result.json) |
+| c057 / 완료 | c008 | half_life: 180→90; min_child_samples: 200→100; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 13.4774 (1.9454%) | 12.0908 (-0.5717%) | 0.018651 / -0.0052%, 0.0122% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c057/result.json) |
+| c058 / 완료 | c016 | n_estimators: 2000→400; num_leaves: 127→63; reg_lambda: 2.0→8.0 (여러 설정 동시 변경) | 14.8312 (-1.7052%) | 14.4382 (-1.7834%) | 0.056126 / -0.1021%, 0.5160% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c058/result.json) |
+| c059 / 완료 | c002 | learning_rate: 0.03→0.04; num_leaves: 63→15; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 13.1661 (-0.1949%) | 12.2855 (3.2939%) | 0.064923 / -0.0660%, 0.1622% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c059/result.json) |
+| c060 / 완료 | c016 | colsample_bytree: 0.65→0.8; learning_rate: 0.055→0.07; num_leaves: 127→31 (여러 설정 동시 변경) | 14.3287 (-5.0361%) | 15.1150 (2.8204%) | 0.093909 / -0.2293%, 1.2829% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c060/result.json) |
+| c061 / 완료 | c004 | half_life: 없음→365; learning_rate: 0.025→0.07; min_child_samples: 100→300 (여러 설정 동시 변경) | 13.1103 (2.9298%) | 12.2919 (2.5234%) | 0.038249 / -0.0181%, 0.1130% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c061/result.json) |
+| c062 / 완료 | c018 | min_child_samples: 50→300; n_estimators: 400→2000; num_leaves: 63→31; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 14.5573 (-7.1120%) | 14.8039 (-3.1295%) | 0.057461 / -0.0994%, 0.5283% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c062/result.json) |
+| c063 / 완료 | c031 | half_life: 90→없음; learning_rate: 0.055→0.025; min_child_samples: 200→300; n_estimators: 400→2000; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 13.5859 (0.3104%) | 12.2280 (-2.4271%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c063/result.json) |
+| c064 / 완료 | c004 | colsample_bytree: 0.65→1.0; half_life: 없음→90; min_child_samples: 100→200; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 13.2743 (4.2178%) | 12.0725 (0.6934%) | 0.025276 / -0.0108%, 0.0134% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c064/result.json) |
+| c065 / 완료 | c037 | n_estimators: 1400→1000 (단일 설정 차이) | 15.7952 (-0.0398%) | 15.6618 (-0.1500%) | 0.056634 / -0.1360%, 0.6078% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c065/result.json) |
+| c066 / 완료 | c038 | half_life: 365→없음; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 12.9870 (-3.0847%) | 12.0129 (0.7521%) | 0.043966 / -0.0202%, 0.1354% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c066/result.json) |
+| c067 / 완료 | c020 | learning_rate: 0.015→0.04; n_estimators: 1400→2000 (여러 설정 동시 변경) | 15.3829 (-0.3771%) | 16.2830 (3.9590%) | 0.043324 / -0.0831%, 0.5062% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c067/result.json) |
+| c068 / 완료 | c025 | colsample_bytree: 0.65→0.8; half_life: 180→365; num_leaves: 15→63 (여러 설정 동시 변경) | 13.2406 (0.6760%) | 12.1064 (-2.3176%) | 0.021428 / -0.0043%, 0.0521% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c068/result.json) |
+| c069 / 완료 | c001 | learning_rate: 0.03→0.04; min_child_samples: 50→200; n_estimators: 400→1000; num_leaves: 63→15 (여러 설정 동시 변경) | 14.5541 (0.4093%) | 14.2390 (-2.4524%) | 0.053929 / -0.1043%, 0.5105% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c069/result.json) |
+| c070 / 완료 | c069 | features: station→rich; num_leaves: 15→127 (여러 설정 동시 변경) | 13.2134 (-9.2117%) | 12.0949 (-15.0581%) | 0.014526 / -0.0021%, 0.0263% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c070/result.json) |
+| c071 / 완료 | c007 | colsample_bytree: 0.65→1.0; half_life: 365→90; learning_rate: 0.07→0.055; num_leaves: 127→31; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 14.9911 (8.1595%) | 15.7089 (9.5418%) | 0.014388 / -0.0058%, 0.1424% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c071/result.json) |
+| c072 / 완료 | c006 | min_child_samples: 200→300; n_estimators: 2000→1000; num_leaves: 15→63; reg_lambda: 8.0→2.0 (여러 설정 동시 변경) | 13.3238 (-2.5942%) | 12.3207 (-1.7347%) | 0.041956 / -0.0241%, 0.0710% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c072/result.json) |
+| c073 / 완료 | c020 | colsample_bytree: 0.8→0.65; half_life: 90→없음; n_estimators: 1400→400 (여러 설정 동시 변경) | 13.0320 (-15.6019%) | 12.8146 (-18.1852%) | 0.111624 / -0.1813%, 0.7943% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c073/result.json) |
+| c074 / 완료 | c036 | colsample_bytree: 0.8→0.65; learning_rate: 0.04→0.07; n_estimators: 2000→400 (여러 설정 동시 변경) | 12.7908 (0.3086%) | 12.1653 (0.6999%) | 0.135144 / -0.2015%, 0.6562% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c074/result.json) |
+| c075 / 완료 | c005 | half_life: 365→180; num_leaves: 127→31; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 14.7031 (3.2517%) | 14.0521 (0.5472%) | 0.059656 / -0.1150%, 0.4907% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c075/result.json) |
+| c076 / 완료 | c009 | features: station→rich; learning_rate: 0.07→0.055; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 12.7357 (-2.7670%) | 12.1348 (-4.3863%) | 0.159563 / -0.2542%, 0.7091% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c076/result.json) |
+| c077 / 완료 | c020 | colsample_bytree: 0.8→1.0; num_leaves: 31→63; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 14.9648 (-3.0852%) | 15.5047 (-1.0096%) | 0.046807 / -0.0848%, 0.4735% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c077/result.json) |
+| c078 / 완료 | c014 | colsample_bytree: 0.8→1.0; half_life: 90→180; learning_rate: 0.015→0.07; min_child_samples: 100→300; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 12.6959 (-2.8577%) | 11.9503 (-0.9599%) | 0.134350 / -0.1835%, 0.3722% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c078/result.json) |
+| c079 / 완료 | c028 | half_life: 없음→365; learning_rate: 0.055→0.04; min_child_samples: 300→50; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.6148 (4.1273%) | 14.2577 (11.7121%) | 0.044941 / -0.0428%, 0.3982% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c079/result.json) |
+| c080 / 완료 | c019 | features: rich→station; half_life: 90→180; reg_lambda: 8.0→20.0 (여러 설정 동시 변경) | 14.2141 (4.6079%) | 14.5220 (20.6719%) | 0.055489 / -0.0692%, 0.5600% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c080/result.json) |
+| c081 / 완료 | c064 | half_life: 90→없음; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 12.8495 (-3.2000%) | 12.0054 (-0.5555%) | 0.111701 / -0.1234%, 0.4129% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c081/result.json) |
+| c082 / 완료 | c050 | learning_rate: 0.07→0.025; n_estimators: 2000→1000; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 14.1286 (-0.9285%) | 14.2404 (-2.8422%) | 0.073203 / -0.1562%, 0.7592% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c082/result.json) |
+| c083 / 완료 | c011 | features: station→rich; min_child_samples: 50→200; n_estimators: 700→1000 (여러 설정 동시 변경) | 13.0650 (-11.7917%) | 12.1660 (-13.3539%) | 0.069771 / -0.0479%, 0.2111% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c083/result.json) |
+| c084 / 완료 | c021 | features: rich→station; min_child_samples: 200→100 (여러 설정 동시 변경) | 13.7839 (7.2626%) | 14.1905 (16.9776%) | 0.089860 / -0.1496%, 1.0037% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c084/result.json) |
+| c085 / 완료 | c068 | half_life: 365→없음; learning_rate: 0.07→0.055; n_estimators: 1400→700 (여러 설정 동시 변경) | 12.8124 (-3.2338%) | 11.9648 (-1.1699%) | 0.093625 / -0.1024%, 0.2816% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c085/result.json) |
+| c086 / 완료 | c073 | colsample_bytree: 0.65→1.0; learning_rate: 0.015→0.025 (여러 설정 동시 변경) | 12.9399 (-0.7071%) | 12.8106 (-0.0308%) | 0.074216 / -0.0927%, 0.4454% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c086/result.json) |
+| c087 / 완료 | c055 | min_child_samples: 100→300; num_leaves: 15→63; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 13.4433 (1.0073%) | 12.7462 (-0.2879%) | 0.031064 / -0.0181%, 0.1458% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c087/result.json) |
+| c088 / 완료 | c033 | colsample_bytree: 1.0→0.65; learning_rate: 0.07→0.04; min_child_samples: 50→200 (여러 설정 동시 변경) | 13.7469 (-0.4529%) | 14.0642 (0.4508%) | 0.069761 / -0.1187%, 0.7022% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c088/result.json) |
+| c089 / 완료 | c027 | learning_rate: 0.025→0.07; n_estimators: 1000→1400; num_leaves: 15→31; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 12.8549 (0.6771%) | 12.1111 (-0.6713%) | 0.152494 / -0.2642%, 0.6076% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c089/result.json) |
+| c090 / 완료 | c088 | colsample_bytree: 0.65→1.0; num_leaves: 15→127; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.7206 (-0.1917%) | 13.5330 (-3.7770%) | 0.101363 / -0.2309%, 0.9196% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c090/result.json) |
+| c091 / 완료 | c008 | colsample_bytree: 1.0→0.65; min_child_samples: 200→100; num_leaves: 127→63 (여러 설정 동시 변경) | 13.1871 (-0.2500%) | 11.8607 (-2.4640%) | 0.057867 / -0.0380%, 0.0416% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c091/result.json) |
+| c092 / 완료 | c013 | half_life: 180→365; n_estimators: 2000→700 (여러 설정 동시 변경) | 13.8757 (-5.9957%) | 13.6638 (-5.2524%) | 0.072638 / -0.1320%, 0.5310% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c092/result.json) |
+| c093 / 완료 | c057 | colsample_bytree: 1.0→0.65; half_life: 90→없음; n_estimators: 400→1000 (여러 설정 동시 변경) | 12.8923 (-4.3410%) | 11.8974 (-1.5996%) | 0.098907 / -0.0755%, 0.3573% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c093/result.json) |
+| c094 / 완료 | c000 | half_life: 180→90; learning_rate: 0.03→0.025; n_estimators: 400→1400; num_leaves: 63→15; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 14.5522 (10.5745%) | 14.5147 (13.3802%) | 0.054122 / -0.0873%, 0.4449% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c094/result.json) |
+| c095 / 완료 | c046 | colsample_bytree: 1.0→0.65; learning_rate: 0.055→0.07; objective: regression_l1→regression_l2; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 13.6162 (4.0883%) | 11.8426 (2.0506%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c095/result.json) |
+| c096 / 완료 | c038 | n_estimators: 2000→1400; num_leaves: 127→31; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 12.8489 (-4.1151%) | 12.1119 (1.5821%) | 0.134374 / -0.1998%, 0.4013% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c096/result.json) |
+| c097 / 완료 | c045 | learning_rate: 0.04→0.07; n_estimators: 1000→2000; num_leaves: 63→15 (여러 설정 동시 변경) | 13.9698 (2.1693%) | 14.1516 (-0.3809%) | 0.083892 / -0.1933%, 0.7640% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c097/result.json) |
+| c098 / 완료 | c002 | learning_rate: 0.03→0.015; n_estimators: 400→700; num_leaves: 63→15 (여러 설정 동시 변경) | 13.1736 (-0.1379%) | 12.2746 (3.2030%) | 0.070925 / -0.0759%, 0.2382% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c098/result.json) |
+| c099 / 완료 | c041 | colsample_bytree: 0.65→0.8; learning_rate: 0.04→0.07 (여러 설정 동시 변경) | 15.5117 (-1.4175%) | 15.3405 (-1.7344%) | 0.029456 / -0.0340%, 0.1966% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c099/result.json) |
+| c100 / 완료 | c073 | features: station→rich; learning_rate: 0.015→0.055 (여러 설정 동시 변경) | 12.8368 (-1.4980%) | 12.1283 (-5.3555%) | 0.099293 / -0.1039%, 0.4355% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c100/result.json) |
+| c101 / 완료 | c005 | n_estimators: 1000→2000; num_leaves: 127→15; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.7153 (-3.6848%) | 13.6413 (-2.3923%) | 0.080391 / -0.1264%, 0.6646% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c101/result.json) |
+| c102 / 완료 | c047 | features: station→rich; objective: regression_l2→regression_l1 (여러 설정 동시 변경) | 13.4874 (-7.1628%) | 12.6026 (-15.9823%) | 0.027824 / -0.0167%, 0.0673% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c102/result.json) |
+| c103 / 완료 | c050 | learning_rate: 0.07→0.025; n_estimators: 2000→700; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 14.0901 (-1.1986%) | 14.3505 (-2.0907%) | 0.028185 / -0.0257%, 0.2326% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c103/result.json) |
+| c104 / 완료 | c008 | colsample_bytree: 1.0→0.65; min_child_samples: 200→300; n_estimators: 400→1400 (여러 설정 동시 변경) | 13.0335 (-1.4123%) | 12.1411 (-0.1580%) | 0.089616 / -0.0952%, 0.2285% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c104/result.json) |
+| c105 / 완료 | c028 | colsample_bytree: 0.8→0.65; half_life: 없음→90; learning_rate: 0.055→0.015 (여러 설정 동시 변경) | 15.1890 (16.1669%) | 15.2169 (19.2275%) | 0.056465 / -0.1224%, 0.6323% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c105/result.json) |
+| c106 / 완료 | c057 | min_child_samples: 100→300; num_leaves: 127→31; reg_lambda: 2.0→0.0 (여러 설정 동시 변경) | 13.6896 (1.5745%) | 12.3107 (1.8187%) | 0.027752 / -0.0111%, 0.0154% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c106/result.json) |
+| c107 / 완료 | c077 | min_child_samples: 200→50; reg_lambda: 8.0→20.0 (여러 설정 동시 변경) | 15.3824 (2.7905%) | 15.3062 (-1.2803%) | 0.059683 / -0.1269%, 0.6041% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c107/result.json) |
+| c108 / 완료 | c006 | learning_rate: 0.055→0.07; n_estimators: 2000→1000 (여러 설정 동시 변경) | 13.7152 (0.2671%) | 12.4926 (-0.3637%) | 0.027144 / -0.0140%, 0.0177% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c108/result.json) |
+| c109 / 완료 | c086 | half_life: 없음→90; min_child_samples: 200→300 (여러 설정 동시 변경) | 14.8626 (14.8588%) | 15.1744 (18.4516%) | 0.075329 / -0.1854%, 0.8232% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c109/result.json) |
+| c110 / 완료 | c078 | half_life: 180→90; min_child_samples: 300→200 (여러 설정 동시 변경) | 13.2478 (4.3466%) | 12.0162 (0.5515%) | 0.040020 / -0.0209%, 0.0126% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c110/result.json) |
+| c111 / 완료 | c058 | learning_rate: 0.055→0.07; num_leaves: 63→15; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 14.1725 (-4.4417%) | 14.8504 (2.8546%) | 0.009021 / -0.0023%, 0.0869% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c111/result.json) |
+| c112 / 완료 | c043 | min_child_samples: 50→300; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 13.2542 (-1.0441%) | 12.8442 (-1.4412%) | 0.036448 / -0.0266%, 0.1913% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c112/result.json) |
+| c113 / 완료 | c019 | colsample_bytree: 0.8→0.65; num_leaves: 63→31 (여러 설정 동시 변경) | 13.5591 (-0.2124%) | 12.2851 (2.0839%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c113/result.json) |
+| c114 / 완료 | c092 | n_estimators: 700→1000; num_leaves: 127→31 (여러 설정 동시 변경) | 13.6700 (-1.4826%) | 13.5872 (-0.5605%) | 0.067236 / -0.0853%, 0.5369% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c114/result.json) |
+| c115 / 완료 | c098 | num_leaves: 15→63; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 13.1408 (-0.2492%) | 11.8869 (-3.1587%) | 0.036139 / -0.0114%, 0.0455% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c115/result.json) |
+| c116 / 완료 | c041 | half_life: 90→180; learning_rate: 0.04→0.015; num_leaves: 127→63 (여러 설정 동시 변경) | 14.5723 (-7.3877%) | 14.1914 (-9.0952%) | 0.054191 / -0.1008%, 0.4864% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c116/result.json) |
+| c117 / 완료 | c096 | half_life: 365→없음; learning_rate: 0.055→0.025 (여러 설정 동시 변경) | 12.6146 (-1.8235%) | 12.0052 (-0.8808%) | 0.201246 / -0.3627%, 0.9154% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c117/result.json) |
+| c118 / 완료 | c005 | num_leaves: 127→63; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.9669 (-1.9181%) | 13.7724 (-1.4543%) | 0.055508 / -0.0677%, 0.3939% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c118/result.json) |
+| c119 / 완료 | c010 | learning_rate: 0.015→0.07; min_child_samples: 50→200; num_leaves: 31→15; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.3055 (3.1543%) | 12.7972 (6.4384%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c119/result.json) |
+| c120 / 완료 | c004 | features: rich→station; half_life: 없음→365; learning_rate: 0.025→0.015 (여러 설정 동시 변경) | 14.0189 (10.0633%) | 13.9126 (16.0413%) | 0.050873 / -0.0522%, 0.4605% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c120/result.json) |
+| c121 / 완료 | c019 | num_leaves: 63→31; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 13.5440 (-0.3234%) | 12.2649 (1.9160%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c121/result.json) |
+| c122 / 완료 | c011 | learning_rate: 0.025→0.055; min_child_samples: 50→200; num_leaves: 31→15 (여러 설정 동시 변경) | 14.5782 (-1.5755%) | 14.8785 (5.9647%) | 0.051220 / -0.0833%, 0.5742% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c122/result.json) |
+| c123 / 완료 | c057 | learning_rate: 0.04→0.025; min_child_samples: 100→200; num_leaves: 127→31 (여러 설정 동시 변경) | 13.4513 (-0.1937%) | 12.4576 (3.0339%) | 0.045644 / -0.0332%, 0.0708% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c123/result.json) |
+| c124 / 완료 | c086 | learning_rate: 0.025→0.055; n_estimators: 400→2000; num_leaves: 31→63 (여러 설정 동시 변경) | 13.3623 (3.2642%) | 12.8993 (0.6924%) | 0.044705 / -0.0293%, 0.2735% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c124/result.json) |
+| c125 / 완료 | c075 | features: station→rich; min_child_samples: 50→100 (여러 설정 동시 변경) | 13.2064 (-10.1794%) | 12.0468 (-14.2708%) | 0.058300 / -0.0403%, 0.0940% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c125/result.json) |
+| c126 / 완료 | c060 | learning_rate: 0.07→0.055; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 13.1316 (-8.3543%) | 12.8535 (-14.9616%) | 0.029564 / -0.0157%, 0.0725% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c126/result.json) |
+| c127 / 완료 | c031 | half_life: 90→365; min_child_samples: 200→50; n_estimators: 400→2000; num_leaves: 63→127 (여러 설정 동시 변경) | 13.3887 (-1.1460%) | 11.9768 (-4.4317%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c127/result.json) |
+| c128 / 완료 | c011 | features: station→rich; half_life: 180→365; num_leaves: 31→15 (여러 설정 동시 변경) | 12.9391 (-12.6420%) | 12.1998 (-13.1131%) | 0.095326 / -0.0977%, 0.3970% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c128/result.json) |
+| c129 / 완료 | c028 | min_child_samples: 300→200; reg_lambda: 2.0→20.0 (여러 설정 동시 변경) | 12.9750 (-0.7665%) | 13.2682 (3.9590%) | 0.099580 / -0.1691%, 0.7258% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c129/result.json) |
+| c130 / 완료 | c128 | n_estimators: 700→400; reg_lambda: 2.0→20.0 (여러 설정 동시 변경) | 12.9334 (-0.0440%) | 12.2919 (0.7551%) | 0.132935 / -0.2099%, 0.6258% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c130/result.json) |
+| c131 / 완료 | c037 | learning_rate: 0.04→0.055; min_child_samples: 50→100; num_leaves: 63→31 (여러 설정 동시 변경) | 15.4515 (-2.2148%) | 16.1930 (3.2364%) | 0.033968 / -0.0529%, 0.3538% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c131/result.json) |
+| c132 / 완료 | c006 | colsample_bytree: 1.0→0.8; num_leaves: 15→31 (여러 설정 동시 변경) | 13.4459 (-1.7016%) | 12.2535 (-2.2713%) | 0.053957 / -0.0501%, 0.0314% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c132/result.json) |
+| c133 / 완료 | c084 | half_life: 365→없음; learning_rate: 0.055→0.015; n_estimators: 400→1400 (여러 설정 동시 변경) | 13.0715 (-5.1682%) | 13.0461 (-8.0651%) | 0.096591 / -0.1283%, 0.6596% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c133/result.json) |
+| c134 / 완료 | c038 | min_child_samples: 50→300; n_estimators: 2000→1000; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.0872 (-2.3369%) | 12.1865 (2.2077%) | 0.094651 / -0.1115%, 0.3110% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c134/result.json) |
+| c135 / 완료 | c028 | learning_rate: 0.055→0.04; n_estimators: 1400→400; num_leaves: 15→63; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.2801 (1.5671%) | 13.3587 (4.6684%) | 0.033192 / -0.0192%, 0.2145% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c135/result.json) |
+| c136 / 완료 | c056 | features: station→rich; min_child_samples: 200→300 (여러 설정 동시 변경) | 13.1223 (-15.9116%) | 11.9654 (-22.5946%) | 0.066269 / -0.0550%, 0.0528% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c136/result.json) |
+| c137 / 완료 | c077 | n_estimators: 1400→400; reg_lambda: 8.0→20.0 (여러 설정 동시 변경) | 15.1287 (1.0953%) | 14.9529 (-3.5593%) | 0.051484 / -0.1141%, 0.4359% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c137/result.json) |
+| c138 / 완료 | c004 | learning_rate: 0.025→0.055; n_estimators: 1400→1000; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 12.8491 (0.8797%) | 12.1235 (1.1194%) | 0.099487 / -0.1066%, 0.5100% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c138/result.json) |
+| c139 / 완료 | c004 | features: rich→station; learning_rate: 0.025→0.055; n_estimators: 1400→700 (여러 설정 동시 변경) | 13.7432 (7.8990%) | 13.2563 (10.5677%) | 0.023698 / -0.0147%, 0.1342% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c139/result.json) |
+| c140 / 완료 | c042 | half_life: 90→180; min_child_samples: 100→200; num_leaves: 15→127 (여러 설정 동시 변경) | 13.1214 (-2.7180%) | 12.0231 (-3.5759%) | 0.031575 / -0.0121%, 0.0716% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c140/result.json) |
+| c141 / 완료 | c011 | min_child_samples: 50→300; n_estimators: 700→1400 (여러 설정 동시 변경) | 14.3379 (-3.1978%) | 14.5484 (3.6132%) | 0.058304 / -0.0963%, 0.5613% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c141/result.json) |
+| c142 / 완료 | c125 | n_estimators: 1000→2000; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 12.6584 (-4.1492%) | 11.8043 (-2.0124%) | 0.055059 / -0.0195%, 0.1581% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c142/result.json) |
+| c143 / 완료 | c103 | colsample_bytree: 1.0→0.8; n_estimators: 700→400 (여러 설정 동시 변경) | 14.1646 (0.5289%) | 14.3629 (0.0864%) | 0.006343 / -0.0010%, 0.0553% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c143/result.json) |
+| c144 / 완료 | c041 | learning_rate: 0.04→0.055; n_estimators: 400→700 (여러 설정 동시 변경) | 15.5446 (-1.2080%) | 15.9852 (2.3953%) | 0.041692 / -0.0774%, 0.3589% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c144/result.json) |
+| c145 / 완료 | c004 | half_life: 없음→180; n_estimators: 1400→2000; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 12.9937 (2.0149%) | 12.0570 (0.5642%) | 0.068580 / -0.0517%, 0.2082% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c145/result.json) |
+| c146 / 완료 | c024 | half_life: 없음→180; learning_rate: 0.025→0.055 (여러 설정 동시 변경) | 14.1550 (9.2190%) | 14.5323 (13.1803%) | 0.073300 / -0.1601%, 0.8259% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c146/result.json) |
+| c147 / 완료 | c020 | features: station→rich; half_life: 90→180; num_leaves: 31→15 (여러 설정 동시 변경) | 13.1061 (-15.1225%) | 12.3085 (-21.4161%) | 0.079201 / -0.1070%, 0.3105% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c147/result.json) |
+| c148 / 완료 | c039 | colsample_bytree: 0.8→0.65; min_child_samples: 300→200; objective: regression_l2→regression_l1 (여러 설정 동시 변경) | 13.0795 (-0.7089%) | 12.9020 (-1.5188%) | 0.077082 / -0.1075%, 0.5410% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c148/result.json) |
+| c149 / 완료 | c020 | features: station→rich; learning_rate: 0.015→0.025; min_child_samples: 200→50 (여러 설정 동시 변경) | 13.4795 (-12.7042%) | 12.3271 (-21.2971%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c149/result.json) |
+| c150 / 완료 | c035 | half_life: 90→180; n_estimators: 2000→400 (여러 설정 동시 변경) | 15.1805 (0.4724%) | 13.7481 (-10.4023%) | 0.018727 / -0.0138%, 0.1127% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c150/result.json) |
+| c151 / 완료 | c100 | n_estimators: 400→1000; objective: regression_l1→regression_l2; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.0695 (1.8125%) | 12.3083 (1.4841%) | 0.089518 / -0.0979%, 0.4439% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c151/result.json) |
+| c152 / 완료 | c120 | learning_rate: 0.015→0.04; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 14.0415 (0.1613%) | 14.2134 (2.1625%) | 0.041474 / -0.0399%, 0.3964% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c152/result.json) |
+| c153 / 완료 | c072 | learning_rate: 0.055→0.07; n_estimators: 1000→700 (여러 설정 동시 변경) | 13.5633 (1.7977%) | 12.4867 (1.3470%) | 0.052487 / -0.0441%, 0.1031% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c153/result.json) |
+| c154 / 완료 | c079 | n_estimators: 1400→700; objective: regression_l2→regression_l1 (여러 설정 동시 변경) | 13.6927 (0.5718%) | 13.7815 (-3.3397%) | 0.107465 / -0.2111%, 1.0152% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c154/result.json) |
+| c155 / 완료 | c128 | half_life: 365→없음; learning_rate: 0.025→0.07 (여러 설정 동시 변경) | 12.7733 (-1.2812%) | 12.3198 (0.9835%) | 0.181010 / -0.2765%, 1.1769% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c155/result.json) |
+| c156 / 완료 | c020 | learning_rate: 0.015→0.025; n_estimators: 1400→1000; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 15.3221 (-0.7712%) | 15.6135 (-0.3156%) | 0.047704 / -0.1000%, 0.5171% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c156/result.json) |
+| c157 / 완료 | c066 | learning_rate: 0.055→0.025; min_child_samples: 50→300; num_leaves: 127→31 (여러 설정 동시 변경) | 12.7998 (-1.4417%) | 12.1531 (1.1674%) | 0.130905 / -0.1679%, 0.5884% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c157/result.json) |
+| c158 / 완료 | c022 | num_leaves: 127→31; reg_lambda: 8.0→0.0; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 13.2182 (-7.7117%) | 12.2059 (-12.4834%) | 0.003791 / -0.0000%, 0.0074% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c158/result.json) |
+| c159 / 완료 | c031 | min_child_samples: 200→100; n_estimators: 400→1400; num_leaves: 63→127 (여러 설정 동시 변경) | 13.4061 (-1.0175%) | 12.2318 (-2.3963%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c159/result.json) |
+| c160 / 완료 | c089 | n_estimators: 1400→1000; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 12.7360 (-0.9243%) | 12.2636 (1.2594%) | 0.196137 / -0.4555%, 1.0554% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c160/result.json) |
+| c161 / 완료 | c020 | half_life: 90→없음; n_estimators: 1400→1000; reg_lambda: 20.0→0.0 (여러 설정 동시 변경) | 13.1001 (-15.1611%) | 12.9962 (-17.0252%) | 0.075957 / -0.0873%, 0.5169% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c161/result.json) |
+| c162 / 완료 | c147 | min_child_samples: 200→300; reg_lambda: 20.0→8.0 (여러 설정 동시 변경) | 13.1494 (0.3304%) | 12.3089 (0.0031%) | 0.068803 / -0.0756%, 0.2347% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c162/result.json) |
+| c163 / 완료 | c005 | colsample_bytree: 1.0→0.65; min_child_samples: 50→100; num_leaves: 127→31 (여러 설정 동시 변경) | 13.7718 (-3.2878%) | 13.6248 (-2.5104%) | 0.083733 / -0.1437%, 0.7028% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c163/result.json) |
+| c164 / 완료 | c053 | colsample_bytree: 1.0→0.8; learning_rate: 0.07→0.025; num_leaves: 127→31 (여러 설정 동시 변경) | 12.8691 (-0.8210%) | 12.0234 (0.0441%) | 0.087412 / -0.0876%, 0.2811% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c164/result.json) |
+| c165 / 완료 | c026 | half_life: 365→90; n_estimators: 2000→400; num_leaves: 31→127 (여러 설정 동시 변경) | 15.0331 (7.9081%) | 15.5857 (13.4140%) | 0.053539 / -0.1046%, 0.4478% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c165/result.json) |
+| c166 / 완료 | c066 | n_estimators: 2000→1000; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 12.9687 (-0.1410%) | 11.8228 (-1.5824%) | 0.031129 / -0.0121%, 0.0428% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c166/result.json) |
+| c167 / 완료 | c001 | half_life: 180→90; learning_rate: 0.03→0.07; num_leaves: 63→31; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 14.4979 (0.0219%) | 15.4190 (5.6316%) | 0.033066 / -0.0367%, 0.3595% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c167/result.json) |
+| c168 / 완료 | c019 | min_child_samples: 100→200; n_estimators: 1000→1400; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 13.1504 (-3.2204%) | 12.1097 (0.6266%) | 0.082375 / -0.0900%, 0.0821% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c168/result.json) |
+| c169 / 완료 | c137 | min_child_samples: 200→100; num_leaves: 63→127 (여러 설정 동시 변경) | 15.1875 (0.3886%) | 14.6817 (-1.8139%) | 0.049612 / -0.0941%, 0.3286% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c169/result.json) |
+| c170 / 완료 | c044 | half_life: 없음→365; learning_rate: 0.015→0.025; num_leaves: 15→63 (여러 설정 동시 변경) | 13.0860 (2.0201%) | 11.9513 (-1.3991%) | 0.053168 / -0.0293%, 0.1289% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c170/result.json) |
+| c171 / 완료 | c101 | num_leaves: 15→63 (단일 설정 차이) | 14.0824 (2.6766%) | 13.8380 (1.4418%) | 0.048748 / -0.0529%, 0.3421% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c171/result.json) |
+| c172 / 완료 | c166 | learning_rate: 0.055→0.07; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 12.9705 (0.0142%) | 12.0761 (2.1426%) | 0.072437 / -0.0683%, 0.2559% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c172/result.json) |
+| c173 / 완료 | c005 | half_life: 365→없음 (단일 설정 차이) | 13.4835 (-5.3124%) | 12.8015 (-8.4016%) | 0.072113 / -0.0943%, 0.3483% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c173/result.json) |
+| c174 / 완료 | c093 | n_estimators: 1000→400; num_leaves: 127→15; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 12.5450 (-2.6940%) | 11.7210 (-1.4831%) | 0.101568 / -0.0644%, 0.3072% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c174/result.json) |
+| c175 / 완료 | c047 | colsample_bytree: 1.0→0.65; min_child_samples: 100→50; n_estimators: 1000→2000 (여러 설정 동시 변경) | 14.3680 (-1.1008%) | 15.1457 (0.9718%) | 0.024522 / -0.0143%, 0.2427% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c175/result.json) |
+| c176 / 완료 | c105 | half_life: 90→365; min_child_samples: 300→50 (여러 설정 동시 변경) | 13.9189 (-8.3624%) | 13.6258 (-10.4559%) | 0.077200 / -0.1368%, 0.6459% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c176/result.json) |
+| c177 / 완료 | c012 | colsample_bytree: 0.65→0.8; learning_rate: 0.07→0.055; n_estimators: 700→1400 (여러 설정 동시 변경) | 13.3999 (1.8921%) | 12.2120 (1.9103%) | 0.011353 / -0.0014%, 0.0366% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c177/result.json) |
+| c178 / 완료 | c156 | n_estimators: 1000→700 (단일 설정 차이) | 15.2948 (-0.1778%) | 15.6132 (-0.0014%) | 0.050863 / -0.1053%, 0.5601% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c178/result.json) |
+| c179 / 완료 | c072 | learning_rate: 0.055→0.025; num_leaves: 63→15 (여러 설정 동시 변경) | 13.5238 (1.5011%) | 12.4860 (1.3411%) | 0.033757 / -0.0214%, 0.0440% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c179/result.json) |
+| c180 / 완료 | c129 | min_child_samples: 200→50; num_leaves: 15→31 (여러 설정 동시 변경) | 13.3418 (2.8271%) | 12.8887 (-2.8605%) | 0.075224 / -0.1178%, 0.3356% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c180/result.json) |
+| c181 / 완료 | c034 | learning_rate: 0.015→0.07; num_leaves: 31→15 (여러 설정 동시 변경) | 12.9216 (0.6403%) | 12.4447 (4.2692%) | 0.114349 / -0.1247%, 0.5774% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c181/result.json) |
+| c182 / 완료 | c052 | n_estimators: 700→2000; reg_lambda: 2.0→0.0 (여러 설정 동시 변경) | 15.9564 (4.7356%) | 15.8781 (1.0940%) | 0.038704 / -0.0817%, 0.3652% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c182/result.json) |
+| c183 / 완료 | c115 | n_estimators: 700→400; num_leaves: 63→127; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.2465 (0.8048%) | 12.1627 (2.3196%) | 0.038791 / -0.0263%, 0.0979% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c183/result.json) |
+| c184 / 완료 | c115 | features: rich→station; reg_lambda: 2.0→20.0 (여러 설정 동시 변경) | 14.6185 (11.2454%) | 14.4372 (21.4541%) | 0.059942 / -0.1151%, 0.5932% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c184/result.json) |
+| c185 / 완료 | c021 | half_life: 365→없음; learning_rate: 0.055→0.015; n_estimators: 400→700 (여러 설정 동시 변경) | 12.6735 (-1.3784%) | 12.0630 (-0.5605%) | 0.171411 / -0.3405%, 0.6880% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c185/result.json) |
+| c186 / 완료 | c173 | min_child_samples: 50→300 (단일 설정 차이) | 12.9605 (-3.8789%) | 12.8148 (0.1042%) | 0.139965 / -0.2310%, 0.9694% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c186/result.json) |
+| c187 / 완료 | c040 | colsample_bytree: 1.0→0.65; learning_rate: 0.055→0.04; min_child_samples: 200→300 (여러 설정 동시 변경) | 13.2171 (-1.1849%) | 12.2959 (-0.1066%) | 0.065021 / -0.0625%, 0.1444% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c187/result.json) |
+| c188 / 완료 | c035 | n_estimators: 2000→1400; reg_lambda: 8.0→2.0 (여러 설정 동시 변경) | 15.9683 (5.6867%) | 15.5725 (1.4876%) | 0.020451 / -0.0205%, 0.1669% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c188/result.json) |
+| c189 / 완료 | c025 | learning_rate: 0.07→0.015; min_child_samples: 50→300 (여러 설정 동시 변경) | 13.0567 (-0.7226%) | 12.3272 (-0.5364%) | 0.080814 / -0.0979%, 0.2833% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c189/result.json) |
+| c190 / 완료 | c030 | learning_rate: 0.025→0.055; n_estimators: 2000→700; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 13.2799 (0.8948%) | 12.8992 (0.7814%) | 0.047267 / -0.0467%, 0.1318% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c190/result.json) |
+| c191 / 완료 | c003 | learning_rate: 0.03→0.015; n_estimators: 400→1400; num_leaves: 63→31; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 12.9021 (1.2833%) | 11.8771 (2.4059%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c191/result.json) |
+| c192 / 완료 | c053 | colsample_bytree: 1.0→0.8; half_life: 없음→365; n_estimators: 700→1000 (여러 설정 동시 변경) | 13.1027 (0.9796%) | 12.2613 (2.0229%) | 0.090466 / -0.1193%, 0.4230% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c192/result.json) |
+| c193 / 완료 | c050 | half_life: 180→365; num_leaves: 63→31; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 13.5615 (-4.9050%) | 14.0115 (-4.4034%) | 0.081860 / -0.1214%, 0.8580% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c193/result.json) |
+| c194 / 완료 | c179 | min_child_samples: 300→50; reg_lambda: 2.0→0.0 (여러 설정 동시 변경) | 13.5353 (0.0850%) | 12.6502 (1.3153%) | 0.023711 / -0.0112%, 0.0657% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c194/result.json) |
+| c195 / 완료 | c020 | half_life: 90→365; num_leaves: 31→127 (여러 설정 동시 변경) | 13.6863 (-11.3647%) | 13.7863 (-11.9811%) | 0.077757 / -0.1363%, 0.7418% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c195/result.json) |
+| c196 / 완료 | c009 | features: station→rich; half_life: 없음→90; n_estimators: 400→2000 (여러 설정 동시 변경) | 13.5472 (3.4288%) | 12.6969 (0.0428%) | 0.055260 / -0.0717%, 0.0917% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c196/result.json) |
+| c197 / 완료 | c084 | learning_rate: 0.055→0.025; reg_lambda: 8.0→20.0 (여러 설정 동시 변경) | 13.8407 (0.4123%) | 13.7383 (-3.1869%) | 0.087484 / -0.1543%, 0.8582% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c197/result.json) |
+| c198 / 완료 | c042 | half_life: 90→365; n_estimators: 1400→700; reg_lambda: 8.0→0.0 (여러 설정 동시 변경) | 12.9639 (-3.8860%) | 12.2297 (-1.9189%) | 0.086247 / -0.0845%, 0.3487% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c198/result.json) |
+| c199 / 완료 | c135 | learning_rate: 0.04→0.07; num_leaves: 63→127 (여러 설정 동시 변경) | 13.4626 (1.3747%) | 13.3543 (-0.0334%) | 0.008338 / -0.0009%, 0.0416% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c199/result.json) |
+| c200 / 완료 | c113 | half_life: 90→없음; min_child_samples: 100→300 (여러 설정 동시 변경) | 12.6788 (-6.4918%) | 11.9820 (-2.4673%) | 0.165494 / -0.2295%, 0.5611% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c200/result.json) |
+| c201 / 완료 | c154 | min_child_samples: 50→100 (단일 설정 차이) | 13.6147 (-0.5692%) | 13.6948 (-0.6293%) | 0.030694 / -0.0163%, 0.2315% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c201/result.json) |
+| c202 / 완료 | c008 | n_estimators: 400→2000; num_leaves: 127→31; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 13.1945 (-0.1944%) | 12.1555 (-0.0401%) | 0.062977 / -0.0494%, 0.1471% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c202/result.json) |
+| c203 / 완료 | c043 | learning_rate: 0.055→0.015; n_estimators: 400→1000 (여러 설정 동시 변경) | 13.3104 (-0.6242%) | 12.9709 (-0.4687%) | 0.072774 / -0.0788%, 0.4692% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c203/result.json) |
+| c204 / 완료 | c012 | num_leaves: 127→31 (단일 설정 차이) | 13.2709 (0.9110%) | 12.2553 (2.2716%) | 0.031157 / -0.0112%, 0.0442% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c204/result.json) |
+| c205 / 완료 | c020 | num_leaves: 31→127; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 15.1406 (-1.9466%) | 15.4575 (-1.3112%) | 0.054041 / -0.1072%, 0.5684% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c205/result.json) |
+| c206 / 완료 | c117 | n_estimators: 1400→700; target: exact_energy→original_cf; weighting: monetary→legacy (여러 설정 동시 변경) | 12.6211 (0.0513%) | 11.6277 (-3.1440%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c206/result.json) |
+| c207 / 완료 | c103 | min_child_samples: 300→100 (단일 설정 차이) | 14.2341 (1.0225%) | 14.3486 (-0.0137%) | 0.003138 / -0.0002%, 0.0207% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c207/result.json) |
+| c208 / 완료 | c033 | half_life: 365→90; num_leaves: 15→127 (여러 설정 동시 변경) | 15.4035 (11.5432%) | 15.5977 (11.4030%) | 0.047308 / -0.0994%, 0.4201% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c208/result.json) |
+| c209 / 완료 | c196 | learning_rate: 0.07→0.025; n_estimators: 2000→1400 (여러 설정 동시 변경) | 13.3695 (-1.3124%) | 12.5866 (-0.8686%) | 0.062870 / -0.0820%, 0.1160% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c209/result.json) |
+| c210 / 완료 | c013 | learning_rate: 0.025→0.04; n_estimators: 2000→700; num_leaves: 127→15 (여러 설정 동시 변경) | 14.2214 (-3.6534%) | 14.2566 (-1.1421%) | 0.062884 / -0.1047%, 0.5855% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c210/result.json) |
+| c211 / 완료 | c008 | num_leaves: 127→15; reg_lambda: 20.0→2.0 (여러 설정 동시 변경) | 13.2327 (0.0944%) | 12.1628 (0.0202%) | 0.073595 / -0.0876%, 0.1385% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c211/result.json) |
+| c212 / 완료 | c001 | learning_rate: 0.03→0.055; min_child_samples: 50→300; n_estimators: 400→700 (여러 설정 동시 변경) | 14.4599 (-0.2405%) | 15.2538 (4.4997%) | 0.066832 / -0.1307%, 0.9149% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c212/result.json) |
+| c213 / 완료 | c027 | min_child_samples: 300→100; num_leaves: 15→63 (여러 설정 동시 변경) | 12.8563 (0.6881%) | 11.9840 (-1.7134%) | 0.020764 / -0.0035%, 0.0811% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c213/result.json) |
+| c214 / 완료 | c022 | colsample_bytree: 0.65→1.0; min_child_samples: 50→200; n_estimators: 700→1400 (여러 설정 동시 변경) | 13.9119 (-2.8683%) | 14.3214 (2.6850%) | 0.051360 / -0.0588%, 0.4655% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c214/result.json) |
+| c215 / 완료 | c029 | colsample_bytree: 0.65→0.8; num_leaves: 31→127; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.0863 (2.4305%) | 12.2461 (0.2770%) | 0.068346 / -0.0548%, 0.2812% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c215/result.json) |
+| c216 / 완료 | c188 | colsample_bytree: 1.0→0.65; reg_lambda: 2.0→0.0 (여러 설정 동시 변경) | 17.0663 (6.8764%) | 15.4236 (-0.9562%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c216/result.json) |
+| c217 / 완료 | c006 | min_child_samples: 200→300; reg_lambda: 8.0→2.0 (여러 설정 동시 변경) | 13.4666 (-1.5500%) | 12.4461 (-0.7354%) | 0.063033 / -0.0823%, 0.0964% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c217/result.json) |
+| c218 / 완료 | c022 | learning_rate: 0.055→0.015; n_estimators: 700→2000; num_leaves: 127→31 (여러 설정 동시 변경) | 13.8592 (-3.2361%) | 13.8826 (-0.4613%) | 0.097987 / -0.1666%, 0.9452% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c218/result.json) |
+| c219 / 완료 | c090 | features: station→rich; min_child_samples: 200→300 (여러 설정 동시 변경) | 13.0098 (-5.1806%) | 12.3065 (-9.0629%) | 0.139184 / -0.2398%, 0.6524% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c219/result.json) |
+| c220 / 완료 | c216 | half_life: 90→180; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 15.3200 (-10.2328%) | 14.7729 (-4.2190%) | 0.013031 / -0.0064%, 0.1117% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c220/result.json) |
+| c221 / 완료 | c010 | n_estimators: 1000→400; reg_lambda: 2.0→0.0 (여러 설정 동시 변경) | 12.9456 (0.3639%) | 12.0189 (-0.0347%) | 0.105547 / -0.1146%, 0.3031% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c221/result.json) |
+| c222 / 완료 | c000 | learning_rate: 0.03→0.07; n_estimators: 400→700; num_leaves: 63→15; reg_lambda: 0.0→8.0 (여러 설정 동시 변경) | 13.3220 (1.2270%) | 12.8662 (0.5030%) | 0.025724 / -0.0135%, 0.0985% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c222/result.json) |
+| c223 / 완료 | c127 | n_estimators: 2000→1000; num_leaves: 127→15; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 13.1062 (-2.1099%) | 12.0345 (0.4820%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c223/result.json) |
+| c224 / 완료 | c085 | colsample_bytree: 0.8→1.0; min_child_samples: 50→300 (여러 설정 동시 변경) | 12.9965 (1.4363%) | 12.0112 (0.3877%) | 0.089898 / -0.0796%, 0.2478% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c224/result.json) |
+| c225 / 완료 | c069 | min_child_samples: 200→50; n_estimators: 1000→700 (여러 설정 동시 변경) | 14.2261 (-2.2536%) | 14.2173 (-0.1524%) | 0.088420 / -0.1700%, 0.8590% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c225/result.json) |
+| c226 / 완료 | c059 | n_estimators: 400→1000; num_leaves: 15→127 (여러 설정 동시 변경) | 13.2466 (0.6120%) | 11.8913 (-3.2080%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c226/result.json) |
+| c227 / 완료 | c041 | learning_rate: 0.04→0.025; num_leaves: 127→15 (여러 설정 동시 변경) | 15.4185 (-2.0099%) | 15.4738 (-0.8803%) | 0.042752 / -0.0842%, 0.5071% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c227/result.json) |
+| c228 / 완료 | c089 | half_life: 없음→180; min_child_samples: 300→50 (여러 설정 동시 변경) | 13.4593 (4.7017%) | 12.2274 (0.9603%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c228/result.json) |
+| c229 / 완료 | c028 | half_life: 없음→365; n_estimators: 1400→1000; num_leaves: 15→63 (여러 설정 동시 변경) | 13.6521 (4.4121%) | 14.1393 (10.7845%) | 0.108786 / -0.2427%, 1.2931% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c229/result.json) |
+| c230 / 완료 | c115 | learning_rate: 0.015→0.04; min_child_samples: 50→300; num_leaves: 63→31 (여러 설정 동시 변경) | 13.2260 (0.6486%) | 12.0496 (1.3681%) | 0.009961 / -0.0013%, 0.0081% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c230/result.json) |
+| c231 / 완료 | c047 | min_child_samples: 100→300; num_leaves: 15→63 (여러 설정 동시 변경) | 14.8462 (2.1907%) | 14.9009 (-0.6598%) | 0.020876 / -0.0132%, 0.1608% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c231/result.json) |
+| c232 / 완료 | c121 | half_life: 90→180; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 13.2228 (-2.3712%) | 11.8991 (-2.9818%) | 0.006599 / -0.0006%, 0.0042% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c232/result.json) |
+| c233 / 완료 | c013 | colsample_bytree: 1.0→0.8; half_life: 180→없음; min_child_samples: 100→50 (여러 설정 동시 변경) | 13.8455 (-6.2003%) | 13.1407 (-8.8795%) | 0.021917 / -0.0102%, 0.1157% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c233/result.json) |
+| c234 / 완료 | c021 | reg_lambda: 8.0→20.0 (단일 설정 차이) | 12.9269 (0.5939%) | 12.1953 (0.5302%) | 0.133416 / -0.2299%, 0.4950% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c234/result.json) |
+| c235 / 완료 | c178 | half_life: 90→없음; num_leaves: 31→15 (여러 설정 동시 변경) | 13.0062 (-14.9637%) | 12.9310 (-17.1793%) | 0.078702 / -0.1132%, 0.4957% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c235/result.json) |
+| c236 / 완료 | c153 | half_life: 90→180; num_leaves: 63→15 (여러 설정 동시 변경) | 13.2444 (-2.3518%) | 12.4777 (-0.0720%) | 0.089673 / -0.1299%, 0.2289% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c236/result.json) |
+| c237 / 완료 | c101 | colsample_bytree: 1.0→0.8; half_life: 365→90 (여러 설정 동시 변경) | 15.6329 (13.9817%) | 15.7692 (15.5991%) | 0.042056 / -0.0844%, 0.5259% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c237/result.json) |
+| c238 / 완료 | c014 | learning_rate: 0.015→0.04; n_estimators: 1000→2000; num_leaves: 31→15; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 13.2240 (1.1827%) | 12.1175 (0.4262%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c238/result.json) |
+| c239 / 완료 | c143 | n_estimators: 400→1000; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 14.1813 (0.1179%) | 14.2502 (-0.7849%) | 0.009601 / -0.0024%, 0.0662% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c239/result.json) |
+| c240 / 완료 | c086 | min_child_samples: 200→100; n_estimators: 400→700; num_leaves: 31→63 (여러 설정 동시 변경) | 13.0658 (0.9728%) | 12.9442 (1.0427%) | 0.118544 / -0.1637%, 0.8721% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c240/result.json) |
+| c241 / 완료 | c036 | min_child_samples: 200→50; num_leaves: 63→127; reg_lambda: 2.0→0.0 (여러 설정 동시 변경) | 12.8145 (0.4943%) | 11.8116 (-2.2284%) | 0.055528 / -0.0279%, 0.1381% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c241/result.json) |
+| c242 / 완료 | c105 | n_estimators: 1400→2000 (단일 설정 차이) | 15.2479 (0.3876%) | 15.2830 (0.4344%) | 0.055003 / -0.1174%, 0.6190% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c242/result.json) |
+| c243 / 완료 | c219 | colsample_bytree: 1.0→0.65; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | 12.8108 (-1.5295%) | 12.1407 (-1.3475%) | 0.123397 / -0.1548%, 0.5056% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c243/result.json) |
+| c244 / 완료 | c133 | n_estimators: 1400→2000; num_leaves: 15→63 (여러 설정 동시 변경) | 13.2788 (1.5854%) | 13.1052 (0.4536%) | 0.079388 / -0.1229%, 0.5719% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c244/result.json) |
+| c245 / 완료 | c074 | half_life: 없음→90; n_estimators: 400→700 (여러 설정 동시 변경) | 13.5292 (5.7728%) | 12.1294 (-0.2950%) | 0.009177 / -0.0010%, 0.0021% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c245/result.json) |
+| c246 / 완료 | c036 | features: rich→station; learning_rate: 0.04→0.025 (여러 설정 동시 변경) | 13.1933 (3.4651%) | 13.0285 (7.8446%) | 0.086995 / -0.1246%, 0.6793% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c246/result.json) |
+| c247 / 완료 | c196 | learning_rate: 0.07→0.055; n_estimators: 2000→700; objective: regression_l1→regression_l2 (여러 설정 동시 변경) | 13.5863 (0.2882%) | 12.9375 (1.8951%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c247/result.json) |
+| c248 / 완료 | c139 | colsample_bytree: 0.65→1.0; learning_rate: 0.055→0.04 (여러 설정 동시 변경) | 13.1838 (-4.0706%) | 13.0057 (-1.8902%) | 0.071980 / -0.0760%, 0.4192% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c248/result.json) |
+| c249 / 완료 | c010 | colsample_bytree: 0.8→0.65; half_life: 365→90; learning_rate: 0.015→0.055 (여러 설정 동시 변경) | 13.5697 (5.2026%) | 12.4944 (3.9196%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c249/result.json) |
+| c250 / 완료 | c148 | half_life: 없음→180; min_child_samples: 200→100 (여러 설정 동시 변경) | 14.6060 (11.6706%) | 14.4812 (12.2400%) | 0.043129 / -0.0533%, 0.3920% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c250/result.json) |
+| c251 / 완료 | c027 | learning_rate: 0.025→0.07; min_child_samples: 300→200; n_estimators: 1000→2000 (여러 설정 동시 변경) | 12.7307 (-0.2953%) | 12.2380 (0.3700%) | 0.149064 / -0.2438%, 0.7235% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c251/result.json) |
+| c252 / 완료 | c109 | learning_rate: 0.025→0.04; n_estimators: 400→1400 (여러 설정 동시 변경) | 14.6327 (-1.5471%) | 15.8264 (4.2970%) | 0.056499 / -0.0957%, 0.7000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c252/result.json) |
+| c253 / 완료 | c091 | min_child_samples: 100→50; num_leaves: 63→31 (여러 설정 동시 변경) | 13.3516 (1.2475%) | 12.0177 (1.3233%) | 0.006536 / -0.0001%, 0.0044% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c253/result.json) |
+| c254 / 완료 | c062 | colsample_bytree: 0.65→0.8; learning_rate: 0.04→0.025; n_estimators: 2000→400 (여러 설정 동시 변경) | 14.6016 (0.3043%) | 14.5607 (-1.6426%) | 0.046939 / -0.0668%, 0.3867% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c254/result.json) |
+| c255 / 완료 | c031 | colsample_bytree: 1.0→0.8; half_life: 90→180; num_leaves: 63→31; reg_lambda: 0.0→20.0 (여러 설정 동시 변경) | 13.1163 (-3.1568%) | 12.0265 (-4.0345%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_10h_20261107/trials/c255/result.json) |
 
 ## 12시간 연장 단계
 
-현재 고정된 실행 큐
+| ID / 상태 | 기초 / 비교 ID | 바뀐 설정 | primary W_pct (W 변화) | recent W_pct (W 변화) | alpha / 최고 제출 대비 혼합 W 변화 primary, recent | 완료 기간 / 학습 횟수 | 비고·근거 |
+|---|---|---|---:|---:|---|---|---|
+| n0000 / 완료 | b00→c206 / n0000 | 변경 없음(비교 기준 자체) (기준 자체) | 12.7225 (0.0000%) | 11.6269 (0.0000%) | 0.012241 / -0.0015%, 0.0245% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0000/result.json) |
+| n0001 / 완료 | b00→c206 / n0000 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.6843 (-0.2997%) | 11.6278 (0.0071%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0001/result.json) |
+| n0002 / 완료 | b00→c206 / n0000 | half_life: 없음→365 (단일 설정 차이) | 12.6942 (-0.2218%) | 11.6419 (0.1288%) | 0.009839 / -0.0008%, 0.0222% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0002/result.json) |
+| n0003 / 완료 | b00→c206 / n0001 | half_life: 없음→365 (단일 설정 차이) | 12.6677 (-0.1309%) | 11.6327 (0.0422%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0003/result.json) |
+| n0004 / 완료 | b00→c206 / n0002 | bound: 0.2→0.3; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→160; num_leaves: 0→7; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.6669 (-0.2156%) | 11.4840 (-1.3561%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0004/result.json) |
+| n0005 / 완료 | b00→c206 / n0004 | features: core→season; half_life: 365→없음; min_child_samples: 1000→500; mode: additive→multiplicative; num_leaves: 7→15; reg_lambda: 2.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.6100 (7.4457%) | 11.7427 (2.2529%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0005/result.json) |
+| n0006 / 완료 | b00→c206 / n0004 | features: core→age; half_life: 365→180; learning_rate: 0.025→0.05; n_estimators: 160→300; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.6417 (-0.1984%) | 11.4728 (-0.0976%) | 0.011100 / -0.0003%, 0.0148% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0006/result.json) |
+| n0007 / 완료 | b00→c206 / n0004 | bound: 0.3→0.15; learning_rate: 0.025→0.05; mode: additive→multiplicative; n_estimators: 160→80; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.1894 (4.1254%) | 11.4889 (0.0428%) | 0.024354 / -0.0073%, 0.0050% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0007/result.json) |
+| n0008 / 완료 | b00→c206 / n0006 | bound: 0.3→0.2; features: age→season; min_child_samples: 1000→200; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | 14.0337 (11.0107%) | 11.5724 (0.8678%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0008/result.json) |
+| n0009 / 완료 | b00→c206 / n0006 | bound: 0.3→0.15; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 3→7; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.8878 (1.9465%) | 11.4558 (-0.1487%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0009/result.json) |
+| n0010 / 완료 | b00→c206 / n0004 | bound: 0.3→0.1; half_life: 365→180; min_child_samples: 1000→500; n_estimators: 160→80; num_leaves: 7→15 (여러 설정 동시 변경) | 12.6690 (0.0167%) | 11.5023 (0.1593%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0010/result.json) |
+| n0011 / 완료 | b00→c206 / n0008 | bound: 0.2→0.15; learning_rate: 0.05→0.025; mode: additive→multiplicative; num_leaves: 7→3; reg_lambda: 30.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.7344 (-9.2586%) | 11.4448 (-1.1028%) | 0.010032 / -0.0003%, 0.0129% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0011/result.json) |
+| n0012 / 완료 | b00→c206 / n0004 | bound: 0.3→0.2; features: core→age; reg_lambda: 2.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.4632 (6.2870%) | 11.4842 (0.0018%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0012/result.json) |
+| n0013 / 완료 | b00→c206 / n0005 | bound: 0.3→0.15; features: season→core; num_leaves: 15→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.7084 (-6.6249%) | 11.5162 (-1.9295%) | 0.016360 / -0.0020%, 0.0262% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0013/result.json) |
+| n0014 / 완료 | b00→c206 / n0008 | half_life: 180→없음; learning_rate: 0.05→0.025; min_child_samples: 200→500; n_estimators: 300→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.6646 (-9.7558%) | 11.5531 (-0.1665%) | 0.009547 / -0.0002%, 0.0167% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0014/result.json) |
+| n0015 / 완료 | b00→c206 / n0011 | features: season→age; half_life: 180→365; n_estimators: 300→160; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.6515 (-0.6505%) | 11.5368 (0.8046%) | 0.005388 / -0.0001%, 0.0096% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0015/result.json) |
+| n0016 / 완료 | b00→c206 / n0011 | bound: 0.15→0.1; features: season→core; mode: multiplicative→additive; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.7294 (-0.0386%) | 11.3936 (-0.4468%) | 0.010655 / -0.0003%, 0.0050% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0016/result.json) |
+| n0017 / 완료 | b00→c206 / n0006 | features: age→season; half_life: 180→365; mode: additive→multiplicative; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.6399 (-0.0147%) | 11.5010 (0.2452%) | 0.011342 / -0.0009%, 0.0181% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0017/result.json) |
+| n0018 / 완료 | b00→c206 / n0012 | bound: 0.2→0.1; learning_rate: 0.025→0.05; min_child_samples: 1000→200; n_estimators: 160→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.8229 (-4.7562%) | 11.4369 (-0.4119%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0018/result.json) |
+| n0019 / 완료 | b00→c206 / n0004 | bound: 0.3→0.5; half_life: 365→180; mode: additive→multiplicative; num_leaves: 7→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.6947 (0.2199%) | 11.4562 (-0.2424%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0019/result.json) |
+| n0020 / 완료 | b00→c206 / n0012 | features: age→season; learning_rate: 0.025→0.05; min_child_samples: 1000→500; num_leaves: 7→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.7876 (-5.0187%) | 11.4431 (-0.3583%) | 0.012589 / -0.0006%, 0.0137% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0020/result.json) |
+| n0021 / 완료 | b00→c206 / n0018 | bound: 0.1→0.5; mode: additive→multiplicative; n_estimators: 80→300; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.7509 (7.2373%) | 11.8057 (3.2242%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0021/result.json) |
+| n0022 / 완료 | b00→c206 / n0004 | bound: 0.3→0.1; n_estimators: 160→300; num_leaves: 7→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.6815 (0.1156%) | 11.4472 (-0.3206%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0022/result.json) |
+| n0023 / 완료 | b00→c206 / n0007 | features: core→season; min_child_samples: 1000→500; n_estimators: 80→160; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.8379 (-2.6648%) | 11.4690 (-0.1732%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0023/result.json) |
+| n0024 / 완료 | b00→c206 / n0008 | features: season→age; learning_rate: 0.05→0.025; reg_lambda: 30.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.6879 (-9.5893%) | 11.4729 (-0.8599%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0024/result.json) |
+| n0025 / 완료 | b00→c206 / n0013 | learning_rate: 0.025→0.05; n_estimators: 160→80; num_leaves: 3→7 (여러 설정 동시 변경) | 12.7243 (0.1256%) | 11.4925 (-0.2057%) | 0.031604 / -0.0063%, 0.0473% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0025/result.json) |
+| n0026 / 완료 | b00→c206 / n0008 | bound: 0.2→0.3; half_life: 180→없음; n_estimators: 300→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.8112 (-8.7111%) | 11.5076 (-0.5597%) | 0.019506 / -0.0029%, 0.0295% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0026/result.json) |
+| n0027 / 완료 | b00→c206 / n0021 | bound: 0.5→0.15; half_life: 365→없음; learning_rate: 0.05→0.025; n_estimators: 300→80 (여러 설정 동시 변경) | 13.0410 (-5.1626%) | 11.5462 (-2.1983%) | 0.020699 / -0.0039%, 0.0390% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0027/result.json) |
+| n0028 / 완료 | b00→c206 / n0020 | features: season→core; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.0816 (2.2992%) | 11.3657 (-0.6764%) | 0.022132 / -0.0065%, -0.0126% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0028/result.json) |
+| n0029 / 완료 | b00→c206 / n0011 | n_estimators: 300→160; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.6597 (-0.5861%) | 11.5282 (0.7294%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0029/result.json) |
+| n0030 / 완료 | b00→c206 / n0013 | bound: 0.15→0.2; features: core→age; mode: multiplicative→additive; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 12.7255 (0.1348%) | 11.4986 (-0.1529%) | 0.017201 / -0.0022%, 0.0253% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0030/result.json) |
+| n0031 / 완료 | b00→c206 / n0007 | bound: 0.15→0.5; n_estimators: 80→160 (여러 설정 동시 변경) | 13.4117 (1.6854%) | 11.5541 (0.5673%) | 0.010833 / -0.0011%, -0.0088% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0031/result.json) |
+| n0032 / 완료 | b00→c206 / n0006 | features: age→season; learning_rate: 0.05→0.025; min_child_samples: 1000→200; num_leaves: 3→15 (여러 설정 동시 변경) | 12.7626 (0.9560%) | 11.5007 (0.2432%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0032/result.json) |
+| n0033 / 완료 | b00→c206 / n0007 | features: core→age; half_life: 365→180; min_child_samples: 1000→200; num_leaves: 7→3 (여러 설정 동시 변경) | 12.9580 (-1.7546%) | 11.4491 (-0.3468%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0033/result.json) |
+| n0034 / 완료 | b00→c206 / n0028 | min_child_samples: 200→500; num_leaves: 3→15; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.2965 (1.6434%) | 11.4679 (0.8994%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0034/result.json) |
+| n0035 / 완료 | b00→c206 / n0029 | bound: 0.15→0.3; min_child_samples: 200→1000 (여러 설정 동시 변경) | 12.6624 (0.0212%) | 11.5309 (0.0227%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0035/result.json) |
+| n0036 / 완료 | b00→c206 / n0034 | features: core→age; n_estimators: 160→80; num_leaves: 15→3 (여러 설정 동시 변경) | 12.8328 (-3.4878%) | 11.4361 (-0.2777%) | 0.023379 / -0.0048%, 0.0240% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0036/result.json) |
+| n0037 / 완료 | b00→c206 / n0025 | num_leaves: 7→3; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 12.8147 (0.7105%) | 11.5100 (0.1522%) | 0.014332 / -0.0018%, 0.0223% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0037/result.json) |
+| n0038 / 완료 | b00→c206 / n0026 | n_estimators: 80→160; num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.4348 (4.8674%) | 11.6615 (1.3371%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0038/result.json) |
+| n0039 / 완료 | b00→c206 / n0009 | bound: 0.15→0.3; min_child_samples: 1000→500; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 12.8751 (-0.0988%) | 11.4428 (-0.1135%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0039/result.json) |
+| n0040 / 완료 | b00→c206 / n0020 | features: season→core; half_life: 365→180; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.7481 (-0.3083%) | 11.3786 (-0.5634%) | 0.001036 / -0.0000%, 0.0003% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0040/result.json) |
+| n0041 / 완료 | b00→c206 / n0005 | bound: 0.3→0.15; half_life: 없음→180; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.6161 (0.0446%) | 11.6371 (-0.8999%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0041/result.json) |
+| n0042 / 완료 | b00→c206 / n0018 | bound: 0.1→0.2; n_estimators: 80→300; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.0049 (1.4190%) | 11.4542 (0.1513%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0042/result.json) |
+| n0043 / 완료 | b00→c206 / n0037 | bound: 0.15→0.3; half_life: 없음→365; shrink: 0.75→0.25 (여러 설정 동시 변경) | 12.6501 (-1.2844%) | 11.5480 (0.3303%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0043/result.json) |
+| n0044 / 완료 | b00→c206 / n0008 | bound: 0.2→0.1; min_child_samples: 200→500; n_estimators: 300→160; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.6919 (-9.5614%) | 11.4581 (-0.9875%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0044/result.json) |
+| n0045 / 완료 | b00→c206 / n0021 | learning_rate: 0.05→0.025; min_child_samples: 200→500; n_estimators: 300→80; num_leaves: 7→3 (여러 설정 동시 변경) | 12.8617 (-6.4669%) | 11.4604 (-2.9242%) | 0.005365 / -0.0001%, 0.0073% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0045/result.json) |
+| n0046 / 완료 | b00→c206 / n0022 | min_child_samples: 1000→200; reg_lambda: 10.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.6175 (7.3811%) | 11.5622 (1.0041%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0046/result.json) |
+| n0047 / 완료 | b00→c206 / n0026 | min_child_samples: 200→1000; mode: additive→multiplicative; num_leaves: 7→15 (여러 설정 동시 변경) | 12.8859 (0.5832%) | 11.5381 (0.2647%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0047/result.json) |
+| n0048 / 완료 | b00→c206 / n0006 | bound: 0.3→0.1; half_life: 180→없음; n_estimators: 300→160; reg_lambda: 30.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.9446 (2.3958%) | 11.4662 (-0.0576%) | 0.026809 / -0.0059%, 0.0310% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0048/result.json) |
+| n0049 / 완료 | b00→c206 / n0007 | num_leaves: 7→3; reg_lambda: 2.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | 12.7858 (-3.0604%) | 11.4716 (-0.1509%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0049/result.json) |
+| n0050 / 완료 | b00→c206 / n0008 | half_life: 180→365; n_estimators: 300→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.6764 (-9.6716%) | 11.5024 (-0.6044%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0050/result.json) |
+| n0051 / 완료 | b00→c206 / n0021 | bound: 0.5→0.3; num_leaves: 7→3; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.1572 (-4.3176%) | 11.5657 (-2.0329%) | 0.011732 / -0.0011%, 0.0006% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0051/result.json) |
+| n0052 / 완료 | b00→c206 / n0022 | bound: 0.1→0.2; min_child_samples: 1000→500 (여러 설정 동시 변경) | 12.6763 (-0.0415%) | 11.4706 (0.2044%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0052/result.json) |
+| n0053 / 완료 | b00→c206 / n0035 | half_life: 180→없음; num_leaves: 3→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.6528 (-0.0757%) | 11.5419 (0.0953%) | 0.009640 / -0.0005%, 0.0176% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0053/result.json) |
+| n0054 / 완료 | b00→c206 / n0006 | min_child_samples: 1000→200; n_estimators: 300→80; num_leaves: 3→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 12.6690 (0.2154%) | 11.4959 (0.2013%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0054/result.json) |
+| n0055 / 완료 | b00→c206 / n0038 | features: season→core; mode: additive→multiplicative (여러 설정 동시 변경) | 13.1212 (-2.3341%) | 11.5926 (-0.5905%) | 0.018493 / -0.0046%, 0.0194% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0055/result.json) |
+| n0056 / 완료 | b00→c206 / n0020 | min_child_samples: 500→1000; n_estimators: 160→300; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 12.8288 (0.3222%) | 11.4511 (0.0702%) | 0.009414 / -0.0004%, 0.0100% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0056/result.json) |
+| n0057 / 완료 | b00→c206 / n0039 | reg_lambda: 2.0→2.5; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.2337 (2.7851%) | 11.5003 (0.5028%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0057/result.json) |
+| n0058 / 완료 | b00→c206 / n0010 | n_estimators: 80→160; num_leaves: 15→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.9673 (2.3550%) | 11.3255 (-1.5375%) | 0.000834 / -0.0000%, -0.0006% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0058/result.json) |
+| n0059 / 완료 | b00→c206 / n0035 | reg_lambda: 2.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.8642 (1.5940%) | 11.4446 (-0.7484%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0059/result.json) |
+| n0060 / 완료 | b00→c206 / n0036 | min_child_samples: 500→200; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.0241 (1.4907%) | 11.4633 (0.2383%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0060/result.json) |
+| n0061 / 완료 | b00→c206 / n0017 | features: season→core; learning_rate: 0.05→0.025; shrink: 0.25→1.0 (여러 설정 동시 변경) | 12.9491 (2.4466%) | 11.4310 (-0.6083%) | 0.015147 / -0.0026%, 0.0039% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0061/result.json) |
+| n0062 / 완료 | b00→c206 / n0022 | features: core→season; num_leaves: 15→7; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.9094 (1.7967%) | 11.4463 (-0.0079%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0062/result.json) |
+| n0063 / 완료 | b00→c206 / n0009 | reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.5565 (5.1888%) | 11.6577 (1.7632%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0063/result.json) |
+| n0064 / 완료 | b01→c003 / n0064 | 변경 없음(비교 기준 자체) (기준 자체) | 12.8426 (0.0000%) | 11.6215 (0.0000%) | 0.008161 / -0.0003%, 0.0113% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0064/result.json) |
+| n0065 / 완료 | b01→c003 / n0064 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.8139 (-0.2239%) | 11.6224 (0.0070%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0065/result.json) |
+| n0066 / 완료 | b01→c003 / n0064 | half_life: 없음→365 (단일 설정 차이) | 12.8020 (-0.3166%) | 11.6600 (0.3310%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0066/result.json) |
+| n0067 / 완료 | b01→c003 / n0065 | half_life: 없음→365 (단일 설정 차이) | 12.7891 (-0.1935%) | 11.6508 (0.2449%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0067/result.json) |
+| n0068 / 완료 | b01→c003 / n0064 | bound: 0.2→0.3; half_life: 없음→180; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.8681 (0.1987%) | 11.5509 (-0.6079%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0068/result.json) |
+| n0069 / 완료 | b01→c003 / n0065 | bound: 0.3→0.5; features: core→season; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.1997 (3.0111%) | 11.7602 (1.1859%) | 0.005284 / -0.0000%, 0.0062% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0069/result.json) |
+| n0070 / 완료 | b01→c003 / n0068 | features: core→age; half_life: 180→365; min_child_samples: 500→1000; n_estimators: 300→160; num_leaves: 7→3; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.2750 (3.1621%) | 11.7285 (1.5372%) | 0.027662 / -0.0097%, -0.0065% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0070/result.json) |
+| n0071 / 완료 | b01→c003 / n0068 | half_life: 180→365; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.4919 (4.8478%) | 11.7825 (2.0051%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0071/result.json) |
+| n0072 / 완료 | b01→c003 / n0068 | bound: 0.3→0.1; features: core→season; half_life: 180→없음; n_estimators: 300→80; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.8149 (-0.4136%) | 11.5811 (0.2615%) | 0.011632 / -0.0008%, 0.0100% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0072/result.json) |
+| n0073 / 완료 | b01→c003 / n0070 | bound: 0.3→0.5; min_child_samples: 1000→500; mode: additive→multiplicative; n_estimators: 160→80; num_leaves: 3→7 (여러 설정 동시 변경) | 13.3682 (0.7021%) | 11.9206 (1.6384%) | 0.005612 / -0.0002%, 0.0036% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0073/result.json) |
+| n0074 / 완료 | b01→c003 / n0068 | half_life: 180→없음; n_estimators: 300→160; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.8692 (7.7798%) | 11.8400 (2.5033%) | 0.016588 / -0.0052%, -0.0012% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0074/result.json) |
+| n0075 / 완료 | b01→c003 / n0071 | bound: 0.3→0.15; features: core→season; learning_rate: 0.05→0.025; min_child_samples: 500→1000; shrink: 0.75→1.0 (여러 설정 동시 변경) | 13.9463 (3.3675%) | 11.9374 (1.3145%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0075/result.json) |
+| n0076 / 완료 | b01→c003 / n0068 | bound: 0.3→0.1; features: core→age; half_life: 180→없음; min_child_samples: 500→200; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.7883 (7.1508%) | 11.9312 (3.2928%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0076/result.json) |
+| n0077 / 완료 | b01→c003 / n0073 | features: age→core; num_leaves: 7→3 (여러 설정 동시 변경) | 13.0915 (-2.0705%) | 11.7052 (-1.8070%) | 0.022500 / -0.0048%, 0.0218% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0077/result.json) |
+| n0078 / 완료 | b01→c003 / n0071 | bound: 0.3→0.2; features: core→season; half_life: 365→180; mode: multiplicative→additive; num_leaves: 15→3 (여러 설정 동시 변경) | 13.0465 (-3.3015%) | 11.6044 (-1.5114%) | 0.030470 / -0.0088%, -0.0226% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0078/result.json) |
+| n0079 / 완료 | b01→c003 / n0068 | features: core→age; learning_rate: 0.05→0.025; mode: additive→multiplicative; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 12.8484 (-0.1532%) | 11.5901 (0.3394%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0079/result.json) |
+| n0080 / 완료 | b01→c003 / n0074 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; n_estimators: 160→300; num_leaves: 7→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 14.1152 (1.7735%) | 11.9969 (1.3250%) | 0.010783 / -0.0020%, 0.0043% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0080/result.json) |
+| n0081 / 완료 | b01→c003 / n0069 | bound: 0.5→0.15; min_child_samples: 200→1000; num_leaves: 15→7; shrink: 0.75→1.0 (여러 설정 동시 변경) | 13.3310 (0.9946%) | 11.8020 (0.3554%) | 0.030458 / -0.0108%, 0.0480% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0081/result.json) |
+| n0082 / 완료 | b01→c003 / n0074 | bound: 0.3→0.2; features: core→age; n_estimators: 160→80 (여러 설정 동시 변경) | 13.6179 (-1.8119%) | 11.7718 (-0.5766%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0082/result.json) |
+| n0083 / 완료 | b01→c003 / n0079 | features: age→core; min_child_samples: 500→200; num_leaves: 7→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.0141 (1.2893%) | 11.6331 (0.3708%) | 0.010398 / -0.0005%, -0.0016% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0083/result.json) |
+| n0084 / 완료 | b01→c003 / n0068 | bound: 0.3→0.2; features: core→season; learning_rate: 0.05→0.025; min_child_samples: 500→1000; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.8799 (0.0914%) | 11.5838 (0.2853%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0084/result.json) |
+| n0085 / 완료 | b01→c003 / n0079 | half_life: 180→365; min_child_samples: 500→1000; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.8278 (-0.1607%) | 11.6105 (0.1764%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0085/result.json) |
+| n0086 / 완료 | b01→c003 / n0070 | bound: 0.3→0.2; features: age→core; half_life: 365→없음; learning_rate: 0.05→0.025; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.8114 (-3.4923%) | 11.5740 (-1.3173%) | 0.010563 / -0.0004%, 0.0081% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0086/result.json) |
+| n0087 / 완료 | b01→c003 / n0075 | bound: 0.15→0.5; learning_rate: 0.025→0.05; num_leaves: 15→7; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.8667 (-7.7411%) | 11.6076 (-2.7629%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0087/result.json) |
+| n0088 / 완료 | b01→c003 / n0085 | bound: 0.3→0.1; min_child_samples: 1000→500; mode: multiplicative→additive; n_estimators: 300→160 (여러 설정 동시 변경) | 12.8383 (0.0820%) | 11.5948 (-0.1358%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0088/result.json) |
+| n0089 / 완료 | b01→c003 / n0083 | bound: 0.3→0.5; num_leaves: 3→15 (여러 설정 동시 변경) | 13.4620 (3.4416%) | 11.7409 (0.9268%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0089/result.json) |
+| n0090 / 완료 | b01→c003 / n0070 | features: age→season; learning_rate: 0.05→0.025; n_estimators: 160→300 (여러 설정 동시 변경) | 13.3425 (0.5082%) | 11.6867 (-0.3561%) | 0.026336 / -0.0106%, -0.0093% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0090/result.json) |
+| n0091 / 완료 | b01→c003 / n0073 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.8870 (-3.5997%) | 11.6584 (-2.1996%) | 0.011468 / -0.0005%, 0.0129% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0091/result.json) |
+| n0092 / 완료 | b01→c003 / n0078 | features: season→core; learning_rate: 0.05→0.025; num_leaves: 3→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 13.4227 (2.8834%) | 11.6885 (0.7245%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0092/result.json) |
+| n0093 / 완료 | b01→c003 / n0081 | half_life: 없음→365; learning_rate: 0.025→0.05; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.8294 (-3.7621%) | 11.6026 (-1.6895%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0093/result.json) |
+| n0094 / 완료 | b01→c003 / n0076 | bound: 0.1→0.2; learning_rate: 0.05→0.025; min_child_samples: 200→1000; shrink: 1.0→0.5 (여러 설정 동시 변경) | 13.0537 (-5.3279%) | 11.6406 (-2.4356%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0094/result.json) |
+| n0095 / 완료 | b01→c003 / n0068 | min_child_samples: 500→1000; mode: additive→multiplicative; num_leaves: 7→15; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.2242 (2.7672%) | 11.7016 (1.3044%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0095/result.json) |
+| n0096 / 완료 | b01→c003 / n0075 | bound: 0.15→0.1; min_child_samples: 1000→200; mode: multiplicative→additive; n_estimators: 160→80; num_leaves: 15→7 (여러 설정 동시 변경) | 13.3560 (-4.2324%) | 11.6989 (-1.9977%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0096/result.json) |
+| n0097 / 완료 | b01→c003 / n0073 | bound: 0.5→0.15; reg_lambda: 30.0→30.5; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.8207 (-4.0955%) | 11.6185 (-2.5342%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0097/result.json) |
+| n0098 / 완료 | b01→c003 / n0082 | features: age→core; min_child_samples: 500→1000; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.3827 (-1.7277%) | 11.6448 (-1.0791%) | 0.014300 / -0.0022%, 0.0013% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0098/result.json) |
+| n0099 / 완료 | b01→c003 / n0093 | reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.4600 (4.9146%) | 11.8144 (1.8254%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0099/result.json) |
+| n0100 / 완료 | b01→c003 / n0070 | min_child_samples: 1000→200; n_estimators: 160→80; shrink: 1.0→0.75 (여러 설정 동시 변경) | 12.9702 (-2.2965%) | 11.6076 (-1.0306%) | 0.017502 / -0.0021%, 0.0064% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0100/result.json) |
+| n0101 / 완료 | b01→c003 / n0087 | bound: 0.5→0.3; features: season→core; n_estimators: 160→80 (여러 설정 동시 변경) | 12.8200 (-0.3627%) | 11.5848 (-0.1957%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0101/result.json) |
+| n0102 / 완료 | b01→c003 / n0096 | min_child_samples: 200→500; n_estimators: 80→300; num_leaves: 7→15 (여러 설정 동시 변경) | 14.1737 (6.1225%) | 12.0496 (2.9976%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0102/result.json) |
+| n0103 / 완료 | b01→c003 / n0079 | half_life: 180→365; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.8294 (-0.1481%) | 11.6062 (0.1389%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0103/result.json) |
+| n0104 / 완료 | b01→c003 / n0088 | bound: 0.1→0.3; features: age→core (여러 설정 동시 변경) | 12.8420 (0.0289%) | 11.5715 (-0.2005%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0104/result.json) |
+| n0105 / 완료 | b01→c003 / n0069 | min_child_samples: 200→500; n_estimators: 80→300 (여러 설정 동시 변경) | 13.5398 (2.5765%) | 11.9133 (1.3023%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0105/result.json) |
+| n0106 / 완료 | b01→c003 / n0088 | half_life: 365→180; min_child_samples: 500→200; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.2534 (3.2333%) | 11.6583 (0.5479%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0106/result.json) |
+| n0107 / 완료 | b01→c003 / n0077 | learning_rate: 0.05→0.025; n_estimators: 80→300; num_leaves: 3→15 (여러 설정 동시 변경) | 13.9083 (6.2397%) | 11.9737 (2.2941%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0107/result.json) |
+| n0108 / 완료 | b01→c003 / n0070 | features: age→season; half_life: 365→180; min_child_samples: 1000→200; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.9013 (-2.8150%) | 11.5645 (-1.3979%) | 0.007789 / -0.0002%, -0.0013% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0108/result.json) |
+| n0109 / 완료 | b01→c003 / n0091 | bound: 0.5→0.3; half_life: 365→없음; num_leaves: 7→3 (여러 설정 동시 변경) | 12.8061 (-0.6282%) | 11.6381 (-0.1740%) | 0.028464 / -0.0053%, 0.0440% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0109/result.json) |
+| n0110 / 완료 | b01→c003 / n0083 | learning_rate: 0.025→0.05; mode: multiplicative→additive; n_estimators: 300→80 (여러 설정 동시 변경) | 12.9401 (-0.5684%) | 11.5424 (-0.7793%) | 0.017673 / -0.0016%, -0.0071% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0110/result.json) |
+| n0111 / 완료 | b01→c003 / n0089 | features: core→season; min_child_samples: 200→1000 (여러 설정 동시 변경) | 13.7634 (2.2390%) | 11.7703 (0.2507%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0111/result.json) |
+| n0112 / 완료 | b01→c003 / n0086 | features: core→age; half_life: 없음→180; min_child_samples: 1000→500; n_estimators: 160→80 (여러 설정 동시 변경) | 12.7632 (-0.3764%) | 11.5801 (0.0536%) | 0.010259 / -0.0004%, 0.0091% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0112/result.json) |
+| n0113 / 완료 | b01→c003 / n0081 | features: season→core; half_life: 없음→180; num_leaves: 7→15; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.8341 (-3.7272%) | 11.5833 (-1.8530%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0113/result.json) |
+| n0114 / 완료 | b01→c003 / n0084 | bound: 0.2→0.1; reg_lambda: 10.0→10.5; shrink: 0.25→1.0 (여러 설정 동시 변경) | 14.0561 (9.1325%) | 11.9357 (3.0371%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0114/result.json) |
+| n0115 / 완료 | b01→c003 / n0073 | half_life: 365→없음; n_estimators: 80→300; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.7112 (2.5656%) | 11.9769 (0.4723%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0115/result.json) |
+| n0116 / 완료 | b01→c003 / n0080 | learning_rate: 0.025→0.05; n_estimators: 300→80; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.9726 (-1.0102%) | 11.8658 (-1.0926%) | 0.017413 / -0.0101%, 0.0026% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0116/result.json) |
+| n0117 / 완료 | b01→c003 / n0105 | learning_rate: 0.025→0.05; shrink: 0.75→1.0 (여러 설정 동시 변경) | 14.3289 (5.8281%) | 12.3122 (3.3479%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0117/result.json) |
+| n0118 / 완료 | b01→c003 / n0108 | bound: 0.3→0.2; features: season→age; half_life: 180→없음 (여러 설정 동시 변경) | 12.9219 (0.1597%) | 11.6391 (0.6450%) | 0.012094 / -0.0008%, 0.0111% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0118/result.json) |
+| n0119 / 완료 | b01→c003 / n0113 | bound: 0.15→0.3; n_estimators: 80→160; num_leaves: 15→7 (여러 설정 동시 변경) | 12.8197 (-0.1121%) | 11.5719 (-0.0980%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0119/result.json) |
+| n0120 / 완료 | b01→c003 / n0080 | features: core→season; min_child_samples: 1000→200; shrink: 1.0→0.5 (여러 설정 동시 변경) | 13.1540 (-6.8097%) | 11.7298 (-2.2268%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0120/result.json) |
+| n0121 / 완료 | b01→c003 / n0087 | bound: 0.5→0.15; features: season→age; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.2808 (3.2182%) | 11.8015 (1.6710%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0121/result.json) |
+| n0122 / 완료 | b01→c003 / n0092 | bound: 0.2→0.1; n_estimators: 160→300; num_leaves: 15→3 (여러 설정 동시 변경) | 13.0463 (-2.8044%) | 11.5375 (-1.2914%) | 0.020165 / -0.0044%, -0.0230% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0122/result.json) |
+| n0123 / 완료 | b01→c003 / n0104 | features: core→season; half_life: 365→없음; mode: additive→multiplicative (여러 설정 동시 변경) | 12.8303 (-0.0912%) | 11.6294 (0.5002%) | 0.003962 / -0.0000%, 0.0043% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0123/result.json) |
+| n0124 / 완료 | b01→c003 / n0109 | mode: multiplicative→additive; reg_lambda: 30.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.7763 (-0.2324%) | 11.5982 (-0.3426%) | 0.005787 / -0.0001%, 0.0063% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0124/result.json) |
+| n0125 / 완료 | b01→c003 / n0071 | bound: 0.3→0.15; half_life: 365→180; min_child_samples: 500→200; shrink: 0.75→0.5 (여러 설정 동시 변경) | 13.0988 (-2.9137%) | 11.6264 (-1.3246%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0125/result.json) |
+| n0126 / 완료 | b01→c003 / n0087 | bound: 0.5→0.1; min_child_samples: 1000→200; mode: multiplicative→additive (여러 설정 동시 변경) | 12.8520 (-0.1146%) | 11.6104 (0.0248%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0126/result.json) |
+| n0127 / 완료 | b01→c003 / n0073 | bound: 0.5→0.15; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 13.3794 (0.0832%) | 11.9368 (0.1356%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0127/result.json) |
+| n0128 / 완료 | b02→c158 / n0128 | 변경 없음(비교 기준 자체) (기준 자체) | 12.9058 (0.0000%) | 11.9114 (0.0000%) | 0.035001 / -0.0117%, 0.0222% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0128/result.json) |
+| n0129 / 완료 | b02→c158 / n0128 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.9753 (0.5380%) | 11.9596 (0.4044%) | 0.019844 / -0.0044%, 0.0208% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0129/result.json) |
+| n0130 / 완료 | b02→c158 / n0128 | half_life: 없음→365 (단일 설정 차이) | 12.9179 (0.0937%) | 11.9481 (0.3083%) | 0.030945 / -0.0096%, 0.0269% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0130/result.json) |
+| n0131 / 완료 | b02→c158 / n0129 | half_life: 없음→365 (단일 설정 차이) | 12.9829 (0.0590%) | 12.0009 (0.3452%) | 0.018668 / -0.0037%, 0.0233% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0131/result.json) |
+| n0132 / 실패 | b02→c158 / n0128 | bound: 0.2→0.1; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→3; reg_lambda: 0.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / -0.0849%, -0.0234% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0133 / 완료 | b02→c158 / n0129 | features: core→season; half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→300; num_leaves: 0→15; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 13.1689 (1.4921%) | 12.0493 (0.7502%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0133/result.json) |
+| n0134 / 완료 | b02→c158 / n0132 | features: core→age; half_life: 없음→180; min_child_samples: 500→1000; n_estimators: 80→300; reg_lambda: 10.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | 13.1868 | 11.9488 | 0.008695 / -0.0009%, -0.0018% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0134/result.json) |
+| n0135 / 실패 | b02→c158 / n0132 | bound: 0.1→0.3; half_life: 없음→180; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / -0.0123%, -0.0013% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0136 / 완료 | b02→c158 / n0132 | features: core→season; half_life: 없음→365; learning_rate: 0.025→0.05; n_estimators: 80→300; num_leaves: 3→15; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.4397 | 11.9377 | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0136/result.json) |
+| n0137 / 완료 | b02→c158 / n0132 | bound: 0.1→0.15; features: core→age; learning_rate: 0.025→0.05; min_child_samples: 500→1000; mode: additive→multiplicative (여러 설정 동시 변경) | 13.0126 | 11.7608 | 0.036219 / -0.0122%, 0.0026% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0137/result.json) |
+| n0138 / 완료 | b02→c158 / n0133 | bound: 0.3→0.2; features: season→core; half_life: 180→없음; learning_rate: 0.025→0.05; min_child_samples: 200→1000; mode: multiplicative→additive (여러 설정 동시 변경) | 12.9181 (-1.9046%) | 11.9707 (-0.6522%) | 0.006512 / -0.0002%, 0.0065% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0138/result.json) |
+| n0139 / 완료 | b02→c158 / n0135 | bound: 0.3→0.5; features: core→season; half_life: 180→없음; min_child_samples: 500→1000; n_estimators: 80→160; num_leaves: 3→15 (여러 설정 동시 변경) | 13.0459 | 11.7791 | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0139/result.json) |
+| n0140 / 완료 | b02→c158 / n0132 | bound: 0.1→0.2; features: core→age; half_life: 없음→365; num_leaves: 3→7; shrink: 0.75→0.25 (여러 설정 동시 변경) | 13.1103 | 12.0292 | 0.006238 / -0.0004%, 0.0059% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0140/result.json) |
+| n0141 / 완료 | b02→c158 / n0138 | bound: 0.2→0.15; half_life: 없음→180; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.0671 (1.1540%) | 12.0638 (0.7779%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0141/result.json) |
+| n0142 / 실패 | b02→c158 / n0132 | bound: 0.1→0.2; features: core→season; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / -0.0875%, -0.0932% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0143 / 완료 | b02→c158 / n0137 | bound: 0.15→0.3; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | 13.5565 (4.1793%) | 11.8669 (0.9023%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0143/result.json) |
+| n0144 / 완료 | b02→c158 / n0136 | features: season→core; min_child_samples: 500→1000; n_estimators: 300→160; shrink: 0.75→0.25 (여러 설정 동시 변경) | 13.0145 (-3.1634%) | 12.0205 (0.6934%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0144/result.json) |
+| n0145 / 완료 | b02→c158 / n0133 | n_estimators: 300→160; num_leaves: 15→7; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.2186 (0.3778%) | 11.9387 (-0.9181%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0145/result.json) |
+| n0146 / 완료 | b02→c158 / n0140 | bound: 0.2→0.1; n_estimators: 80→300 (여러 설정 동시 변경) | 13.1339 (0.1801%) | 12.0315 (0.0196%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0146/result.json) |
+| n0147 / 완료 | b02→c158 / n0133 | features: season→core; min_child_samples: 200→500; num_leaves: 15→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.6416 (3.5898%) | 11.9884 (-0.5050%) | 0.012656 / -0.0035%, -0.0503% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0147/result.json) |
+| n0148 / 완료 | b02→c158 / n0133 | learning_rate: 0.025→0.05; mode: multiplicative→additive; n_estimators: 300→160; num_leaves: 15→3 (여러 설정 동시 변경) | 13.0658 (-0.7829%) | 12.0217 (-0.2288%) | 0.007947 / -0.0005%, 0.0055% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0148/result.json) |
+| n0149 / 완료 | b02→c158 / n0143 | bound: 0.3→0.15; min_child_samples: 1000→500; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.4660 (-0.6670%) | 11.8064 (-0.5100%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0149/result.json) |
+| n0150 / 완료 | b02→c158 / n0132 | bound: 0.1→0.3; learning_rate: 0.025→0.05; num_leaves: 3→15; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.3061 | 11.7478 | 0.019127 / -0.0075%, -0.0251% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0150/result.json) |
+| n0151 / 완료 | b02→c158 / n0139 | half_life: 없음→365; min_child_samples: 1000→200; reg_lambda: 30.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 13.0747 (0.2209%) | 12.0010 (1.8844%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0151/result.json) |
+| n0152 / 완료 | b02→c158 / n0140 | half_life: 365→없음; learning_rate: 0.025→0.05; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.1013 (-0.0679%) | 11.8535 (-1.4606%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0152/result.json) |
+| n0153 / 완료 | b02→c158 / n0137 | features: age→core; half_life: 없음→365; learning_rate: 0.05→0.025; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.9431 (-0.5344%) | 11.8886 (1.0871%) | 0.038005 / -0.0129%, 0.0234% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0153/result.json) |
+| n0154 / 완료 | b02→c158 / n0148 | bound: 0.3→0.1; reg_lambda: 2.0→2.5; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.0624 (-0.0256%) | 11.8898 (-1.0975%) | 0.008801 / -0.0007%, -0.0051% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0154/result.json) |
+| n0155 / 완료 | b02→c158 / n0146 | bound: 0.1→0.3; half_life: 365→180; mode: additive→multiplicative (여러 설정 동시 변경) | 13.1902 (0.4290%) | 12.0817 (0.4174%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0155/result.json) |
+| n0156 / 완료 | b02→c158 / n0148 | features: season→core; min_child_samples: 200→1000; n_estimators: 160→80 (여러 설정 동시 변경) | 13.0218 (-0.3364%) | 12.0167 (-0.0419%) | 0.018292 / -0.0043%, 0.0165% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0156/result.json) |
+| n0157 / 완료 | b02→c158 / n0141 | features: core→season; half_life: 180→없음; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 13.0149 (-0.3999%) | 11.9557 (-0.8960%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0157/result.json) |
+| n0158 / 완료 | b02→c158 / n0152 | half_life: 없음→180; min_child_samples: 500→1000; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.1708 (0.5300%) | 12.0011 (1.2453%) | 0.000121 / -0.0000%, -0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0158/result.json) |
+| n0159 / 완료 | b02→c158 / n0151 | features: season→core; num_leaves: 15→7; reg_lambda: 10.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.5971 (3.9958%) | 11.8140 (-1.5584%) | 0.041009 / -0.0237%, -0.1285% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0159/result.json) |
+| n0160 / 완료 | b02→c158 / n0140 | features: age→season; min_child_samples: 500→1000; n_estimators: 80→160; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.0630 (-0.3605%) | 11.9984 (-0.2556%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0160/result.json) |
+| n0161 / 완료 | b02→c158 / n0139 | features: season→age; min_child_samples: 1000→200; n_estimators: 160→300; num_leaves: 15→3 (여러 설정 동시 변경) | 13.0776 (0.2429%) | 11.8914 (0.9535%) | 0.017039 / -0.0036%, 0.0047% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0161/result.json) |
+| n0162 / 완료 | b02→c158 / n0140 | features: age→core; learning_rate: 0.025→0.05; n_estimators: 80→160 (여러 설정 동시 변경) | 13.0145 (-0.7308%) | 12.0213 (-0.0650%) | 0.013607 / -0.0017%, 0.0102% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0162/result.json) |
+| n0163 / 완료 | b02→c158 / n0139 | bound: 0.5→0.15; half_life: 없음→365 (여러 설정 동시 변경) | 13.2757 (1.7621%) | 11.8579 (0.6690%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0163/result.json) |
+| n0164 / 완료 | b02→c158 / n0143 | half_life: 없음→365; min_child_samples: 1000→200; mode: multiplicative→additive; n_estimators: 300→80 (여러 설정 동시 변경) | 13.3612 (-1.4402%) | 11.8211 (-0.3860%) | 0.012502 / -0.0030%, -0.0315% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0164/result.json) |
+| n0165 / 완료 | b02→c158 / n0147 | bound: 0.3→0.5; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.2486 (-2.8810%) | 11.9439 (-0.3713%) | 0.019059 / -0.0044%, -0.0494% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0165/result.json) |
+| n0166 / 완료 | b02→c158 / n0142 | bound: 0.2→0.1; half_life: 없음→180; num_leaves: 3→7 (여러 설정 동시 변경) | 13.4917 | 11.7647 | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0166/result.json) |
+| n0167 / 완료 | b02→c158 / n0140 | bound: 0.2→0.3; mode: additive→multiplicative; reg_lambda: 10.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.0863 (-0.1830%) | 11.9497 (-0.6609%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0167/result.json) |
+| n0168 / 완료 | b02→c158 / n0135 | learning_rate: 0.05→0.025; mode: multiplicative→additive; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 12.9093 | 11.8866 | 0.043031 / -0.0179%, 0.0117% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0168/result.json) |
+| n0169 / 실패 | b02→c158 / n0142 | bound: 0.2→0.3; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / -0.0392%, -0.0571% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0170 / 완료 | b02→c158 / n0134 | bound: 0.1→0.2; half_life: 180→365; num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.6455 (3.4789%) | 11.9062 (-0.3559%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0170/result.json) |
+| n0171 / 실패 | b02→c158 / n0135 | min_child_samples: 500→200; n_estimators: 80→160; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / -0.0200%, -0.1165% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0172 / 완료 | b02→c158 / n0146 | features: age→season; half_life: 365→180; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | 13.1283 (-0.0422%) | 12.0158 (-0.1305%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0172/result.json) |
+| n0173 / 실패 | b02→c158 / n0139 | features: season→age; num_leaves: 15→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / -0.0065%, -0.0445% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0174 / 실패 | b02→c158 / n0160 | features: season→core; n_estimators: 160→300; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / -0.0090%, -0.0490% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0175 / 완료 | b02→c158 / n0145 | reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.7018 (3.6553%) | 11.8327 (-0.8875%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0175/result.json) |
+| n0176 / 완료 | b02→c158 / n0136 | features: season→age; min_child_samples: 500→1000; num_leaves: 15→7 (여러 설정 동시 변경) | 13.4760 (0.2703%) | 11.9507 (0.1093%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0176/result.json) |
+| n0177 / 완료 | b02→c158 / n0147 | half_life: 180→없음; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.9055 (-5.3963%) | 11.8572 (-1.0950%) | 0.054808 / -0.0277%, 0.0132% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0177/result.json) |
+| n0178 / 완료 | b02→c158 / n0170 | features: age→season; min_child_samples: 1000→200 (여러 설정 동시 변경) | 13.8428 (1.4453%) | 11.7754 (-1.0986%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0178/result.json) |
+| n0179 / 완료 | b02→c158 / n0161 | bound: 0.5→0.15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0581 (-0.1488%) | 11.8841 (-0.0610%) | 0.019127 / -0.0045%, 0.0045% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0179/result.json) |
+| n0180 / 완료 | b02→c158 / n0147 | bound: 0.3→0.2; learning_rate: 0.025→0.05; mode: multiplicative→additive; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.9162 (2.0131%) | 12.0812 (0.7738%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0180/result.json) |
+| n0181 / 완료 | b02→c158 / n0139 | half_life: 없음→180; learning_rate: 0.05→0.025; num_leaves: 15→3; shrink: 0.5→0.25 (여러 설정 동시 변경) | 13.0758 (0.2297%) | 12.0463 (2.2688%) | 0.009381 / -0.0013%, 0.0096% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0181/result.json) |
+| n0182 / 완료 | b02→c158 / n0176 | min_child_samples: 1000→200; n_estimators: 300→160 (여러 설정 동시 변경) | 13.3669 (-0.8100%) | 11.8592 (-0.7663%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0182/result.json) |
+| n0183 / 완료 | b02→c158 / n0151 | features: season→core; n_estimators: 160→80; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.0250 (-0.3800%) | 12.0294 (0.2361%) | 0.006233 / -0.0003%, 0.0044% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0183/result.json) |
+| n0184 / 완료 | b02→c158 / n0134 | features: age→season; learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.6596 (3.5851%) | 11.9112 (-0.3145%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0184/result.json) |
+| n0185 / 완료 | b02→c158 / n0155 | half_life: 180→없음; n_estimators: 300→160; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.0743 (-0.8789%) | 11.7658 (-2.6153%) | 0.016476 / -0.0052%, -0.0166% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0185/result.json) |
+| n0186 / 실패 | b02→c158 / n0134 | bound: 0.1→0.2; features: age→core; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / -0.0385%, -0.0863% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0187 / 완료 | b02→c158 / n0136 | bound: 0.1→0.3; min_child_samples: 500→200; mode: additive→multiplicative; num_leaves: 15→3 (여러 설정 동시 변경) | 13.2045 (-1.7496%) | 11.7955 (-1.1913%) | 0.016479 / -0.0041%, -0.0292% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0187/result.json) |
+| n0188 / 실패 | b02→c158 / n0168 | features: core→age; min_child_samples: 500→200; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / -0.0081%, -0.0198% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0189 / 완료 | b02→c158 / n0135 | bound: 0.3→0.5; min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0527 | 11.9713 | 0.019776 / -0.0056%, -0.0099% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0189/result.json) |
+| n0190 / 완료 | b02→c158 / n0148 | min_child_samples: 200→1000; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.2287 (1.2469%) | 11.8198 (-1.6800%) | 0.008149 / -0.0012%, -0.0137% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0190/result.json) |
+| n0191 / 실패 | b02→c158 / n0181 | bound: 0.5→0.15; features: season→age; min_child_samples: 1000→500; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / -0.0070%, -0.0105% | 5/5 / 5 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
+| n0192 / 완료 | b03→c174 / n0192 | 변경 없음(비교 기준 자체) (기준 자체) | 12.6381 (0.0000%) | 11.7258 (0.0000%) | 0.100398 / -0.0775%, 0.3127% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0192/result.json) |
+| n0193 / 완료 | b03→c174 / n0192 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.5817 (-0.4461%) | 11.7208 (-0.0425%) | 0.098045 / -0.0662%, 0.3247% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0193/result.json) |
+| n0194 / 완료 | b03→c174 / n0192 | half_life: 없음→365 (단일 설정 차이) | 12.6089 (-0.2311%) | 11.7381 (0.1051%) | 0.101405 / -0.0748%, 0.3367% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0194/result.json) |
+| n0195 / 완료 | b03→c174 / n0193 | half_life: 없음→365 (단일 설정 차이) | 12.5692 (-0.0999%) | 11.7262 (0.0460%) | 0.100161 / -0.0656%, 0.3470% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0195/result.json) |
+| n0196 / 완료 | b03→c174 / n0192 | bound: 0.2→0.3; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.5956 (-0.3367%) | 11.6458 (-0.6821%) | 0.091607 / -0.0654%, 0.2472% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0196/result.json) |
+| n0197 / 완료 | b03→c174 / n0196 | bound: 0.3→0.5; features: core→season; half_life: 없음→180; min_child_samples: 1000→500; mode: additive→multiplicative; n_estimators: 80→300; num_leaves: 15→7 (여러 설정 동시 변경) | 12.6414 (0.3637%) | 11.6369 (-0.0766%) | 0.076021 / -0.0494%, 0.2008% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0197/result.json) |
+| n0198 / 완료 | b03→c174 / n0196 | features: core→age; half_life: 없음→180; min_child_samples: 1000→200; n_estimators: 80→160; num_leaves: 15→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.6228 (0.2162%) | 11.6406 (-0.0452%) | 0.103515 / -0.0721%, 0.2834% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0198/result.json) |
+| n0199 / 완료 | b03→c174 / n0196 | min_child_samples: 1000→200; mode: additive→multiplicative; num_leaves: 15→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.5800 (-0.1232%) | 11.6751 (0.2516%) | 0.099319 / -0.0651%, 0.2890% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0199/result.json) |
+| n0200 / 완료 | b03→c174 / n0197 | bound: 0.5→0.2; half_life: 180→365; learning_rate: 0.025→0.05; mode: multiplicative→additive; n_estimators: 300→160; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.5844 (-0.4510%) | 11.6474 (0.0900%) | 0.103498 / -0.0672%, 0.2895% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0200/result.json) |
+| n0201 / 완료 | b03→c174 / n0197 | bound: 0.5→0.15; features: season→age; half_life: 180→365; n_estimators: 300→160; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.2249 (4.6159%) | 11.7445 (0.9244%) | 0.066838 / -0.0513%, 0.1545% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0201/result.json) |
+| n0202 / 완료 | b03→c174 / n0197 | bound: 0.5→0.1; features: season→core; learning_rate: 0.025→0.05; mode: multiplicative→additive; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.1950 (4.3796%) | 11.5493 (-0.7531%) | 0.009274 / -0.0008%, -0.0036% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0202/result.json) |
+| n0203 / 완료 | b03→c174 / n0197 | bound: 0.5→0.3; half_life: 180→365; min_child_samples: 500→200; num_leaves: 7→3; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.0048 (2.8753%) | 11.6958 (0.5059%) | 0.076814 / -0.0739%, 0.1677% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0203/result.json) |
+| n0204 / 완료 | b03→c174 / n0196 | features: core→age; learning_rate: 0.025→0.05; n_estimators: 80→160; num_leaves: 15→7 (여러 설정 동시 변경) | 12.6362 (0.3228%) | 11.6574 (0.0989%) | 0.073503 / -0.0378%, 0.2095% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0204/result.json) |
+| n0205 / 완료 | b03→c174 / n0204 | features: age→core; half_life: 없음→180; mode: additive→multiplicative; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.4092 (6.1172%) | 11.6271 (-0.2594%) | 0.025329 / -0.0125%, -0.0243% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0205/result.json) |
+| n0206 / 완료 | b03→c174 / n0198 | features: age→season; half_life: 180→없음; num_leaves: 3→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.8821 (2.0544%) | 11.6785 (0.3260%) | 0.055930 / -0.0282%, 0.1434% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0206/result.json) |
+| n0207 / 완료 | b03→c174 / n0201 | min_child_samples: 500→200; num_leaves: 7→3; reg_lambda: 2.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.5764 (-4.9032%) | 11.6710 (-0.6254%) | 0.102068 / -0.0693%, 0.2992% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0207/result.json) |
+| n0208 / 완료 | b03→c174 / n0203 | bound: 0.3→0.2; features: season→core; mode: multiplicative→additive; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0241 (0.1483%) | 11.5072 (-1.6123%) | 0.059528 / -0.0343%, 0.0646% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0208/result.json) |
+| n0209 / 완료 | b03→c174 / n0197 | bound: 0.5→0.3; n_estimators: 300→80; num_leaves: 7→15; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.0444 (3.1884%) | 11.6761 (0.3371%) | 0.025990 / -0.0080%, 0.0605% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0209/result.json) |
+| n0210 / 완료 | b03→c174 / n0196 | bound: 0.3→0.2; features: core→age; half_life: 없음→180; num_leaves: 15→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.8202 (1.7835%) | 11.6161 (-0.2551%) | 0.079950 / -0.0605%, 0.1876% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0210/result.json) |
+| n0211 / 완료 | b03→c174 / n0199 | bound: 0.3→0.5; min_child_samples: 200→1000; n_estimators: 80→300 (여러 설정 동시 변경) | 12.5669 (-0.1045%) | 11.6381 (-0.3176%) | 0.114798 / -0.0968%, 0.3122% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0211/result.json) |
+| n0212 / 완료 | b03→c174 / n0200 | half_life: 365→180; learning_rate: 0.05→0.025; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.6178 (0.2657%) | 11.6328 (-0.1254%) | 0.103286 / -0.0730%, 0.2794% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0212/result.json) |
+| n0213 / 완료 | b03→c174 / n0209 | bound: 0.3→0.5; features: season→age; num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.7606 (-2.1758%) | 11.6520 (-0.2071%) | 0.066081 / -0.0409%, 0.1845% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0213/result.json) |
+| n0214 / 완료 | b03→c174 / n0196 | half_life: 없음→180; num_leaves: 15→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.0644 (3.7220%) | 11.5157 (-1.1171%) | 0.031801 / -0.0152%, 0.0330% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0214/result.json) |
+| n0215 / 완료 | b03→c174 / n0197 | bound: 0.5→0.15; half_life: 180→365; learning_rate: 0.025→0.05; min_child_samples: 500→1000; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.3205 (5.3727%) | 11.7875 (1.2940%) | 0.006660 / -0.0002%, 0.0147% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0215/result.json) |
+| n0216 / 완료 | b03→c174 / n0208 | bound: 0.2→0.1; features: core→age; min_child_samples: 200→1000 (여러 설정 동시 변경) | 13.0275 (0.0259%) | 11.6688 (1.4042%) | 0.067503 / -0.0494%, 0.1548% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0216/result.json) |
+| n0217 / 완료 | b03→c174 / n0203 | features: season→core; n_estimators: 300→80; num_leaves: 3→15 (여러 설정 동시 변경) | 13.1596 (1.1902%) | 11.6589 (-0.3152%) | 0.041767 / -0.0190%, 0.0840% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0217/result.json) |
+| n0218 / 완료 | b03→c174 / n0206 | bound: 0.3→0.2; learning_rate: 0.025→0.05; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.3424 (3.5729%) | 11.7838 (0.9017%) | 0.018023 / -0.0060%, 0.0364% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0218/result.json) |
+| n0219 / 완료 | b03→c174 / n0207 | learning_rate: 0.025→0.05; n_estimators: 160→80; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.7280 (1.2049%) | 11.6308 (-0.3449%) | 0.095864 / -0.0835%, 0.2563% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0219/result.json) |
+| n0220 / 완료 | b03→c174 / n0208 | half_life: 365→없음; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | 13.2819 (1.9792%) | 11.7167 (1.8206%) | 0.080536 / -0.0853%, 0.1198% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0220/result.json) |
+| n0221 / 완료 | b03→c174 / n0215 | bound: 0.15→0.5; n_estimators: 300→80; num_leaves: 7→15; reg_lambda: 2.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.8822 (-3.2908%) | 11.6204 (-1.4178%) | 0.035019 / -0.0120%, 0.0767% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0221/result.json) |
+| n0222 / 완료 | b03→c174 / n0204 | bound: 0.3→0.1; n_estimators: 160→80; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.6120 (-0.1914%) | 11.6626 (0.0446%) | 0.074363 / -0.0465%, 0.2120% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0222/result.json) |
+| n0223 / 완료 | b03→c174 / n0197 | features: season→core; half_life: 180→365; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.3160 (5.3370%) | 11.6347 (-0.0187%) | 0.062744 / -0.0477%, 0.0330% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0223/result.json) |
+| n0224 / 완료 | b03→c174 / n0202 | features: core→season; half_life: 180→365; learning_rate: 0.05→0.025; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.2115 (0.1247%) | 11.6964 (1.2738%) | 0.043736 / -0.0226%, 0.0922% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0224/result.json) |
+| n0225 / 완료 | b03→c174 / n0201 | min_child_samples: 500→200; shrink: 1.0→0.75 (여러 설정 동시 변경) | 12.9516 (-2.0664%) | 11.6612 (-0.7089%) | 0.064361 / -0.0450%, 0.1593% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0225/result.json) |
+| n0226 / 완료 | b03→c174 / n0208 | n_estimators: 300→80; num_leaves: 3→15 (여러 설정 동시 변경) | 13.3659 (2.6241%) | 11.5523 (0.3917%) | 0.003429 / -0.0000%, 0.0024% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0226/result.json) |
+| n0227 / 완료 | b03→c174 / n0215 | bound: 0.15→0.5; n_estimators: 300→80; shrink: 0.75→1.0 (여러 설정 동시 변경) | 13.2184 (-0.7671%) | 11.7502 (-0.3166%) | 0.060541 / -0.0411%, 0.1326% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0227/result.json) |
+| n0228 / 완료 | b03→c174 / n0198 | half_life: 180→365; num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.2801 (5.2073%) | 11.7148 (0.6376%) | 0.047708 / -0.0271%, 0.1077% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0228/result.json) |
+| n0229 / 완료 | b03→c174 / n0211 | learning_rate: 0.025→0.05; min_child_samples: 1000→500; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.5377 (-0.2327%) | 11.6440 (0.0513%) | 0.130967 / -0.1096%, 0.3558% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0229/result.json) |
+| n0230 / 완료 | b03→c174 / n0202 | features: core→season; num_leaves: 7→15; reg_lambda: 2.0→10.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | 12.7130 (-3.6534%) | 11.6006 (0.4441%) | 0.029086 / -0.0067%, 0.0655% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0230/result.json) |
+| n0231 / 완료 | b03→c174 / n0205 | bound: 0.3→0.5; features: core→age; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.2335 (-1.3104%) | 11.6547 (0.2372%) | 0.022877 / -0.0085%, 0.0325% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0231/result.json) |
+| n0232 / 완료 | b03→c174 / n0202 | bound: 0.1→0.3; learning_rate: 0.05→0.025; num_leaves: 7→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 13.3296 (1.0200%) | 11.5666 (0.1504%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0232/result.json) |
+| n0233 / 완료 | b03→c174 / n0205 | bound: 0.3→0.15; features: core→season; min_child_samples: 1000→200; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.8487 (-4.1803%) | 11.6253 (-0.0159%) | 0.067504 / -0.0436%, 0.1489% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0233/result.json) |
+| n0234 / 완료 | b03→c174 / n0200 | features: season→age; half_life: 365→없음; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.5757 (-0.0691%) | 11.6596 (0.1046%) | 0.101628 / -0.0673%, 0.2923% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0234/result.json) |
+| n0235 / 완료 | b03→c174 / n0217 | min_child_samples: 200→1000; num_leaves: 15→7; shrink: 1.0→0.75 (여러 설정 동시 변경) | 12.7631 (-3.0133%) | 11.6417 (-0.1479%) | 0.088562 / -0.0570%, 0.2383% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0235/result.json) |
+| n0236 / 완료 | b03→c174 / n0218 | min_child_samples: 200→1000; n_estimators: 160→80; num_leaves: 15→3 (여러 설정 동시 변경) | 12.8588 (-3.6248%) | 11.6213 (-1.3790%) | 0.086426 / -0.0647%, 0.2122% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0236/result.json) |
+| n0237 / 완료 | b03→c174 / n0211 | features: core→age; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.4019 (6.6448%) | 11.9088 (2.3268%) | 0.023624 / -0.0101%, 0.0561% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0237/result.json) |
+| n0238 / 완료 | b03→c174 / n0235 | learning_rate: 0.025→0.05; mode: multiplicative→additive; n_estimators: 80→300; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.8378 (0.5853%) | 11.5278 (-0.9786%) | 0.068574 / -0.0393%, 0.0900% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0238/result.json) |
+| n0239 / 완료 | b03→c174 / n0209 | bound: 0.3→0.15; reg_lambda: 2.0→2.5 (여러 설정 동시 변경) | 13.0612 (0.1284%) | 11.6762 (0.0009%) | 0.021761 / -0.0058%, 0.0501% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0239/result.json) |
+| n0240 / 완료 | b03→c174 / n0222 | bound: 0.1→0.2; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.6088 (-0.0253%) | 11.6693 (0.0579%) | 0.074159 / -0.0479%, 0.2166% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0240/result.json) |
+| n0241 / 완료 | b03→c174 / n0205 | min_child_samples: 1000→500; n_estimators: 160→300; num_leaves: 7→15 (여러 설정 동시 변경) | 13.9773 (4.2364%) | 11.7916 (1.4150%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0241/result.json) |
+| n0242 / 완료 | b03→c174 / n0200 | bound: 0.2→0.3; half_life: 365→없음; num_leaves: 3→15 (여러 설정 동시 변경) | 12.6604 (0.6040%) | 11.6645 (0.1468%) | 0.064694 / -0.0297%, 0.1833% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0242/result.json) |
+| n0243 / 완료 | b03→c174 / n0207 | min_child_samples: 200→1000; n_estimators: 160→80; shrink: 0.25→1.0 (여러 설정 동시 변경) | 12.7863 (1.6684%) | 11.6787 (0.0654%) | 0.071800 / -0.0554%, 0.2149% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0243/result.json) |
+| n0244 / 완료 | b03→c174 / n0202 | half_life: 180→없음; min_child_samples: 500→1000; num_leaves: 7→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.2093 (0.1082%) | 11.8014 (2.1834%) | 0.043301 / -0.0290%, 0.0805% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0244/result.json) |
+| n0245 / 완료 | b03→c174 / n0203 | bound: 0.3→0.5; n_estimators: 300→160 (여러 설정 동시 변경) | 12.8796 (-0.9628%) | 11.6749 (-0.1786%) | 0.077608 / -0.0704%, 0.2033% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0245/result.json) |
+| n0246 / 완료 | b03→c174 / n0234 | half_life: 없음→180; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.6592 (0.6642%) | 11.5937 (-0.5647%) | 0.102894 / -0.0827%, 0.2428% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0246/result.json) |
+| n0247 / 완료 | b03→c174 / n0209 | bound: 0.3→0.15; features: season→core; min_child_samples: 500→200; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.7402 (-2.3324%) | 11.6010 (-0.6436%) | 0.044245 / -0.0158%, 0.0969% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0247/result.json) |
+| n0248 / 완료 | b03→c174 / n0206 | half_life: 없음→365; learning_rate: 0.025→0.05; n_estimators: 160→80; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.9198 (0.2927%) | 11.6179 (-0.5190%) | 0.039292 / -0.0145%, 0.0929% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0248/result.json) |
+| n0249 / 완료 | b03→c174 / n0198 | half_life: 180→365; mode: additive→multiplicative; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.6564 (0.2665%) | 11.6580 (0.1499%) | 0.090948 / -0.0657%, 0.2635% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0249/result.json) |
+| n0250 / 완료 | b03→c174 / n0196 | bound: 0.3→0.1; half_life: 없음→365; num_leaves: 15→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.5757 (-0.1573%) | 11.6619 (0.1381%) | 0.086088 / -0.0537%, 0.2316% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0250/result.json) |
+| n0251 / 완료 | b03→c174 / n0239 | half_life: 180→365; min_child_samples: 500→200; reg_lambda: 2.5→10.0 (여러 설정 동시 변경) | 12.9697 (-0.7000%) | 11.6772 (0.0081%) | 0.046104 / -0.0200%, 0.1226% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0251/result.json) |
+| n0252 / 완료 | b03→c174 / n0210 | bound: 0.2→0.3; half_life: 180→365; n_estimators: 80→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 13.2271 (3.1739%) | 11.6809 (0.5576%) | 0.024324 / -0.0113%, 0.0415% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0252/result.json) |
+| n0253 / 완료 | b03→c174 / n0241 | learning_rate: 0.05→0.025; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.6686 (-2.2084%) | 11.7199 (-0.6086%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0253/result.json) |
+| n0254 / 완료 | b03→c174 / n0248 | bound: 0.3→0.1; learning_rate: 0.05→0.025; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.6302 (-2.2420%) | 11.6511 (0.2857%) | 0.070793 / -0.0417%, 0.1883% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0254/result.json) |
+| n0255 / 완료 | b03→c174 / n0201 | n_estimators: 160→300; reg_lambda: 2.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.7971 (-3.2349%) | 11.6359 (-0.9246%) | 0.064528 / -0.0397%, 0.1616% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0255/result.json) |
+| n0256 / 완료 | b04→c093 / n0256 | 변경 없음(비교 기준 자체) (기준 자체) | 13.0539 (0.0000%) | 11.9458 (0.0000%) | 0.093781 / -0.0800%, 0.3890% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0256/result.json) |
+| n0257 / 완료 | b04→c093 / n0256 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 13.0109 (-0.3292%) | 11.9249 (-0.1751%) | 0.090715 / -0.0747%, 0.3641% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0257/result.json) |
+| n0258 / 완료 | b04→c093 / n0256 | half_life: 없음→365 (단일 설정 차이) | 12.9730 (-0.6200%) | 11.9934 (0.3984%) | 0.097511 / -0.0784%, 0.4461% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0258/result.json) |
+| n0259 / 완료 | b04→c093 / n0257 | half_life: 없음→365 (단일 설정 차이) | 12.9639 (-0.3614%) | 11.9537 (0.2418%) | 0.093647 / -0.0752%, 0.4038% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0259/result.json) |
+| n0260 / 완료 | b04→c093 / n0258 | bound: 0.2→0.1; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→3; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | 13.1167 (1.1078%) | 11.8346 (-1.3237%) | 0.077532 / -0.0641%, 0.2030% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0260/result.json) |
+| n0261 / 완료 | b04→c093 / n0260 | bound: 0.1→0.15; features: core→season; half_life: 365→없음; learning_rate: 0.05→0.025; min_child_samples: 200→500; mode: additive→multiplicative; num_leaves: 3→15 (여러 설정 동시 변경) | 13.2610 (1.1004%) | 11.9667 (1.1157%) | 0.042482 / -0.0220%, 0.1450% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0261/result.json) |
+| n0262 / 완료 | b04→c093 / n0260 | bound: 0.1→0.3; features: core→age; min_child_samples: 200→1000; n_estimators: 160→300; num_leaves: 3→7; reg_lambda: 10.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 13.0417 (-0.5715%) | 11.8563 (0.1835%) | 0.044138 / -0.0190%, 0.1255% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0262/result.json) |
+| n0263 / 완료 | b04→c093 / n0262 | features: age→core; half_life: 365→180; learning_rate: 0.05→0.025; mode: additive→multiplicative; num_leaves: 7→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0512 (0.0731%) | 11.8284 (-0.2358%) | 0.053430 / -0.0265%, 0.1400% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0263/result.json) |
+| n0264 / 완료 | b04→c093 / n0262 | features: age→season; half_life: 365→없음; min_child_samples: 1000→200; n_estimators: 300→80; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.0411 (-0.0043%) | 11.8883 (0.2695%) | 0.073003 / -0.0555%, 0.2407% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0264/result.json) |
+| n0265 / 완료 | b04→c093 / n0261 | features: season→age; half_life: 없음→180; learning_rate: 0.025→0.05; n_estimators: 160→300; num_leaves: 15→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.9756 (5.3889%) | 12.0587 (0.7695%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0265/result.json) |
+| n0266 / 완료 | b04→c093 / n0260 | bound: 0.1→0.2; half_life: 365→180; learning_rate: 0.05→0.025; n_estimators: 160→300; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.2065 (0.6851%) | 11.8180 (-0.1406%) | 0.068777 / -0.0486%, 0.1181% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0266/result.json) |
+| n0267 / 완료 | b04→c093 / n0261 | bound: 0.15→0.3; half_life: 없음→180; n_estimators: 160→80; num_leaves: 15→3; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.9237 (-2.5435%) | 11.8902 (-0.6385%) | 0.091451 / -0.0739%, 0.3371% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0267/result.json) |
+| n0268 / 완료 | b04→c093 / n0266 | bound: 0.2→0.1; features: core→age; min_child_samples: 200→500; reg_lambda: 10.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | 13.0554 (-1.1447%) | 11.8194 (0.0122%) | 0.087194 / -0.0774%, 0.2315% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0268/result.json) |
+| n0269 / 완료 | b04→c093 / n0260 | bound: 0.1→0.5; half_life: 365→180; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.9525 (-1.2517%) | 11.8430 (0.0706%) | 0.093871 / -0.0688%, 0.3015% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0269/result.json) |
+| n0270 / 완료 | b04→c093 / n0262 | features: age→season; num_leaves: 7→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.1447 (0.7895%) | 11.8534 (-0.0245%) | 0.077178 / -0.0709%, 0.2029% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0270/result.json) |
+| n0271 / 완료 | b04→c093 / n0262 | min_child_samples: 1000→200; mode: additive→multiplicative; reg_lambda: 30.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.1971 (1.1913%) | 11.8865 (0.2541%) | 0.026107 / -0.0080%, 0.0666% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0271/result.json) |
+| n0272 / 완료 | b04→c093 / n0260 | half_life: 365→없음; learning_rate: 0.05→0.025; min_child_samples: 200→1000; n_estimators: 160→300; num_leaves: 3→15 (여러 설정 동시 변경) | 13.2456 (0.9827%) | 11.9263 (0.7749%) | 0.068534 / -0.0471%, 0.2117% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0272/result.json) |
+| n0273 / 완료 | b04→c093 / n0265 | bound: 0.15→0.5; features: age→season; n_estimators: 300→160; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.8530 (-0.8773%) | 12.0635 (0.0396%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0273/result.json) |
+| n0274 / 완료 | b04→c093 / n0260 | features: core→age; half_life: 365→없음; min_child_samples: 200→1000; reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.9536 (-1.2432%) | 11.8837 (0.4148%) | 0.100802 / -0.0837%, 0.3543% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0274/result.json) |
+| n0275 / 완료 | b04→c093 / n0270 | features: season→core; min_child_samples: 1000→500; mode: additive→multiplicative; num_leaves: 3→15 (여러 설정 동시 변경) | 13.3953 (1.9068%) | 11.9497 (0.8122%) | 0.018839 / -0.0034%, 0.0449% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0275/result.json) |
+| n0276 / 완료 | b04→c093 / n0261 | bound: 0.15→0.2; learning_rate: 0.025→0.05; min_child_samples: 500→1000; mode: multiplicative→additive; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.7839 (3.9429%) | 12.1792 (1.7761%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0276/result.json) |
+| n0277 / 완료 | b04→c093 / n0276 | bound: 0.2→0.5; features: season→age; mode: additive→multiplicative; num_leaves: 15→7 (여러 설정 동시 변경) | 13.2707 (-3.7229%) | 12.0107 (-1.3831%) | 0.062824 / -0.0435%, 0.1840% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0277/result.json) |
+| n0278 / 완료 | b04→c093 / n0262 | bound: 0.3→0.2; features: age→core; min_child_samples: 1000→500; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.6162 (4.4049%) | 11.9116 (0.4663%) | 0.028345 / -0.0135%, 0.0311% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0278/result.json) |
+| n0279 / 완료 | b04→c093 / n0264 | bound: 0.3→0.15; mode: additive→multiplicative; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.7054 (5.0935%) | 12.1392 (2.1104%) | 0.050907 / -0.0346%, 0.1891% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0279/result.json) |
+| n0280 / 완료 | b04→c093 / n0264 | bound: 0.3→0.2; features: season→age; learning_rate: 0.05→0.025; n_estimators: 80→160; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.6204 (4.4419%) | 11.9458 (0.4835%) | 0.028185 / -0.0112%, 0.0481% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0280/result.json) |
+| n0281 / 완료 | b04→c093 / n0261 | features: season→core; min_child_samples: 500→200; n_estimators: 160→300; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.2214 (-0.2984%) | 11.9943 (0.2309%) | 0.076880 / -0.0585%, 0.2796% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0281/result.json) |
+| n0282 / 완료 | b04→c093 / n0262 | bound: 0.3→0.2; features: age→season; half_life: 365→180; shrink: 0.25→1.0 (여러 설정 동시 변경) | 14.3358 (9.9230%) | 12.1989 (2.8894%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0282/result.json) |
+| n0283 / 완료 | b04→c093 / n0271 | bound: 0.3→0.5; learning_rate: 0.05→0.025; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.3780 (1.3710%) | 11.9737 (0.7342%) | 0.016076 / -0.0022%, 0.0384% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0283/result.json) |
+| n0284 / 완료 | b04→c093 / n0264 | features: season→core; min_child_samples: 200→500; num_leaves: 7→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.1780 (1.0492%) | 11.8773 (-0.0923%) | 0.086824 / -0.0741%, 0.2669% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0284/result.json) |
+| n0285 / 완료 | b04→c093 / n0267 | bound: 0.3→0.5; n_estimators: 80→160; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.2107 (2.2208%) | 12.0289 (1.1665%) | 0.078500 / -0.0738%, 0.2911% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0285/result.json) |
+| n0286 / 완료 | b04→c093 / n0268 | min_child_samples: 500→1000; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.1193 (0.4896%) | 11.8414 (0.1856%) | 0.099675 / -0.1027%, 0.2195% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0286/result.json) |
+| n0287 / 완료 | b04→c093 / n0260 | bound: 0.1→0.15; half_life: 365→180; mode: additive→multiplicative; n_estimators: 160→300 (여러 설정 동시 변경) | 13.1032 (-0.1028%) | 11.8339 (-0.0058%) | 0.067365 / -0.0421%, 0.1533% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0287/result.json) |
+| n0288 / 완료 | b04→c093 / n0278 | features: core→season; half_life: 365→180; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 13.7957 (1.3183%) | 11.9793 (0.5682%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0288/result.json) |
+| n0289 / 완료 | b04→c093 / n0265 | min_child_samples: 500→200; n_estimators: 300→80; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.2031 (-5.5277%) | 12.0712 (0.1032%) | 0.065669 / -0.0513%, 0.2579% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0289/result.json) |
+| n0290 / 완료 | b04→c093 / n0278 | bound: 0.2→0.1; half_life: 365→없음; min_child_samples: 500→200; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.5612 (-0.4036%) | 11.9653 (0.4503%) | 0.036203 / -0.0197%, 0.0804% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0290/result.json) |
+| n0291 / 완료 | b04→c093 / n0279 | bound: 0.15→0.3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.6820 (-0.1708%) | 12.1549 (0.1292%) | 0.039819 / -0.0254%, 0.1511% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0291/result.json) |
+| n0292 / 완료 | b04→c093 / n0262 | bound: 0.3→0.1; num_leaves: 7→3; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.5957 (4.2478%) | 12.0091 (1.2884%) | 0.056516 / -0.0400%, 0.1010% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0292/result.json) |
+| n0293 / 완료 | b04→c093 / n0269 | num_leaves: 3→7; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.4242 (3.6418%) | 11.9364 (0.7891%) | 0.036409 / -0.0169%, 0.0623% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0293/result.json) |
+| n0294 / 완료 | b04→c093 / n0262 | bound: 0.3→0.1; features: age→season; half_life: 365→없음; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | 13.0216 (-0.1543%) | 11.8936 (0.3143%) | 0.071440 / -0.0483%, 0.2385% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0294/result.json) |
+| n0295 / 완료 | b04→c093 / n0277 | bound: 0.5→0.3; learning_rate: 0.05→0.025; n_estimators: 160→300 (여러 설정 동시 변경) | 13.2727 (0.0150%) | 11.9969 (-0.1150%) | 0.060493 / -0.0338%, 0.1793% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0295/result.json) |
+| n0296 / 완료 | b04→c093 / n0260 | bound: 0.1→0.3; learning_rate: 0.05→0.025; n_estimators: 160→80; num_leaves: 3→15 (여러 설정 동시 변경) | 13.2003 (0.6379%) | 11.8638 (0.2465%) | 0.048021 / -0.0244%, 0.1261% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0296/result.json) |
+| n0297 / 완료 | b04→c093 / n0281 | features: core→season; reg_lambda: 2.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 14.0401 (6.1921%) | 12.2809 (2.3896%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0297/result.json) |
+| n0298 / 완료 | b04→c093 / n0295 | mode: multiplicative→additive; n_estimators: 300→80; shrink: 0.75→1.0 (여러 설정 동시 변경) | 13.4389 (1.2519%) | 11.9018 (-0.7933%) | 0.047193 / -0.0329%, 0.1082% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0298/result.json) |
+| n0299 / 완료 | b04→c093 / n0279 | features: season→core; learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.9909 (-5.2134%) | 11.9029 (-1.9467%) | 0.095441 / -0.0743%, 0.3483% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0299/result.json) |
+| n0300 / 완료 | b04→c093 / n0264 | bound: 0.3→0.2; half_life: 없음→180; learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.9774 (-0.4890%) | 11.8546 (-0.2830%) | 0.076276 / -0.0526%, 0.2445% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0300/result.json) |
+| n0301 / 완료 | b04→c093 / n0267 | features: season→age; half_life: 180→365 (여러 설정 동시 변경) | 12.9240 (0.0020%) | 11.8991 (0.0744%) | 0.098023 / -0.0812%, 0.3718% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0301/result.json) |
+| n0302 / 완료 | b04→c093 / n0264 | features: season→core; n_estimators: 80→160; num_leaves: 7→3 (여러 설정 동시 변경) | 13.0369 (-0.0326%) | 11.8585 (-0.2506%) | 0.091092 / -0.0703%, 0.2866% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0302/result.json) |
+| n0303 / 완료 | b04→c093 / n0265 | bound: 0.15→0.5; features: age→season; min_child_samples: 500→1000; shrink: 1.0→0.5 (여러 설정 동시 변경) | 13.3089 (-4.7707%) | 11.8988 (-1.3263%) | 0.012705 / -0.0012%, 0.0289% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0303/result.json) |
+| n0304 / 완료 | b04→c093 / n0264 | features: season→age; half_life: 없음→365; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.1528 (0.8561%) | 11.8672 (-0.1776%) | 0.052393 / -0.0298%, 0.1442% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0304/result.json) |
+| n0305 / 완료 | b04→c093 / n0275 | learning_rate: 0.05→0.025; min_child_samples: 500→200; n_estimators: 300→160 (여러 설정 동시 변경) | 13.2389 (-1.1673%) | 11.9227 (-0.2258%) | 0.035735 / -0.0142%, 0.1011% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0305/result.json) |
+| n0306 / 완료 | b04→c093 / n0264 | n_estimators: 80→300; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.3027 (2.0055%) | 11.9771 (0.7470%) | 0.027713 / -0.0109%, 0.0903% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0306/result.json) |
+| n0307 / 완료 | b04→c093 / n0277 | half_life: 없음→365; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.1173 (-1.1561%) | 12.0023 (-0.0702%) | 0.086068 / -0.0794%, 0.3235% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0307/result.json) |
+| n0308 / 완료 | b04→c093 / n0260 | reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.9821 (-1.0259%) | 11.8398 (0.0437%) | 0.095623 / -0.0733%, 0.2942% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0308/result.json) |
+| n0309 / 완료 | b04→c093 / n0285 | half_life: 180→365; min_child_samples: 500→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.2293 (0.1407%) | 12.0416 (0.1056%) | 0.082537 / -0.0850%, 0.3279% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0309/result.json) |
+| n0310 / 완료 | b04→c093 / n0268 | bound: 0.1→0.2; half_life: 180→없음 (여러 설정 동시 변경) | 13.0727 (0.1329%) | 11.9032 (0.7087%) | 0.085247 / -0.0684%, 0.2882% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0310/result.json) |
+| n0311 / 완료 | b04→c093 / n0285 | features: season→core; half_life: 180→없음 (여러 설정 동시 변경) | 13.3817 (1.2944%) | 12.0274 (-0.0125%) | 0.083121 / -0.0798%, 0.3099% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0311/result.json) |
+| n0312 / 완료 | b04→c093 / n0288 | bound: 0.2→0.1; num_leaves: 7→15; shrink: 0.75→0.5 (여러 설정 동시 변경) | 13.4558 (-2.4635%) | 11.9128 (-0.5552%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0312/result.json) |
+| n0313 / 완료 | b04→c093 / n0291 | features: season→age (단일 설정 차이) | 13.5365 (-1.0630%) | 12.1152 (-0.3264%) | 0.032026 / -0.0149%, 0.1057% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0313/result.json) |
+| n0314 / 완료 | b04→c093 / n0272 | min_child_samples: 1000→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.2730 (0.2069%) | 11.9283 (0.0163%) | 0.046706 / -0.0245%, 0.1353% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0314/result.json) |
+| n0315 / 완료 | b04→c093 / n0275 | bound: 0.3→0.5; features: core→season; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 13.4451 (0.3719%) | 11.9866 (0.3086%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0315/result.json) |
+| n0316 / 완료 | b04→c093 / n0286 | half_life: 180→없음; num_leaves: 3→7 (여러 설정 동시 변경) | 13.4083 (2.2033%) | 11.9377 (0.8135%) | 0.019622 / -0.0055%, 0.0406% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0316/result.json) |
+| n0317 / 완료 | b04→c093 / n0269 | half_life: 180→365; n_estimators: 160→80; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.9399 (-0.0973%) | 11.8838 (0.3444%) | 0.101125 / -0.0813%, 0.3678% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0317/result.json) |
+| n0318 / 완료 | b04→c093 / n0270 | n_estimators: 300→160; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.4391 (2.2400%) | 11.9330 (0.6713%) | 0.080813 / -0.0904%, 0.1641% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0318/result.json) |
+| n0319 / 완료 | b04→c093 / n0285 | features: season→age; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 13.2190 (0.0629%) | 12.0529 (0.1990%) | 0.074158 / -0.0693%, 0.2842% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0319/result.json) |
+| n0320 / 완료 | b05→c185 / n0320 | 변경 없음(비교 기준 자체) (기준 자체) | 12.7788 (0.0000%) | 12.1132 (0.0000%) | 0.160392 / -0.3356%, 0.7227% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0320/result.json) |
+| n0321 / 완료 | b05→c185 / n0320 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.7585 (-0.1592%) | 12.0841 (-0.2401%) | 0.165297 / -0.3298%, 0.7307% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0321/result.json) |
+| n0322 / 완료 | b05→c185 / n0320 | half_life: 없음→365 (단일 설정 차이) | 12.7139 (-0.5082%) | 12.1597 (0.3838%) | 0.167266 / -0.3394%, 0.8330% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0322/result.json) |
+| n0323 / 완료 | b05→c185 / n0321 | half_life: 없음→365 (단일 설정 차이) | 12.7115 (-0.3680%) | 12.1055 (0.1768%) | 0.168326 / -0.3357%, 0.7935% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0323/result.json) |
+| n0324 / 완료 | b05→c185 / n0320 | bound: 0.2→0.3; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→160; num_leaves: 0→7; reg_lambda: 0.0→30.0 (여러 설정 동시 변경) | 13.1416 (2.8391%) | 11.9675 (-1.2030%) | 0.131783 / -0.2591%, 0.3730% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0324/result.json) |
+| n0325 / 완료 | b05→c185 / n0324 | features: core→season; min_child_samples: 500→1000; mode: additive→multiplicative; n_estimators: 160→300; num_leaves: 7→15; reg_lambda: 30.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.8782 (-2.0046%) | 12.0500 (0.6898%) | 0.112409 / -0.1543%, 0.4073% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0325/result.json) |
+| n0326 / 완료 | b05→c185 / n0324 | bound: 0.3→0.1; features: core→age; half_life: 없음→180; learning_rate: 0.05→0.025; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.8363 (-2.3233%) | 11.9535 (-0.1171%) | 0.144868 / -0.2396%, 0.4559% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0326/result.json) |
+| n0327 / 완료 | b05→c185 / n0325 | features: season→core; half_life: 없음→180; learning_rate: 0.05→0.025; min_child_samples: 1000→200; num_leaves: 15→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.6653 (6.1121%) | 12.0266 (-0.1942%) | 0.086379 / -0.1299%, 0.0403% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0327/result.json) |
+| n0328 / 완료 | b05→c185 / n0324 | features: core→season; half_life: 없음→365; min_child_samples: 500→200; num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 14.3277 (9.0254%) | 12.1295 (1.3534%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0328/result.json) |
+| n0329 / 완료 | b05→c185 / n0325 | features: season→age; half_life: 없음→180; learning_rate: 0.05→0.025; num_leaves: 15→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.7496 (-0.9985%) | 12.0129 (-0.3083%) | 0.162868 / -0.3155%, 0.6131% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0329/result.json) |
+| n0330 / 완료 | b05→c185 / n0324 | bound: 0.3→0.1; min_child_samples: 500→1000; num_leaves: 7→3 (여러 설정 동시 변경) | 13.1261 (-0.1183%) | 11.9551 (-0.1039%) | 0.125692 / -0.2570%, 0.3415% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0330/result.json) |
+| n0331 / 완료 | b05→c185 / n0325 | half_life: 없음→365; min_child_samples: 1000→500; n_estimators: 300→80; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 12.8761 (-0.0166%) | 12.0070 (-0.3575%) | 0.132991 / -0.2209%, 0.4596% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0331/result.json) |
+| n0332 / 완료 | b05→c185 / n0328 | bound: 0.3→0.1; features: season→age; n_estimators: 160→300; num_leaves: 15→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | 13.1370 (-8.3108%) | 11.8893 (-1.9798%) | 0.074512 / -0.0680%, 0.1118% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0332/result.json) |
+| n0333 / 완료 | b05→c185 / n0327 | bound: 0.3→0.5; half_life: 180→365; min_child_samples: 200→1000; num_leaves: 7→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | 12.9351 (-5.3440%) | 12.0063 (-0.1689%) | 0.141090 / -0.2936%, 0.4807% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0333/result.json) |
+| n0334 / 완료 | b05→c185 / n0326 | features: age→season; half_life: 180→없음; n_estimators: 160→80; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.5477 (5.5417%) | 12.0326 (0.6623%) | 0.097642 / -0.2049%, 0.2990% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0334/result.json) |
+| n0335 / 완료 | b05→c185 / n0325 | features: season→age; num_leaves: 15→7; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 12.8121 (-0.5133%) | 11.9678 (-0.6822%) | 0.141518 / -0.2476%, 0.4521% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0335/result.json) |
+| n0336 / 완료 | b05→c185 / n0324 | bound: 0.3→0.1; half_life: 없음→365; n_estimators: 160→80; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.3794 (1.8089%) | 11.8976 (-0.5839%) | 0.101174 / -0.1751%, 0.1699% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0336/result.json) |
+| n0337 / 완료 | b05→c185 / n0329 | features: age→season; min_child_samples: 1000→200; n_estimators: 300→80 (여러 설정 동시 변경) | 12.7173 (-0.2536%) | 12.0481 (0.2930%) | 0.164408 / -0.3226%, 0.6727% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0337/result.json) |
+| n0338 / 완료 | b05→c185 / n0326 | bound: 0.1→0.3; half_life: 180→365; n_estimators: 160→80; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 12.7045 (-1.0268%) | 12.0396 (0.7203%) | 0.171692 / -0.3448%, 0.6896% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0338/result.json) |
+| n0339 / 완료 | b05→c185 / n0324 | bound: 0.3→0.15; half_life: 없음→365; mode: additive→multiplicative; n_estimators: 160→80 (여러 설정 동시 변경) | 13.0039 (-1.0481%) | 11.9937 (0.2194%) | 0.137214 / -0.2890%, 0.4418% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0339/result.json) |
+| n0340 / 완료 | b05→c185 / n0334 | bound: 0.1→0.2; half_life: 없음→180; learning_rate: 0.025→0.05; min_child_samples: 500→1000; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 13.7447 (1.4547%) | 11.9789 (-0.4463%) | 0.063744 / -0.0834%, 0.0461% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0340/result.json) |
+| n0341 / 완료 | b05→c185 / n0335 | bound: 0.3→0.15; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.0717 (2.0261%) | 11.9765 (0.0724%) | 0.098609 / -0.1338%, 0.2483% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0341/result.json) |
+| n0342 / 완료 | b05→c185 / n0325 | bound: 0.3→0.1; features: season→core; mode: multiplicative→additive; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.5404 (5.1421%) | 12.1634 (0.9404%) | 0.089223 / -0.1285%, 0.2633% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0342/result.json) |
+| n0343 / 완료 | b05→c185 / n0325 | bound: 0.3→0.5; learning_rate: 0.05→0.025; n_estimators: 300→80; reg_lambda: 10.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 13.0328 (1.2002%) | 12.0744 (0.2020%) | 0.127030 / -0.2333%, 0.4941% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0343/result.json) |
+| n0344 / 완료 | b05→c185 / n0326 | reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.7047 (6.7650%) | 11.9434 (-0.0845%) | 0.056116 / -0.0656%, 0.0346% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0344/result.json) |
+| n0345 / 완료 | b05→c185 / n0325 | bound: 0.3→0.5; features: season→core; half_life: 없음→180; min_child_samples: 1000→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.9075 (0.2277%) | 11.9422 (-0.8945%) | 0.113546 / -0.1559%, 0.2956% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0345/result.json) |
+| n0346 / 완료 | b05→c185 / n0328 | half_life: 365→180; min_child_samples: 200→500; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.9331 (-2.7544%) | 11.9868 (-1.1757%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0346/result.json) |
+| n0347 / 완료 | b05→c185 / n0335 | bound: 0.3→0.15; min_child_samples: 1000→200; n_estimators: 300→80 (여러 설정 동시 변경) | 12.7868 (-0.1972%) | 12.0123 (0.3712%) | 0.152011 / -0.2969%, 0.5577% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0347/result.json) |
+| n0348 / 완료 | b05→c185 / n0338 | bound: 0.3→0.2; features: age→core; num_leaves: 3→15 (여러 설정 동시 변경) | 12.8364 (1.0383%) | 11.9664 (-0.6080%) | 0.155443 / -0.2844%, 0.5023% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0348/result.json) |
+| n0349 / 완료 | b05→c185 / n0325 | bound: 0.3→0.5; learning_rate: 0.05→0.025; min_child_samples: 1000→500 (여러 설정 동시 변경) | 12.8531 (-0.1948%) | 12.0618 (0.0973%) | 0.135194 / -0.2263%, 0.5235% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0349/result.json) |
+| n0350 / 완료 | b05→c185 / n0338 | min_child_samples: 500→200; reg_lambda: 10.0→30.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.8131 (0.8545%) | 12.0314 (-0.0681%) | 0.161477 / -0.3289%, 0.6449% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0350/result.json) |
+| n0351 / 완료 | b05→c185 / n0327 | half_life: 180→없음; min_child_samples: 200→1000; n_estimators: 300→160 (여러 설정 동시 변경) | 13.6317 (-0.2461%) | 12.1290 (0.8514%) | 0.104677 / -0.2669%, 0.3191% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0351/result.json) |
+| n0352 / 완료 | b05→c185 / n0328 | bound: 0.3→0.2; reg_lambda: 2.0→2.5; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.6832 (-4.4981%) | 12.0963 (-0.2735%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0352/result.json) |
+| n0353 / 완료 | b05→c185 / n0329 | min_child_samples: 1000→500; reg_lambda: 30.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.8901 (1.1015%) | 11.9953 (-0.1464%) | 0.140026 / -0.2777%, 0.4857% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0353/result.json) |
+| n0354 / 완료 | b05→c185 / n0324 | bound: 0.3→0.2; min_child_samples: 500→200; n_estimators: 160→300; num_leaves: 7→15 (여러 설정 동시 변경) | 13.1991 (0.4371%) | 12.0110 (0.3635%) | 0.095215 / -0.1147%, 0.2661% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0354/result.json) |
+| n0355 / 완료 | b05→c185 / n0339 | bound: 0.15→0.5; features: core→season; min_child_samples: 500→200; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | 13.0114 (0.0573%) | 11.9894 (-0.0361%) | 0.125293 / -0.2142%, 0.4080% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0355/result.json) |
+| n0356 / 완료 | b05→c185 / n0338 | bound: 0.3→0.2; num_leaves: 3→7 (여러 설정 동시 변경) | 12.7731 (0.5399%) | 11.9926 (-0.3906%) | 0.152149 / -0.2825%, 0.5377% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0356/result.json) |
+| n0357 / 완료 | b05→c185 / n0330 | bound: 0.1→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.9836 (-1.0856%) | 12.0480 (0.7773%) | 0.146745 / -0.3181%, 0.5315% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0357/result.json) |
+| n0358 / 완료 | b05→c185 / n0328 | min_child_samples: 200→500; n_estimators: 160→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 14.4876 (1.1162%) | 12.2459 (0.9601%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0358/result.json) |
+| n0359 / 완료 | b05→c185 / n0353 | half_life: 180→365; learning_rate: 0.025→0.05; n_estimators: 300→160 (여러 설정 동시 변경) | 12.8969 (0.0535%) | 12.0308 (0.2959%) | 0.145622 / -0.2947%, 0.5368% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0359/result.json) |
+| n0360 / 완료 | b05→c185 / n0330 | half_life: 없음→180; min_child_samples: 1000→500; n_estimators: 160→300; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.6670 (4.1205%) | 11.9448 (-0.0855%) | 0.071330 / -0.0994%, 0.0007% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0360/result.json) |
+| n0361 / 완료 | b05→c185 / n0324 | features: core→season; mode: additive→multiplicative; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.3369 (1.4858%) | 12.1067 (1.1636%) | 0.103769 / -0.2018%, 0.3328% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0361/result.json) |
+| n0362 / 완료 | b05→c185 / n0347 | bound: 0.15→0.2; min_child_samples: 200→500; mode: multiplicative→additive (여러 설정 동시 변경) | 12.8134 (0.2079%) | 11.9797 (-0.2708%) | 0.156198 / -0.2900%, 0.5323% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0362/result.json) |
+| n0363 / 완료 | b05→c185 / n0327 | bound: 0.3→0.5; learning_rate: 0.025→0.05; n_estimators: 300→80; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.4586 (-1.5128%) | 12.0068 (-0.1653%) | 0.085114 / -0.1211%, 0.1266% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0363/result.json) |
+| n0364 / 완료 | b05→c185 / n0343 | bound: 0.5→0.3; mode: multiplicative→additive; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.8726 (-1.2291%) | 12.0350 (-0.3259%) | 0.143145 / -0.2648%, 0.5302% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0364/result.json) |
+| n0365 / 완료 | b05→c185 / n0335 | n_estimators: 300→160; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.6679 (6.6795%) | 12.0907 (1.0269%) | 0.064404 / -0.0962%, 0.1220% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0365/result.json) |
+| n0366 / 완료 | b05→c185 / n0330 | bound: 0.1→0.2; half_life: 없음→365; n_estimators: 160→80; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.7776 (-2.6546%) | 11.9914 (0.3040%) | 0.157668 / -0.3177%, 0.5552% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0366/result.json) |
+| n0367 / 완료 | b05→c185 / n0337 | half_life: 180→없음; min_child_samples: 200→1000; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.9185 (1.5819%) | 12.1070 (0.4888%) | 0.145983 / -0.3243%, 0.6390% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0367/result.json) |
+| n0368 / 완료 | b05→c185 / n0326 | half_life: 180→365; min_child_samples: 500→1000; n_estimators: 160→300; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.9350 (8.5592%) | 12.0004 (0.3922%) | 0.035480 / -0.0294%, -0.0067% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0368/result.json) |
+| n0369 / 완료 | b05→c185 / n0327 | bound: 0.3→0.5; n_estimators: 300→80 (여러 설정 동시 변경) | 13.1993 (-3.4100%) | 12.0552 (0.2376%) | 0.113890 / -0.1940%, 0.3557% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0369/result.json) |
+| n0370 / 완료 | b05→c185 / n0330 | features: core→season; half_life: 없음→180; learning_rate: 0.05→0.025; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 12.8208 (-2.3261%) | 11.9574 (0.0194%) | 0.154500 / -0.3028%, 0.5223% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0370/result.json) |
+| n0371 / 완료 | b05→c185 / n0347 | min_child_samples: 200→500; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.9338 (1.1490%) | 11.9994 (-0.1067%) | 0.139132 / -0.2595%, 0.4826% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0371/result.json) |
+| n0372 / 완료 | b05→c185 / n0368 | features: age→core; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.4887 (-3.2029%) | 11.9476 (-0.4394%) | 0.093350 / -0.1556%, 0.1314% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0372/result.json) |
+| n0373 / 완료 | b05→c185 / n0343 | min_child_samples: 1000→200; n_estimators: 80→160 (여러 설정 동시 변경) | 13.0912 (0.4480%) | 12.0570 (-0.1440%) | 0.118697 / -0.2032%, 0.4258% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0373/result.json) |
+| n0374 / 완료 | b05→c185 / n0338 | half_life: 365→180; learning_rate: 0.025→0.05; n_estimators: 80→300; shrink: 0.25→0.75 (여러 설정 동시 변경) | 13.2885 (4.5967%) | 11.8713 (-1.3976%) | 0.098982 / -0.1527%, 0.1084% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0374/result.json) |
+| n0375 / 완료 | b05→c185 / n0351 | bound: 0.3→0.15; half_life: 없음→180; num_leaves: 7→3; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.0899 (-3.9748%) | 12.0616 (-0.5563%) | 0.120030 / -0.2218%, 0.4186% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0375/result.json) |
+| n0376 / 완료 | b05→c185 / n0334 | bound: 0.1→0.2; half_life: 없음→180; n_estimators: 80→300 (여러 설정 동시 변경) | 14.1393 (4.3673%) | 11.9764 (-0.4674%) | 0.024112 / -0.0103%, -0.0106% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0376/result.json) |
+| n0377 / 완료 | b05→c185 / n0338 | learning_rate: 0.025→0.05; min_child_samples: 500→200; mode: additive→multiplicative; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.0687 (2.8662%) | 12.1432 (0.8602%) | 0.120736 / -0.2301%, 0.4936% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0377/result.json) |
+| n0378 / 완료 | b05→c185 / n0372 | bound: 0.1→0.2; half_life: 365→180; n_estimators: 300→160; num_leaves: 7→15 (여러 설정 동시 변경) | 13.6185 (0.9625%) | 11.9050 (-0.3565%) | 0.067650 / -0.0773%, 0.0310% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0378/result.json) |
+| n0379 / 완료 | b05→c185 / n0331 | bound: 0.3→0.15; learning_rate: 0.05→0.025; min_child_samples: 500→200; n_estimators: 80→300 (여러 설정 동시 변경) | 12.8847 (0.0671%) | 12.0196 (0.1057%) | 0.122063 / -0.1853%, 0.4286% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0379/result.json) |
+| n0380 / 완료 | b05→c185 / n0332 | bound: 0.1→0.3; min_child_samples: 200→1000; n_estimators: 300→80 (여러 설정 동시 변경) | 13.0768 (-0.4582%) | 11.8930 (0.0306%) | 0.101305 / -0.1549%, 0.2305% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0380/result.json) |
+| n0381 / 완료 | b05→c185 / n0335 | features: age→core; min_child_samples: 1000→200 (여러 설정 동시 변경) | 12.8080 (-0.0317%) | 12.0245 (0.4739%) | 0.165612 / -0.3446%, 0.6050% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0381/result.json) |
+| n0382 / 완료 | b05→c185 / n0325 | half_life: 없음→180; min_child_samples: 1000→200; mode: multiplicative→additive; n_estimators: 300→80 (여러 설정 동시 변경) | 12.9095 (0.2428%) | 11.9930 (-0.4732%) | 0.115237 / -0.1692%, 0.3633% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0382/result.json) |
+| n0383 / 완료 | b05→c185 / n0325 | features: season→age; n_estimators: 300→160; num_leaves: 15→3 (여러 설정 동시 변경) | 12.7544 (-0.9616%) | 12.0571 (0.0586%) | 0.165809 / -0.3294%, 0.6689% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0383/result.json) |
+| n0384 / 완료 | b06→c117 / n0384 | 변경 없음(비교 기준 자체) (기준 자체) | 12.7363 (0.0000%) | 12.0553 (0.0000%) | 0.193391 / -0.3535%, 0.9759% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0384/result.json) |
+| n0385 / 완료 | b06→c117 / n0384 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | 12.7134 (-0.1797%) | 12.0348 (-0.1694%) | 0.191947 / -0.3459%, 0.9534% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0385/result.json) |
+| n0386 / 완료 | b06→c117 / n0384 | half_life: 없음→365 (단일 설정 차이) | 12.6594 (-0.6037%) | 12.1074 (0.4328%) | 0.198038 / -0.3607%, 1.0920% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0386/result.json) |
+| n0387 / 완료 | b06→c117 / n0385 | half_life: 없음→365 (단일 설정 차이) | 12.6573 (-0.4411%) | 12.0652 (0.2525%) | 0.196930 / -0.3555%, 1.0407% | 5/5 / 0 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0387/result.json) |
+| n0388 / 완료 | b06→c117 / n0384 | half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.7172 (-0.1499%) | 11.9368 (-0.9831%) | 0.167058 / -0.2508%, 0.6280% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0388/result.json) |
+| n0389 / 완료 | b06→c117 / n0385 | features: core→season; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→3; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | 12.8216 (0.8514%) | 12.0332 (-0.0138%) | 0.170440 / -0.3264%, 0.7657% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0389/result.json) |
+| n0390 / 완료 | b06→c117 / n0389 | bound: 0.3→0.1; features: season→age; mode: multiplicative→additive; n_estimators: 160→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | 12.8029 (-0.1461%) | 12.0179 (-0.1271%) | 0.170479 / -0.3252%, 0.7614% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0390/result.json) |
+| n0391 / 완료 | b06→c117 / n0389 | bound: 0.3→0.15; features: season→core; half_life: 없음→365; learning_rate: 0.025→0.05; min_child_samples: 200→500; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.1187 (2.3170%) | 12.0307 (-0.0209%) | 0.116396 / -0.2177%, 0.3253% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0391/result.json) |
+| n0392 / 완료 | b06→c117 / n0391 | bound: 0.15→0.1; features: core→season; half_life: 365→180; mode: multiplicative→additive; n_estimators: 160→300; num_leaves: 3→15 (여러 설정 동시 변경) | 14.2963 (8.9767%) | 12.2901 (2.1560%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0392/result.json) |
+| n0393 / 완료 | b06→c117 / n0390 | bound: 0.1→0.15; half_life: 없음→180; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 12.7345 (-0.5341%) | 12.0174 (-0.0040%) | 0.167947 / -0.3024%, 0.7563% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0393/result.json) |
+| n0394 / 완료 | b06→c117 / n0391 | bound: 0.15→0.3; mode: multiplicative→additive; n_estimators: 160→300; num_leaves: 3→7; reg_lambda: 10.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | 13.0421 (-0.5840%) | 11.9321 (-0.8195%) | 0.120866 / -0.1495%, 0.2796% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0394/result.json) |
+| n0395 / 완료 | b06→c117 / n0393 | features: age→season; n_estimators: 80→300; num_leaves: 3→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 13.5548 (6.4414%) | 12.0322 (0.1233%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0395/result.json) |
+| n0396 / 완료 | b06→c117 / n0392 | features: season→age; learning_rate: 0.05→0.025; num_leaves: 15→7; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.7397 (-10.8885%) | 11.9066 (-3.1198%) | 0.158705 / -0.2244%, 0.5312% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0396/result.json) |
+| n0397 / 완료 | b06→c117 / n0391 | bound: 0.15→0.5; learning_rate: 0.05→0.025; num_leaves: 3→15; reg_lambda: 10.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.3117 (1.4712%) | 12.0595 (0.2398%) | 0.093268 / -0.1048%, 0.2421% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0397/result.json) |
+| n0398 / 완료 | b06→c117 / n0392 | bound: 0.1→0.2; half_life: 180→365; n_estimators: 300→160; reg_lambda: 10.0→2.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.6320 (-4.6469%) | 12.1196 (-1.3865%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0398/result.json) |
+| n0399 / 완료 | b06→c117 / n0393 | bound: 0.15→0.5; learning_rate: 0.025→0.05; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.9030 (1.3230%) | 11.9729 (-0.3706%) | 0.123859 / -0.2346%, 0.2749% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0399/result.json) |
+| n0400 / 완료 | b06→c117 / n0392 | features: season→core; min_child_samples: 500→1000; reg_lambda: 10.0→2.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.5648 (-5.1170%) | 11.9842 (-2.4886%) | 0.000000 / 0.0000%, 0.0000% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0400/result.json) |
+| n0401 / 완료 | b06→c117 / n0389 | half_life: 없음→180; min_child_samples: 200→1000; n_estimators: 160→80; num_leaves: 3→15 (여러 설정 동시 변경) | 12.8563 (0.2703%) | 11.9747 (-0.4864%) | 0.128577 / -0.1913%, 0.4816% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0401/result.json) |
+| n0402 / 완료 | b06→c117 / n0396 | half_life: 180→없음; min_child_samples: 500→1000; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | 12.6960 (-0.3428%) | 11.9439 (0.3134%) | 0.165411 / -0.2748%, 0.6191% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0402/result.json) |
+| n0403 / 완료 | b06→c117 / n0389 | features: season→core; half_life: 없음→365; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | 12.8084 (-0.1031%) | 11.9575 (-0.6288%) | 0.163381 / -0.2868%, 0.5991% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0403/result.json) |
+| n0404 / 완료 | b06→c117 / n0392 | half_life: 180→없음; min_child_samples: 500→1000; n_estimators: 300→80; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.8558 (-3.0816%) | 12.2545 (-0.2892%) | 0.039872 / -0.0213%, 0.1263% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0404/result.json) |
+| n0405 / 완료 | b06→c117 / n0389 | bound: 0.3→0.15; features: season→age; learning_rate: 0.025→0.05; n_estimators: 160→80; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.7884 (-0.2586%) | 12.0023 (-0.2569%) | 0.158704 / -0.2852%, 0.6411% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0405/result.json) |
+| n0406 / 완료 | b06→c117 / n0404 | bound: 0.1→0.2; features: season→core; min_child_samples: 1000→500; num_leaves: 15→3 (여러 설정 동시 변경) | 13.3561 (-3.6064%) | 11.9497 (-2.4876%) | 0.109651 / -0.2125%, 0.2751% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0406/result.json) |
+| n0407 / 완료 | b06→c117 / n0399 | bound: 0.5→0.3; features: age→season; reg_lambda: 30.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.7916 (-0.8633%) | 11.9343 (-0.3218%) | 0.148737 / -0.2785%, 0.4490% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0407/result.json) |
+| n0408 / 완료 | b06→c117 / n0390 | half_life: 없음→365; min_child_samples: 200→500; reg_lambda: 10.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | 12.6525 (-1.1748%) | 11.9716 (-0.3849%) | 0.188268 / -0.3504%, 0.8129% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0408/result.json) |
+| n0409 / 완료 | b06→c117 / n0389 | features: season→core; n_estimators: 160→80; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | 12.8853 (0.4969%) | 12.0314 (-0.0153%) | 0.156931 / -0.2906%, 0.6907% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0409/result.json) |
+| n0410 / 완료 | b06→c117 / n0407 | half_life: 180→365; mode: multiplicative→additive; reg_lambda: 2.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | 12.7489 (-0.3333%) | 11.9507 (0.1369%) | 0.170693 / -0.2931%, 0.6508% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0410/result.json) |
+| n0411 / 완료 | b06→c117 / n0391 | bound: 0.15→0.5; features: core→age; num_leaves: 3→7; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | 12.7066 (-3.1410%) | 11.9665 (-0.5337%) | 0.163587 / -0.2617%, 0.6405% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0411/result.json) |
+| n0412 / 완료 | b06→c117 / n0400 | half_life: 180→없음; learning_rate: 0.05→0.025; n_estimators: 300→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | 13.0130 (-4.0679%) | 11.9879 (0.0309%) | 0.131082 / -0.2117%, 0.4358% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0412/result.json) |
+| n0413 / 완료 | b06→c117 / n0407 | half_life: 180→없음; num_leaves: 3→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.9527 (1.2594%) | 12.1076 (1.4514%) | 0.111636 / -0.1389%, 0.4467% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0413/result.json) |
+| n0414 / 완료 | b06→c117 / n0408 | learning_rate: 0.025→0.05; min_child_samples: 500→1000; n_estimators: 80→160; shrink: 0.25→0.5 (여러 설정 동시 변경) | 12.7526 (0.7910%) | 11.9712 (-0.0034%) | 0.169532 / -0.2952%, 0.6397% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0414/result.json) |
+| n0415 / 완료 | b06→c117 / n0391 | min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 10.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | 13.1771 (0.4452%) | 12.0305 (-0.0017%) | 0.122073 / -0.2282%, 0.2948% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0415/result.json) |
+| n0416 / 완료 | b06→c117 / n0398 | half_life: 365→없음; learning_rate: 0.05→0.025; n_estimators: 160→300 (여러 설정 동시 변경) | 13.5557 (-0.5592%) | 12.1820 (0.5141%) | 0.020295 / -0.0078%, 0.0648% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0416/result.json) |
+| n0417 / 완료 | b06→c117 / n0388 | bound: 0.2→0.3; features: core→age; mode: additive→multiplicative; num_leaves: 15→7 (여러 설정 동시 변경) | 12.6851 (-0.2523%) | 11.9760 (0.3286%) | 0.174513 / -0.2942%, 0.7465% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0417/result.json) |
+| n0418 / 완료 | b06→c117 / n0400 | n_estimators: 300→80; num_leaves: 15→7; shrink: 0.75→0.5 (여러 설정 동시 변경) | 12.8591 (-5.2019%) | 11.8696 (-0.9566%) | 0.137208 / -0.2094%, 0.3379% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0418/result.json) |
+| n0419 / 완료 | b06→c117 / n0401 | half_life: 180→365; learning_rate: 0.025→0.05; shrink: 0.5→0.75 (여러 설정 동시 변경) | 13.3314 (3.6956%) | 12.0921 (0.9809%) | 0.060681 / -0.0437%, 0.1915% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0419/result.json) |
+| n0420 / 완료 | b06→c117 / n0394 | bound: 0.3→0.1; features: core→age; min_child_samples: 500→200; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 12.9467 (-0.7316%) | 11.9654 (0.2789%) | 0.089409 / -0.0765%, 0.2388% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0420/result.json) |
+| n0421 / 완료 | b06→c117 / n0399 | features: age→core; half_life: 180→없음; learning_rate: 0.05→0.025; shrink: 0.75→0.25 (여러 설정 동시 변경) | 12.6955 (-1.6083%) | 11.9989 (0.2170%) | 0.181980 / -0.3521%, 0.7821% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0421/result.json) |
+| n0422 / 완료 | b06→c117 / n0398 | half_life: 365→180; num_leaves: 15→7; reg_lambda: 2.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | 12.7666 (-6.3480%) | 11.9011 (-1.8032%) | 0.153661 / -0.2196%, 0.5030% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0422/result.json) |
+| n0423 / 완료 | b06→c117 / n0399 | bound: 0.5→0.3; min_child_samples: 1000→200; n_estimators: 300→160; shrink: 0.75→1.0 (여러 설정 동시 변경) | 13.0288 (0.9754%) | 12.0611 (0.7371%) | 0.115932 / -0.2237%, 0.3437% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0423/result.json) |
+| n0424 / 완료 | b06→c117 / n0388 | bound: 0.2→0.1; min_child_samples: 200→1000; num_leaves: 15→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | 12.7513 (0.2681%) | 11.9730 (0.3035%) | 0.171449 / -0.2985%, 0.6619% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0424/result.json) |
+| n0425 / 완료 | b06→c117 / n0416 | bound: 0.2→0.3; half_life: 없음→365; mode: additive→multiplicative; shrink: 0.75→0.25 (여러 설정 동시 변경) | 12.7925 (-5.6302%) | 11.9874 (-1.5972%) | 0.140474 / -0.1790%, 0.5418% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0425/result.json) |
+| n0426 / 완료 | b06→c117 / n0390 | bound: 0.1→0.3; n_estimators: 80→160; num_leaves: 3→7 (여러 설정 동시 변경) | 12.9981 (1.5246%) | 11.9692 (-0.4049%) | 0.110362 / -0.1553%, 0.3060% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0426/result.json) |
+| n0427 / 완료 | b06→c117 / n0394 | bound: 0.3→0.5; mode: additive→multiplicative (여러 설정 동시 변경) | 13.0310 (-0.0851%) | 11.9672 (0.2946%) | 0.120219 / -0.1660%, 0.3240% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0427/result.json) |
+| n0428 / 완료 | b06→c117 / n0398 | min_child_samples: 500→200; n_estimators: 160→80; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | 13.4043 (-1.6698%) | 12.0611 (-0.4829%) | 0.042290 / -0.0229%, 0.1090% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0428/result.json) |
+| n0429 / 완료 | b06→c117 / n0411 | learning_rate: 0.05→0.025; n_estimators: 160→80; reg_lambda: 2.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | 13.0185 (2.4541%) | 12.1447 (1.4894%) | 0.107208 / -0.1582%, 0.4486% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0429/result.json) |
+| n0430 / 완료 | b06→c117 / n0388 | min_child_samples: 200→1000; n_estimators: 80→300; num_leaves: 15→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | 12.6846 (-0.2558%) | 11.9213 (-0.1294%) | 0.180463 / -0.3187%, 0.6681% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0430/result.json) |
+| n0431 / 완료 | b06→c117 / n0425 | min_child_samples: 500→1000; n_estimators: 300→80; num_leaves: 15→3 (여러 설정 동시 변경) | 12.6532 (-1.0889%) | 11.9857 (-0.0143%) | 0.192798 / -0.3459%, 0.8633% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0431/result.json) |
+| n0432 / 완료 | b06→c117 / n0389 | features: season→age; mode: multiplicative→additive; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | 12.7603 (-0.4778%) | 11.9813 (-0.4311%) | 0.172391 / -0.3077%, 0.7222% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0432/result.json) |
+| n0433 / 완료 | b06→c117 / n0389 | bound: 0.3→0.15; features: season→core; num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.4805 (5.1387%) | 12.1964 (1.3563%) | 0.105910 / -0.1972%, 0.3940% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0433/result.json) |
+| n0434 / 완료 | b06→c117 / n0404 | reg_lambda: 2.0→2.5 (단일 설정 차이) | 13.8558 (0.0000%) | 12.2545 (0.0000%) | 0.039872 / -0.0213%, 0.1263% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0434/result.json) |
+| n0435 / 완료 | b06→c117 / n0390 | bound: 0.1→0.3; learning_rate: 0.025→0.05; min_child_samples: 200→500; mode: additive→multiplicative (여러 설정 동시 변경) | 12.8414 (0.3009%) | 12.0959 (0.6490%) | 0.163734 / -0.3092%, 0.7877% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0435/result.json) |
+| n0436 / 완료 | b06→c117 / n0412 | num_leaves: 15→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.3325 (2.4558%) | 11.9557 (-0.2689%) | 0.114611 / -0.2370%, 0.3003% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0436/result.json) |
+| n0437 / 완료 | b06→c117 / n0401 | min_child_samples: 1000→200; n_estimators: 80→300; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | 13.1267 (2.1035%) | 11.9565 (-0.1519%) | 0.050151 / -0.0290%, 0.1381% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0437/result.json) |
+| n0438 / 완료 | b06→c117 / n0420 | bound: 0.1→0.3; min_child_samples: 200→1000; shrink: 0.5→1.0 (여러 설정 동시 변경) | 13.7616 (6.2943%) | 12.3198 (2.9626%) | 0.005878 / -0.0003%, 0.0044% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0438/result.json) |
+| n0439 / 완료 | b06→c117 / n0403 | bound: 0.3→0.15; learning_rate: 0.05→0.025; n_estimators: 160→300; num_leaves: 3→15 (여러 설정 동시 변경) | 13.0489 (1.8779%) | 11.9956 (0.3181%) | 0.103713 / -0.1162%, 0.3144% | 5/5 / 5 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0439/result.json) |
+| n0440 / 진행 중 | b06→c117 / n0424 | features: core→season; n_estimators: 80→300; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 2/5 / 2 |  — |
+| n0441 / 대기 | b06→c117 / n0402 | bound: 0.1→0.5; mode: additive→multiplicative; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0442 / 대기 | b06→c117 / n0418 | half_life: 180→365; min_child_samples: 1000→200; reg_lambda: 2.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0443 / 대기 | b06→c117 / n0419 | bound: 0.3→0.15; half_life: 365→180; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0444 / 대기 | b06→c117 / n0390 | bound: 0.1→0.2; half_life: 없음→365; n_estimators: 80→160; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0445 / 대기 | b06→c117 / n0433 | learning_rate: 0.025→0.05; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0446 / 대기 | b06→c117 / n0388 | features: core→season; num_leaves: 15→7; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0447 / 대기 | b06→c117 / n0429 | min_child_samples: 500→200; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0448 / 대기 | b07→c000 / n0448 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0449 / 대기 | b07→c000 / n0448 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0450 / 대기 | b07→c000 / n0448 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0451 / 대기 | b07→c000 / n0449 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0452 / 대기 | b07→c000 / n0448 | half_life: 없음→180; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→160; num_leaves: 0→3; reg_lambda: 0.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0453 / 대기 | b07→c000 / n0452 | bound: 0.2→0.3; features: core→season; half_life: 180→없음; learning_rate: 0.05→0.025; mode: additive→multiplicative; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0454 / 대기 | b07→c000 / n0452 | features: core→age; half_life: 180→365; min_child_samples: 500→1000; n_estimators: 160→80; reg_lambda: 10.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0455 / 대기 | b07→c000 / n0453 | bound: 0.3→0.5; features: season→core; n_estimators: 160→80; num_leaves: 7→15; reg_lambda: 10.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0456 / 대기 | b07→c000 / n0453 | mode: multiplicative→additive; n_estimators: 160→300; num_leaves: 7→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0457 / 대기 | b07→c000 / n0453 | bound: 0.3→0.15; features: season→age; num_leaves: 7→3; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0458 / 대기 | b07→c000 / n0456 | features: season→core; n_estimators: 300→160; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0459 / 대기 | b07→c000 / n0453 | bound: 0.3→0.5; half_life: 없음→365; learning_rate: 0.025→0.05; n_estimators: 160→80; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0460 / 대기 | b07→c000 / n0454 | bound: 0.2→0.3; n_estimators: 80→160; reg_lambda: 2.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0461 / 대기 | b07→c000 / n0455 | bound: 0.5→0.3; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0462 / 대기 | b07→c000 / n0453 | bound: 0.3→0.1; mode: multiplicative→additive; n_estimators: 160→80; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0463 / 대기 | b07→c000 / n0457 | bound: 0.15→0.5; half_life: 없음→365; learning_rate: 0.025→0.05; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0464 / 대기 | b07→c000 / n0458 | half_life: 없음→180; min_child_samples: 500→200; n_estimators: 160→80; num_leaves: 3→15; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0465 / 대기 | b07→c000 / n0453 | half_life: 없음→180; n_estimators: 160→80; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0466 / 대기 | b07→c000 / n0454 | bound: 0.2→0.3; half_life: 365→180; n_estimators: 80→300; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0467 / 대기 | b07→c000 / n0455 | bound: 0.5→0.15; learning_rate: 0.025→0.05; num_leaves: 15→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0468 / 대기 | b07→c000 / n0453 | bound: 0.3→0.1; half_life: 없음→365; mode: multiplicative→additive; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0469 / 대기 | b07→c000 / n0459 | features: season→age; half_life: 365→180; min_child_samples: 500→200; n_estimators: 80→300; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0470 / 대기 | b07→c000 / n0461 | mode: multiplicative→additive; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0471 / 대기 | b07→c000 / n0465 | half_life: 180→없음; learning_rate: 0.025→0.05; min_child_samples: 500→200; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0472 / 대기 | b07→c000 / n0454 | n_estimators: 80→160; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0473 / 대기 | b07→c000 / n0453 | features: season→core; half_life: 없음→365; num_leaves: 7→15; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0474 / 대기 | b07→c000 / n0456 | bound: 0.3→0.2; n_estimators: 300→80; reg_lambda: 10.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0475 / 대기 | b07→c000 / n0463 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0476 / 대기 | b07→c000 / n0454 | features: age→core; learning_rate: 0.05→0.025; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0477 / 대기 | b07→c000 / n0455 | bound: 0.5→0.15; features: core→season; min_child_samples: 500→200; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0478 / 대기 | b07→c000 / n0456 | features: season→age; half_life: 없음→365; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0479 / 대기 | b07→c000 / n0471 | features: season→core; half_life: 없음→365; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0480 / 대기 | b07→c000 / n0462 | half_life: 없음→180; learning_rate: 0.025→0.05; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0481 / 대기 | b07→c000 / n0469 | bound: 0.5→0.15; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0482 / 대기 | b07→c000 / n0464 | half_life: 180→365; min_child_samples: 200→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0483 / 대기 | b07→c000 / n0475 | bound: 0.5→0.15; features: age→season; learning_rate: 0.025→0.05; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0484 / 대기 | b07→c000 / n0454 | bound: 0.2→0.1; num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0485 / 대기 | b07→c000 / n0458 | bound: 0.3→0.15; half_life: 없음→180; min_child_samples: 500→200; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0486 / 대기 | b07→c000 / n0462 | learning_rate: 0.025→0.05; num_leaves: 7→3; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0487 / 대기 | b07→c000 / n0485 | features: core→age; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0488 / 대기 | b07→c000 / n0482 | n_estimators: 80→160 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0489 / 대기 | b07→c000 / n0483 | half_life: 365→180; min_child_samples: 1000→200; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0490 / 대기 | b07→c000 / n0475 | bound: 0.5→0.3; min_child_samples: 1000→200; mode: multiplicative→additive; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0491 / 대기 | b07→c000 / n0476 | bound: 0.2→0.5; min_child_samples: 1000→200; mode: additive→multiplicative; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0492 / 대기 | b07→c000 / n0452 | features: core→season; learning_rate: 0.05→0.025; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0493 / 대기 | b07→c000 / n0469 | half_life: 180→365; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0494 / 대기 | b07→c000 / n0464 | num_leaves: 15→7; reg_lambda: 30.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0495 / 대기 | b07→c000 / n0453 | bound: 0.3→0.5; n_estimators: 160→300; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0496 / 대기 | b07→c000 / n0480 | features: season→age; min_child_samples: 200→500; n_estimators: 80→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0497 / 대기 | b07→c000 / n0467 | num_leaves: 7→3 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0498 / 대기 | b07→c000 / n0452 | features: core→season; num_leaves: 3→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0499 / 대기 | b07→c000 / n0466 | half_life: 180→없음; min_child_samples: 1000→200; mode: additive→multiplicative; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0500 / 대기 | b07→c000 / n0458 | min_child_samples: 500→1000; n_estimators: 160→80; num_leaves: 3→7; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0501 / 대기 | b07→c000 / n0453 | bound: 0.3→0.5; learning_rate: 0.025→0.05; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0502 / 대기 | b07→c000 / n0462 | features: season→age; half_life: 없음→180; min_child_samples: 500→200; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0503 / 대기 | b07→c000 / n0459 | features: season→core; num_leaves: 7→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0504 / 대기 | b07→c000 / n0464 | bound: 0.3→0.2; features: core→season; min_child_samples: 200→1000; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0505 / 대기 | b07→c000 / n0457 | bound: 0.15→0.5; learning_rate: 0.025→0.05; min_child_samples: 500→1000; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0506 / 대기 | b07→c000 / n0472 | features: age→core; learning_rate: 0.05→0.025; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0507 / 대기 | b07→c000 / n0461 | features: core→season; half_life: 없음→365; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0508 / 대기 | b07→c000 / n0484 | min_child_samples: 1000→500; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0509 / 대기 | b07→c000 / n0467 | half_life: 없음→180; num_leaves: 7→15; reg_lambda: 10.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0510 / 대기 | b07→c000 / n0480 | min_child_samples: 200→500; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0511 / 대기 | b07→c000 / n0475 | half_life: 365→180; n_estimators: 160→80; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0512 / 대기 | b08→c186 / n0512 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0513 / 대기 | b08→c186 / n0512 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0514 / 대기 | b08→c186 / n0512 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0515 / 대기 | b08→c186 / n0513 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0516 / 대기 | b08→c186 / n0514 | learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0517 / 대기 | b08→c186 / n0513 | bound: 0.3→0.5; features: core→season; half_life: 없음→180; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→200; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0518 / 대기 | b08→c186 / n0516 | features: core→age; learning_rate: 0.025→0.05; min_child_samples: 500→1000; num_leaves: 15→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0519 / 대기 | b08→c186 / n0517 | bound: 0.5→0.15; features: season→core; half_life: 180→없음; min_child_samples: 200→1000; n_estimators: 300→160; reg_lambda: 30.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0520 / 대기 | b08→c186 / n0516 | features: core→season; learning_rate: 0.025→0.05; min_child_samples: 500→200; n_estimators: 80→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0521 / 대기 | b08→c186 / n0519 | features: core→age; half_life: 없음→180; num_leaves: 7→3; reg_lambda: 2.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0522 / 대기 | b08→c186 / n0516 | half_life: 365→없음; n_estimators: 80→300; num_leaves: 15→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0523 / 대기 | b08→c186 / n0517 | learning_rate: 0.05→0.025; num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0524 / 대기 | b08→c186 / n0520 | bound: 0.2→0.1; features: season→age; num_leaves: 15→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0525 / 대기 | b08→c186 / n0523 | features: season→core; half_life: 180→없음; n_estimators: 300→160; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0526 / 대기 | b08→c186 / n0518 | bound: 0.2→0.1; features: age→season; half_life: 365→180; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0527 / 대기 | b08→c186 / n0521 | min_child_samples: 1000→500; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0528 / 대기 | b08→c186 / n0519 | bound: 0.15→0.2; half_life: 없음→180; min_child_samples: 1000→500; mode: multiplicative→additive; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0529 / 대기 | b08→c186 / n0517 | bound: 0.5→0.3; learning_rate: 0.05→0.025; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0530 / 대기 | b08→c186 / n0522 | bound: 0.2→0.3; features: core→age; min_child_samples: 500→1000; reg_lambda: 10.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0531 / 대기 | b08→c186 / n0529 | features: season→core; half_life: 180→365; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0532 / 대기 | b08→c186 / n0520 | bound: 0.2→0.3; n_estimators: 300→160; num_leaves: 15→3; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0533 / 대기 | b08→c186 / n0517 | features: season→age; half_life: 180→365; learning_rate: 0.05→0.025; min_child_samples: 200→500; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0534 / 대기 | b08→c186 / n0525 | bound: 0.5→0.1; min_child_samples: 200→1000; mode: multiplicative→additive; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0535 / 대기 | b08→c186 / n0525 | features: core→season; n_estimators: 160→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0536 / 대기 | b08→c186 / n0524 | half_life: 365→없음; min_child_samples: 200→500; n_estimators: 300→160; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0537 / 대기 | b08→c186 / n0519 | min_child_samples: 1000→200; n_estimators: 160→300; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0538 / 대기 | b08→c186 / n0526 | num_leaves: 3→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0539 / 대기 | b08→c186 / n0517 | bound: 0.5→0.3; features: season→age; learning_rate: 0.05→0.025; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0540 / 대기 | b08→c186 / n0534 | bound: 0.1→0.2; num_leaves: 3→15; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0541 / 대기 | b08→c186 / n0517 | min_child_samples: 200→500; n_estimators: 300→80; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0542 / 대기 | b08→c186 / n0530 | learning_rate: 0.025→0.05; min_child_samples: 1000→200; n_estimators: 300→80; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0543 / 대기 | b08→c186 / n0525 | bound: 0.5→0.15; half_life: 없음→365; num_leaves: 3→15; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0544 / 대기 | b08→c186 / n0538 | half_life: 180→없음; min_child_samples: 1000→500; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0545 / 대기 | b08→c186 / n0539 | half_life: 180→365; min_child_samples: 1000→200; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0546 / 대기 | b08→c186 / n0516 | half_life: 365→없음; min_child_samples: 500→200; reg_lambda: 10.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0547 / 대기 | b08→c186 / n0535 | half_life: 없음→365; num_leaves: 3→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0548 / 대기 | b08→c186 / n0536 | n_estimators: 160→300; reg_lambda: 30.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0549 / 대기 | b08→c186 / n0519 | half_life: 없음→180; learning_rate: 0.05→0.025; min_child_samples: 1000→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0550 / 대기 | b08→c186 / n0529 | min_child_samples: 200→500; mode: multiplicative→additive; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0551 / 대기 | b08→c186 / n0521 | min_child_samples: 1000→200; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0552 / 대기 | b08→c186 / n0516 | min_child_samples: 500→1000; n_estimators: 80→160; num_leaves: 15→7; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0553 / 대기 | b08→c186 / n0541 | bound: 0.5→0.3; n_estimators: 80→160; num_leaves: 7→15; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0554 / 대기 | b08→c186 / n0518 | half_life: 365→180; reg_lambda: 30.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0555 / 대기 | b08→c186 / n0539 | features: age→core; learning_rate: 0.025→0.05; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0556 / 대기 | b08→c186 / n0520 | half_life: 365→180; learning_rate: 0.05→0.025; n_estimators: 300→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0557 / 대기 | b08→c186 / n0518 | bound: 0.2→0.15; mode: additive→multiplicative; n_estimators: 80→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0558 / 대기 | b08→c186 / n0540 | learning_rate: 0.025→0.05; n_estimators: 160→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0559 / 대기 | b08→c186 / n0558 | bound: 0.2→0.5; features: core→season; mode: additive→multiplicative; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0560 / 대기 | b08→c186 / n0531 | features: core→age; mode: multiplicative→additive; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0561 / 대기 | b08→c186 / n0541 | features: season→core; n_estimators: 80→160; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0562 / 대기 | b08→c186 / n0536 | features: age→season; num_leaves: 3→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0563 / 대기 | b08→c186 / n0527 | bound: 0.15→0.3; min_child_samples: 500→200; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0564 / 대기 | b08→c186 / n0520 | features: season→core; half_life: 365→없음; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0565 / 대기 | b08→c186 / n0562 | bound: 0.1→0.3; mode: additive→multiplicative; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0566 / 대기 | b08→c186 / n0526 | features: season→age; min_child_samples: 1000→200; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0567 / 대기 | b08→c186 / n0550 | bound: 0.3→0.15; features: season→core; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0568 / 대기 | b08→c186 / n0526 | bound: 0.1→0.2; half_life: 180→없음; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0569 / 대기 | b08→c186 / n0551 | min_child_samples: 200→500; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0570 / 대기 | b08→c186 / n0522 | bound: 0.2→0.1; num_leaves: 3→7; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0571 / 대기 | b08→c186 / n0541 | learning_rate: 0.05→0.025; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0572 / 대기 | b08→c186 / n0550 | features: season→age; learning_rate: 0.025→0.05; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0573 / 대기 | b08→c186 / n0543 | bound: 0.15→0.3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0574 / 대기 | b08→c186 / n0538 | learning_rate: 0.05→0.025; min_child_samples: 1000→200; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0575 / 대기 | b08→c186 / n0517 | features: season→age; reg_lambda: 30.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0576 / 대기 | b09→c030 / n0576 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0577 / 대기 | b09→c030 / n0576 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0578 / 대기 | b09→c030 / n0576 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0579 / 대기 | b09→c030 / n0577 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0580 / 대기 | b09→c030 / n0576 | bound: 0.2→0.3; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0581 / 대기 | b09→c030 / n0580 | bound: 0.3→0.5; features: core→season; learning_rate: 0.025→0.05; mode: additive→multiplicative; n_estimators: 80→160; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0582 / 대기 | b09→c030 / n0580 | features: core→age; learning_rate: 0.025→0.05; min_child_samples: 1000→500; n_estimators: 80→160; num_leaves: 15→7; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0583 / 대기 | b09→c030 / n0581 | features: season→core; n_estimators: 160→80; num_leaves: 15→7; reg_lambda: 2.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0584 / 대기 | b09→c030 / n0580 | bound: 0.3→0.1; features: core→season; half_life: 없음→180; min_child_samples: 1000→500; reg_lambda: 10.0→2.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0585 / 대기 | b09→c030 / n0582 | half_life: 없음→365; min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 160→300; num_leaves: 7→3; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0586 / 대기 | b09→c030 / n0585 | bound: 0.3→0.2; features: age→core; learning_rate: 0.05→0.025; mode: multiplicative→additive; n_estimators: 300→160; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0587 / 대기 | b09→c030 / n0581 | bound: 0.5→0.15; learning_rate: 0.05→0.025; n_estimators: 160→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0588 / 대기 | b09→c030 / n0582 | num_leaves: 7→3; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0589 / 대기 | b09→c030 / n0585 | features: age→core; half_life: 365→180; learning_rate: 0.05→0.025; min_child_samples: 200→1000; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0590 / 대기 | b09→c030 / n0584 | bound: 0.1→0.2; learning_rate: 0.025→0.05; num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0591 / 대기 | b09→c030 / n0588 | bound: 0.3→0.15; half_life: 없음→180; mode: additive→multiplicative; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0592 / 대기 | b09→c030 / n0580 | bound: 0.3→0.2; num_leaves: 15→7; reg_lambda: 10.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0593 / 대기 | b09→c030 / n0581 | min_child_samples: 1000→200; n_estimators: 160→300; num_leaves: 15→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0594 / 대기 | b09→c030 / n0582 | bound: 0.3→0.2; half_life: 없음→180; min_child_samples: 500→200; n_estimators: 160→300; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0595 / 대기 | b09→c030 / n0581 | features: season→core; half_life: 없음→180; learning_rate: 0.05→0.025; min_child_samples: 1000→500; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0596 / 대기 | b09→c030 / n0580 | features: core→season; learning_rate: 0.025→0.05; min_child_samples: 1000→200; reg_lambda: 10.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0597 / 대기 | b09→c030 / n0591 | num_leaves: 3→7; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0598 / 대기 | b09→c030 / n0584 | bound: 0.1→0.2; features: season→core; num_leaves: 15→3; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0599 / 대기 | b09→c030 / n0581 | half_life: 없음→180; min_child_samples: 1000→200; n_estimators: 160→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0600 / 대기 | b09→c030 / n0582 | bound: 0.3→0.1; min_child_samples: 500→200; n_estimators: 160→80; num_leaves: 7→3; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0601 / 대기 | b09→c030 / n0580 | bound: 0.3→0.15; half_life: 없음→365; min_child_samples: 1000→200; mode: additive→multiplicative; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0602 / 대기 | b09→c030 / n0580 | features: core→season; half_life: 없음→365; min_child_samples: 1000→500; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0603 / 대기 | b09→c030 / n0597 | reg_lambda: 30.0→30.5 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0604 / 대기 | b09→c030 / n0586 | half_life: 365→180; learning_rate: 0.025→0.05; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0605 / 대기 | b09→c030 / n0593 | bound: 0.5→0.3; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0606 / 대기 | b09→c030 / n0588 | bound: 0.3→0.2; min_child_samples: 500→200; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0607 / 대기 | b09→c030 / n0586 | bound: 0.2→0.15; mode: additive→multiplicative; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0608 / 대기 | b09→c030 / n0596 | bound: 0.3→0.1; min_child_samples: 200→1000; n_estimators: 80→300; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0609 / 대기 | b09→c030 / n0583 | features: core→age; half_life: 없음→180; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0610 / 대기 | b09→c030 / n0586 | bound: 0.2→0.1; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0611 / 대기 | b09→c030 / n0593 | min_child_samples: 200→500; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0612 / 대기 | b09→c030 / n0600 | bound: 0.1→0.2; half_life: 없음→365; min_child_samples: 200→1000; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0613 / 대기 | b09→c030 / n0602 | features: season→core; mode: additive→multiplicative; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0614 / 대기 | b09→c030 / n0590 | min_child_samples: 500→200; num_leaves: 3→7; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0615 / 대기 | b09→c030 / n0589 | features: core→age; min_child_samples: 1000→200; n_estimators: 300→160; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0616 / 대기 | b09→c030 / n0590 | features: season→core; half_life: 180→365; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0617 / 대기 | b09→c030 / n0585 | features: age→season; n_estimators: 300→160; reg_lambda: 10.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0618 / 대기 | b09→c030 / n0600 | half_life: 없음→365; n_estimators: 80→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0619 / 대기 | b09→c030 / n0581 | features: season→core; min_child_samples: 1000→200; n_estimators: 160→300; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0620 / 대기 | b09→c030 / n0584 | num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0621 / 대기 | b09→c030 / n0581 | bound: 0.5→0.3; features: season→age; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0622 / 대기 | b09→c030 / n0598 | half_life: 180→365; n_estimators: 80→300; num_leaves: 3→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0623 / 대기 | b09→c030 / n0599 | min_child_samples: 200→500; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0624 / 대기 | b09→c030 / n0600 | half_life: 없음→180; min_child_samples: 200→500; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0625 / 대기 | b09→c030 / n0583 | learning_rate: 0.05→0.025; n_estimators: 80→300; reg_lambda: 30.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0626 / 대기 | b09→c030 / n0621 | features: age→season; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0627 / 대기 | b09→c030 / n0595 | features: core→age; half_life: 180→없음; min_child_samples: 500→200; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0628 / 대기 | b09→c030 / n0589 | bound: 0.3→0.1; mode: multiplicative→additive; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0629 / 대기 | b09→c030 / n0623 | learning_rate: 0.05→0.025; num_leaves: 15→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0630 / 대기 | b09→c030 / n0600 | n_estimators: 80→160; reg_lambda: 2.0→30.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0631 / 대기 | b09→c030 / n0619 | half_life: 없음→365; n_estimators: 300→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0632 / 대기 | b09→c030 / n0602 | min_child_samples: 500→200; num_leaves: 15→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0633 / 대기 | b09→c030 / n0596 | features: season→age; mode: additive→multiplicative; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0634 / 대기 | b09→c030 / n0580 | bound: 0.3→0.1; half_life: 없음→365; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0635 / 대기 | b09→c030 / n0587 | bound: 0.15→0.5; half_life: 없음→365; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0636 / 대기 | b09→c030 / n0630 | learning_rate: 0.05→0.025; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0637 / 대기 | b09→c030 / n0591 | bound: 0.15→0.5; features: age→core; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0638 / 대기 | b09→c030 / n0590 | min_child_samples: 500→200; n_estimators: 80→300; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0639 / 대기 | b09→c030 / n0613 | features: core→age; n_estimators: 300→80; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0640 / 대기 | b10→c142 / n0640 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0641 / 대기 | b10→c142 / n0640 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0642 / 대기 | b10→c142 / n0640 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0643 / 대기 | b10→c142 / n0641 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0644 / 대기 | b10→c142 / n0642 | bound: 0.2→0.1; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0645 / 대기 | b10→c142 / n0641 | bound: 0.3→0.15; features: core→season; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0646 / 대기 | b10→c142 / n0645 | bound: 0.15→0.1; features: season→age; learning_rate: 0.025→0.05; mode: multiplicative→additive; n_estimators: 80→160; num_leaves: 15→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0647 / 대기 | b10→c142 / n0645 | bound: 0.15→0.5; features: season→core; half_life: 없음→180; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0648 / 대기 | b10→c142 / n0644 | bound: 0.1→0.2; features: core→season; half_life: 365→180; learning_rate: 0.025→0.05; num_leaves: 7→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0649 / 대기 | b10→c142 / n0646 | bound: 0.1→0.3; mode: additive→multiplicative; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0650 / 대기 | b10→c142 / n0649 | features: age→core; half_life: 없음→180; min_child_samples: 500→200; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0651 / 대기 | b10→c142 / n0645 | bound: 0.15→0.5; n_estimators: 80→300; reg_lambda: 2.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0652 / 대기 | b10→c142 / n0644 | bound: 0.1→0.3; features: core→age; n_estimators: 300→80; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0653 / 대기 | b10→c142 / n0647 | half_life: 180→없음; n_estimators: 80→300; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0654 / 대기 | b10→c142 / n0644 | bound: 0.1→0.2; features: core→season; min_child_samples: 1000→200; num_leaves: 7→3; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0655 / 대기 | b10→c142 / n0647 | bound: 0.5→0.3; features: core→age; num_leaves: 15→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0656 / 대기 | b10→c142 / n0644 | bound: 0.1→0.2; half_life: 365→180; min_child_samples: 1000→200; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0657 / 대기 | b10→c142 / n0645 | half_life: 없음→180; learning_rate: 0.025→0.05; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0658 / 대기 | b10→c142 / n0644 | features: core→age; half_life: 365→180; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0659 / 대기 | b10→c142 / n0650 | half_life: 180→365; mode: additive→multiplicative; num_leaves: 7→15; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0660 / 대기 | b10→c142 / n0646 | features: age→season; half_life: 없음→365; learning_rate: 0.05→0.025; num_leaves: 3→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0661 / 대기 | b10→c142 / n0651 | features: season→age; half_life: 없음→365; num_leaves: 15→3; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0662 / 대기 | b10→c142 / n0650 | bound: 0.3→0.1; n_estimators: 160→80; num_leaves: 7→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0663 / 대기 | b10→c142 / n0657 | half_life: 180→365; num_leaves: 15→7; reg_lambda: 2.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0664 / 대기 | b10→c142 / n0658 | bound: 0.1→0.3; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0665 / 대기 | b10→c142 / n0647 | bound: 0.5→0.3; min_child_samples: 500→200; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0666 / 대기 | b10→c142 / n0662 | bound: 0.1→0.2; features: core→season; half_life: 180→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0667 / 대기 | b10→c142 / n0655 | bound: 0.3→0.15; n_estimators: 80→300; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0668 / 대기 | b10→c142 / n0646 | features: age→core; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0669 / 대기 | b10→c142 / n0657 | bound: 0.15→0.3; min_child_samples: 1000→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0670 / 대기 | b10→c142 / n0655 | learning_rate: 0.025→0.05; mode: multiplicative→additive; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0671 / 대기 | b10→c142 / n0653 | half_life: 없음→365; learning_rate: 0.025→0.05; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0672 / 대기 | b10→c142 / n0654 | min_child_samples: 200→1000; reg_lambda: 10.0→30.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0673 / 대기 | b10→c142 / n0649 | learning_rate: 0.05→0.025; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0674 / 대기 | b10→c142 / n0653 | bound: 0.5→0.1; mode: multiplicative→additive; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0675 / 대기 | b10→c142 / n0655 | bound: 0.3→0.5; features: age→season; min_child_samples: 500→1000; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0676 / 대기 | b10→c142 / n0658 | half_life: 180→없음; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0677 / 대기 | b10→c142 / n0663 | features: season→core; learning_rate: 0.05→0.025; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0678 / 대기 | b10→c142 / n0654 | half_life: 365→180; min_child_samples: 200→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0679 / 대기 | b10→c142 / n0651 | features: season→age; learning_rate: 0.025→0.05; min_child_samples: 500→1000; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0680 / 대기 | b10→c142 / n0650 | learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0681 / 대기 | b10→c142 / n0651 | min_child_samples: 500→200; num_leaves: 15→3; reg_lambda: 30.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0682 / 대기 | b10→c142 / n0658 | bound: 0.1→0.2; reg_lambda: 2.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0683 / 대기 | b10→c142 / n0661 | bound: 0.5→0.3; features: age→core; half_life: 365→180 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0684 / 대기 | b10→c142 / n0664 | features: age→season; learning_rate: 0.025→0.05; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0685 / 대기 | b10→c142 / n0652 | mode: additive→multiplicative; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0686 / 대기 | b10→c142 / n0654 | features: season→core; min_child_samples: 200→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0687 / 대기 | b10→c142 / n0660 | bound: 0.1→0.5; min_child_samples: 500→1000; mode: additive→multiplicative; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0688 / 대기 | b10→c142 / n0652 | learning_rate: 0.025→0.05; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0689 / 대기 | b10→c142 / n0647 | learning_rate: 0.025→0.05; min_child_samples: 500→1000; n_estimators: 80→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0690 / 대기 | b10→c142 / n0669 | learning_rate: 0.05→0.025; mode: multiplicative→additive; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0691 / 대기 | b10→c142 / n0688 | bound: 0.3→0.15; mode: additive→multiplicative; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0692 / 대기 | b10→c142 / n0646 | bound: 0.1→0.2; features: age→core; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0693 / 대기 | b10→c142 / n0673 | features: age→season; min_child_samples: 500→1000; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0694 / 대기 | b10→c142 / n0668 | bound: 0.1→0.2; features: core→age; learning_rate: 0.05→0.025; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0695 / 대기 | b10→c142 / n0653 | bound: 0.5→0.15; min_child_samples: 500→200; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0696 / 대기 | b10→c142 / n0675 | bound: 0.5→0.1; mode: multiplicative→additive; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0697 / 대기 | b10→c142 / n0679 | bound: 0.5→0.15; n_estimators: 300→160; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0698 / 대기 | b10→c142 / n0656 | half_life: 180→365; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0699 / 대기 | b10→c142 / n0657 | min_child_samples: 1000→500; reg_lambda: 2.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0700 / 대기 | b10→c142 / n0670 | bound: 0.3→0.2; half_life: 180→365; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0701 / 대기 | b10→c142 / n0683 | bound: 0.3→0.15; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0702 / 대기 | b10→c142 / n0658 | features: age→season; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0703 / 대기 | b10→c142 / n0685 | bound: 0.3→0.15; min_child_samples: 1000→200; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0704 / 대기 | b11→c046 / n0704 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0705 / 대기 | b11→c046 / n0704 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0706 / 대기 | b11→c046 / n0704 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0707 / 대기 | b11→c046 / n0705 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0708 / 대기 | b11→c046 / n0704 | bound: 0.2→0.3; half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0709 / 대기 | b11→c046 / n0708 | features: core→season; half_life: 180→없음; min_child_samples: 500→200; mode: additive→multiplicative; num_leaves: 15→7; reg_lambda: 2.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0710 / 대기 | b11→c046 / n0708 | bound: 0.3→0.2; features: core→age; n_estimators: 80→300; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0711 / 대기 | b11→c046 / n0707 | learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→300; num_leaves: 0→15; reg_lambda: 0.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0712 / 대기 | b11→c046 / n0709 | bound: 0.3→0.1; half_life: 없음→365; mode: multiplicative→additive; n_estimators: 80→160; num_leaves: 7→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0713 / 대기 | b11→c046 / n0710 | bound: 0.2→0.3; half_life: 180→365; min_child_samples: 500→1000; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0714 / 대기 | b11→c046 / n0708 | n_estimators: 80→300; num_leaves: 15→3; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0715 / 대기 | b11→c046 / n0713 | bound: 0.3→0.15; features: age→season; half_life: 365→180; learning_rate: 0.025→0.05; n_estimators: 300→160; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0716 / 대기 | b11→c046 / n0713 | mode: multiplicative→additive; n_estimators: 300→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0717 / 대기 | b11→c046 / n0708 | min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 80→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0718 / 대기 | b11→c046 / n0709 | bound: 0.3→0.2; mode: multiplicative→additive; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0719 / 대기 | b11→c046 / n0713 | min_child_samples: 1000→500; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0720 / 대기 | b11→c046 / n0708 | half_life: 180→없음; learning_rate: 0.025→0.05; num_leaves: 15→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0721 / 대기 | b11→c046 / n0709 | bound: 0.3→0.5; half_life: 없음→365; learning_rate: 0.025→0.05; num_leaves: 7→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0722 / 대기 | b11→c046 / n0716 | bound: 0.3→0.1; learning_rate: 0.025→0.05; num_leaves: 3→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0723 / 대기 | b11→c046 / n0715 | bound: 0.15→0.5; features: season→core; half_life: 180→365; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0724 / 대기 | b11→c046 / n0710 | bound: 0.2→0.3; features: age→season; half_life: 180→365; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0725 / 대기 | b11→c046 / n0709 | features: season→age; half_life: 없음→365; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0726 / 대기 | b11→c046 / n0714 | bound: 0.3→0.1; half_life: 180→없음; min_child_samples: 500→200; num_leaves: 3→15; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0727 / 대기 | b11→c046 / n0709 | bound: 0.3→0.15; learning_rate: 0.025→0.05; n_estimators: 80→300; num_leaves: 7→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0728 / 대기 | b11→c046 / n0722 | half_life: 365→없음; learning_rate: 0.05→0.025; reg_lambda: 30.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0729 / 대기 | b11→c046 / n0721 | features: season→core; n_estimators: 80→300; num_leaves: 15→7; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0730 / 대기 | b11→c046 / n0724 | bound: 0.3→0.2; n_estimators: 300→160; num_leaves: 3→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0731 / 대기 | b11→c046 / n0715 | features: season→age; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0732 / 대기 | b11→c046 / n0716 | features: age→core; half_life: 365→없음; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0733 / 대기 | b11→c046 / n0715 | bound: 0.15→0.5; n_estimators: 160→300; num_leaves: 7→15; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0734 / 대기 | b11→c046 / n0710 | bound: 0.2→0.1; min_child_samples: 500→200; n_estimators: 300→80; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0735 / 대기 | b11→c046 / n0723 | bound: 0.5→0.3; min_child_samples: 1000→500; reg_lambda: 30.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0736 / 대기 | b11→c046 / n0724 | learning_rate: 0.025→0.05; min_child_samples: 500→1000; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0737 / 대기 | b11→c046 / n0719 | learning_rate: 0.025→0.05; n_estimators: 300→80; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0738 / 대기 | b11→c046 / n0714 | bound: 0.3→0.2; num_leaves: 3→15; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0739 / 대기 | b11→c046 / n0709 | bound: 0.3→0.5; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0740 / 대기 | b11→c046 / n0712 | features: season→age; learning_rate: 0.025→0.05; n_estimators: 160→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0741 / 대기 | b11→c046 / n0729 | min_child_samples: 200→500; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0742 / 대기 | b11→c046 / n0720 | bound: 0.3→0.2; features: core→season; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0743 / 대기 | b11→c046 / n0713 | min_child_samples: 1000→500; n_estimators: 300→80; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0744 / 대기 | b11→c046 / n0708 | bound: 0.3→0.2; learning_rate: 0.025→0.05; min_child_samples: 500→1000; reg_lambda: 2.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0745 / 대기 | b11→c046 / n0719 | features: age→season; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0746 / 대기 | b11→c046 / n0718 | bound: 0.2→0.3; features: season→age; n_estimators: 80→300; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0747 / 대기 | b11→c046 / n0729 | bound: 0.5→0.3; half_life: 365→180; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0748 / 대기 | b11→c046 / n0712 | learning_rate: 0.025→0.05; n_estimators: 160→300; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0749 / 대기 | b11→c046 / n0725 | min_child_samples: 200→1000; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0750 / 대기 | b11→c046 / n0736 | bound: 0.3→0.2; features: season→core; half_life: 365→없음 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0751 / 대기 | b11→c046 / n0745 | half_life: 365→180; min_child_samples: 500→200; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0752 / 대기 | b11→c046 / n0710 | bound: 0.2→0.1; reg_lambda: 2.0→2.5; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0753 / 대기 | b11→c046 / n0743 | features: age→core; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0754 / 대기 | b11→c046 / n0748 | half_life: 365→없음; min_child_samples: 200→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0755 / 대기 | b11→c046 / n0731 | bound: 0.15→0.5; min_child_samples: 1000→500; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0756 / 대기 | b11→c046 / n0710 | features: age→core; n_estimators: 300→160; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0757 / 대기 | b11→c046 / n0724 | bound: 0.3→0.5; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0758 / 대기 | b11→c046 / n0722 | bound: 0.1→0.3; half_life: 365→180; n_estimators: 160→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0759 / 대기 | b11→c046 / n0709 | bound: 0.3→0.15; features: season→core; num_leaves: 7→15; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0760 / 대기 | b11→c046 / n0753 | features: core→season; mode: multiplicative→additive; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0761 / 대기 | b11→c046 / n0749 | half_life: 365→180 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0762 / 대기 | b11→c046 / n0708 | bound: 0.3→0.1; reg_lambda: 2.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0763 / 대기 | b11→c046 / n0709 | min_child_samples: 200→500; n_estimators: 80→160; num_leaves: 7→3; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0764 / 대기 | b11→c046 / n0740 | bound: 0.1→0.3; half_life: 365→180 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0765 / 대기 | b11→c046 / n0723 | min_child_samples: 1000→500; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0766 / 대기 | b11→c046 / n0748 | bound: 0.1→0.3; num_leaves: 15→7; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0767 / 대기 | b11→c046 / n0717 | features: core→age; num_leaves: 15→7; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0768 / 대기 | b12→c081 / n0768 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0769 / 대기 | b12→c081 / n0768 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0770 / 대기 | b12→c081 / n0768 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0771 / 대기 | b12→c081 / n0769 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0772 / 대기 | b12→c081 / n0768 | bound: 0.2→0.3; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→160; num_leaves: 0→15; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0773 / 대기 | b12→c081 / n0772 | features: core→season; mode: additive→multiplicative; n_estimators: 160→300; num_leaves: 15→3; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0774 / 대기 | b12→c081 / n0772 | features: core→age; half_life: 없음→365; min_child_samples: 500→1000; num_leaves: 15→3; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0775 / 대기 | b12→c081 / n0771 | bound: 0.3→0.5; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→200; n_estimators: 0→80; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0776 / 대기 | b12→c081 / n0773 | bound: 0.3→0.1; half_life: 없음→365; learning_rate: 0.025→0.05; min_child_samples: 500→1000; mode: multiplicative→additive; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0777 / 대기 | b12→c081 / n0775 | bound: 0.5→0.3; features: core→age; n_estimators: 80→160; reg_lambda: 30.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0778 / 대기 | b12→c081 / n0776 | bound: 0.1→0.2; features: season→core; half_life: 365→180; n_estimators: 300→80; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0779 / 대기 | b12→c081 / n0772 | features: core→season; half_life: 없음→365; min_child_samples: 500→200; mode: additive→multiplicative; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0780 / 대기 | b12→c081 / n0773 | bound: 0.3→0.2; features: season→age; min_child_samples: 500→200; mode: multiplicative→additive; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0781 / 대기 | b12→c081 / n0773 | features: season→core; reg_lambda: 2.0→10.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0782 / 대기 | b12→c081 / n0776 | learning_rate: 0.05→0.025; min_child_samples: 1000→500; n_estimators: 300→80; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0783 / 대기 | b12→c081 / n0777 | bound: 0.3→0.15; half_life: 365→180; min_child_samples: 200→500; n_estimators: 160→80; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0784 / 대기 | b12→c081 / n0772 | half_life: 없음→365; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0785 / 대기 | b12→c081 / n0773 | half_life: 없음→180; min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0786 / 대기 | b12→c081 / n0774 | n_estimators: 160→80; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0787 / 대기 | b12→c081 / n0772 | bound: 0.3→0.5; half_life: 없음→180; mode: additive→multiplicative; reg_lambda: 30.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0788 / 대기 | b12→c081 / n0782 | half_life: 365→180; learning_rate: 0.025→0.05; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0789 / 대기 | b12→c081 / n0773 | bound: 0.3→0.5; features: season→age; half_life: 없음→180 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0790 / 대기 | b12→c081 / n0784 | half_life: 365→180; num_leaves: 15→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0791 / 대기 | b12→c081 / n0779 | bound: 0.3→0.15; min_child_samples: 200→1000; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0792 / 대기 | b12→c081 / n0772 | features: core→age; learning_rate: 0.025→0.05; num_leaves: 15→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0793 / 대기 | b12→c081 / n0785 | bound: 0.3→0.15; features: season→core; min_child_samples: 1000→500; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0794 / 대기 | b12→c081 / n0776 | bound: 0.1→0.2; half_life: 365→180; n_estimators: 300→160; num_leaves: 3→7; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0795 / 대기 | b12→c081 / n0773 | features: season→age; min_child_samples: 500→1000; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0796 / 대기 | b12→c081 / n0776 | features: season→core; half_life: 365→없음; min_child_samples: 1000→200; reg_lambda: 30.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0797 / 대기 | b12→c081 / n0791 | bound: 0.15→0.5; num_leaves: 15→3; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0798 / 대기 | b12→c081 / n0772 | bound: 0.3→0.2; features: core→age; n_estimators: 160→300; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0799 / 대기 | b12→c081 / n0775 | learning_rate: 0.05→0.025; n_estimators: 80→160; reg_lambda: 30.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0800 / 대기 | b12→c081 / n0788 | bound: 0.1→0.2; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0801 / 대기 | b12→c081 / n0793 | features: core→age; half_life: 180→없음; n_estimators: 300→80; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0802 / 대기 | b12→c081 / n0772 | bound: 0.3→0.2; min_child_samples: 500→200; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0803 / 대기 | b12→c081 / n0788 | bound: 0.1→0.3; mode: additive→multiplicative; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0804 / 대기 | b12→c081 / n0774 | learning_rate: 0.025→0.05; n_estimators: 160→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0805 / 대기 | b12→c081 / n0778 | bound: 0.2→0.3; learning_rate: 0.05→0.025; mode: additive→multiplicative; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0806 / 대기 | b12→c081 / n0799 | bound: 0.5→0.1; features: core→season; mode: multiplicative→additive; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0807 / 대기 | b12→c081 / n0777 | min_child_samples: 200→500; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0808 / 대기 | b12→c081 / n0805 | half_life: 180→없음; mode: multiplicative→additive; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0809 / 대기 | b12→c081 / n0779 | bound: 0.3→0.5; half_life: 365→180; n_estimators: 160→300; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0810 / 대기 | b12→c081 / n0784 | features: core→age; n_estimators: 160→80; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0811 / 대기 | b12→c081 / n0805 | min_child_samples: 1000→200; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0812 / 대기 | b12→c081 / n0794 | half_life: 180→365; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0813 / 대기 | b12→c081 / n0795 | min_child_samples: 1000→500; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0814 / 대기 | b12→c081 / n0784 | bound: 0.3→0.1; learning_rate: 0.025→0.05; n_estimators: 160→300; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0815 / 대기 | b12→c081 / n0779 | half_life: 365→없음; n_estimators: 160→80; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0816 / 대기 | b12→c081 / n0813 | bound: 0.3→0.1; mode: multiplicative→additive; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0817 / 대기 | b12→c081 / n0783 | bound: 0.15→0.3; features: age→core; min_child_samples: 500→1000; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0818 / 대기 | b12→c081 / n0784 | features: core→season; half_life: 365→180; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0819 / 대기 | b12→c081 / n0795 | learning_rate: 0.025→0.05; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0820 / 대기 | b12→c081 / n0778 | n_estimators: 80→300; num_leaves: 3→7; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0821 / 대기 | b12→c081 / n0775 | features: core→season; learning_rate: 0.05→0.025; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0822 / 대기 | b12→c081 / n0774 | half_life: 365→180; num_leaves: 3→7; reg_lambda: 10.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0823 / 대기 | b12→c081 / n0789 | features: age→core; half_life: 180→365; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0824 / 대기 | b12→c081 / n0796 | bound: 0.1→0.2; features: core→season; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0825 / 대기 | b12→c081 / n0785 | features: season→age; n_estimators: 300→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0826 / 대기 | b12→c081 / n0774 | bound: 0.3→0.1; features: age→core; half_life: 365→180; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0827 / 대기 | b12→c081 / n0803 | bound: 0.3→0.5; half_life: 180→없음; n_estimators: 160→300; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0828 / 대기 | b12→c081 / n0780 | bound: 0.2→0.3; half_life: 없음→180; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0829 / 대기 | b12→c081 / n0805 | min_child_samples: 1000→200 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0830 / 대기 | b12→c081 / n0776 | half_life: 365→없음; learning_rate: 0.05→0.025; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0831 / 대기 | b12→c081 / n0777 | bound: 0.3→0.5; half_life: 365→180; min_child_samples: 200→500; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0832 / 대기 | b13→c010 / n0832 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0833 / 대기 | b13→c010 / n0832 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0834 / 대기 | b13→c010 / n0832 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0835 / 대기 | b13→c010 / n0833 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0836 / 대기 | b13→c010 / n0832 | bound: 0.2→0.3; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0837 / 대기 | b13→c010 / n0833 | bound: 0.3→0.5; features: core→season; half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→3; reg_lambda: 0.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0838 / 대기 | b13→c010 / n0836 | features: core→age; half_life: 없음→180; n_estimators: 300→160; num_leaves: 7→3; reg_lambda: 30.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0839 / 대기 | b13→c010 / n0838 | features: age→core; half_life: 180→없음; mode: additive→multiplicative; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0840 / 대기 | b13→c010 / n0837 | bound: 0.5→0.2; half_life: 180→365; mode: multiplicative→additive; num_leaves: 3→15; reg_lambda: 2.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0841 / 대기 | b13→c010 / n0838 | bound: 0.3→0.5; min_child_samples: 1000→500; mode: additive→multiplicative; n_estimators: 160→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0842 / 대기 | b13→c010 / n0836 | half_life: 없음→365; num_leaves: 7→15; reg_lambda: 30.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0843 / 대기 | b13→c010 / n0837 | learning_rate: 0.025→0.05; min_child_samples: 200→500; num_leaves: 3→7; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0844 / 대기 | b13→c010 / n0836 | bound: 0.3→0.2; features: core→age; min_child_samples: 1000→500; n_estimators: 300→80; reg_lambda: 30.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0845 / 대기 | b13→c010 / n0839 | min_child_samples: 1000→200; num_leaves: 3→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0846 / 대기 | b13→c010 / n0840 | min_child_samples: 200→500; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0847 / 대기 | b13→c010 / n0837 | bound: 0.5→0.3; features: season→age; min_child_samples: 200→1000; n_estimators: 160→80; num_leaves: 3→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0848 / 대기 | b13→c010 / n0840 | bound: 0.2→0.3; features: season→core; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0849 / 대기 | b13→c010 / n0846 | bound: 0.2→0.15; mode: additive→multiplicative; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0850 / 대기 | b13→c010 / n0838 | bound: 0.3→0.1; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0851 / 대기 | b13→c010 / n0837 | features: season→core; min_child_samples: 200→1000; n_estimators: 160→80; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0852 / 대기 | b13→c010 / n0840 | half_life: 365→180; learning_rate: 0.025→0.05; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0853 / 대기 | b13→c010 / n0841 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; n_estimators: 300→160; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0854 / 대기 | b13→c010 / n0851 | bound: 0.5→0.1; mode: multiplicative→additive; num_leaves: 3→15; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0855 / 대기 | b13→c010 / n0837 | num_leaves: 3→7; reg_lambda: 2.0→10.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0856 / 대기 | b13→c010 / n0844 | bound: 0.2→0.3; learning_rate: 0.05→0.025; num_leaves: 7→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0857 / 대기 | b13→c010 / n0841 | features: age→core; half_life: 180→없음; num_leaves: 3→7; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0858 / 대기 | b13→c010 / n0842 | bound: 0.3→0.2; features: core→season; n_estimators: 300→80; num_leaves: 15→7; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0859 / 대기 | b13→c010 / n0855 | bound: 0.5→0.3; features: season→age; half_life: 180→없음; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0860 / 대기 | b13→c010 / n0842 | num_leaves: 15→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0861 / 대기 | b13→c010 / n0843 | bound: 0.5→0.15; half_life: 180→365; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0862 / 대기 | b13→c010 / n0850 | half_life: 180→365; reg_lambda: 30.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0863 / 대기 | b13→c010 / n0847 | features: age→core; min_child_samples: 1000→200; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0864 / 대기 | b13→c010 / n0837 | bound: 0.5→0.2; mode: multiplicative→additive; n_estimators: 160→80; reg_lambda: 2.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0865 / 대기 | b13→c010 / n0838 | half_life: 180→365; mode: additive→multiplicative; n_estimators: 160→80; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0866 / 대기 | b13→c010 / n0840 | features: season→core; min_child_samples: 200→1000; num_leaves: 15→3; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0867 / 대기 | b13→c010 / n0837 | bound: 0.5→0.15; half_life: 180→없음; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0868 / 대기 | b13→c010 / n0836 | features: core→age; min_child_samples: 1000→500; n_estimators: 300→160; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0869 / 대기 | b13→c010 / n0851 | bound: 0.5→0.3; learning_rate: 0.025→0.05; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0870 / 대기 | b13→c010 / n0852 | bound: 0.2→0.3; learning_rate: 0.05→0.025; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0871 / 대기 | b13→c010 / n0859 | bound: 0.3→0.15; half_life: 없음→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0872 / 대기 | b13→c010 / n0867 | bound: 0.15→0.2; features: season→core; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0873 / 대기 | b13→c010 / n0839 | features: core→season; min_child_samples: 1000→500; n_estimators: 160→80; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0874 / 대기 | b13→c010 / n0847 | bound: 0.3→0.1; half_life: 180→365; mode: multiplicative→additive; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0875 / 대기 | b13→c010 / n0857 | bound: 0.5→0.15; min_child_samples: 500→200; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0876 / 대기 | b13→c010 / n0840 | bound: 0.2→0.3; n_estimators: 160→300; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0877 / 대기 | b13→c010 / n0836 | features: core→age; half_life: 없음→180; min_child_samples: 1000→200; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0878 / 대기 | b13→c010 / n0838 | bound: 0.3→0.1; features: age→core; num_leaves: 3→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0879 / 대기 | b13→c010 / n0860 | features: core→season; min_child_samples: 1000→500; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0880 / 대기 | b13→c010 / n0838 | min_child_samples: 1000→500; num_leaves: 3→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0881 / 대기 | b13→c010 / n0863 | half_life: 180→365; num_leaves: 7→15; reg_lambda: 10.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0882 / 대기 | b13→c010 / n0864 | min_child_samples: 200→500; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0883 / 대기 | b13→c010 / n0847 | bound: 0.3→0.15; learning_rate: 0.025→0.05; min_child_samples: 1000→200; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0884 / 대기 | b13→c010 / n0848 | bound: 0.3→0.2; half_life: 365→180; min_child_samples: 200→500; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0885 / 대기 | b13→c010 / n0879 | bound: 0.3→0.5; min_child_samples: 500→200; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0886 / 대기 | b13→c010 / n0885 | bound: 0.5→0.2; features: season→age; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0887 / 대기 | b13→c010 / n0863 | bound: 0.3→0.15; min_child_samples: 200→500; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0888 / 대기 | b13→c010 / n0836 | features: core→season; num_leaves: 7→3; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0889 / 대기 | b13→c010 / n0860 | bound: 0.3→0.15; features: core→age; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0890 / 대기 | b13→c010 / n0884 | half_life: 180→365; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0891 / 대기 | b13→c010 / n0839 | features: core→season; min_child_samples: 1000→200; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0892 / 대기 | b13→c010 / n0846 | features: season→age; num_leaves: 15→7; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0893 / 대기 | b13→c010 / n0845 | bound: 0.3→0.5; reg_lambda: 30.0→30.5; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0894 / 대기 | b13→c010 / n0836 | bound: 0.3→0.1; features: core→season; min_child_samples: 1000→200; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0895 / 대기 | b13→c010 / n0853 | bound: 0.5→0.15; half_life: 180→365; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0896 / 대기 | b14→c191 / n0896 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0897 / 대기 | b14→c191 / n0896 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0898 / 대기 | b14→c191 / n0896 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0899 / 대기 | b14→c191 / n0897 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0900 / 대기 | b14→c191 / n0896 | bound: 0.2→0.1; half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→3; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0901 / 대기 | b14→c191 / n0900 | bound: 0.1→0.5; features: core→season; learning_rate: 0.025→0.05; min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 80→300; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0902 / 대기 | b14→c191 / n0900 | bound: 0.1→0.2; features: core→age; min_child_samples: 500→1000; reg_lambda: 2.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0903 / 대기 | b14→c191 / n0900 | bound: 0.1→0.5; half_life: 180→365; mode: additive→multiplicative; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0904 / 대기 | b14→c191 / n0900 | features: core→season; min_child_samples: 500→200; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0905 / 대기 | b14→c191 / n0901 | bound: 0.5→0.3; features: season→age; half_life: 180→365; n_estimators: 300→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0906 / 대기 | b14→c191 / n0900 | num_leaves: 3→7 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0907 / 대기 | b14→c191 / n0901 | num_leaves: 3→15; reg_lambda: 2.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0908 / 대기 | b14→c191 / n0906 | features: core→age; learning_rate: 0.025→0.05; n_estimators: 80→300; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0909 / 대기 | b14→c191 / n0907 | bound: 0.5→0.3; features: season→core; min_child_samples: 200→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0910 / 대기 | b14→c191 / n0901 | bound: 0.5→0.3; half_life: 180→없음; min_child_samples: 200→500; mode: multiplicative→additive; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0911 / 대기 | b14→c191 / n0903 | bound: 0.5→0.3; features: core→age; num_leaves: 3→7; reg_lambda: 2.0→10.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0912 / 대기 | b14→c191 / n0900 | bound: 0.1→0.2; half_life: 180→없음; n_estimators: 80→160; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0913 / 대기 | b14→c191 / n0904 | bound: 0.1→0.5; min_child_samples: 200→500; mode: additive→multiplicative; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0914 / 대기 | b14→c191 / n0904 | bound: 0.1→0.2; features: season→age; half_life: 180→없음; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0915 / 대기 | b14→c191 / n0909 | bound: 0.3→0.15; n_estimators: 80→160; reg_lambda: 30.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0916 / 대기 | b14→c191 / n0901 | bound: 0.5→0.3; mode: multiplicative→additive; n_estimators: 300→160; num_leaves: 3→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0917 / 대기 | b14→c191 / n0911 | bound: 0.3→0.15; learning_rate: 0.025→0.05; min_child_samples: 500→1000; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0918 / 대기 | b14→c191 / n0902 | features: age→core; half_life: 180→365; min_child_samples: 1000→200; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0919 / 대기 | b14→c191 / n0901 | bound: 0.5→0.3; reg_lambda: 2.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0920 / 대기 | b14→c191 / n0910 | features: season→age; min_child_samples: 500→1000; reg_lambda: 10.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0921 / 대기 | b14→c191 / n0909 | bound: 0.3→0.15; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0922 / 대기 | b14→c191 / n0914 | features: age→season; learning_rate: 0.025→0.05; n_estimators: 300→160; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0923 / 대기 | b14→c191 / n0911 | bound: 0.3→0.15; n_estimators: 80→160; num_leaves: 7→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0924 / 대기 | b14→c191 / n0906 | bound: 0.1→0.2; learning_rate: 0.025→0.05; n_estimators: 80→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0925 / 대기 | b14→c191 / n0907 | half_life: 180→365; learning_rate: 0.05→0.025; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0926 / 대기 | b14→c191 / n0914 | half_life: 없음→365; min_child_samples: 200→1000; reg_lambda: 10.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0927 / 대기 | b14→c191 / n0909 | bound: 0.3→0.5; reg_lambda: 30.0→30.5; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0928 / 대기 | b14→c191 / n0916 | half_life: 180→365; learning_rate: 0.05→0.025; min_child_samples: 200→1000; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0929 / 대기 | b14→c191 / n0905 | bound: 0.3→0.5; learning_rate: 0.05→0.025; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0930 / 대기 | b14→c191 / n0912 | reg_lambda: 10.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0931 / 대기 | b14→c191 / n0919 | half_life: 180→없음; n_estimators: 300→160; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0932 / 대기 | b14→c191 / n0917 | bound: 0.15→0.2; half_life: 365→없음; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0933 / 대기 | b14→c191 / n0909 | min_child_samples: 500→200; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0934 / 대기 | b14→c191 / n0902 | bound: 0.2→0.1; features: age→season; learning_rate: 0.025→0.05; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0935 / 대기 | b14→c191 / n0929 | learning_rate: 0.025→0.05; min_child_samples: 200→1000; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0936 / 대기 | b14→c191 / n0905 | bound: 0.3→0.2; features: age→core; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0937 / 대기 | b14→c191 / n0935 | features: age→season; n_estimators: 160→80; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0938 / 대기 | b14→c191 / n0916 | features: season→age; learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0939 / 대기 | b14→c191 / n0916 | features: season→core; mode: additive→multiplicative; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0940 / 대기 | b14→c191 / n0926 | features: age→season; learning_rate: 0.025→0.05; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0941 / 대기 | b14→c191 / n0917 | half_life: 365→180; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0942 / 대기 | b14→c191 / n0922 | features: season→core; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0943 / 대기 | b14→c191 / n0937 | half_life: 365→없음; learning_rate: 0.05→0.025; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0944 / 대기 | b14→c191 / n0900 | features: core→age; learning_rate: 0.025→0.05; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0945 / 대기 | b14→c191 / n0943 | bound: 0.5→0.3; features: season→core; reg_lambda: 10.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0946 / 대기 | b14→c191 / n0912 | bound: 0.2→0.3; features: core→season; min_child_samples: 500→1000; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0947 / 대기 | b14→c191 / n0929 | min_child_samples: 200→500; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0948 / 대기 | b14→c191 / n0910 | features: season→core; half_life: 없음→365; num_leaves: 3→15; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0949 / 대기 | b14→c191 / n0945 | features: core→season; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0950 / 대기 | b14→c191 / n0926 | bound: 0.2→0.1; learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0951 / 대기 | b14→c191 / n0901 | features: season→core; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0952 / 대기 | b14→c191 / n0946 | bound: 0.3→0.1; n_estimators: 160→300; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0953 / 대기 | b14→c191 / n0941 | learning_rate: 0.05→0.025; min_child_samples: 1000→200; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0954 / 대기 | b14→c191 / n0916 | bound: 0.3→0.1; features: season→core; half_life: 180→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0955 / 대기 | b14→c191 / n0946 | half_life: 없음→180; mode: additive→multiplicative; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0956 / 대기 | b14→c191 / n0926 | min_child_samples: 1000→200; num_leaves: 7→3; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0957 / 대기 | b14→c191 / n0901 | bound: 0.5→0.3; features: season→core; half_life: 180→없음 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0958 / 대기 | b14→c191 / n0907 | bound: 0.5→0.2; mode: multiplicative→additive; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0959 / 대기 | b14→c191 / n0911 | half_life: 365→180; min_child_samples: 500→200; reg_lambda: 10.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0960 / 대기 | b15→c170 / n0960 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0961 / 대기 | b15→c170 / n0960 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0962 / 대기 | b15→c170 / n0960 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0963 / 대기 | b15→c170 / n0961 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0964 / 대기 | b15→c170 / n0960 | learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→7; reg_lambda: 0.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0965 / 대기 | b15→c170 / n0964 | bound: 0.2→0.15; features: core→season; half_life: 없음→365; min_child_samples: 200→500; mode: additive→multiplicative; n_estimators: 160→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0966 / 대기 | b15→c170 / n0964 | bound: 0.2→0.1; features: core→age; half_life: 없음→365; learning_rate: 0.025→0.05; min_child_samples: 200→500; num_leaves: 7→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0967 / 대기 | b15→c170 / n0964 | bound: 0.2→0.5; min_child_samples: 200→1000; mode: additive→multiplicative; num_leaves: 7→3; reg_lambda: 10.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0968 / 대기 | b15→c170 / n0964 | features: core→season; half_life: 없음→365; min_child_samples: 200→1000; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0969 / 대기 | b15→c170 / n0965 | bound: 0.15→0.3; features: season→age; half_life: 365→180; n_estimators: 300→80; reg_lambda: 10.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0970 / 대기 | b15→c170 / n0965 | bound: 0.15→0.1; features: season→core; half_life: 365→180; learning_rate: 0.025→0.05; mode: multiplicative→additive; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0971 / 대기 | b15→c170 / n0965 | half_life: 365→없음; learning_rate: 0.025→0.05; min_child_samples: 500→1000; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0972 / 대기 | b15→c170 / n0971 | bound: 0.15→0.2; features: season→age; mode: multiplicative→additive; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0973 / 대기 | b15→c170 / n0967 | half_life: 없음→180; min_child_samples: 1000→500; num_leaves: 3→15; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0974 / 대기 | b15→c170 / n0970 | features: core→season; min_child_samples: 500→1000; n_estimators: 300→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0975 / 대기 | b15→c170 / n0969 | bound: 0.3→0.5; half_life: 180→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0976 / 대기 | b15→c170 / n0964 | learning_rate: 0.025→0.05; min_child_samples: 200→500; num_leaves: 7→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0977 / 대기 | b15→c170 / n0969 | features: age→season; half_life: 180→365; num_leaves: 7→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0978 / 대기 | b15→c170 / n0970 | features: core→age; half_life: 180→365; learning_rate: 0.05→0.025; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0979 / 대기 | b15→c170 / n0973 | half_life: 180→365; learning_rate: 0.025→0.05; min_child_samples: 500→200; n_estimators: 160→80; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0980 / 대기 | b15→c170 / n0966 | bound: 0.1→0.3; features: age→season; half_life: 365→180; num_leaves: 3→15; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0981 / 대기 | b15→c170 / n0969 | half_life: 180→365; n_estimators: 80→160; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0982 / 대기 | b15→c170 / n0966 | features: age→core; min_child_samples: 500→200; num_leaves: 3→15; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0983 / 대기 | b15→c170 / n0968 | bound: 0.2→0.3; half_life: 365→180; mode: additive→multiplicative; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0984 / 대기 | b15→c170 / n0972 | half_life: 없음→180; reg_lambda: 10.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0985 / 대기 | b15→c170 / n0983 | features: season→core; min_child_samples: 1000→200; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0986 / 대기 | b15→c170 / n0964 | bound: 0.2→0.3; features: core→season; half_life: 없음→180; n_estimators: 160→300; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0987 / 대기 | b15→c170 / n0969 | half_life: 180→365; learning_rate: 0.025→0.05; n_estimators: 80→300; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0988 / 대기 | b15→c170 / n0978 | features: age→core; half_life: 365→없음; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0989 / 대기 | b15→c170 / n0973 | bound: 0.5→0.15; features: core→season; learning_rate: 0.025→0.05; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0990 / 대기 | b15→c170 / n0969 | learning_rate: 0.025→0.05; mode: multiplicative→additive; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0991 / 대기 | b15→c170 / n0971 | bound: 0.15→0.3; features: season→core; half_life: 없음→180; min_child_samples: 1000→200; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0992 / 대기 | b15→c170 / n0986 | half_life: 180→없음; reg_lambda: 10.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0993 / 대기 | b15→c170 / n0971 | features: season→age; learning_rate: 0.05→0.025; n_estimators: 300→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0994 / 대기 | b15→c170 / n0988 | bound: 0.1→0.3; reg_lambda: 30.0→30.5; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0995 / 대기 | b15→c170 / n0965 | reg_lambda: 10.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0996 / 대기 | b15→c170 / n0966 | half_life: 365→없음; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0997 / 대기 | b15→c170 / n0979 | half_life: 365→없음; num_leaves: 15→7; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0998 / 대기 | b15→c170 / n0986 | n_estimators: 300→80; reg_lambda: 10.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n0999 / 대기 | b15→c170 / n0969 | half_life: 180→365; learning_rate: 0.025→0.05; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1000 / 대기 | b15→c170 / n0973 | bound: 0.5→0.1; half_life: 180→없음; mode: multiplicative→additive; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1001 / 대기 | b15→c170 / n0969 | bound: 0.3→0.5; features: age→season; learning_rate: 0.025→0.05; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1002 / 대기 | b15→c170 / n0966 | bound: 0.1→0.2; half_life: 365→180; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1003 / 대기 | b15→c170 / n0967 | bound: 0.5→0.3; num_leaves: 3→7; reg_lambda: 30.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1004 / 대기 | b15→c170 / n0968 | min_child_samples: 1000→200; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1005 / 대기 | b15→c170 / n0965 | features: season→age; half_life: 365→없음; learning_rate: 0.025→0.05; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1006 / 대기 | b15→c170 / n1000 | min_child_samples: 500→1000; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1007 / 대기 | b15→c170 / n0977 | min_child_samples: 500→1000; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1008 / 대기 | b15→c170 / n0988 | bound: 0.1→0.3; features: core→age; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1009 / 대기 | b15→c170 / n0987 | bound: 0.3→0.15; features: age→core; min_child_samples: 500→1000; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1010 / 대기 | b15→c170 / n0992 | learning_rate: 0.025→0.05; num_leaves: 7→15; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1011 / 대기 | b15→c170 / n0993 | half_life: 없음→180; min_child_samples: 1000→500; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1012 / 대기 | b15→c170 / n0991 | learning_rate: 0.05→0.025; min_child_samples: 200→500; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1013 / 대기 | b15→c170 / n0965 | learning_rate: 0.025→0.05; num_leaves: 7→15; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1014 / 대기 | b15→c170 / n0972 | bound: 0.2→0.1; half_life: 없음→365; num_leaves: 3→7; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1015 / 대기 | b15→c170 / n0967 | n_estimators: 160→80; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1016 / 대기 | b15→c170 / n0968 | n_estimators: 80→300; num_leaves: 7→15; reg_lambda: 10.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1017 / 대기 | b15→c170 / n1009 | features: core→age; half_life: 365→180; min_child_samples: 1000→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1018 / 대기 | b15→c170 / n0984 | bound: 0.2→0.3; features: age→core; half_life: 180→365; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1019 / 대기 | b15→c170 / n0971 | min_child_samples: 1000→200; n_estimators: 300→80; num_leaves: 3→7; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1020 / 대기 | b15→c170 / n0981 | mode: multiplicative→additive; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1021 / 대기 | b15→c170 / n1011 | features: age→core; learning_rate: 0.025→0.05; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1022 / 대기 | b15→c170 / n1016 | bound: 0.2→0.3; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1023 / 대기 | b15→c170 / n0971 | features: season→age; min_child_samples: 1000→200; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1024 / 대기 | b16→c128 / n1024 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1025 / 대기 | b16→c128 / n1024 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1026 / 대기 | b16→c128 / n1024 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1027 / 대기 | b16→c128 / n1025 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1028 / 대기 | b16→c128 / n1024 | bound: 0.2→0.3; half_life: 없음→180; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→3; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1029 / 대기 | b16→c128 / n1028 | features: core→season; half_life: 180→없음; mode: additive→multiplicative; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1030 / 대기 | b16→c128 / n1028 | bound: 0.3→0.2; features: core→age; half_life: 180→없음; n_estimators: 80→300; num_leaves: 3→7; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1031 / 대기 | b16→c128 / n1029 | bound: 0.3→0.15; features: season→core; learning_rate: 0.05→0.025; min_child_samples: 500→200; num_leaves: 7→15; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1032 / 대기 | b16→c128 / n1030 | features: age→season; half_life: 없음→365; learning_rate: 0.05→0.025; min_child_samples: 500→200; num_leaves: 7→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1033 / 대기 | b16→c128 / n1028 | bound: 0.3→0.5; features: core→age; half_life: 180→없음; min_child_samples: 500→1000; mode: additive→multiplicative; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1034 / 대기 | b16→c128 / n1028 | half_life: 180→365; learning_rate: 0.05→0.025; n_estimators: 80→160; num_leaves: 3→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1035 / 대기 | b16→c128 / n1029 | bound: 0.3→0.5; learning_rate: 0.05→0.025; n_estimators: 80→300; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1036 / 대기 | b16→c128 / n1028 | features: core→age; min_child_samples: 500→200; n_estimators: 80→300; num_leaves: 3→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1037 / 대기 | b16→c128 / n1028 | half_life: 180→없음; mode: additive→multiplicative; num_leaves: 3→15; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1038 / 대기 | b16→c128 / n1032 | min_child_samples: 200→1000; n_estimators: 300→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1039 / 대기 | b16→c128 / n1030 | bound: 0.2→0.15; min_child_samples: 500→200; mode: additive→multiplicative; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1040 / 대기 | b16→c128 / n1036 | features: age→core; half_life: 180→365; min_child_samples: 200→1000; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1041 / 대기 | b16→c128 / n1031 | features: core→season; half_life: 없음→180; min_child_samples: 200→1000; num_leaves: 15→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1042 / 대기 | b16→c128 / n1028 | bound: 0.3→0.2; features: core→age; min_child_samples: 500→1000; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1043 / 대기 | b16→c128 / n1033 | features: age→core; half_life: 없음→365; learning_rate: 0.05→0.025; min_child_samples: 1000→200; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1044 / 대기 | b16→c128 / n1038 | half_life: 365→180; num_leaves: 7→3; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1045 / 대기 | b16→c128 / n1029 | features: season→age; learning_rate: 0.05→0.025; num_leaves: 7→3; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1046 / 대기 | b16→c128 / n1040 | learning_rate: 0.05→0.025; n_estimators: 300→80; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1047 / 대기 | b16→c128 / n1032 | bound: 0.2→0.5; half_life: 365→180; min_child_samples: 200→1000; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1048 / 대기 | b16→c128 / n1034 | bound: 0.3→0.1; features: core→age; n_estimators: 160→300; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1049 / 대기 | b16→c128 / n1043 | bound: 0.5→0.3; half_life: 365→180; reg_lambda: 2.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1050 / 대기 | b16→c128 / n1032 | num_leaves: 15→7; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1051 / 대기 | b16→c128 / n1045 | min_child_samples: 500→200; n_estimators: 80→160; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1052 / 대기 | b16→c128 / n1031 | bound: 0.15→0.2; half_life: 없음→365; learning_rate: 0.025→0.05; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1053 / 대기 | b16→c128 / n1037 | bound: 0.3→0.15; features: core→season; half_life: 없음→180; n_estimators: 80→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1054 / 대기 | b16→c128 / n1033 | bound: 0.5→0.1; mode: multiplicative→additive; n_estimators: 80→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1055 / 대기 | b16→c128 / n1045 | features: age→core; learning_rate: 0.025→0.05; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1056 / 대기 | b16→c128 / n1032 | n_estimators: 300→80; num_leaves: 15→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1057 / 대기 | b16→c128 / n1045 | learning_rate: 0.025→0.05; n_estimators: 80→160; reg_lambda: 30.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1058 / 대기 | b16→c128 / n1036 | bound: 0.3→0.2; features: age→core; half_life: 180→없음; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1059 / 대기 | b16→c128 / n1033 | features: age→season; learning_rate: 0.05→0.025; num_leaves: 3→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1060 / 대기 | b16→c128 / n1058 | features: core→age; n_estimators: 160→80; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1061 / 대기 | b16→c128 / n1028 | mode: additive→multiplicative; n_estimators: 80→300; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1062 / 대기 | b16→c128 / n1040 | bound: 0.3→0.1; features: core→season; n_estimators: 300→80; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1063 / 대기 | b16→c128 / n1039 | half_life: 없음→180; learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1064 / 대기 | b16→c128 / n1062 | features: season→core; n_estimators: 80→160; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1065 / 대기 | b16→c128 / n1037 | features: core→season; half_life: 없음→180; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1066 / 대기 | b16→c128 / n1036 | num_leaves: 7→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1067 / 대기 | b16→c128 / n1043 | reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1068 / 대기 | b16→c128 / n1038 | half_life: 365→180; min_child_samples: 1000→500; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1069 / 대기 | b16→c128 / n1029 | bound: 0.3→0.5; features: season→age; half_life: 없음→180; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1070 / 대기 | b16→c128 / n1031 | bound: 0.15→0.3; mode: multiplicative→additive; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1071 / 대기 | b16→c128 / n1067 | features: core→season; half_life: 365→180 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1072 / 대기 | b16→c128 / n1036 | half_life: 180→365; n_estimators: 300→80; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1073 / 대기 | b16→c128 / n1037 | learning_rate: 0.05→0.025; n_estimators: 80→160; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1074 / 대기 | b16→c128 / n1056 | bound: 0.2→0.3; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1075 / 대기 | b16→c128 / n1045 | min_child_samples: 500→1000; n_estimators: 80→160; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1076 / 대기 | b16→c128 / n1058 | bound: 0.2→0.1; half_life: 없음→180; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1077 / 대기 | b16→c128 / n1074 | learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1078 / 대기 | b16→c128 / n1036 | bound: 0.3→0.2; min_child_samples: 200→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1079 / 대기 | b16→c128 / n1029 | features: season→core; n_estimators: 80→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1080 / 대기 | b16→c128 / n1044 | bound: 0.2→0.1; learning_rate: 0.025→0.05; num_leaves: 3→7; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1081 / 대기 | b16→c128 / n1066 | learning_rate: 0.05→0.025; mode: additive→multiplicative; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1082 / 대기 | b16→c128 / n1068 | bound: 0.2→0.1; features: season→core (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1083 / 대기 | b16→c128 / n1041 | half_life: 180→365; min_child_samples: 1000→200; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1084 / 대기 | b16→c128 / n1048 | half_life: 365→없음; learning_rate: 0.025→0.05; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1085 / 대기 | b16→c128 / n1047 | features: season→core; half_life: 180→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1086 / 대기 | b16→c128 / n1044 | min_child_samples: 1000→200; num_leaves: 3→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1087 / 대기 | b16→c128 / n1033 | num_leaves: 3→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1088 / 대기 | b17→c115 / n1088 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1089 / 대기 | b17→c115 / n1088 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1090 / 대기 | b17→c115 / n1088 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1091 / 대기 | b17→c115 / n1089 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1092 / 대기 | b17→c115 / n1088 | bound: 0.2→0.3; half_life: 없음→180; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→160; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1093 / 대기 | b17→c115 / n1089 | features: core→season; half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→300; num_leaves: 0→15; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1094 / 대기 | b17→c115 / n1092 | bound: 0.3→0.1; features: core→age; half_life: 180→없음; learning_rate: 0.05→0.025; n_estimators: 160→80; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1095 / 대기 | b17→c115 / n1092 | mode: additive→multiplicative; n_estimators: 160→300; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1096 / 대기 | b17→c115 / n1092 | bound: 0.3→0.2; features: core→season; min_child_samples: 1000→200; n_estimators: 160→80; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1097 / 대기 | b17→c115 / n1093 | bound: 0.3→0.15; features: season→age; learning_rate: 0.025→0.05; min_child_samples: 500→200; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1098 / 대기 | b17→c115 / n1092 | bound: 0.3→0.1; half_life: 180→없음; n_estimators: 160→300; num_leaves: 7→15; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1099 / 대기 | b17→c115 / n1093 | bound: 0.3→0.15; half_life: 180→없음; num_leaves: 15→7; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1100 / 대기 | b17→c115 / n1093 | bound: 0.3→0.1; features: season→age; mode: multiplicative→additive; num_leaves: 15→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1101 / 대기 | b17→c115 / n1095 | half_life: 180→365; num_leaves: 7→15; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1102 / 대기 | b17→c115 / n1093 | half_life: 180→365; mode: multiplicative→additive; n_estimators: 300→160; reg_lambda: 2.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1103 / 대기 | b17→c115 / n1094 | bound: 0.1→0.5; mode: additive→multiplicative; num_leaves: 7→3; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1104 / 대기 | b17→c115 / n1096 | bound: 0.2→0.1; features: season→core; min_child_samples: 200→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1105 / 대기 | b17→c115 / n1093 | half_life: 180→없음; n_estimators: 300→160; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1106 / 대기 | b17→c115 / n1094 | bound: 0.1→0.3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1107 / 대기 | b17→c115 / n1093 | features: season→core; half_life: 180→없음; num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1108 / 대기 | b17→c115 / n1102 | n_estimators: 160→80; num_leaves: 15→3; reg_lambda: 10.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1109 / 대기 | b17→c115 / n1108 | features: season→age; min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1110 / 대기 | b17→c115 / n1092 | learning_rate: 0.05→0.025; min_child_samples: 1000→200; n_estimators: 160→300; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1111 / 대기 | b17→c115 / n1099 | half_life: 없음→365; learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1112 / 대기 | b17→c115 / n1100 | bound: 0.1→0.3; n_estimators: 300→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1113 / 대기 | b17→c115 / n1101 | bound: 0.3→0.5; learning_rate: 0.05→0.025; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1114 / 대기 | b17→c115 / n1108 | half_life: 365→없음; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1115 / 대기 | b17→c115 / n1109 | bound: 0.3→0.5; min_child_samples: 200→500; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1116 / 대기 | b17→c115 / n1098 | half_life: 없음→365; min_child_samples: 1000→500; num_leaves: 15→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1117 / 대기 | b17→c115 / n1095 | features: core→season; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1118 / 대기 | b17→c115 / n1112 | bound: 0.3→0.2; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1119 / 대기 | b17→c115 / n1113 | num_leaves: 15→7 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1120 / 대기 | b17→c115 / n1102 | learning_rate: 0.025→0.05; min_child_samples: 500→1000; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1121 / 대기 | b17→c115 / n1103 | bound: 0.5→0.15; min_child_samples: 1000→500; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1122 / 대기 | b17→c115 / n1108 | features: season→core; n_estimators: 80→160; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1123 / 대기 | b17→c115 / n1111 | min_child_samples: 500→200; num_leaves: 7→15; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1124 / 대기 | b17→c115 / n1092 | features: core→age; half_life: 180→365; min_child_samples: 1000→200; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1125 / 대기 | b17→c115 / n1101 | bound: 0.3→0.5; min_child_samples: 1000→200; n_estimators: 300→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1126 / 대기 | b17→c115 / n1096 | half_life: 180→365; learning_rate: 0.05→0.025; n_estimators: 80→160; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1127 / 대기 | b17→c115 / n1099 | features: season→age (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1128 / 대기 | b17→c115 / n1110 | bound: 0.3→0.2; half_life: 180→없음 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1129 / 대기 | b17→c115 / n1105 | min_child_samples: 500→200; n_estimators: 160→80; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1130 / 대기 | b17→c115 / n1100 | bound: 0.1→0.3; reg_lambda: 2.0→2.5; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1131 / 대기 | b17→c115 / n1095 | learning_rate: 0.05→0.025; n_estimators: 300→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1132 / 대기 | b17→c115 / n1100 | features: age→season; half_life: 180→365; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1133 / 대기 | b17→c115 / n1097 | min_child_samples: 200→1000; n_estimators: 300→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1134 / 대기 | b17→c115 / n1110 | bound: 0.3→0.2; num_leaves: 7→15; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1135 / 대기 | b17→c115 / n1111 | half_life: 365→180; min_child_samples: 500→1000; reg_lambda: 30.0→10.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1136 / 대기 | b17→c115 / n1130 | num_leaves: 7→3; reg_lambda: 2.5→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1137 / 대기 | b17→c115 / n1107 | bound: 0.3→0.15; n_estimators: 300→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1138 / 대기 | b17→c115 / n1107 | bound: 0.3→0.2; features: core→season; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1139 / 대기 | b17→c115 / n1103 | min_child_samples: 1000→500 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1140 / 대기 | b17→c115 / n1114 | features: season→core; min_child_samples: 500→1000; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1141 / 대기 | b17→c115 / n1129 | bound: 0.3→0.5; learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1142 / 대기 | b17→c115 / n1102 | features: season→age; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1143 / 대기 | b17→c115 / n1125 | n_estimators: 160→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1144 / 대기 | b17→c115 / n1114 | half_life: 없음→180; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1145 / 대기 | b17→c115 / n1111 | features: season→age; n_estimators: 300→80; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1146 / 대기 | b17→c115 / n1128 | n_estimators: 300→160; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1147 / 대기 | b17→c115 / n1096 | bound: 0.2→0.5; min_child_samples: 200→1000; mode: additive→multiplicative; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1148 / 대기 | b17→c115 / n1118 | bound: 0.2→0.3; learning_rate: 0.025→0.05; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1149 / 대기 | b17→c115 / n1103 | features: age→core; half_life: 없음→180; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1150 / 대기 | b17→c115 / n1126 | min_child_samples: 200→500; n_estimators: 160→300; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1151 / 대기 | b17→c115 / n1139 | num_leaves: 3→7; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1152 / 대기 | b18→c038 / n1152 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1153 / 대기 | b18→c038 / n1152 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1154 / 대기 | b18→c038 / n1152 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1155 / 대기 | b18→c038 / n1153 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1156 / 대기 | b18→c038 / n1152 | half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1157 / 대기 | b18→c038 / n1156 | bound: 0.2→0.5; features: core→season; learning_rate: 0.025→0.05; min_child_samples: 1000→500; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1158 / 대기 | b18→c038 / n1157 | bound: 0.5→0.1; features: season→age; half_life: 180→없음; mode: multiplicative→additive; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1159 / 대기 | b18→c038 / n1156 | bound: 0.2→0.15; half_life: 180→없음; min_child_samples: 1000→200; mode: additive→multiplicative; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1160 / 대기 | b18→c038 / n1157 | bound: 0.5→0.2; min_child_samples: 500→200; mode: multiplicative→additive; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1161 / 대기 | b18→c038 / n1157 | features: season→age; min_child_samples: 500→1000; n_estimators: 160→80; reg_lambda: 2.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1162 / 대기 | b18→c038 / n1154 | learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→7; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1163 / 대기 | b18→c038 / n1161 | features: age→season; n_estimators: 80→300; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1164 / 대기 | b18→c038 / n1156 | bound: 0.2→0.3; features: core→age; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1165 / 대기 | b18→c038 / n1163 | bound: 0.5→0.3; features: season→core; half_life: 180→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1166 / 대기 | b18→c038 / n1159 | bound: 0.15→0.3; features: core→season; half_life: 없음→365; mode: multiplicative→additive; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1167 / 대기 | b18→c038 / n1157 | bound: 0.5→0.15; features: season→age; num_leaves: 3→7; reg_lambda: 2.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1168 / 대기 | b18→c038 / n1158 | features: age→core; half_life: 없음→180; min_child_samples: 500→200; n_estimators: 160→300; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1169 / 대기 | b18→c038 / n1163 | half_life: 180→없음; learning_rate: 0.05→0.025; n_estimators: 300→160; num_leaves: 3→15; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1170 / 대기 | b18→c038 / n1158 | bound: 0.1→0.2; learning_rate: 0.05→0.025; min_child_samples: 500→200; n_estimators: 160→300; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1171 / 대기 | b18→c038 / n1157 | features: season→core; half_life: 180→365; min_child_samples: 500→200; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1172 / 대기 | b18→c038 / n1157 | bound: 0.5→0.1; half_life: 180→365; mode: multiplicative→additive; n_estimators: 160→80; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1173 / 대기 | b18→c038 / n1165 | features: core→age; min_child_samples: 1000→500; num_leaves: 3→7; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1174 / 대기 | b18→c038 / n1168 | half_life: 180→365; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1175 / 대기 | b18→c038 / n1157 | learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1176 / 대기 | b18→c038 / n1164 | half_life: 180→365; learning_rate: 0.025→0.05; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1177 / 대기 | b18→c038 / n1165 | bound: 0.3→0.15; min_child_samples: 1000→200; reg_lambda: 30.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1178 / 대기 | b18→c038 / n1164 | bound: 0.3→0.1; features: age→season; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1179 / 대기 | b18→c038 / n1170 | bound: 0.2→0.3; half_life: 없음→180; min_child_samples: 200→500; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1180 / 대기 | b18→c038 / n1164 | features: age→core; half_life: 180→365; min_child_samples: 1000→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1181 / 대기 | b18→c038 / n1159 | bound: 0.15→0.3; features: core→season; learning_rate: 0.025→0.05; n_estimators: 300→80; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1182 / 대기 | b18→c038 / n1158 | bound: 0.1→0.3; min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1183 / 대기 | b18→c038 / n1171 | half_life: 365→없음; num_leaves: 3→15; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1184 / 대기 | b18→c038 / n1158 | bound: 0.1→0.2; features: age→season; n_estimators: 160→300; num_leaves: 3→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1185 / 대기 | b18→c038 / n1161 | min_child_samples: 1000→200; n_estimators: 80→300; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1186 / 대기 | b18→c038 / n1162 | bound: 0.2→0.3; reg_lambda: 10.0→10.5; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1187 / 대기 | b18→c038 / n1181 | bound: 0.3→0.5; num_leaves: 15→7; reg_lambda: 30.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1188 / 대기 | b18→c038 / n1158 | num_leaves: 3→7; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1189 / 대기 | b18→c038 / n1161 | bound: 0.5→0.15; features: age→core; half_life: 180→없음; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1190 / 대기 | b18→c038 / n1160 | bound: 0.2→0.3; num_leaves: 3→7; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1191 / 대기 | b18→c038 / n1179 | half_life: 180→없음; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1192 / 대기 | b18→c038 / n1162 | bound: 0.2→0.1; learning_rate: 0.05→0.025; n_estimators: 80→160; num_leaves: 7→15; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1193 / 대기 | b18→c038 / n1179 | bound: 0.3→0.15; features: age→season; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1194 / 대기 | b18→c038 / n1182 | min_child_samples: 1000→200; reg_lambda: 30.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1195 / 대기 | b18→c038 / n1193 | bound: 0.15→0.5; features: season→core; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1196 / 대기 | b18→c038 / n1164 | features: age→season; n_estimators: 300→160; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1197 / 대기 | b18→c038 / n1175 | features: season→age; half_life: 180→없음; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1198 / 대기 | b18→c038 / n1192 | half_life: 365→없음; min_child_samples: 500→200; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1199 / 대기 | b18→c038 / n1177 | features: core→season; min_child_samples: 200→500; num_leaves: 3→15; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1200 / 대기 | b18→c038 / n1179 | mode: multiplicative→additive; n_estimators: 300→80; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1201 / 대기 | b18→c038 / n1171 | half_life: 365→없음 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1202 / 대기 | b18→c038 / n1166 | min_child_samples: 200→1000; n_estimators: 300→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1203 / 대기 | b18→c038 / n1179 | learning_rate: 0.025→0.05; n_estimators: 300→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1204 / 대기 | b18→c038 / n1158 | bound: 0.1→0.3; features: age→core; half_life: 없음→365; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1205 / 대기 | b18→c038 / n1163 | reg_lambda: 30.0→10.0 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1206 / 대기 | b18→c038 / n1197 | bound: 0.5→0.1; mode: multiplicative→additive; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1207 / 대기 | b18→c038 / n1159 | half_life: 없음→180; min_child_samples: 200→1000; n_estimators: 300→160; reg_lambda: 30.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1208 / 대기 | b18→c038 / n1178 | bound: 0.1→0.2; learning_rate: 0.025→0.05; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1209 / 대기 | b18→c038 / n1173 | half_life: 365→없음; min_child_samples: 500→1000; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1210 / 대기 | b18→c038 / n1162 | n_estimators: 80→160; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1211 / 대기 | b18→c038 / n1181 | n_estimators: 80→160; reg_lambda: 30.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1212 / 대기 | b18→c038 / n1160 | features: season→age; learning_rate: 0.05→0.025; n_estimators: 160→80; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1213 / 대기 | b18→c038 / n1211 | features: season→core; half_life: 없음→180 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1214 / 대기 | b18→c038 / n1160 | reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1215 / 대기 | b18→c038 / n1189 | features: core→age; min_child_samples: 1000→200; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1216 / 대기 | b19→c226 / n1216 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1217 / 대기 | b19→c226 / n1216 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1218 / 대기 | b19→c226 / n1216 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1219 / 대기 | b19→c226 / n1217 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1220 / 대기 | b19→c226 / n1218 | bound: 0.2→0.3; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→200; n_estimators: 0→300; num_leaves: 0→15; reg_lambda: 0.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1221 / 대기 | b19→c226 / n1220 | features: core→season; half_life: 365→180; mode: additive→multiplicative; num_leaves: 15→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1222 / 대기 | b19→c226 / n1220 | features: core→age; min_child_samples: 200→1000; num_leaves: 15→7; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1223 / 대기 | b19→c226 / n1220 | bound: 0.3→0.15; half_life: 365→없음; mode: additive→multiplicative; n_estimators: 300→80; num_leaves: 15→7; reg_lambda: 30.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1224 / 대기 | b19→c226 / n1222 | features: age→season; half_life: 365→없음; min_child_samples: 1000→500; n_estimators: 300→160; reg_lambda: 30.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1225 / 대기 | b19→c226 / n1222 | learning_rate: 0.05→0.025; mode: additive→multiplicative; n_estimators: 300→80; num_leaves: 7→3; reg_lambda: 30.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1226 / 대기 | b19→c226 / n1224 | bound: 0.3→0.2; features: season→core; learning_rate: 0.05→0.025; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1227 / 대기 | b19→c226 / n1224 | half_life: 없음→365; mode: additive→multiplicative; n_estimators: 160→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1228 / 대기 | b19→c226 / n1222 | bound: 0.3→0.2; half_life: 365→180; n_estimators: 300→80; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1229 / 대기 | b19→c226 / n1220 | bound: 0.3→0.15; min_child_samples: 200→500; mode: additive→multiplicative; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1230 / 대기 | b19→c226 / n1224 | half_life: 없음→365; min_child_samples: 500→200; reg_lambda: 2.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1231 / 대기 | b19→c226 / n1225 | bound: 0.3→0.5; learning_rate: 0.025→0.05; min_child_samples: 1000→500; n_estimators: 80→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1232 / 대기 | b19→c226 / n1222 | bound: 0.3→0.1; features: age→core; min_child_samples: 1000→500; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1233 / 대기 | b19→c226 / n1227 | half_life: 365→180; n_estimators: 300→160; num_leaves: 7→15; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1234 / 대기 | b19→c226 / n1225 | half_life: 365→180; mode: multiplicative→additive; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1235 / 대기 | b19→c226 / n1220 | bound: 0.3→0.5; half_life: 365→180; learning_rate: 0.05→0.025; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1236 / 대기 | b19→c226 / n1224 | bound: 0.3→0.1; min_child_samples: 500→1000; n_estimators: 160→80; num_leaves: 7→15; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1237 / 대기 | b19→c226 / n1227 | features: season→age (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1238 / 대기 | b19→c226 / n1232 | half_life: 365→없음; min_child_samples: 500→1000; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1239 / 대기 | b19→c226 / n1235 | features: core→season; min_child_samples: 200→1000; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1240 / 대기 | b19→c226 / n1228 | half_life: 180→없음; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1241 / 대기 | b19→c226 / n1226 | bound: 0.2→0.5; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1242 / 대기 | b19→c226 / n1226 | features: core→season (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1243 / 대기 | b19→c226 / n1221 | bound: 0.3→0.15; features: season→age; half_life: 180→없음 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1244 / 대기 | b19→c226 / n1226 | half_life: 없음→365; learning_rate: 0.025→0.05; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1245 / 대기 | b19→c226 / n1223 | features: core→season; half_life: 없음→180; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1246 / 대기 | b19→c226 / n1240 | min_child_samples: 1000→500; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1247 / 대기 | b19→c226 / n1223 | bound: 0.15→0.5; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1248 / 대기 | b19→c226 / n1222 | features: age→season; min_child_samples: 1000→500; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1249 / 대기 | b19→c226 / n1231 | bound: 0.5→0.3; half_life: 365→없음; n_estimators: 160→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1250 / 대기 | b19→c226 / n1226 | half_life: 없음→180; n_estimators: 160→300; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1251 / 대기 | b19→c226 / n1233 | bound: 0.3→0.15; min_child_samples: 500→1000; num_leaves: 15→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1252 / 대기 | b19→c226 / n1222 | bound: 0.3→0.1; n_estimators: 300→160; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1253 / 대기 | b19→c226 / n1241 | half_life: 없음→365; n_estimators: 160→80; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1254 / 대기 | b19→c226 / n1242 | half_life: 없음→180; num_leaves: 3→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1255 / 대기 | b19→c226 / n1243 | num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1256 / 대기 | b19→c226 / n1220 | bound: 0.3→0.1; half_life: 365→180; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1257 / 대기 | b19→c226 / n1251 | learning_rate: 0.05→0.025; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1258 / 대기 | b19→c226 / n1230 | bound: 0.3→0.2; features: season→age; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1259 / 대기 | b19→c226 / n1224 | features: season→core; min_child_samples: 500→1000; mode: additive→multiplicative; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1260 / 대기 | b19→c226 / n1236 | half_life: 없음→365; learning_rate: 0.05→0.025; min_child_samples: 1000→500; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1261 / 대기 | b19→c226 / n1225 | bound: 0.3→0.15; learning_rate: 0.025→0.05; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1262 / 대기 | b19→c226 / n1238 | learning_rate: 0.05→0.025; min_child_samples: 1000→500; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1263 / 대기 | b19→c226 / n1239 | half_life: 180→365; num_leaves: 15→3; reg_lambda: 10.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1264 / 대기 | b19→c226 / n1252 | half_life: 365→180; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1265 / 대기 | b19→c226 / n1229 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1266 / 대기 | b19→c226 / n1230 | bound: 0.3→0.1; half_life: 365→없음; learning_rate: 0.05→0.025; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1267 / 대기 | b19→c226 / n1243 | n_estimators: 300→80; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1268 / 대기 | b19→c226 / n1266 | features: season→core; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1269 / 대기 | b19→c226 / n1261 | features: age→season; num_leaves: 3→15; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1270 / 대기 | b19→c226 / n1222 | bound: 0.3→0.2; min_child_samples: 1000→500; n_estimators: 300→80; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1271 / 대기 | b19→c226 / n1247 | num_leaves: 7→15; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1272 / 대기 | b19→c226 / n1254 | bound: 0.2→0.1; reg_lambda: 10.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1273 / 대기 | b19→c226 / n1225 | bound: 0.3→0.5; half_life: 365→180; num_leaves: 3→7; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1274 / 대기 | b19→c226 / n1266 | features: season→core; half_life: 없음→365; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1275 / 대기 | b19→c226 / n1225 | features: age→season; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1276 / 대기 | b19→c226 / n1222 | half_life: 365→180; min_child_samples: 1000→500; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1277 / 대기 | b19→c226 / n1227 | features: season→core; num_leaves: 7→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1278 / 대기 | b19→c226 / n1262 | features: core→season; half_life: 없음→180; min_child_samples: 500→200; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1279 / 대기 | b19→c226 / n1235 | features: core→age; min_child_samples: 200→500; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1280 / 대기 | b20→c014 / n1280 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1281 / 대기 | b20→c014 / n1280 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1282 / 대기 | b20→c014 / n1280 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1283 / 대기 | b20→c014 / n1281 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1284 / 대기 | b20→c014 / n1282 | learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1285 / 대기 | b20→c014 / n1281 | bound: 0.3→0.5; features: core→season; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→3; reg_lambda: 0.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1286 / 대기 | b20→c014 / n1284 | bound: 0.2→0.1; features: core→age; half_life: 365→180; min_child_samples: 200→500; n_estimators: 300→80; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1287 / 대기 | b20→c014 / n1285 | bound: 0.5→0.3; features: season→core; half_life: 없음→180; n_estimators: 80→160; num_leaves: 3→15; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1288 / 대기 | b20→c014 / n1284 | features: core→season; half_life: 365→없음; min_child_samples: 200→1000; n_estimators: 300→160; num_leaves: 7→3; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1289 / 대기 | b20→c014 / n1287 | features: core→age; half_life: 180→없음; num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1290 / 대기 | b20→c014 / n1284 | bound: 0.2→0.1; learning_rate: 0.025→0.05; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1291 / 대기 | b20→c014 / n1285 | bound: 0.5→0.3; half_life: 없음→180; min_child_samples: 500→200; num_leaves: 3→7; reg_lambda: 2.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1292 / 대기 | b20→c014 / n1284 | features: core→age; n_estimators: 300→160; num_leaves: 7→3; reg_lambda: 2.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1293 / 대기 | b20→c014 / n1287 | bound: 0.3→0.5; half_life: 180→365; min_child_samples: 500→200; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1294 / 대기 | b20→c014 / n1290 | bound: 0.1→0.2; features: core→season; half_life: 365→없음; num_leaves: 7→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1295 / 대기 | b20→c014 / n1284 | bound: 0.2→0.5; features: core→age; mode: additive→multiplicative; reg_lambda: 2.0→30.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1296 / 대기 | b20→c014 / n1287 | bound: 0.3→0.1; min_child_samples: 500→1000; mode: multiplicative→additive; num_leaves: 15→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1297 / 대기 | b20→c014 / n1285 | bound: 0.5→0.15; learning_rate: 0.05→0.025; n_estimators: 80→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1298 / 대기 | b20→c014 / n1286 | min_child_samples: 500→200; n_estimators: 80→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1299 / 대기 | b20→c014 / n1285 | bound: 0.5→0.3; features: season→core; half_life: 없음→365; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1300 / 대기 | b20→c014 / n1288 | bound: 0.2→0.3; min_child_samples: 1000→500; n_estimators: 160→300; num_leaves: 3→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1301 / 대기 | b20→c014 / n1287 | features: core→age; learning_rate: 0.05→0.025; min_child_samples: 500→1000; n_estimators: 160→300; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1302 / 대기 | b20→c014 / n1292 | features: age→core; half_life: 365→180; learning_rate: 0.025→0.05; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1303 / 대기 | b20→c014 / n1285 | bound: 0.5→0.3; min_child_samples: 500→1000; n_estimators: 80→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1304 / 대기 | b20→c014 / n1294 | features: season→age; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1305 / 대기 | b20→c014 / n1284 | bound: 0.2→0.15; min_child_samples: 200→1000; mode: additive→multiplicative; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1306 / 대기 | b20→c014 / n1290 | features: core→season; num_leaves: 7→15; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1307 / 대기 | b20→c014 / n1287 | features: core→age; learning_rate: 0.05→0.025; num_leaves: 15→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1308 / 대기 | b20→c014 / n1284 | min_child_samples: 200→500; n_estimators: 300→80; num_leaves: 7→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1309 / 대기 | b20→c014 / n1305 | bound: 0.15→0.5; features: core→season; half_life: 365→없음; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1310 / 대기 | b20→c014 / n1290 | features: core→age; num_leaves: 7→3; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1311 / 대기 | b20→c014 / n1293 | bound: 0.5→0.15; n_estimators: 80→160; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1312 / 대기 | b20→c014 / n1288 | bound: 0.2→0.1; half_life: 없음→365; num_leaves: 3→15; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1313 / 대기 | b20→c014 / n1285 | features: season→age; n_estimators: 80→300; num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1314 / 대기 | b20→c014 / n1296 | half_life: 180→365; learning_rate: 0.05→0.025; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1315 / 대기 | b20→c014 / n1291 | half_life: 180→없음; min_child_samples: 200→1000; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1316 / 대기 | b20→c014 / n1284 | features: core→age; reg_lambda: 2.0→30.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1317 / 대기 | b20→c014 / n1305 | learning_rate: 0.025→0.05; num_leaves: 3→7; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1318 / 대기 | b20→c014 / n1300 | half_life: 없음→365; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1319 / 대기 | b20→c014 / n1313 | n_estimators: 300→80; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1320 / 대기 | b20→c014 / n1300 | bound: 0.3→0.1; features: season→core; learning_rate: 0.025→0.05; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1321 / 대기 | b20→c014 / n1297 | half_life: 없음→365; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1322 / 대기 | b20→c014 / n1289 | bound: 0.3→0.1; mode: multiplicative→additive; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1323 / 대기 | b20→c014 / n1305 | bound: 0.15→0.5; learning_rate: 0.025→0.05; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1324 / 대기 | b20→c014 / n1288 | bound: 0.2→0.1; half_life: 없음→180; min_child_samples: 1000→200; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1325 / 대기 | b20→c014 / n1307 | half_life: 180→365; min_child_samples: 500→1000; n_estimators: 160→80; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1326 / 대기 | b20→c014 / n1308 | bound: 0.2→0.3; half_life: 365→없음; n_estimators: 80→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1327 / 대기 | b20→c014 / n1287 | features: core→season; half_life: 180→없음; min_child_samples: 500→200; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1328 / 대기 | b20→c014 / n1322 | learning_rate: 0.05→0.025; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1329 / 대기 | b20→c014 / n1311 | bound: 0.15→0.3; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1330 / 대기 | b20→c014 / n1292 | bound: 0.2→0.3; features: age→season; n_estimators: 160→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1331 / 대기 | b20→c014 / n1295 | bound: 0.5→0.3; n_estimators: 300→80; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1332 / 대기 | b20→c014 / n1284 | bound: 0.2→0.1; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1333 / 대기 | b20→c014 / n1285 | bound: 0.5→0.15; half_life: 없음→365; min_child_samples: 500→200; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1334 / 대기 | b20→c014 / n1298 | half_life: 180→365; learning_rate: 0.025→0.05; min_child_samples: 200→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1335 / 대기 | b20→c014 / n1323 | half_life: 365→없음; min_child_samples: 1000→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1336 / 대기 | b20→c014 / n1288 | min_child_samples: 1000→500; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1337 / 대기 | b20→c014 / n1289 | bound: 0.3→0.5; min_child_samples: 500→200; num_leaves: 3→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1338 / 대기 | b20→c014 / n1308 | half_life: 365→180; num_leaves: 15→7; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1339 / 대기 | b20→c014 / n1285 | bound: 0.5→0.3; n_estimators: 80→300; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1340 / 대기 | b20→c014 / n1319 | bound: 0.5→0.1; half_life: 없음→180; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1341 / 대기 | b20→c014 / n1301 | bound: 0.3→0.5; features: age→core; half_life: 180→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1342 / 대기 | b20→c014 / n1336 | learning_rate: 0.025→0.05; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1343 / 대기 | b20→c014 / n1337 | min_child_samples: 200→1000; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1344 / 대기 | b21→c232 / n1344 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1345 / 대기 | b21→c232 / n1344 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1346 / 대기 | b21→c232 / n1344 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1347 / 대기 | b21→c232 / n1345 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1348 / 대기 | b21→c232 / n1344 | bound: 0.2→0.3; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→300; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1349 / 대기 | b21→c232 / n1348 | bound: 0.3→0.15; features: core→season; min_child_samples: 1000→200; mode: additive→multiplicative; num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1350 / 대기 | b21→c232 / n1348 | bound: 0.3→0.2; features: core→age; min_child_samples: 1000→200; num_leaves: 7→3; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1351 / 대기 | b21→c232 / n1348 | half_life: 없음→180; min_child_samples: 1000→500; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 7→15; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1352 / 대기 | b21→c232 / n1349 | bound: 0.15→0.2; min_child_samples: 200→1000; mode: multiplicative→additive; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1353 / 대기 | b21→c232 / n1351 | features: core→age; learning_rate: 0.05→0.025; n_estimators: 160→80; num_leaves: 15→3; reg_lambda: 10.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1354 / 대기 | b21→c232 / n1349 | bound: 0.15→0.1; features: season→core; learning_rate: 0.05→0.025; mode: multiplicative→additive; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1355 / 대기 | b21→c232 / n1349 | min_child_samples: 200→500; num_leaves: 15→7; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1356 / 대기 | b21→c232 / n1353 | bound: 0.3→0.2; half_life: 180→365; mode: multiplicative→additive; reg_lambda: 30.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1357 / 대기 | b21→c232 / n1353 | features: age→core; half_life: 180→365; n_estimators: 80→160; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1358 / 대기 | b21→c232 / n1348 | features: core→season; half_life: 없음→180; min_child_samples: 1000→200; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1359 / 대기 | b21→c232 / n1353 | bound: 0.3→0.5; min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 30.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1360 / 대기 | b21→c232 / n1348 | bound: 0.3→0.2; n_estimators: 300→80; num_leaves: 7→15; reg_lambda: 30.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1361 / 대기 | b21→c232 / n1355 | half_life: 없음→365; reg_lambda: 2.0→10.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1362 / 대기 | b21→c232 / n1350 | bound: 0.2→0.1; reg_lambda: 30.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1363 / 대기 | b21→c232 / n1357 | min_child_samples: 500→1000; num_leaves: 3→15; reg_lambda: 2.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1364 / 대기 | b21→c232 / n1348 | bound: 0.3→0.1; features: core→season; learning_rate: 0.05→0.025; n_estimators: 300→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1365 / 대기 | b21→c232 / n1359 | min_child_samples: 1000→200; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1366 / 대기 | b21→c232 / n1354 | half_life: 없음→180; min_child_samples: 200→1000; n_estimators: 300→80; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1367 / 대기 | b21→c232 / n1349 | num_leaves: 15→3; reg_lambda: 2.0→10.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1368 / 대기 | b21→c232 / n1362 | half_life: 없음→180; num_leaves: 3→7; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1369 / 대기 | b21→c232 / n1357 | bound: 0.3→0.15; min_child_samples: 500→1000; n_estimators: 160→80; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1370 / 대기 | b21→c232 / n1348 | features: core→season; half_life: 없음→365; n_estimators: 300→80; num_leaves: 7→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1371 / 대기 | b21→c232 / n1348 | features: core→age; mode: additive→multiplicative; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1372 / 대기 | b21→c232 / n1360 | learning_rate: 0.05→0.025; n_estimators: 80→160; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1373 / 대기 | b21→c232 / n1355 | bound: 0.15→0.3; n_estimators: 300→80; num_leaves: 7→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1374 / 대기 | b21→c232 / n1356 | half_life: 365→180; n_estimators: 80→300; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1375 / 대기 | b21→c232 / n1351 | bound: 0.3→0.5; n_estimators: 160→80; num_leaves: 15→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1376 / 대기 | b21→c232 / n1360 | bound: 0.2→0.1; features: core→season; min_child_samples: 1000→200; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1377 / 대기 | b21→c232 / n1353 | min_child_samples: 500→200 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1378 / 대기 | b21→c232 / n1356 | features: age→core; half_life: 365→없음; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1379 / 대기 | b21→c232 / n1358 | mode: additive→multiplicative; n_estimators: 300→80; num_leaves: 3→7; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1380 / 대기 | b21→c232 / n1368 | learning_rate: 0.05→0.025; min_child_samples: 200→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1381 / 대기 | b21→c232 / n1367 | features: season→core; min_child_samples: 200→1000; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1382 / 대기 | b21→c232 / n1358 | half_life: 180→없음; n_estimators: 300→160; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1383 / 대기 | b21→c232 / n1371 | bound: 0.3→0.5; reg_lambda: 30.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1384 / 대기 | b21→c232 / n1358 | features: season→core; half_life: 180→365; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1385 / 대기 | b21→c232 / n1349 | bound: 0.15→0.5; half_life: 없음→365; learning_rate: 0.05→0.025; n_estimators: 300→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1386 / 대기 | b21→c232 / n1357 | bound: 0.3→0.1; features: core→age; learning_rate: 0.025→0.05; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1387 / 대기 | b21→c232 / n1378 | bound: 0.2→0.5; mode: additive→multiplicative; n_estimators: 80→160; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1388 / 대기 | b21→c232 / n1354 | features: core→season; min_child_samples: 200→1000; n_estimators: 300→160; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1389 / 대기 | b21→c232 / n1353 | half_life: 180→365; num_leaves: 3→7; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1390 / 대기 | b21→c232 / n1372 | half_life: 없음→180; min_child_samples: 1000→200; num_leaves: 15→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1391 / 대기 | b21→c232 / n1355 | learning_rate: 0.05→0.025; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1392 / 대기 | b21→c232 / n1362 | bound: 0.1→0.3; n_estimators: 300→160; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1393 / 대기 | b21→c232 / n1381 | half_life: 없음→180; n_estimators: 300→160; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1394 / 대기 | b21→c232 / n1370 | half_life: 365→180; learning_rate: 0.05→0.025; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1395 / 대기 | b21→c232 / n1353 | half_life: 180→없음; n_estimators: 80→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1396 / 대기 | b21→c232 / n1348 | bound: 0.3→0.1; half_life: 없음→180; reg_lambda: 30.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1397 / 대기 | b21→c232 / n1361 | bound: 0.15→0.5; n_estimators: 300→160; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1398 / 대기 | b21→c232 / n1380 | half_life: 180→365; learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1399 / 대기 | b21→c232 / n1363 | bound: 0.3→0.15; min_child_samples: 1000→200; n_estimators: 160→300; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1400 / 대기 | b21→c232 / n1378 | features: core→season; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1401 / 대기 | b21→c232 / n1359 | bound: 0.5→0.3; half_life: 180→없음; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1402 / 대기 | b21→c232 / n1356 | features: age→core (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1403 / 대기 | b21→c232 / n1401 | features: age→season; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1404 / 대기 | b21→c232 / n1350 | half_life: 없음→365; min_child_samples: 200→1000; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1405 / 대기 | b21→c232 / n1365 | features: age→core; half_life: 180→없음; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1406 / 대기 | b21→c232 / n1348 | features: core→season; half_life: 없음→180; num_leaves: 7→15; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1407 / 대기 | b21→c232 / n1359 | learning_rate: 0.025→0.05; min_child_samples: 1000→200; num_leaves: 7→3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1408 / 대기 | b22→c136 / n1408 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1409 / 대기 | b22→c136 / n1408 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1410 / 대기 | b22→c136 / n1408 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1411 / 대기 | b22→c136 / n1409 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1412 / 대기 | b22→c136 / n1408 | half_life: 없음→180; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→7; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1413 / 대기 | b22→c136 / n1412 | bound: 0.2→0.15; features: core→season; learning_rate: 0.05→0.025; mode: additive→multiplicative; n_estimators: 80→300; num_leaves: 7→15; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1414 / 대기 | b22→c136 / n1412 | bound: 0.2→0.3; features: core→age; half_life: 180→365; min_child_samples: 500→200; n_estimators: 80→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1415 / 대기 | b22→c136 / n1413 | bound: 0.15→0.5; features: season→core; half_life: 180→없음; min_child_samples: 500→200; n_estimators: 300→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1416 / 대기 | b22→c136 / n1412 | bound: 0.2→0.3; features: core→season; min_child_samples: 500→1000; num_leaves: 7→15; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1417 / 대기 | b22→c136 / n1414 | bound: 0.3→0.15; min_child_samples: 200→1000; mode: additive→multiplicative; n_estimators: 160→80; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1418 / 대기 | b22→c136 / n1412 | half_life: 180→365; min_child_samples: 500→200; reg_lambda: 2.0→30.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1419 / 대기 | b22→c136 / n1413 | bound: 0.15→0.3; min_child_samples: 500→200; n_estimators: 300→160; reg_lambda: 10.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1420 / 대기 | b22→c136 / n1414 | half_life: 365→없음; reg_lambda: 2.0→30.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1421 / 대기 | b22→c136 / n1415 | n_estimators: 160→80; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1422 / 대기 | b22→c136 / n1418 | bound: 0.2→0.1; features: core→season; half_life: 365→180; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1423 / 대기 | b22→c136 / n1417 | min_child_samples: 1000→200; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1424 / 대기 | b22→c136 / n1412 | learning_rate: 0.05→0.025; min_child_samples: 500→200; n_estimators: 80→160; num_leaves: 7→3; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1425 / 대기 | b22→c136 / n1421 | features: core→season; min_child_samples: 200→500; num_leaves: 7→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1426 / 대기 | b22→c136 / n1414 | bound: 0.3→0.1; min_child_samples: 200→1000; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1427 / 대기 | b22→c136 / n1415 | bound: 0.5→0.3; half_life: 없음→180; min_child_samples: 200→1000; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1428 / 대기 | b22→c136 / n1422 | half_life: 180→없음; learning_rate: 0.05→0.025; reg_lambda: 30.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1429 / 대기 | b22→c136 / n1414 | half_life: 365→180; learning_rate: 0.05→0.025; min_child_samples: 200→500; mode: additive→multiplicative; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1430 / 대기 | b22→c136 / n1418 | bound: 0.2→0.3; min_child_samples: 200→1000; n_estimators: 80→300; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1431 / 대기 | b22→c136 / n1416 | mode: additive→multiplicative; reg_lambda: 2.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1432 / 대기 | b22→c136 / n1414 | half_life: 365→없음; n_estimators: 160→80; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1433 / 대기 | b22→c136 / n1413 | features: season→core; half_life: 180→없음; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1434 / 대기 | b22→c136 / n1419 | mode: multiplicative→additive; reg_lambda: 30.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1435 / 대기 | b22→c136 / n1414 | min_child_samples: 200→1000; mode: additive→multiplicative; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1436 / 대기 | b22→c136 / n1412 | bound: 0.2→0.1; half_life: 180→없음; reg_lambda: 2.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1437 / 대기 | b22→c136 / n1413 | min_child_samples: 500→1000; n_estimators: 300→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1438 / 대기 | b22→c136 / n1414 | bound: 0.3→0.2; learning_rate: 0.05→0.025; min_child_samples: 200→500; reg_lambda: 2.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1439 / 대기 | b22→c136 / n1414 | features: age→core; mode: additive→multiplicative; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1440 / 대기 | b22→c136 / n1421 | bound: 0.5→0.2; features: core→season; mode: multiplicative→additive; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1441 / 대기 | b22→c136 / n1417 | bound: 0.15→0.3; min_child_samples: 1000→500; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1442 / 대기 | b22→c136 / n1430 | num_leaves: 7→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1443 / 대기 | b22→c136 / n1419 | bound: 0.3→0.15; half_life: 180→365; num_leaves: 15→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1444 / 대기 | b22→c136 / n1438 | bound: 0.2→0.3; min_child_samples: 500→1000; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1445 / 대기 | b22→c136 / n1427 | n_estimators: 160→80; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1446 / 대기 | b22→c136 / n1424 | features: core→season; min_child_samples: 200→1000; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1447 / 대기 | b22→c136 / n1437 | features: season→age; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1448 / 대기 | b22→c136 / n1418 | min_child_samples: 200→500; n_estimators: 80→160; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1449 / 대기 | b22→c136 / n1417 | features: age→season; half_life: 365→180; n_estimators: 80→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1450 / 대기 | b22→c136 / n1414 | bound: 0.3→0.2; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1451 / 대기 | b22→c136 / n1439 | bound: 0.3→0.15; min_child_samples: 200→500; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1452 / 대기 | b22→c136 / n1413 | bound: 0.15→0.1; mode: multiplicative→additive; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1453 / 대기 | b22→c136 / n1443 | features: season→age; half_life: 365→없음; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1454 / 대기 | b22→c136 / n1418 | min_child_samples: 200→1000; num_leaves: 7→15; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1455 / 대기 | b22→c136 / n1421 | features: core→season; learning_rate: 0.025→0.05; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1456 / 대기 | b22→c136 / n1444 | n_estimators: 300→160 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1457 / 대기 | b22→c136 / n1433 | bound: 0.15→0.3; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1458 / 대기 | b22→c136 / n1452 | half_life: 180→365; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1459 / 대기 | b22→c136 / n1427 | bound: 0.3→0.5; features: core→age; min_child_samples: 1000→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1460 / 대기 | b22→c136 / n1427 | bound: 0.3→0.1; mode: multiplicative→additive; reg_lambda: 10.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1461 / 대기 | b22→c136 / n1433 | features: core→season; min_child_samples: 500→1000; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1462 / 대기 | b22→c136 / n1414 | reg_lambda: 2.0→2.5; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1463 / 대기 | b22→c136 / n1435 | bound: 0.3→0.5; features: age→core; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1464 / 대기 | b22→c136 / n1431 | half_life: 180→365; min_child_samples: 1000→200; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1465 / 대기 | b22→c136 / n1421 | features: core→age; min_child_samples: 200→1000; n_estimators: 80→300; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1466 / 대기 | b22→c136 / n1424 | bound: 0.2→0.3; n_estimators: 160→300; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1467 / 대기 | b22→c136 / n1413 | learning_rate: 0.025→0.05; min_child_samples: 500→1000; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1468 / 대기 | b22→c136 / n1441 | learning_rate: 0.05→0.025; mode: multiplicative→additive; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1469 / 대기 | b22→c136 / n1417 | features: age→core; learning_rate: 0.05→0.025; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1470 / 대기 | b22→c136 / n1436 | features: core→season; half_life: 없음→365; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1471 / 대기 | b22→c136 / n1459 | min_child_samples: 500→200; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1472 / 대기 | b23→c098 / n1472 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1473 / 대기 | b23→c098 / n1472 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1474 / 대기 | b23→c098 / n1472 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1475 / 대기 | b23→c098 / n1473 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1476 / 대기 | b23→c098 / n1472 | bound: 0.2→0.1; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→80; num_leaves: 0→3; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1477 / 대기 | b23→c098 / n1476 | bound: 0.1→0.15; features: core→season; half_life: 없음→180; learning_rate: 0.025→0.05; min_child_samples: 500→200; mode: additive→multiplicative; num_leaves: 3→7; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1478 / 대기 | b23→c098 / n1476 | bound: 0.1→0.3; features: core→age; half_life: 없음→365; min_child_samples: 500→1000; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1479 / 대기 | b23→c098 / n1475 | bound: 0.3→0.5; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→160; num_leaves: 0→3; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1480 / 대기 | b23→c098 / n1478 | features: age→season; min_child_samples: 1000→500; n_estimators: 80→300; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1481 / 대기 | b23→c098 / n1479 | bound: 0.5→0.15; features: core→age; n_estimators: 160→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1482 / 대기 | b23→c098 / n1478 | features: age→core; half_life: 365→180; min_child_samples: 1000→500; n_estimators: 80→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1483 / 대기 | b23→c098 / n1477 | bound: 0.15→0.5; half_life: 180→365; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1484 / 대기 | b23→c098 / n1476 | features: core→age; half_life: 없음→365; n_estimators: 80→160; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1485 / 대기 | b23→c098 / n1476 | bound: 0.1→0.5; min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 80→160; num_leaves: 3→15; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1486 / 대기 | b23→c098 / n1480 | bound: 0.3→0.1; learning_rate: 0.025→0.05; min_child_samples: 500→200; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1487 / 대기 | b23→c098 / n1478 | bound: 0.3→0.5; half_life: 365→없음; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1488 / 대기 | b23→c098 / n1476 | half_life: 없음→365; n_estimators: 80→300; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1489 / 대기 | b23→c098 / n1486 | bound: 0.1→0.15; half_life: 365→없음; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1490 / 대기 | b23→c098 / n1476 | features: core→age; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1491 / 대기 | b23→c098 / n1477 | features: season→core; learning_rate: 0.05→0.025; n_estimators: 80→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1492 / 대기 | b23→c098 / n1480 | bound: 0.3→0.2; n_estimators: 300→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1493 / 대기 | b23→c098 / n1479 | features: core→age; min_child_samples: 1000→200; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1494 / 대기 | b23→c098 / n1476 | num_leaves: 3→7 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1495 / 대기 | b23→c098 / n1490 | bound: 0.1→0.3; features: age→season; mode: additive→multiplicative; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1496 / 대기 | b23→c098 / n1478 | bound: 0.3→0.1; n_estimators: 80→160; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1497 / 대기 | b23→c098 / n1479 | bound: 0.5→0.3; learning_rate: 0.05→0.025; min_child_samples: 1000→200; n_estimators: 160→300; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1498 / 대기 | b23→c098 / n1477 | bound: 0.15→0.1; mode: multiplicative→additive; n_estimators: 80→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1499 / 대기 | b23→c098 / n1484 | bound: 0.1→0.3; half_life: 365→180; min_child_samples: 500→200; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1500 / 대기 | b23→c098 / n1482 | bound: 0.3→0.2; min_child_samples: 500→200; reg_lambda: 30.0→10.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1501 / 대기 | b23→c098 / n1477 | bound: 0.15→0.5; half_life: 180→없음; n_estimators: 80→300; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1502 / 대기 | b23→c098 / n1498 | bound: 0.1→0.2; features: season→age; half_life: 180→없음; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1503 / 대기 | b23→c098 / n1483 | features: season→core; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1504 / 대기 | b23→c098 / n1486 | half_life: 365→없음; n_estimators: 300→80; num_leaves: 15→7; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1505 / 대기 | b23→c098 / n1487 | learning_rate: 0.05→0.025; min_child_samples: 1000→500; reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1506 / 대기 | b23→c098 / n1476 | bound: 0.1→0.2; n_estimators: 80→300; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1507 / 대기 | b23→c098 / n1499 | features: age→season; reg_lambda: 2.0→30.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1508 / 대기 | b23→c098 / n1478 | bound: 0.3→0.2; min_child_samples: 1000→500; reg_lambda: 30.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1509 / 대기 | b23→c098 / n1497 | learning_rate: 0.025→0.05; min_child_samples: 200→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1510 / 대기 | b23→c098 / n1494 | bound: 0.1→0.3; features: core→season; min_child_samples: 500→200; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1511 / 대기 | b23→c098 / n1481 | bound: 0.15→0.5; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1512 / 대기 | b23→c098 / n1504 | bound: 0.1→0.3; features: season→core; half_life: 없음→180; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1513 / 대기 | b23→c098 / n1477 | half_life: 180→없음; min_child_samples: 200→500; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1514 / 대기 | b23→c098 / n1512 | bound: 0.3→0.2; features: core→age; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1515 / 대기 | b23→c098 / n1482 | learning_rate: 0.025→0.05; mode: additive→multiplicative; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1516 / 대기 | b23→c098 / n1504 | half_life: 없음→180; min_child_samples: 200→500; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1517 / 대기 | b23→c098 / n1499 | min_child_samples: 200→1000; num_leaves: 3→7; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1518 / 대기 | b23→c098 / n1480 | features: season→core; n_estimators: 300→80; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1519 / 대기 | b23→c098 / n1480 | bound: 0.3→0.5; mode: additive→multiplicative; n_estimators: 300→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1520 / 대기 | b23→c098 / n1484 | min_child_samples: 500→1000; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1521 / 대기 | b23→c098 / n1497 | learning_rate: 0.025→0.05; num_leaves: 15→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1522 / 대기 | b23→c098 / n1490 | bound: 0.1→0.2; features: age→season; half_life: 없음→180 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1523 / 대기 | b23→c098 / n1517 | bound: 0.3→0.5; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1524 / 대기 | b23→c098 / n1480 | features: season→core; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1525 / 대기 | b23→c098 / n1483 | bound: 0.5→0.15; min_child_samples: 200→1000; reg_lambda: 30.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1526 / 대기 | b23→c098 / n1484 | bound: 0.1→0.3; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1527 / 대기 | b23→c098 / n1485 | n_estimators: 160→300; num_leaves: 15→7; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1528 / 대기 | b23→c098 / n1495 | min_child_samples: 500→200; mode: multiplicative→additive; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1529 / 대기 | b23→c098 / n1517 | learning_rate: 0.025→0.05; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1530 / 대기 | b23→c098 / n1494 | reg_lambda: 10.0→30.0 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1531 / 대기 | b23→c098 / n1489 | half_life: 없음→365; min_child_samples: 200→500; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1532 / 대기 | b23→c098 / n1514 | bound: 0.2→0.3; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1533 / 대기 | b23→c098 / n1479 | half_life: 365→180; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1534 / 대기 | b23→c098 / n1486 | min_child_samples: 200→500; n_estimators: 300→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1535 / 대기 | b23→c098 / n1493 | bound: 0.5→0.3; half_life: 365→없음; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1536 / 대기 | b24→c223 / n1536 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1537 / 대기 | b24→c223 / n1536 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1538 / 대기 | b24→c223 / n1536 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1539 / 대기 | b24→c223 / n1537 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1540 / 대기 | b24→c223 / n1536 | half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→80; num_leaves: 0→15; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1541 / 대기 | b24→c223 / n1540 | bound: 0.2→0.5; features: core→season; learning_rate: 0.025→0.05; min_child_samples: 1000→500; mode: additive→multiplicative; n_estimators: 80→160; reg_lambda: 30.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1542 / 대기 | b24→c223 / n1540 | bound: 0.2→0.1; features: core→age; learning_rate: 0.025→0.05; n_estimators: 80→160; num_leaves: 15→7; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1543 / 대기 | b24→c223 / n1540 | bound: 0.2→0.3; min_child_samples: 1000→500; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1544 / 대기 | b24→c223 / n1542 | features: age→season; min_child_samples: 1000→500; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1545 / 대기 | b24→c223 / n1543 | features: core→age; half_life: 180→365; min_child_samples: 500→200; num_leaves: 15→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1546 / 대기 | b24→c223 / n1544 | bound: 0.1→0.3; features: season→core; half_life: 180→없음; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1547 / 대기 | b24→c223 / n1541 | bound: 0.5→0.15; half_life: 180→365; min_child_samples: 500→1000; num_leaves: 15→3; reg_lambda: 10.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1548 / 대기 | b24→c223 / n1542 | bound: 0.1→0.2; half_life: 180→365; min_child_samples: 1000→500; n_estimators: 160→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1549 / 대기 | b24→c223 / n1546 | half_life: 없음→365; mode: additive→multiplicative; reg_lambda: 10.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1550 / 대기 | b24→c223 / n1544 | bound: 0.1→0.3; n_estimators: 80→300; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1551 / 대기 | b24→c223 / n1545 | bound: 0.3→0.5; half_life: 365→180; reg_lambda: 30.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1552 / 대기 | b24→c223 / n1546 | half_life: 없음→180; learning_rate: 0.05→0.025; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1553 / 대기 | b24→c223 / n1546 | features: core→season; mode: additive→multiplicative; n_estimators: 80→160; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1554 / 대기 | b24→c223 / n1548 | half_life: 365→없음; learning_rate: 0.05→0.025; n_estimators: 300→160; num_leaves: 7→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1555 / 대기 | b24→c223 / n1551 | bound: 0.5→0.15; features: age→core; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1556 / 대기 | b24→c223 / n1547 | bound: 0.15→0.2; min_child_samples: 1000→500; mode: multiplicative→additive; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1557 / 대기 | b24→c223 / n1541 | features: season→age; half_life: 180→365; num_leaves: 15→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1558 / 대기 | b24→c223 / n1552 | bound: 0.3→0.1; half_life: 180→365; n_estimators: 160→300; num_leaves: 7→15; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1559 / 대기 | b24→c223 / n1543 | bound: 0.3→0.5; features: core→season; min_child_samples: 500→200; n_estimators: 80→300; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1560 / 대기 | b24→c223 / n1540 | bound: 0.2→0.3; features: core→age; num_leaves: 15→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1561 / 대기 | b24→c223 / n1546 | bound: 0.3→0.15; min_child_samples: 500→1000; mode: additive→multiplicative; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1562 / 대기 | b24→c223 / n1544 | n_estimators: 80→160; num_leaves: 7→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1563 / 대기 | b24→c223 / n1547 | bound: 0.15→0.5; features: season→age; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1564 / 대기 | b24→c223 / n1552 | n_estimators: 160→80; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1565 / 대기 | b24→c223 / n1552 | features: core→season; min_child_samples: 500→1000; mode: additive→multiplicative; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1566 / 대기 | b24→c223 / n1540 | bound: 0.2→0.1; features: core→age; half_life: 180→없음; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1567 / 대기 | b24→c223 / n1561 | bound: 0.15→0.3; half_life: 없음→180; n_estimators: 80→300; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1568 / 대기 | b24→c223 / n1544 | half_life: 180→없음; min_child_samples: 500→200; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1569 / 대기 | b24→c223 / n1553 | bound: 0.3→0.15; features: season→age; min_child_samples: 500→200; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1570 / 대기 | b24→c223 / n1546 | min_child_samples: 500→200; n_estimators: 80→300; num_leaves: 7→3; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1571 / 대기 | b24→c223 / n1545 | features: age→season; n_estimators: 80→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1572 / 대기 | b24→c223 / n1548 | n_estimators: 300→80; num_leaves: 7→3; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1573 / 대기 | b24→c223 / n1570 | bound: 0.3→0.5; mode: additive→multiplicative; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1574 / 대기 | b24→c223 / n1554 | features: age→season; min_child_samples: 500→200; n_estimators: 160→300; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1575 / 대기 | b24→c223 / n1569 | n_estimators: 160→300; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1576 / 대기 | b24→c223 / n1558 | reg_lambda: 2.0→2.5; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1577 / 대기 | b24→c223 / n1559 | bound: 0.5→0.3; half_life: 180→365; num_leaves: 7→15; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1578 / 대기 | b24→c223 / n1542 | bound: 0.1→0.3; min_child_samples: 1000→200; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1579 / 대기 | b24→c223 / n1577 | bound: 0.3→0.15; features: season→core; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1580 / 대기 | b24→c223 / n1546 | features: core→season; num_leaves: 7→15; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1581 / 대기 | b24→c223 / n1545 | half_life: 365→180; n_estimators: 80→160; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1582 / 대기 | b24→c223 / n1567 | mode: multiplicative→additive; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1583 / 대기 | b24→c223 / n1574 | bound: 0.2→0.15; mode: additive→multiplicative; n_estimators: 300→80; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1584 / 대기 | b24→c223 / n1581 | bound: 0.3→0.2; mode: multiplicative→additive; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1585 / 대기 | b24→c223 / n1549 | bound: 0.3→0.15; half_life: 365→없음; n_estimators: 80→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1586 / 대기 | b24→c223 / n1574 | bound: 0.2→0.3; half_life: 없음→365; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1587 / 대기 | b24→c223 / n1557 | learning_rate: 0.05→0.025; n_estimators: 160→80; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1588 / 대기 | b24→c223 / n1576 | bound: 0.1→0.3; num_leaves: 15→3; reg_lambda: 2.5→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1589 / 대기 | b24→c223 / n1541 | half_life: 180→없음; learning_rate: 0.05→0.025; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1590 / 대기 | b24→c223 / n1578 | n_estimators: 160→80; num_leaves: 7→3; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1591 / 대기 | b24→c223 / n1567 | half_life: 180→365; num_leaves: 15→3; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1592 / 대기 | b24→c223 / n1560 | bound: 0.3→0.1; features: age→season; n_estimators: 80→300; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1593 / 대기 | b24→c223 / n1553 | features: season→age; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1594 / 대기 | b24→c223 / n1570 | num_leaves: 3→15; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1595 / 대기 | b24→c223 / n1563 | features: age→season; num_leaves: 3→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1596 / 대기 | b24→c223 / n1550 | bound: 0.3→0.1; features: season→age; learning_rate: 0.05→0.025; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1597 / 대기 | b24→c223 / n1585 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1598 / 대기 | b24→c223 / n1586 | bound: 0.3→0.1; min_child_samples: 200→1000; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1599 / 대기 | b24→c223 / n1585 | features: core→age; half_life: 없음→180; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1600 / 대기 | b25→c238 / n1600 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1601 / 대기 | b25→c238 / n1600 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1602 / 대기 | b25→c238 / n1600 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1603 / 대기 | b25→c238 / n1601 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1604 / 대기 | b25→c238 / n1602 | bound: 0.2→0.1; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→80; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1605 / 대기 | b25→c238 / n1604 | bound: 0.1→0.3; features: core→season; mode: additive→multiplicative; n_estimators: 80→300; num_leaves: 7→3; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1606 / 대기 | b25→c238 / n1604 | bound: 0.1→0.3; features: core→age; min_child_samples: 1000→500; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1607 / 대기 | b25→c238 / n1605 | bound: 0.3→0.15; features: season→core; n_estimators: 300→160; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1608 / 대기 | b25→c238 / n1605 | bound: 0.3→0.2; learning_rate: 0.025→0.05; min_child_samples: 1000→500; mode: multiplicative→additive; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1609 / 대기 | b25→c238 / n1606 | half_life: 365→180; learning_rate: 0.025→0.05; mode: additive→multiplicative; n_estimators: 80→300; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1610 / 대기 | b25→c238 / n1608 | bound: 0.2→0.1; features: season→core; min_child_samples: 500→200; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1611 / 대기 | b25→c238 / n1609 | features: age→season; n_estimators: 300→80; num_leaves: 7→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1612 / 대기 | b25→c238 / n1606 | half_life: 365→180; learning_rate: 0.025→0.05; min_child_samples: 500→1000; n_estimators: 80→160; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1613 / 대기 | b25→c238 / n1611 | features: season→core; half_life: 180→없음; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1614 / 대기 | b25→c238 / n1608 | learning_rate: 0.05→0.025; n_estimators: 300→160; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1615 / 대기 | b25→c238 / n1609 | bound: 0.3→0.5; half_life: 180→365; min_child_samples: 500→200; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1616 / 대기 | b25→c238 / n1606 | features: age→core; half_life: 365→180; n_estimators: 80→160; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1617 / 대기 | b25→c238 / n1609 | bound: 0.3→0.15; features: age→season; min_child_samples: 500→200; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1618 / 대기 | b25→c238 / n1610 | bound: 0.1→0.3; features: core→age; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1619 / 대기 | b25→c238 / n1609 | features: age→core; n_estimators: 300→160; reg_lambda: 30.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1620 / 대기 | b25→c238 / n1618 | features: age→season; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1621 / 대기 | b25→c238 / n1615 | bound: 0.5→0.15; min_child_samples: 200→1000; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1622 / 대기 | b25→c238 / n1616 | bound: 0.3→0.1; half_life: 180→없음; num_leaves: 7→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1623 / 대기 | b25→c238 / n1615 | bound: 0.5→0.15; features: age→season; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1624 / 대기 | b25→c238 / n1611 | features: season→age; half_life: 180→없음; min_child_samples: 500→1000; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1625 / 대기 | b25→c238 / n1619 | bound: 0.3→0.15; half_life: 180→없음; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1626 / 대기 | b25→c238 / n1608 | bound: 0.2→0.1; half_life: 365→180; num_leaves: 3→15; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1627 / 대기 | b25→c238 / n1609 | bound: 0.3→0.5; learning_rate: 0.05→0.025; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1628 / 대기 | b25→c238 / n1606 | features: age→core; half_life: 365→없음; min_child_samples: 500→200; n_estimators: 80→300; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1629 / 대기 | b25→c238 / n1605 | n_estimators: 300→80; num_leaves: 3→15; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1630 / 대기 | b25→c238 / n1604 | features: core→age; half_life: 365→180; min_child_samples: 1000→200; reg_lambda: 30.0→2.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1631 / 대기 | b25→c238 / n1621 | features: age→core; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1632 / 대기 | b25→c238 / n1612 | features: age→season; learning_rate: 0.05→0.025; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1633 / 대기 | b25→c238 / n1617 | features: season→age; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1634 / 대기 | b25→c238 / n1626 | features: season→core; num_leaves: 15→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1635 / 대기 | b25→c238 / n1617 | bound: 0.15→0.5; half_life: 180→없음; learning_rate: 0.05→0.025; min_child_samples: 200→500; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1636 / 대기 | b25→c238 / n1630 | bound: 0.1→0.2; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1637 / 대기 | b25→c238 / n1613 | bound: 0.3→0.15; reg_lambda: 2.0→2.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1638 / 대기 | b25→c238 / n1605 | mode: multiplicative→additive; n_estimators: 300→80; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1639 / 대기 | b25→c238 / n1609 | num_leaves: 7→3; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1640 / 대기 | b25→c238 / n1616 | bound: 0.3→0.2; reg_lambda: 30.0→10.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1641 / 대기 | b25→c238 / n1623 | half_life: 365→없음; learning_rate: 0.05→0.025; min_child_samples: 200→500; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1642 / 대기 | b25→c238 / n1624 | min_child_samples: 1000→500; n_estimators: 80→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1643 / 대기 | b25→c238 / n1625 | bound: 0.15→0.3; min_child_samples: 500→200; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1644 / 대기 | b25→c238 / n1629 | bound: 0.3→0.2; mode: multiplicative→additive; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1645 / 대기 | b25→c238 / n1627 | bound: 0.5→0.3; n_estimators: 300→160; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1646 / 대기 | b25→c238 / n1622 | bound: 0.1→0.3; min_child_samples: 500→1000; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1647 / 대기 | b25→c238 / n1611 | bound: 0.3→0.5; reg_lambda: 30.0→30.5; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1648 / 대기 | b25→c238 / n1606 | min_child_samples: 500→1000; n_estimators: 80→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1649 / 대기 | b25→c238 / n1625 | bound: 0.15→0.5; learning_rate: 0.05→0.025; n_estimators: 160→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1650 / 대기 | b25→c238 / n1621 | bound: 0.15→0.3; features: age→season; mode: multiplicative→additive; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1651 / 대기 | b25→c238 / n1609 | half_life: 180→365; min_child_samples: 500→200; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1652 / 대기 | b25→c238 / n1604 | n_estimators: 80→300; num_leaves: 7→15; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1653 / 대기 | b25→c238 / n1605 | bound: 0.3→0.15; half_life: 365→없음; learning_rate: 0.025→0.05; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1654 / 대기 | b25→c238 / n1626 | features: season→age; num_leaves: 15→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1655 / 대기 | b25→c238 / n1635 | bound: 0.5→0.15; features: season→core; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1656 / 대기 | b25→c238 / n1606 | features: age→season; learning_rate: 0.025→0.05; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1657 / 대기 | b25→c238 / n1607 | bound: 0.15→0.5; features: core→age; half_life: 365→없음; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1658 / 대기 | b25→c238 / n1626 | bound: 0.1→0.2; features: season→core; min_child_samples: 500→1000; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1659 / 대기 | b25→c238 / n1611 | half_life: 180→없음; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1660 / 대기 | b25→c238 / n1642 | bound: 0.3→0.1; learning_rate: 0.05→0.025; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1661 / 대기 | b25→c238 / n1628 | mode: additive→multiplicative; reg_lambda: 30.0→10.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1662 / 대기 | b25→c238 / n1605 | half_life: 365→없음; min_child_samples: 1000→500; mode: multiplicative→additive; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1663 / 대기 | b25→c238 / n1615 | min_child_samples: 200→500; reg_lambda: 30.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1664 / 대기 | b26→c127 / n1664 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1665 / 대기 | b26→c127 / n1664 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1666 / 대기 | b26→c127 / n1664 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1667 / 대기 | b26→c127 / n1665 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1668 / 대기 | b26→c127 / n1664 | learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→200; n_estimators: 0→300; num_leaves: 0→3; reg_lambda: 0.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1669 / 대기 | b26→c127 / n1668 | bound: 0.2→0.3; features: core→season; half_life: 없음→180; min_child_samples: 200→500; mode: additive→multiplicative; num_leaves: 3→15; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1670 / 대기 | b26→c127 / n1668 | bound: 0.2→0.3; features: core→age; half_life: 없음→365; min_child_samples: 200→1000; num_leaves: 3→7; reg_lambda: 2.0→30.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1671 / 대기 | b26→c127 / n1669 | bound: 0.3→0.5; features: season→core; min_child_samples: 500→1000; n_estimators: 300→80; reg_lambda: 2.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1672 / 대기 | b26→c127 / n1669 | bound: 0.3→0.1; half_life: 180→없음; learning_rate: 0.05→0.025; mode: multiplicative→additive; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1673 / 대기 | b26→c127 / n1670 | half_life: 365→없음; learning_rate: 0.05→0.025; min_child_samples: 1000→200; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1674 / 대기 | b26→c127 / n1668 | bound: 0.2→0.3; num_leaves: 3→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1675 / 대기 | b26→c127 / n1669 | bound: 0.3→0.15; half_life: 180→365; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1676 / 대기 | b26→c127 / n1670 | bound: 0.3→0.1; half_life: 365→180; n_estimators: 300→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1677 / 대기 | b26→c127 / n1675 | bound: 0.15→0.5; features: season→core; learning_rate: 0.05→0.025 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1678 / 대기 | b26→c127 / n1669 | min_child_samples: 500→200; mode: multiplicative→additive; n_estimators: 300→80; num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1679 / 대기 | b26→c127 / n1673 | learning_rate: 0.025→0.05; n_estimators: 160→300; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1680 / 대기 | b26→c127 / n1672 | features: season→core; half_life: 없음→365; n_estimators: 160→80; num_leaves: 15→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1681 / 대기 | b26→c127 / n1669 | half_life: 180→365; learning_rate: 0.05→0.025; num_leaves: 15→3; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1682 / 대기 | b26→c127 / n1680 | bound: 0.1→0.2; features: core→age; half_life: 365→180; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1683 / 대기 | b26→c127 / n1677 | bound: 0.5→0.15; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1684 / 대기 | b26→c127 / n1678 | learning_rate: 0.05→0.025; min_child_samples: 200→500; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1685 / 대기 | b26→c127 / n1673 | min_child_samples: 200→500; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1686 / 대기 | b26→c127 / n1680 | bound: 0.1→0.2; half_life: 365→180; learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1687 / 대기 | b26→c127 / n1669 | half_life: 180→없음; learning_rate: 0.05→0.025; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1688 / 대기 | b26→c127 / n1670 | bound: 0.3→0.2; n_estimators: 300→80; reg_lambda: 30.0→10.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1689 / 대기 | b26→c127 / n1677 | bound: 0.5→0.15; min_child_samples: 500→1000; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1690 / 대기 | b26→c127 / n1669 | bound: 0.3→0.2; mode: multiplicative→additive; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1691 / 대기 | b26→c127 / n1685 | reg_lambda: 30.0→30.5; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1692 / 대기 | b26→c127 / n1672 | bound: 0.1→0.3; features: season→core; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1693 / 대기 | b26→c127 / n1684 | mode: additive→multiplicative; num_leaves: 3→15; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1694 / 대기 | b26→c127 / n1688 | bound: 0.2→0.1; half_life: 365→180; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1695 / 대기 | b26→c127 / n1673 | bound: 0.3→0.5; features: age→core; half_life: 없음→180; num_leaves: 3→7; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1696 / 대기 | b26→c127 / n1674 | features: core→season; half_life: 없음→365; learning_rate: 0.05→0.025; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1697 / 대기 | b26→c127 / n1691 | half_life: 없음→365; reg_lambda: 30.5→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1698 / 대기 | b26→c127 / n1692 | n_estimators: 80→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1699 / 대기 | b26→c127 / n1687 | bound: 0.3→0.5; min_child_samples: 500→200; n_estimators: 300→80; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1700 / 대기 | b26→c127 / n1672 | features: season→age; min_child_samples: 500→1000; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1701 / 대기 | b26→c127 / n1677 | bound: 0.5→0.3; half_life: 365→180; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1702 / 대기 | b26→c127 / n1668 | bound: 0.2→0.3; features: core→season; half_life: 없음→365; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1703 / 대기 | b26→c127 / n1699 | features: season→age; learning_rate: 0.025→0.05; num_leaves: 15→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1704 / 대기 | b26→c127 / n1674 | min_child_samples: 200→1000; n_estimators: 300→160; num_leaves: 7→15; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1705 / 대기 | b26→c127 / n1668 | bound: 0.2→0.15; features: core→season; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1706 / 대기 | b26→c127 / n1680 | features: core→age; num_leaves: 7→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1707 / 대기 | b26→c127 / n1695 | bound: 0.5→0.15; n_estimators: 160→300; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1708 / 대기 | b26→c127 / n1671 | bound: 0.5→0.1; features: core→season; half_life: 180→365; min_child_samples: 1000→200; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1709 / 대기 | b26→c127 / n1691 | bound: 0.3→0.15; learning_rate: 0.025→0.05; reg_lambda: 30.5→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1710 / 대기 | b26→c127 / n1668 | half_life: 없음→365; min_child_samples: 200→500; reg_lambda: 2.0→10.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1711 / 대기 | b26→c127 / n1669 | bound: 0.3→0.15; n_estimators: 300→160; num_leaves: 15→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1712 / 대기 | b26→c127 / n1674 | features: core→age; n_estimators: 300→160; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1713 / 대기 | b26→c127 / n1701 | bound: 0.3→0.15; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1714 / 대기 | b26→c127 / n1690 | min_child_samples: 500→200; num_leaves: 15→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1715 / 대기 | b26→c127 / n1670 | bound: 0.3→0.15; half_life: 365→180; mode: additive→multiplicative; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1716 / 대기 | b26→c127 / n1673 | bound: 0.3→0.2; features: age→core; min_child_samples: 200→1000; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1717 / 대기 | b26→c127 / n1693 | learning_rate: 0.025→0.05; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1718 / 대기 | b26→c127 / n1673 | half_life: 없음→180; min_child_samples: 200→500; mode: multiplicative→additive; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1719 / 대기 | b26→c127 / n1669 | features: season→core; min_child_samples: 500→1000; n_estimators: 300→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1720 / 대기 | b26→c127 / n1694 | features: age→season; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1721 / 대기 | b26→c127 / n1679 | bound: 0.3→0.5; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1722 / 대기 | b26→c127 / n1668 | half_life: 없음→180; num_leaves: 3→15; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1723 / 대기 | b26→c127 / n1687 | half_life: 없음→180; min_child_samples: 500→200; num_leaves: 15→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1724 / 대기 | b26→c127 / n1673 | min_child_samples: 200→500; mode: multiplicative→additive; n_estimators: 160→300; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1725 / 대기 | b26→c127 / n1670 | features: age→core; mode: additive→multiplicative; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1726 / 대기 | b26→c127 / n1672 | bound: 0.1→0.2; min_child_samples: 500→200; reg_lambda: 2.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1727 / 대기 | b26→c127 / n1721 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1728 / 대기 | b27→c064 / n1728 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1729 / 대기 | b27→c064 / n1728 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1730 / 대기 | b27→c064 / n1728 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1731 / 대기 | b27→c064 / n1729 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1732 / 대기 | b27→c064 / n1730 | learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→500; n_estimators: 0→300; num_leaves: 0→15; reg_lambda: 0.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1733 / 대기 | b27→c064 / n1732 | bound: 0.2→0.15; features: core→season; learning_rate: 0.05→0.025; min_child_samples: 500→1000; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 15→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1734 / 대기 | b27→c064 / n1732 | bound: 0.2→0.3; features: core→age; learning_rate: 0.05→0.025; n_estimators: 300→80; num_leaves: 15→7; reg_lambda: 2.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1735 / 대기 | b27→c064 / n1729 | half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→15; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1736 / 대기 | b27→c064 / n1734 | features: age→season; half_life: 365→180; n_estimators: 80→300; num_leaves: 7→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1737 / 대기 | b27→c064 / n1735 | features: core→age; learning_rate: 0.025→0.05; num_leaves: 15→7; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1738 / 대기 | b27→c064 / n1734 | features: age→core; learning_rate: 0.025→0.05; min_child_samples: 500→200; n_estimators: 80→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1739 / 대기 | b27→c064 / n1733 | bound: 0.15→0.3; min_child_samples: 1000→200; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1740 / 대기 | b27→c064 / n1734 | bound: 0.3→0.2; half_life: 365→없음; min_child_samples: 500→1000; n_estimators: 80→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1741 / 대기 | b27→c064 / n1735 | learning_rate: 0.025→0.05; min_child_samples: 200→1000; n_estimators: 160→300; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1742 / 대기 | b27→c064 / n1732 | bound: 0.2→0.1; features: core→season; half_life: 365→없음; min_child_samples: 500→200; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1743 / 대기 | b27→c064 / n1734 | bound: 0.3→0.15; half_life: 365→없음; learning_rate: 0.025→0.05; mode: additive→multiplicative; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1744 / 대기 | b27→c064 / n1732 | half_life: 365→180; min_child_samples: 500→1000; num_leaves: 15→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1745 / 대기 | b27→c064 / n1741 | features: core→season; half_life: 180→365; min_child_samples: 1000→200; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1746 / 대기 | b27→c064 / n1734 | bound: 0.3→0.2; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1747 / 대기 | b27→c064 / n1743 | bound: 0.15→0.5; features: age→core; n_estimators: 80→300; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1748 / 대기 | b27→c064 / n1737 | bound: 0.3→0.2; features: age→season; half_life: 180→없음; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1749 / 대기 | b27→c064 / n1737 | n_estimators: 160→80; num_leaves: 7→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1750 / 대기 | b27→c064 / n1736 | features: season→core; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1751 / 대기 | b27→c064 / n1733 | half_life: 365→180; min_child_samples: 1000→200; n_estimators: 160→80; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1752 / 대기 | b27→c064 / n1742 | features: season→age; min_child_samples: 200→1000; num_leaves: 15→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1753 / 대기 | b27→c064 / n1732 | bound: 0.2→0.5; min_child_samples: 500→1000; mode: additive→multiplicative; n_estimators: 300→80; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1754 / 대기 | b27→c064 / n1736 | half_life: 180→없음; learning_rate: 0.025→0.05; min_child_samples: 500→200; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1755 / 대기 | b27→c064 / n1734 | half_life: 365→없음; min_child_samples: 500→1000; mode: additive→multiplicative; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1756 / 대기 | b27→c064 / n1732 | bound: 0.2→0.1; half_life: 365→180; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1757 / 대기 | b27→c064 / n1735 | features: core→season; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1758 / 대기 | b27→c064 / n1734 | learning_rate: 0.025→0.05; reg_lambda: 30.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1759 / 대기 | b27→c064 / n1737 | features: age→core; half_life: 180→없음; learning_rate: 0.05→0.025; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1760 / 대기 | b27→c064 / n1734 | bound: 0.3→0.2; features: age→season; half_life: 365→180; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1761 / 대기 | b27→c064 / n1743 | half_life: 없음→180; learning_rate: 0.05→0.025; min_child_samples: 500→1000; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1762 / 대기 | b27→c064 / n1750 | half_life: 180→없음; min_child_samples: 500→200; num_leaves: 3→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1763 / 대기 | b27→c064 / n1757 | bound: 0.3→0.5; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1764 / 대기 | b27→c064 / n1758 | half_life: 365→없음; n_estimators: 80→300; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1765 / 대기 | b27→c064 / n1735 | bound: 0.3→0.15; learning_rate: 0.025→0.05; min_child_samples: 200→500; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1766 / 대기 | b27→c064 / n1738 | bound: 0.3→0.1; features: core→season; learning_rate: 0.05→0.025; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1767 / 대기 | b27→c064 / n1737 | reg_lambda: 30.0→2.0 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1768 / 대기 | b27→c064 / n1741 | bound: 0.3→0.2; mode: multiplicative→additive; n_estimators: 300→80; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1769 / 대기 | b27→c064 / n1751 | num_leaves: 15→7; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1770 / 대기 | b27→c064 / n1738 | bound: 0.3→0.1; features: core→age; half_life: 365→180; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1771 / 대기 | b27→c064 / n1759 | bound: 0.3→0.15; n_estimators: 300→80; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1772 / 대기 | b27→c064 / n1754 | reg_lambda: 30.0→2.0 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1773 / 대기 | b27→c064 / n1753 | features: core→age; min_child_samples: 1000→500; n_estimators: 80→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1774 / 대기 | b27→c064 / n1766 | features: season→core; min_child_samples: 200→500; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1775 / 대기 | b27→c064 / n1747 | features: core→season; learning_rate: 0.05→0.025; reg_lambda: 30.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1776 / 대기 | b27→c064 / n1736 | bound: 0.3→0.1; features: season→age; min_child_samples: 500→200; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1777 / 대기 | b27→c064 / n1759 | bound: 0.3→0.5; n_estimators: 300→80; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1778 / 대기 | b27→c064 / n1733 | bound: 0.15→0.3; half_life: 365→180; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1779 / 대기 | b27→c064 / n1741 | bound: 0.3→0.5; features: core→age; half_life: 180→365; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1780 / 대기 | b27→c064 / n1756 | bound: 0.1→0.2; n_estimators: 300→80; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1781 / 대기 | b27→c064 / n1733 | min_child_samples: 1000→200; reg_lambda: 2.0→10.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1782 / 대기 | b27→c064 / n1776 | learning_rate: 0.025→0.05; min_child_samples: 200→1000; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1783 / 대기 | b27→c064 / n1753 | learning_rate: 0.05→0.025; min_child_samples: 1000→500; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1784 / 대기 | b27→c064 / n1778 | half_life: 180→365; learning_rate: 0.025→0.05; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1785 / 대기 | b27→c064 / n1752 | bound: 0.1→0.3; mode: additive→multiplicative; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1786 / 대기 | b27→c064 / n1780 | half_life: 180→없음; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1787 / 대기 | b27→c064 / n1769 | min_child_samples: 200→500; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1788 / 대기 | b27→c064 / n1734 | half_life: 365→없음; n_estimators: 80→160; reg_lambda: 30.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1789 / 대기 | b27→c064 / n1741 | bound: 0.3→0.5; min_child_samples: 1000→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1790 / 대기 | b27→c064 / n1734 | bound: 0.3→0.1; features: age→season; half_life: 365→없음; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1791 / 대기 | b27→c064 / n1738 | bound: 0.3→0.15; features: core→age; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1792 / 대기 | b28→c183 / n1792 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1793 / 대기 | b28→c183 / n1792 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1794 / 대기 | b28→c183 / n1792 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1795 / 대기 | b28→c183 / n1793 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1796 / 대기 | b28→c183 / n1792 | bound: 0.2→0.1; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→3; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1797 / 대기 | b28→c183 / n1796 | bound: 0.1→0.15; features: core→season; half_life: 없음→180; min_child_samples: 200→1000; mode: additive→multiplicative; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1798 / 대기 | b28→c183 / n1796 | features: core→age; half_life: 없음→180; n_estimators: 160→80; num_leaves: 3→7; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1799 / 대기 | b28→c183 / n1796 | bound: 0.1→0.5; half_life: 없음→365; mode: additive→multiplicative; num_leaves: 3→15; reg_lambda: 10.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1800 / 대기 | b28→c183 / n1797 | bound: 0.15→0.1; mode: multiplicative→additive; n_estimators: 160→300; num_leaves: 3→15; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1801 / 대기 | b28→c183 / n1797 | features: season→age; min_child_samples: 1000→500; n_estimators: 160→300; reg_lambda: 30.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1802 / 대기 | b28→c183 / n1796 | bound: 0.1→0.3; min_child_samples: 200→1000; n_estimators: 160→80; reg_lambda: 10.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1803 / 대기 | b28→c183 / n1800 | bound: 0.1→0.15; min_child_samples: 1000→500; mode: additive→multiplicative; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1804 / 대기 | b28→c183 / n1798 | half_life: 180→없음; min_child_samples: 200→500; n_estimators: 80→160; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1805 / 대기 | b28→c183 / n1799 | learning_rate: 0.025→0.05; min_child_samples: 200→500; n_estimators: 160→80; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1806 / 대기 | b28→c183 / n1800 | bound: 0.1→0.2; half_life: 180→365; n_estimators: 300→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1807 / 대기 | b28→c183 / n1802 | features: core→age; half_life: 없음→365; learning_rate: 0.025→0.05; mode: additive→multiplicative; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1808 / 대기 | b28→c183 / n1805 | bound: 0.5→0.1; min_child_samples: 500→200; mode: multiplicative→additive; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1809 / 대기 | b28→c183 / n1801 | features: age→season; half_life: 180→365; learning_rate: 0.025→0.05; num_leaves: 3→7; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1810 / 대기 | b28→c183 / n1800 | bound: 0.1→0.2; features: season→age; half_life: 180→없음; num_leaves: 15→7; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1811 / 대기 | b28→c183 / n1801 | features: age→core; learning_rate: 0.025→0.05; n_estimators: 300→80; reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1812 / 대기 | b28→c183 / n1806 | half_life: 365→없음; n_estimators: 80→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1813 / 대기 | b28→c183 / n1810 | bound: 0.2→0.3; min_child_samples: 1000→200; mode: additive→multiplicative; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1814 / 대기 | b28→c183 / n1808 | bound: 0.1→0.3; half_life: 365→180; min_child_samples: 200→500; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1815 / 대기 | b28→c183 / n1805 | bound: 0.5→0.3; features: core→season; half_life: 365→없음; min_child_samples: 500→200; n_estimators: 80→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1816 / 대기 | b28→c183 / n1796 | features: core→age; learning_rate: 0.025→0.05; n_estimators: 160→80; reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1817 / 대기 | b28→c183 / n1797 | features: season→core; half_life: 180→없음; min_child_samples: 1000→500; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1818 / 대기 | b28→c183 / n1800 | half_life: 180→365; min_child_samples: 1000→500; num_leaves: 15→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1819 / 대기 | b28→c183 / n1801 | learning_rate: 0.025→0.05; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1820 / 대기 | b28→c183 / n1796 | learning_rate: 0.025→0.05; min_child_samples: 200→500; num_leaves: 3→7; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1821 / 대기 | b28→c183 / n1803 | bound: 0.15→0.3; half_life: 180→365; learning_rate: 0.025→0.05; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1822 / 대기 | b28→c183 / n1819 | bound: 0.15→0.1; mode: multiplicative→additive; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1823 / 대기 | b28→c183 / n1813 | bound: 0.3→0.15; features: age→core; min_child_samples: 200→1000; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1824 / 대기 | b28→c183 / n1815 | bound: 0.3→0.2; mode: multiplicative→additive; reg_lambda: 10.0→2.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1825 / 대기 | b28→c183 / n1801 | bound: 0.15→0.5; half_life: 180→365; n_estimators: 300→80; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1826 / 대기 | b28→c183 / n1806 | features: season→core; half_life: 365→180; min_child_samples: 1000→500; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1827 / 대기 | b28→c183 / n1805 | bound: 0.5→0.15; features: core→season; min_child_samples: 500→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1828 / 대기 | b28→c183 / n1826 | bound: 0.2→0.3; features: core→age; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1829 / 대기 | b28→c183 / n1796 | bound: 0.1→0.5; min_child_samples: 200→500; mode: additive→multiplicative; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1830 / 대기 | b28→c183 / n1818 | half_life: 365→없음; learning_rate: 0.025→0.05; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1831 / 대기 | b28→c183 / n1801 | bound: 0.15→0.3; half_life: 180→없음; min_child_samples: 500→200; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1832 / 대기 | b28→c183 / n1808 | min_child_samples: 200→1000; n_estimators: 80→300; num_leaves: 15→3; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1833 / 대기 | b28→c183 / n1812 | bound: 0.2→0.15; mode: additive→multiplicative; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1834 / 대기 | b28→c183 / n1798 | bound: 0.1→0.3; num_leaves: 7→3; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1835 / 대기 | b28→c183 / n1817 | bound: 0.15→0.5; min_child_samples: 500→1000; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1836 / 대기 | b28→c183 / n1812 | learning_rate: 0.025→0.05; min_child_samples: 1000→200; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1837 / 대기 | b28→c183 / n1828 | bound: 0.3→0.5; mode: additive→multiplicative; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1838 / 대기 | b28→c183 / n1796 | bound: 0.1→0.2; n_estimators: 160→80; num_leaves: 3→7; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1839 / 대기 | b28→c183 / n1803 | bound: 0.15→0.3; half_life: 180→없음; num_leaves: 15→7; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1840 / 대기 | b28→c183 / n1796 | features: core→age; min_child_samples: 200→1000; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1841 / 대기 | b28→c183 / n1805 | bound: 0.5→0.15; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1842 / 대기 | b28→c183 / n1839 | mode: multiplicative→additive; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1843 / 대기 | b28→c183 / n1835 | bound: 0.5→0.3; features: core→age; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1844 / 대기 | b28→c183 / n1832 | bound: 0.1→0.2; reg_lambda: 10.0→2.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1845 / 대기 | b28→c183 / n1843 | features: age→season; learning_rate: 0.025→0.05; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1846 / 대기 | b28→c183 / n1798 | half_life: 180→없음; reg_lambda: 30.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1847 / 대기 | b28→c183 / n1799 | half_life: 365→없음; reg_lambda: 2.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1848 / 대기 | b28→c183 / n1812 | half_life: 없음→180; min_child_samples: 1000→200; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1849 / 대기 | b28→c183 / n1843 | n_estimators: 80→160; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1850 / 대기 | b28→c183 / n1796 | num_leaves: 3→15; reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1851 / 대기 | b28→c183 / n1809 | half_life: 365→없음; min_child_samples: 500→1000; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1852 / 대기 | b28→c183 / n1816 | bound: 0.1→0.2; half_life: 없음→180; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1853 / 대기 | b28→c183 / n1797 | features: season→core; learning_rate: 0.025→0.05; min_child_samples: 1000→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1854 / 대기 | b28→c183 / n1802 | features: core→season; min_child_samples: 1000→200; n_estimators: 80→300; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1855 / 대기 | b28→c183 / n1849 | half_life: 없음→365; n_estimators: 160→300; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1856 / 대기 | b29→c095 / n1856 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1857 / 대기 | b29→c095 / n1856 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1858 / 대기 | b29→c095 / n1856 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1859 / 대기 | b29→c095 / n1857 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1860 / 대기 | b29→c095 / n1856 | bound: 0.2→0.3; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→500; n_estimators: 0→300; num_leaves: 0→3; reg_lambda: 0.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1861 / 대기 | b29→c095 / n1860 | bound: 0.3→0.5; features: core→season; half_life: 없음→365; min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 300→80; reg_lambda: 10.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1862 / 대기 | b29→c095 / n1860 | bound: 0.3→0.1; features: core→age; learning_rate: 0.025→0.05; num_leaves: 3→7; reg_lambda: 10.0→2.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1863 / 대기 | b29→c095 / n1861 | features: season→core; half_life: 365→없음; n_estimators: 80→160; num_leaves: 3→7; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1864 / 대기 | b29→c095 / n1861 | bound: 0.5→0.2; half_life: 365→180; min_child_samples: 200→1000; mode: multiplicative→additive; n_estimators: 80→160; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1865 / 대기 | b29→c095 / n1862 | bound: 0.1→0.3; half_life: 없음→180; min_child_samples: 500→200; mode: additive→multiplicative; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1866 / 대기 | b29→c095 / n1862 | bound: 0.1→0.2; features: age→core; half_life: 없음→365; min_child_samples: 500→1000; reg_lambda: 2.0→30.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1867 / 대기 | b29→c095 / n1861 | half_life: 365→180; min_child_samples: 200→1000; n_estimators: 80→160; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1868 / 대기 | b29→c095 / n1862 | learning_rate: 0.05→0.025; min_child_samples: 500→200; n_estimators: 300→80; reg_lambda: 2.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1869 / 대기 | b29→c095 / n1861 | features: season→core; min_child_samples: 200→500; n_estimators: 80→300; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1870 / 대기 | b29→c095 / n1864 | bound: 0.2→0.3; half_life: 180→365; learning_rate: 0.025→0.05; min_child_samples: 1000→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1871 / 대기 | b29→c095 / n1865 | bound: 0.3→0.5; min_child_samples: 200→500; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1872 / 대기 | b29→c095 / n1868 | features: age→core; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1873 / 대기 | b29→c095 / n1861 | bound: 0.5→0.15; learning_rate: 0.025→0.05; n_estimators: 80→300; reg_lambda: 2.0→30.0; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1874 / 대기 | b29→c095 / n1862 | reg_lambda: 2.0→10.0; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1875 / 대기 | b29→c095 / n1866 | bound: 0.2→0.5; mode: additive→multiplicative; n_estimators: 300→160; num_leaves: 7→15; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1876 / 대기 | b29→c095 / n1864 | half_life: 180→없음; min_child_samples: 1000→200; num_leaves: 15→3; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1877 / 대기 | b29→c095 / n1863 | features: core→age; learning_rate: 0.025→0.05; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1878 / 대기 | b29→c095 / n1866 | bound: 0.2→0.1; half_life: 365→없음; n_estimators: 300→80; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1879 / 대기 | b29→c095 / n1867 | bound: 0.5→0.15; n_estimators: 160→300; num_leaves: 3→7; reg_lambda: 2.0→10.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1880 / 대기 | b29→c095 / n1868 | bound: 0.1→0.3; learning_rate: 0.025→0.05; n_estimators: 80→160; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1881 / 대기 | b29→c095 / n1863 | half_life: 없음→180; min_child_samples: 200→1000; n_estimators: 160→80; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1882 / 대기 | b29→c095 / n1862 | features: age→season; half_life: 없음→180; n_estimators: 300→80; num_leaves: 7→15; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1883 / 대기 | b29→c095 / n1865 | half_life: 180→365; min_child_samples: 200→500; num_leaves: 7→3; reg_lambda: 2.0→30.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1884 / 대기 | b29→c095 / n1862 | bound: 0.1→0.2; features: age→core; half_life: 없음→180; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1885 / 대기 | b29→c095 / n1879 | min_child_samples: 1000→200; n_estimators: 300→80; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1886 / 대기 | b29→c095 / n1880 | bound: 0.3→0.2; n_estimators: 160→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1887 / 대기 | b29→c095 / n1863 | bound: 0.5→0.3; reg_lambda: 10.0→10.5; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1888 / 대기 | b29→c095 / n1868 | features: age→season; n_estimators: 80→300; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1889 / 대기 | b29→c095 / n1877 | min_child_samples: 200→1000; n_estimators: 160→80; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1890 / 대기 | b29→c095 / n1873 | bound: 0.15→0.3; features: season→core; mode: multiplicative→additive; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1891 / 대기 | b29→c095 / n1877 | features: age→season; n_estimators: 160→300; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1892 / 대기 | b29→c095 / n1860 | features: core→age; half_life: 없음→365; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1893 / 대기 | b29→c095 / n1860 | bound: 0.3→0.15; mode: additive→multiplicative; num_leaves: 3→15; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1894 / 대기 | b29→c095 / n1879 | bound: 0.15→0.3; half_life: 180→365; mode: multiplicative→additive (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1895 / 대기 | b29→c095 / n1887 | features: core→age; num_leaves: 7→3; reg_lambda: 10.5→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1896 / 대기 | b29→c095 / n1864 | features: season→core; half_life: 180→없음; n_estimators: 160→300; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1897 / 대기 | b29→c095 / n1873 | half_life: 365→없음; n_estimators: 300→80; num_leaves: 3→15; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1898 / 대기 | b29→c095 / n1868 | n_estimators: 80→160; reg_lambda: 10.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1899 / 대기 | b29→c095 / n1869 | min_child_samples: 500→200; reg_lambda: 30.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1900 / 대기 | b29→c095 / n1868 | features: age→season; half_life: 없음→365; reg_lambda: 10.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1901 / 대기 | b29→c095 / n1869 | bound: 0.5→0.3; features: core→age; half_life: 365→없음; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1902 / 대기 | b29→c095 / n1872 | bound: 0.1→0.2; reg_lambda: 10.0→30.0; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1903 / 대기 | b29→c095 / n1879 | min_child_samples: 1000→500; num_leaves: 7→3; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1904 / 대기 | b29→c095 / n1886 | bound: 0.2→0.3; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1905 / 대기 | b29→c095 / n1869 | bound: 0.5→0.15; half_life: 365→없음; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1906 / 대기 | b29→c095 / n1864 | half_life: 180→없음; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1907 / 대기 | b29→c095 / n1873 | features: season→age; learning_rate: 0.05→0.025; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1908 / 대기 | b29→c095 / n1871 | bound: 0.5→0.3; features: age→core; mode: multiplicative→additive; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1909 / 대기 | b29→c095 / n1879 | learning_rate: 0.025→0.05; n_estimators: 300→80; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1910 / 대기 | b29→c095 / n1864 | features: season→age; learning_rate: 0.025→0.05; n_estimators: 160→80; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1911 / 대기 | b29→c095 / n1863 | bound: 0.5→0.3; half_life: 없음→180; num_leaves: 7→15; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1912 / 대기 | b29→c095 / n1866 | bound: 0.2→0.1; features: core→season; n_estimators: 300→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1913 / 대기 | b29→c095 / n1907 | half_life: 365→없음; min_child_samples: 200→500; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1914 / 대기 | b29→c095 / n1872 | half_life: 없음→180; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1915 / 대기 | b29→c095 / n1860 | features: core→season; min_child_samples: 500→1000; mode: additive→multiplicative; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1916 / 대기 | b29→c095 / n1874 | bound: 0.1→0.3; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1917 / 대기 | b29→c095 / n1863 | half_life: 없음→180; min_child_samples: 200→500; reg_lambda: 10.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1918 / 대기 | b29→c095 / n1888 | num_leaves: 7→15; reg_lambda: 10.0→30.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1919 / 대기 | b29→c095 / n1863 | features: core→age; min_child_samples: 200→1000; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1920 / 대기 | b30→c215 / n1920 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1921 / 대기 | b30→c215 / n1920 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1922 / 대기 | b30→c215 / n1920 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1923 / 대기 | b30→c215 / n1921 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1924 / 대기 | b30→c215 / n1922 | bound: 0.2→0.3; learning_rate: 0.0→0.05; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→300; num_leaves: 0→3; reg_lambda: 0.0→30.0; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1925 / 대기 | b30→c215 / n1921 | bound: 0.3→0.15; features: core→season; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→200; n_estimators: 0→160; num_leaves: 0→15; reg_lambda: 0.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1926 / 대기 | b30→c215 / n1924 | bound: 0.3→0.2; features: core→age; min_child_samples: 1000→200; num_leaves: 3→7; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1927 / 대기 | b30→c215 / n1925 | bound: 0.15→0.3; features: season→core; half_life: 없음→180; n_estimators: 160→80; num_leaves: 15→7; reg_lambda: 30.0→10.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1928 / 대기 | b30→c215 / n1926 | bound: 0.2→0.1; features: age→season; half_life: 365→없음; reg_lambda: 30.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1929 / 대기 | b30→c215 / n1926 | bound: 0.2→0.3; half_life: 365→180; min_child_samples: 200→500; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1930 / 대기 | b30→c215 / n1927 | bound: 0.3→0.2; mode: multiplicative→additive; n_estimators: 80→160; reg_lambda: 10.0→2.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1931 / 대기 | b30→c215 / n1925 | bound: 0.15→0.3; min_child_samples: 200→1000; reg_lambda: 30.0→2.0; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1932 / 대기 | b30→c215 / n1924 | bound: 0.3→0.1; features: core→age; half_life: 365→180; min_child_samples: 1000→200; n_estimators: 300→160 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1933 / 대기 | b30→c215 / n1929 | bound: 0.3→0.5; features: age→core; num_leaves: 7→15; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1934 / 대기 | b30→c215 / n1928 | bound: 0.1→0.2; half_life: 없음→365; min_child_samples: 200→1000; n_estimators: 300→160; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1935 / 대기 | b30→c215 / n1929 | half_life: 180→없음; n_estimators: 300→160; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1936 / 대기 | b30→c215 / n1924 | bound: 0.3→0.2; half_life: 365→없음; min_child_samples: 1000→500; n_estimators: 300→80; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1937 / 대기 | b30→c215 / n1925 | bound: 0.15→0.5; half_life: 없음→180; learning_rate: 0.025→0.05; reg_lambda: 30.0→10.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1938 / 대기 | b30→c215 / n1932 | half_life: 180→365; reg_lambda: 30.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1939 / 대기 | b30→c215 / n1927 | bound: 0.3→0.15; min_child_samples: 200→1000; reg_lambda: 10.0→30.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1940 / 대기 | b30→c215 / n1924 | features: core→season; min_child_samples: 1000→200; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1941 / 대기 | b30→c215 / n1929 | bound: 0.3→0.15; min_child_samples: 500→1000; n_estimators: 300→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1942 / 대기 | b30→c215 / n1930 | half_life: 180→없음; learning_rate: 0.025→0.05; num_leaves: 7→3; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1943 / 대기 | b30→c215 / n1931 | half_life: 없음→180; n_estimators: 160→80; num_leaves: 15→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1944 / 대기 | b30→c215 / n1932 | bound: 0.1→0.3; half_life: 180→365; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1945 / 대기 | b30→c215 / n1927 | bound: 0.3→0.5; half_life: 180→365; min_child_samples: 200→1000; n_estimators: 80→160; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1946 / 대기 | b30→c215 / n1944 | features: age→season; learning_rate: 0.05→0.025; min_child_samples: 200→500; shrink: 0.75→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1947 / 대기 | b30→c215 / n1935 | bound: 0.3→0.5; half_life: 없음→365; min_child_samples: 500→1000; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1948 / 대기 | b30→c215 / n1930 | min_child_samples: 200→1000; num_leaves: 7→3; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1949 / 대기 | b30→c215 / n1945 | features: core→season; min_child_samples: 1000→500; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1950 / 대기 | b30→c215 / n1925 | bound: 0.15→0.1; features: season→age; mode: multiplicative→additive; n_estimators: 160→80; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1951 / 대기 | b30→c215 / n1947 | features: age→core; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1952 / 대기 | b30→c215 / n1946 | half_life: 365→없음; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1953 / 대기 | b30→c215 / n1929 | bound: 0.3→0.15; half_life: 180→365; num_leaves: 7→3; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1954 / 대기 | b30→c215 / n1948 | half_life: 180→365; reg_lambda: 2.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1955 / 대기 | b30→c215 / n1927 | features: core→season; half_life: 180→없음; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1956 / 대기 | b30→c215 / n1931 | features: season→age; mode: multiplicative→additive; n_estimators: 160→300; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1957 / 대기 | b30→c215 / n1935 | bound: 0.3→0.15; features: age→core; half_life: 없음→365 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1958 / 대기 | b30→c215 / n1924 | features: core→season; n_estimators: 300→160; num_leaves: 3→7; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1959 / 대기 | b30→c215 / n1947 | half_life: 365→없음; learning_rate: 0.05→0.025; n_estimators: 160→300; shrink: 0.75→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1960 / 대기 | b30→c215 / n1936 | half_life: 없음→365; num_leaves: 3→15; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1961 / 대기 | b30→c215 / n1949 | half_life: 365→180; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1962 / 대기 | b30→c215 / n1948 | features: core→age; reg_lambda: 2.0→30.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1963 / 대기 | b30→c215 / n1939 | half_life: 180→없음; min_child_samples: 1000→200; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1964 / 대기 | b30→c215 / n1946 | bound: 0.3→0.2; n_estimators: 160→300; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1965 / 대기 | b30→c215 / n1935 | min_child_samples: 500→200; n_estimators: 160→80; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1966 / 대기 | b30→c215 / n1928 | features: season→core; min_child_samples: 200→1000; n_estimators: 300→80; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1967 / 대기 | b30→c215 / n1939 | features: core→season; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1968 / 대기 | b30→c215 / n1958 | features: season→age; half_life: 365→180; n_estimators: 160→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1969 / 대기 | b30→c215 / n1955 | features: season→core (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1970 / 대기 | b30→c215 / n1931 | mode: multiplicative→additive; num_leaves: 15→3; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1971 / 대기 | b30→c215 / n1959 | half_life: 없음→180; n_estimators: 300→80; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1972 / 대기 | b30→c215 / n1942 | half_life: 없음→180; n_estimators: 160→300; reg_lambda: 2.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1973 / 대기 | b30→c215 / n1961 | min_child_samples: 500→1000; n_estimators: 160→300; reg_lambda: 30.0→30.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1974 / 대기 | b30→c215 / n1938 | min_child_samples: 200→500; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1975 / 대기 | b30→c215 / n1957 | bound: 0.15→0.3; min_child_samples: 500→1000; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1976 / 대기 | b30→c215 / n1928 | half_life: 없음→365; min_child_samples: 200→500; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1977 / 대기 | b30→c215 / n1935 | learning_rate: 0.05→0.025; n_estimators: 160→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1978 / 대기 | b30→c215 / n1976 | bound: 0.1→0.3; features: season→core (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1979 / 대기 | b30→c215 / n1931 | bound: 0.3→0.5; learning_rate: 0.025→0.05; min_child_samples: 1000→500; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1980 / 대기 | b30→c215 / n1956 | learning_rate: 0.025→0.05; reg_lambda: 2.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1981 / 대기 | b30→c215 / n1939 | num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1982 / 대기 | b30→c215 / n1940 | half_life: 365→없음; min_child_samples: 200→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1983 / 대기 | b30→c215 / n1965 | half_life: 없음→180; min_child_samples: 200→500; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1984 / 대기 | b31→c151 / n1984 | 변경 없음(비교 기준 자체) (기준 자체) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1985 / 대기 | b31→c151 / n1984 | bound: 0.2→0.3; mode: additive→multiplicative (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1986 / 대기 | b31→c151 / n1984 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1987 / 대기 | b31→c151 / n1985 | half_life: 없음→365 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1988 / 대기 | b31→c151 / n1984 | bound: 0.2→0.3; half_life: 없음→180; learning_rate: 0.0→0.025; method: median→tree; min_child_samples: 0→1000; n_estimators: 0→160; num_leaves: 0→7; reg_lambda: 0.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1989 / 대기 | b31→c151 / n1988 | bound: 0.3→0.5; features: core→season; half_life: 180→없음; mode: additive→multiplicative; n_estimators: 160→80; num_leaves: 7→3; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1990 / 대기 | b31→c151 / n1988 | bound: 0.3→0.1; features: core→age; half_life: 180→없음; min_child_samples: 1000→500; n_estimators: 160→300; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1991 / 대기 | b31→c151 / n1988 | half_life: 180→365; mode: additive→multiplicative; n_estimators: 160→80; num_leaves: 7→15; reg_lambda: 30.0→10.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1992 / 대기 | b31→c151 / n1988 | bound: 0.3→0.1; features: core→season; learning_rate: 0.025→0.05; min_child_samples: 1000→500; n_estimators: 160→80; num_leaves: 7→15; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1993 / 대기 | b31→c151 / n1991 | features: core→age; learning_rate: 0.025→0.05; n_estimators: 80→300; num_leaves: 15→3; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1994 / 대기 | b31→c151 / n1988 | half_life: 180→없음; num_leaves: 7→15; reg_lambda: 30.0→2.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1995 / 대기 | b31→c151 / n1989 | bound: 0.5→0.15; num_leaves: 3→15; reg_lambda: 2.0→30.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1996 / 대기 | b31→c151 / n1988 | features: core→age; min_child_samples: 1000→200; n_estimators: 160→300; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1997 / 대기 | b31→c151 / n1990 | bound: 0.1→0.3; features: age→core; learning_rate: 0.025→0.05; mode: additive→multiplicative; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1998 / 대기 | b31→c151 / n1992 | bound: 0.1→0.2; learning_rate: 0.05→0.025; reg_lambda: 30.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n1999 / 대기 | b31→c151 / n1988 | bound: 0.3→0.5; features: core→age; min_child_samples: 1000→200; mode: additive→multiplicative; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2000 / 대기 | b31→c151 / n1994 | num_leaves: 15→3; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2001 / 대기 | b31→c151 / n1995 | half_life: 없음→365; num_leaves: 15→7; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2002 / 대기 | b31→c151 / n1990 | half_life: 없음→365; n_estimators: 300→80; reg_lambda: 10.0→2.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2003 / 대기 | b31→c151 / n1991 | bound: 0.3→0.5; min_child_samples: 1000→200; n_estimators: 80→160; num_leaves: 15→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2004 / 대기 | b31→c151 / n1996 | features: age→season; half_life: 180→365; min_child_samples: 200→1000 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2005 / 대기 | b31→c151 / n1993 | min_child_samples: 1000→500; n_estimators: 300→160; num_leaves: 3→7; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2006 / 대기 | b31→c151 / n1991 | bound: 0.3→0.1; learning_rate: 0.025→0.05; mode: multiplicative→additive; shrink: 0.25→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2007 / 대기 | b31→c151 / n1999 | features: age→season; num_leaves: 7→3; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2008 / 대기 | b31→c151 / n2002 | bound: 0.1→0.2; learning_rate: 0.025→0.05; min_child_samples: 500→1000; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2009 / 대기 | b31→c151 / n1988 | bound: 0.3→0.15; half_life: 180→365; mode: additive→multiplicative; num_leaves: 7→3; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2010 / 대기 | b31→c151 / n2004 | bound: 0.3→0.2; min_child_samples: 1000→200; num_leaves: 3→15; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2011 / 대기 | b31→c151 / n1996 | bound: 0.3→0.5; half_life: 180→없음; mode: additive→multiplicative; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2012 / 대기 | b31→c151 / n2006 | bound: 0.1→0.2; half_life: 365→180; min_child_samples: 1000→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2013 / 대기 | b31→c151 / n2011 | features: age→season; learning_rate: 0.025→0.05; num_leaves: 3→7 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2014 / 대기 | b31→c151 / n1993 | mode: multiplicative→additive; n_estimators: 300→80; reg_lambda: 10.0→2.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2015 / 대기 | b31→c151 / n1989 | features: season→core; learning_rate: 0.025→0.05; reg_lambda: 2.0→10.0; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2016 / 대기 | b31→c151 / n2010 | bound: 0.2→0.3; learning_rate: 0.025→0.05; reg_lambda: 30.0→2.0; shrink: 0.75→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2017 / 대기 | b31→c151 / n1993 | bound: 0.3→0.15; min_child_samples: 1000→200; num_leaves: 3→7; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2018 / 대기 | b31→c151 / n1991 | bound: 0.3→0.2; mode: multiplicative→additive; num_leaves: 15→3; shrink: 0.25→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2019 / 대기 | b31→c151 / n1989 | min_child_samples: 1000→500; n_estimators: 80→300 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2020 / 대기 | b31→c151 / n1992 | features: season→age; half_life: 180→365; min_child_samples: 500→200; n_estimators: 80→160; num_leaves: 15→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2021 / 대기 | b31→c151 / n2009 | bound: 0.15→0.5; half_life: 365→180; learning_rate: 0.025→0.05 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2022 / 대기 | b31→c151 / n1990 | features: age→season; half_life: 없음→365; min_child_samples: 500→200; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2023 / 대기 | b31→c151 / n1999 | bound: 0.5→0.15; reg_lambda: 2.0→2.5; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2024 / 대기 | b31→c151 / n2000 | min_child_samples: 1000→500; reg_lambda: 2.0→30.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2025 / 대기 | b31→c151 / n2001 | learning_rate: 0.025→0.05; min_child_samples: 1000→500; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2026 / 대기 | b31→c151 / n1990 | bound: 0.1→0.2; min_child_samples: 500→200; reg_lambda: 10.0→2.0; shrink: 1.0→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2027 / 대기 | b31→c151 / n2001 | features: season→core; learning_rate: 0.025→0.05; min_child_samples: 1000→200; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2028 / 대기 | b31→c151 / n1992 | n_estimators: 80→300; num_leaves: 15→3; reg_lambda: 30.0→2.0; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2029 / 대기 | b31→c151 / n2021 | features: core→age; n_estimators: 160→80; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2030 / 대기 | b31→c151 / n2006 | half_life: 365→없음; min_child_samples: 1000→500; num_leaves: 15→3; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2031 / 대기 | b31→c151 / n1988 | features: core→season; learning_rate: 0.025→0.05; min_child_samples: 1000→200; mode: additive→multiplicative; num_leaves: 7→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2032 / 대기 | b31→c151 / n1996 | min_child_samples: 200→500; shrink: 1.0→0.5 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2033 / 대기 | b31→c151 / n2019 | bound: 0.5→0.15; features: season→core; min_child_samples: 500→200 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2034 / 대기 | b31→c151 / n1992 | learning_rate: 0.05→0.025; min_child_samples: 500→1000; n_estimators: 80→160; reg_lambda: 30.0→10.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2035 / 대기 | b31→c151 / n1989 | bound: 0.5→0.15; features: season→age; half_life: 없음→365; min_child_samples: 1000→500 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2036 / 대기 | b31→c151 / n1994 | n_estimators: 160→300; shrink: 0.5→0.25 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2037 / 대기 | b31→c151 / n2005 | bound: 0.3→0.5; features: age→season; n_estimators: 160→80; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2038 / 대기 | b31→c151 / n2032 | learning_rate: 0.025→0.05 (단일 설정 차이) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2039 / 대기 | b31→c151 / n2015 | min_child_samples: 1000→200; reg_lambda: 10.0→30.0; shrink: 0.5→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2040 / 대기 | b31→c151 / n1992 | min_child_samples: 500→200; num_leaves: 15→3; shrink: 0.5→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2041 / 대기 | b31→c151 / n2001 | features: season→age; n_estimators: 80→160; num_leaves: 7→3 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2042 / 대기 | b31→c151 / n1991 | min_child_samples: 1000→500; mode: multiplicative→additive; shrink: 0.25→1.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2043 / 대기 | b31→c151 / n1993 | features: age→season; min_child_samples: 1000→500; reg_lambda: 10.0→30.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2044 / 대기 | b31→c151 / n2032 | bound: 0.3→0.2; n_estimators: 300→80 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2045 / 대기 | b31→c151 / n2021 | bound: 0.5→0.3; n_estimators: 160→300; num_leaves: 3→15 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2046 / 대기 | b31→c151 / n1988 | bound: 0.3→0.2; features: core→season; half_life: 180→365; reg_lambda: 30.0→2.0 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
+| n2047 / 대기 | b31→c151 / n2035 | bound: 0.15→0.5; reg_lambda: 2.0→10.0; shrink: 1.0→0.75 (여러 설정 동시 변경) | — | — | — / —%, —% | 0/5 / 0 |  — |
 
-| ID | 종류 | 상태 | 완료 기간 / 예정 | 확인된 모델 학습 | 지표 | 값 | 비고·근거 |
-|---|---|---|---:|---:|---|---:|---|
-| n0000 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9296 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0000/result.json) |
-| n0001 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9261 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0001/result.json) |
-| n0002 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9295 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0002/result.json) |
-| n0003 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9258 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0003/result.json) |
-| n0004 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9199 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0004/result.json) |
-| n0005 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0009 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0005/result.json) |
-| n0006 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9208 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0006/result.json) |
-| n0007 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9539 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0007/result.json) |
-| n0008 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0046 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0008/result.json) |
-| n0009 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9302 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0009/result.json) |
-| n0010 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9182 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0010/result.json) |
-| n0011 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9286 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0011/result.json) |
-| n0012 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9834 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0012/result.json) |
-| n0013 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9256 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0013/result.json) |
-| n0014 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9224 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0014/result.json) |
-| n0015 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9212 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0015/result.json) |
-| n0016 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9238 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0016/result.json) |
-| n0017 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9235 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0017/result.json) |
-| n0018 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9275 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0018/result.json) |
-| n0019 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9210 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0019/result.json) |
-| n0020 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9330 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0020/result.json) |
-| n0021 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0126 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0021/result.json) |
-| n0022 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9173 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0022/result.json) |
-| n0023 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9308 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0023/result.json) |
-| n0024 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9220 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0024/result.json) |
-| n0025 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9247 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0025/result.json) |
-| n0026 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9342 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0026/result.json) |
-| n0027 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9588 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0027/result.json) |
-| n0028 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9651 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0028/result.json) |
-| n0029 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9213 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0029/result.json) |
-| n0030 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9314 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0030/result.json) |
-| n0031 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9904 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0031/result.json) |
-| n0032 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9245 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0032/result.json) |
-| n0033 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9607 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0033/result.json) |
-| n0034 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9551 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0034/result.json) |
-| n0035 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9229 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0035/result.json) |
-| n0036 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9469 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0036/result.json) |
-| n0037 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9364 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0037/result.json) |
-| n0038 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9686 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0038/result.json) |
-| n0039 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9383 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0039/result.json) |
-| n0040 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9270 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0040/result.json) |
-| n0041 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9748 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0041/result.json) |
-| n0042 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9365 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0042/result.json) |
-| n0043 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9219 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0043/result.json) |
-| n0044 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9205 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0044/result.json) |
-| n0045 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9598 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0045/result.json) |
-| n0046 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9672 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0046/result.json) |
-| n0047 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9402 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0047/result.json) |
-| n0048 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9400 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0048/result.json) |
-| n0049 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9352 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0049/result.json) |
-| n0050 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9218 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0050/result.json) |
-| n0051 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9941 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0051/result.json) |
-| n0052 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9183 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0052/result.json) |
-| n0053 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9233 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0053/result.json) |
-| n0054 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9221 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0054/result.json) |
-| n0055 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9561 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0055/result.json) |
-| n0056 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9343 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0056/result.json) |
-| n0057 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9652 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0057/result.json) |
-| n0058 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9332 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0058/result.json) |
-| n0059 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9535 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0059/result.json) |
-| n0060 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9530 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0060/result.json) |
-| n0061 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9623 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0061/result.json) |
-| n0062 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9309 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0062/result.json) |
-| n0063 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9754 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0063/result.json) |
-| n0064 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9345 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0064/result.json) |
-| n0065 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9303 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0065/result.json) |
-| n0066 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9339 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0066/result.json) |
-| n0067 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9297 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0067/result.json) |
-| n0068 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9288 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0068/result.json) |
-| n0069 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9785 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0069/result.json) |
-| n0070 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9999 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0070/result.json) |
-| n0071 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9831 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0071/result.json) |
-| n0072 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9265 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0072/result.json) |
-| n0073 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0145 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0073/result.json) |
-| n0074 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0114 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0074/result.json) |
-| n0075 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0078 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0075/result.json) |
-| n0076 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9971 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0076/result.json) |
-| n0077 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9803 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0077/result.json) |
-| n0078 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9709 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0078/result.json) |
-| n0079 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9325 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0079/result.json) |
-| n0080 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0272 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0080/result.json) |
-| n0081 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9854 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0081/result.json) |
-| n0082 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0022 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0082/result.json) |
-| n0083 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9617 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0083/result.json) |
-| n0084 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9324 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0084/result.json) |
-| n0085 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9329 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0085/result.json) |
-| n0086 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9277 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0086/result.json) |
-| n0087 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9358 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0087/result.json) |
-| n0088 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9279 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0088/result.json) |
-| n0089 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9816 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0089/result.json) |
-| n0090 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0035 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0090/result.json) |
-| n0091 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9447 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0091/result.json) |
-| n0092 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9730 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0092/result.json) |
-| n0093 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9286 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0093/result.json) |
-| n0094 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9491 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0094/result.json) |
-| n0095 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9582 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0095/result.json) |
-| n0096 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9796 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0096/result.json) |
-| n0097 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9284 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0097/result.json) |
-| n0098 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9722 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0098/result.json) |
-| n0099 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9924 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0099/result.json) |
-| n0100 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9621 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0100/result.json) |
-| n0101 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9293 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0101/result.json) |
-| n0102 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0168 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0102/result.json) |
-| n0103 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9326 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0103/result.json) |
-| n0104 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9289 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0104/result.json) |
-| n0105 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0034 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0105/result.json) |
-| n0106 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9616 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0106/result.json) |
-| n0107 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0284 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0107/result.json) |
-| n0108 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9454 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0108/result.json) |
-| n0109 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9403 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0109/result.json) |
-| n0110 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9501 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0110/result.json) |
-| n0111 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0106 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0111/result.json) |
-| n0112 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9252 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0112/result.json) |
-| n0113 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9258 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0113/result.json) |
-| n0114 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0105 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0114/result.json) |
-| n0115 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0325 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0115/result.json) |
-| n0116 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0180 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0116/result.json) |
-| n0117 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0588 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0117/result.json) |
-| n0118 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9460 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0118/result.json) |
-| n0119 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9286 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0119/result.json) |
-| n0120 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9575 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0120/result.json) |
-| n0121 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9692 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0121/result.json) |
-| n0122 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9485 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0122/result.json) |
-| n0123 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9327 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0123/result.json) |
-| n0124 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9269 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0124/result.json) |
-| n0125 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9423 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0125/result.json) |
-| n0126 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9299 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0126/result.json) |
-| n0127 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9909 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0127/result.json) |
-| n0128 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9668 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0128/result.json) |
-| n0129 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9711 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0129/result.json) |
-| n0130 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9694 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0130/result.json) |
-| n0131 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9739 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0131/result.json) |
-| n0132 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9529 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0133 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9819 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0133/result.json) |
-| n0134 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9784 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0134/result.json) |
-| n0135 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9704 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0136 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9775 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0136/result.json) |
-| n0137 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9705 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0137/result.json) |
-| n0138 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9746 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0138/result.json) |
-| n0139 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9671 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0139/result.json) |
-| n0140 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9844 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0140/result.json) |
-| n0141 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9835 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0141/result.json) |
-| n0142 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9590 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0143 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9923 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0143/result.json) |
-| n0144 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9807 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0144/result.json) |
-| n0145 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9729 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0145/result.json) |
-| n0146 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9859 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0146/result.json) |
-| n0147 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9986 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0147/result.json) |
-| n0148 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9777 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0148/result.json) |
-| n0149 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9876 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0149/result.json) |
-| n0150 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9726 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0150/result.json) |
-| n0151 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9781 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0151/result.json) |
-| n0152 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9729 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0152/result.json) |
-| n0153 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9651 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0153/result.json) |
-| n0154 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9683 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0154/result.json) |
-| n0155 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9892 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0155/result.json) |
-| n0156 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9777 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0156/result.json) |
-| n0157 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9769 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0157/result.json) |
-| n0158 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9786 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0158/result.json) |
-| n0159 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9960 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0159/result.json) |
-| n0160 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9766 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0160/result.json) |
-| n0161 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9791 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0161/result.json) |
-| n0162 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9786 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0162/result.json) |
-| n0163 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9758 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0163/result.json) |
-| n0164 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9716 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0164/result.json) |
-| n0165 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9817 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0165/result.json) |
-| n0166 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9701 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0166/result.json) |
-| n0167 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9771 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0167/result.json) |
-| n0168 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9633 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0168/result.json) |
-| n0169 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9669 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0170 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9874 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0170/result.json) |
-| n0171 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9847 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0172 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9831 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0172/result.json) |
-| n0173 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9826 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0174 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9764 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0175 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9921 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0175/result.json) |
-| n0176 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9874 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0176/result.json) |
-| n0177 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9691 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0177/result.json) |
-| n0178 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9898 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0178/result.json) |
-| n0179 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9787 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0179/result.json) |
-| n0180 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0028 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0180/result.json) |
-| n0181 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9802 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0181/result.json) |
-| n0182 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9804 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0182/result.json) |
-| n0183 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9812 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0183/result.json) |
-| n0184 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9841 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0184/result.json) |
-| n0185 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9710 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0185/result.json) |
-| n0186 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9675 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0187 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9743 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0187/result.json) |
-| n0188 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9647 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0189 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9766 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0189/result.json) |
-| n0190 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9679 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0190/result.json) |
-| n0191 | calibration | 실패 | 5/5 | 5 | mean W / c000 (실패 기록 독립 감사) | 0.9745 | NumPy bool 결과 저장 오류; 학습 영수증 보존, 최종 결과 미기록; 독립 감사에서 탐색 조건 통과 확인, 최종 선택·추가 시드·제출 검증은 미완료 [기록](../../analysis_outputs/research_22h_20261107/hourly_checks/20261107T083900Z_failed_candidates_science.json) |
-| n0192 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9346 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0192/result.json) |
-| n0193 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9288 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0193/result.json) |
-| n0194 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9339 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0194/result.json) |
-| n0195 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9283 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0195/result.json) |
-| n0196 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9260 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0196/result.json) |
-| n0197 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9319 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0197/result.json) |
-| n0198 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9391 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0198/result.json) |
-| n0199 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9269 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0199/result.json) |
-| n0200 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9278 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0200/result.json) |
-| n0201 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9803 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0201/result.json) |
-| n0202 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9488 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0202/result.json) |
-| n0203 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0095 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0203/result.json) |
-| n0204 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9278 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0204/result.json) |
-| n0205 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9987 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0205/result.json) |
-| n0206 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9461 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0206/result.json) |
-| n0207 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9261 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0207/result.json) |
-| n0208 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9774 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0208/result.json) |
-| n0209 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9678 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0209/result.json) |
-| n0210 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9587 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0210/result.json) |
-| n0211 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9287 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0211/result.json) |
-| n0212 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9388 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0212/result.json) |
-| n0213 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9511 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0213/result.json) |
-| n0214 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9672 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0214/result.json) |
-| n0215 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9688 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0215/result.json) |
-| n0216 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9700 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0216/result.json) |
-| n0217 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9733 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0217/result.json) |
-| n0218 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9760 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0218/result.json) |
-| n0219 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9512 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0219/result.json) |
-| n0220 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9900 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0220/result.json) |
-| n0221 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9570 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0221/result.json) |
-| n0222 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9252 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0222/result.json) |
-| n0223 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0017 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0223/result.json) |
-| n0224 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9605 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0224/result.json) |
-| n0225 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9552 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0225/result.json) |
-| n0226 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9752 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0226/result.json) |
-| n0227 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0152 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0227/result.json) |
-| n0228 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9970 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0228/result.json) |
-| n0229 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9281 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0229/result.json) |
-| n0230 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9276 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0230/result.json) |
-| n0231 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9878 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0231/result.json) |
-| n0232 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9627 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0232/result.json) |
-| n0233 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9396 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0233/result.json) |
-| n0234 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9276 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0234/result.json) |
-| n0235 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9497 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0235/result.json) |
-| n0236 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9624 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0236/result.json) |
-| n0237 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0267 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0237/result.json) |
-| n0238 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9382 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0238/result.json) |
-| n0239 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9563 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0239/result.json) |
-| n0240 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9280 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0240/result.json) |
-| n0241 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0127 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0241/result.json) |
-| n0242 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9283 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0242/result.json) |
-| n0243 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9641 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0243/result.json) |
-| n0244 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9563 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0244/result.json) |
-| n0245 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9970 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0245/result.json) |
-| n0246 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9405 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0246/result.json) |
-| n0247 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9299 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0247/result.json) |
-| n0248 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9465 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0248/result.json) |
-| n0249 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9443 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0249/result.json) |
-| n0250 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9251 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0250/result.json) |
-| n0251 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9550 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0251/result.json) |
-| n0252 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9730 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0252/result.json) |
-| n0253 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0036 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0253/result.json) |
-| n0254 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9256 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0254/result.json) |
-| n0255 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9385 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0255/result.json) |
-| n0256 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9494 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0256/result.json) |
-| n0257 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9451 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0257/result.json) |
-| n0258 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9481 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0258/result.json) |
-| n0259 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9435 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0259/result.json) |
-| n0260 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9437 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0260/result.json) |
-| n0261 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9545 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0261/result.json) |
-| n0262 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9377 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0262/result.json) |
-| n0263 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9389 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0263/result.json) |
-| n0264 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9393 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0264/result.json) |
-| n0265 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0106 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0265/result.json) |
-| n0266 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9687 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0266/result.json) |
-| n0267 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9346 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0267/result.json) |
-| n0268 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9427 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0268/result.json) |
-| n0269 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9364 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0269/result.json) |
-| n0270 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9547 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0270/result.json) |
-| n0271 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9588 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0271/result.json) |
-| n0272 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9517 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0272/result.json) |
-| n0273 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0373 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0273/result.json) |
-| n0274 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9333 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0274/result.json) |
-| n0275 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9647 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0275/result.json) |
-| n0276 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9997 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0276/result.json) |
-| n0277 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9904 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0277/result.json) |
-| n0278 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9803 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0278/result.json) |
-| n0279 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0022 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0279/result.json) |
-| n0280 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0034 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0280/result.json) |
-| n0281 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9527 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0281/result.json) |
-| n0282 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0348 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0282/result.json) |
-| n0283 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9875 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0283/result.json) |
-| n0284 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9537 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0284/result.json) |
-| n0285 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0070 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0285/result.json) |
-| n0286 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9590 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0286/result.json) |
-| n0287 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9447 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0287/result.json) |
-| n0288 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9924 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0288/result.json) |
-| n0289 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9902 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0289/result.json) |
-| n0290 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9710 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0290/result.json) |
-| n0291 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0281 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0291/result.json) |
-| n0292 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9883 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0292/result.json) |
-| n0293 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9878 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0293/result.json) |
-| n0294 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9362 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0294/result.json) |
-| n0295 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9870 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0295/result.json) |
-| n0296 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9521 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0296/result.json) |
-| n0297 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0127 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0297/result.json) |
-| n0298 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0015 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0298/result.json) |
-| n0299 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9352 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0299/result.json) |
-| n0300 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9357 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0300/result.json) |
-| n0301 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9351 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0301/result.json) |
-| n0302 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9380 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0302/result.json) |
-| n0303 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9676 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0303/result.json) |
-| n0304 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9521 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0304/result.json) |
-| n0305 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9577 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0305/result.json) |
-| n0306 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9584 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0306/result.json) |
-| n0307 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9900 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0307/result.json) |
-| n0308 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9329 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0308/result.json) |
-| n0309 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0134 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0309/result.json) |
-| n0310 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9512 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0310/result.json) |
-| n0311 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0114 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0311/result.json) |
-| n0312 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9590 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0312/result.json) |
-| n0313 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0147 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0313/result.json) |
-| n0314 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9501 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0314/result.json) |
-| n0315 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9704 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0315/result.json) |
-| n0316 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9680 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0316/result.json) |
-| n0317 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9360 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0317/result.json) |
-| n0318 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0081 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0318/result.json) |
-| n0319 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0078 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0319/result.json) |
-| n0320 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9592 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0320/result.json) |
-| n0321 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9567 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0321/result.json) |
-| n0322 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9563 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0322/result.json) |
-| n0323 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9537 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0323/result.json) |
-| n0324 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9570 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0324/result.json) |
-| n0325 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9439 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0325/result.json) |
-| n0326 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9359 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0326/result.json) |
-| n0327 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0092 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0327/result.json) |
-| n0328 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0279 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0328/result.json) |
-| n0329 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9359 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0329/result.json) |
-| n0330 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9522 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0330/result.json) |
-| n0331 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9432 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0331/result.json) |
-| n0332 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9478 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0332/result.json) |
-| n0333 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9577 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0333/result.json) |
-| n0334 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9995 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0334/result.json) |
-| n0335 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9394 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0335/result.json) |
-| n0336 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9659 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0336/result.json) |
-| n0337 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9394 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0337/result.json) |
-| n0338 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9353 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0338/result.json) |
-| n0339 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9480 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0339/result.json) |
-| n0340 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0269 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0340/result.json) |
-| n0341 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9518 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0341/result.json) |
-| n0342 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9763 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0342/result.json) |
-| n0343 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9662 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0343/result.json) |
-| n0344 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9903 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0344/result.json) |
-| n0345 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9410 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0345/result.json) |
-| n0346 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9953 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0346/result.json) |
-| n0347 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9372 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0347/result.json) |
-| n0348 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9398 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0348/result.json) |
-| n0349 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9446 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0349/result.json) |
-| n0350 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9566 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0350/result.json) |
-| n0351 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0183 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0351/result.json) |
-| n0352 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9887 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0352/result.json) |
-| n0353 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9439 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0353/result.json) |
-| n0354 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9555 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0354/result.json) |
-| n0355 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9653 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0355/result.json) |
-| n0356 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9354 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0356/result.json) |
-| n0357 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9609 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0357/result.json) |
-| n0358 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0281 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0358/result.json) |
-| n0359 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9455 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0359/result.json) |
-| n0360 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9893 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0360/result.json) |
-| n0361 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9948 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0361/result.json) |
-| n0362 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9362 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0362/result.json) |
-| n0363 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0063 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0363/result.json) |
-| n0364 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9440 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0364/result.json) |
-| n0365 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0039 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0365/result.json) |
-| n0366 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9390 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0366/result.json) |
-| n0367 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9949 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0367/result.json) |
-| n0368 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9999 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0368/result.json) |
-| n0369 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0021 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0369/result.json) |
-| n0370 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9467 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0370/result.json) |
-| n0371 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9502 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0371/result.json) |
-| n0372 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9695 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0372/result.json) |
-| n0373 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9680 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0373/result.json) |
-| n0374 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9550 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0374/result.json) |
-| n0375 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9915 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0375/result.json) |
-| n0376 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0293 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0376/result.json) |
-| n0377 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9735 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0377/result.json) |
-| n0378 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9809 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0378/result.json) |
-| n0379 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9404 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0379/result.json) |
-| n0380 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9455 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0380/result.json) |
-| n0381 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9411 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0381/result.json) |
-| n0382 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9419 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0382/result.json) |
-| n0383 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9380 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0383/result.json) |
-| n0384 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9619 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0384/result.json) |
-| n0385 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9617 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0385/result.json) |
-| n0386 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9606 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0386/result.json) |
-| n0387 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9599 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0387/result.json) |
-| n0388 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9396 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0388/result.json) |
-| n0389 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9656 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0389/result.json) |
-| n0390 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9681 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0390/result.json) |
-| n0391 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9922 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0391/result.json) |
-| n0392 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0231 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0392/result.json) |
-| n0393 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9700 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0393/result.json) |
-| n0394 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9543 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0394/result.json) |
-| n0395 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9829 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0395/result.json) |
-| n0396 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9381 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0396/result.json) |
-| n0397 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9860 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0397/result.json) |
-| n0398 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9915 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0398/result.json) |
-| n0399 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9635 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0399/result.json) |
-| n0400 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9754 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0400/result.json) |
-| n0401 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9596 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0401/result.json) |
-| n0402 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9370 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0402/result.json) |
-| n0403 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9571 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0403/result.json) |
-| n0404 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0145 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0404/result.json) |
-| n0405 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9484 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0405/result.json) |
-| n0406 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0176 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0406/result.json) |
-| n0407 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9587 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0407/result.json) |
-| n0408 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9380 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0408/result.json) |
-| n0409 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9917 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0409/result.json) |
-| n0410 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9404 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0410/result.json) |
-| n0411 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9410 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0411/result.json) |
-| n0412 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9536 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0412/result.json) |
-| n0413 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9623 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0413/result.json) |
-| n0414 | calibration | 진행 중 | 3/5 | 3 | mean W / c000 | — |  — |
-| n0415 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0416 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0417 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0418 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0419 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0420 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0421 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0422 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0423 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0424 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0425 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0426 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0427 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0428 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0429 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0430 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0431 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0432 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0433 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0434 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0435 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0436 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0437 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0438 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0439 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0440 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0441 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0442 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0443 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0444 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0445 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0446 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0447 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0448 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0449 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0450 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0451 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0452 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0453 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0454 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0455 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0456 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0457 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0458 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0459 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0460 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0461 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0462 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0463 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0464 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0465 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0466 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0467 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0468 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0469 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0470 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0471 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0472 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0473 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0474 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0475 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0476 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0477 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0478 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0479 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0480 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0481 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0482 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0483 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0484 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0485 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0486 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0487 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0488 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0489 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0490 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0491 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0492 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0493 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0494 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0495 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0496 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0497 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0498 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0499 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0500 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0501 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0502 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0503 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0504 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0505 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0506 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0507 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0508 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0509 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0510 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0511 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0512 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0513 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0514 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0515 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0516 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0517 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0518 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0519 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0520 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0521 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0522 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0523 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0524 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0525 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0526 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0527 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0528 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0529 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0530 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0531 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0532 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0533 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0534 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0535 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0536 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0537 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0538 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0539 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0540 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0541 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0542 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0543 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0544 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0545 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0546 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0547 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0548 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0549 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0550 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0551 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0552 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0553 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0554 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0555 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0556 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0557 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0558 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0559 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0560 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0561 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0562 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0563 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0564 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0565 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0566 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0567 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0568 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0569 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0570 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0571 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0572 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0573 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0574 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0575 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0576 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0577 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0578 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0579 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0580 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0581 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0582 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0583 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0584 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0585 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0586 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0587 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0588 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0589 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0590 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0591 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0592 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0593 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0594 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0595 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0596 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0597 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0598 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0599 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0600 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0601 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0602 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0603 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0604 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0605 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0606 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0607 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0608 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0609 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0610 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0611 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0612 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0613 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0614 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0615 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0616 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0617 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0618 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0619 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0620 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0621 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0622 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0623 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0624 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0625 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0626 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0627 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0628 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0629 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0630 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0631 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0632 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0633 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0634 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0635 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0636 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0637 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0638 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0639 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0640 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0641 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0642 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0643 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0644 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0645 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0646 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0647 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0648 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0649 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0650 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0651 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0652 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0653 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0654 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0655 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0656 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0657 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0658 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0659 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0660 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0661 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0662 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0663 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0664 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0665 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0666 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0667 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0668 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0669 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0670 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0671 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0672 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0673 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0674 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0675 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0676 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0677 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0678 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0679 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0680 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0681 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0682 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0683 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0684 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0685 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0686 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0687 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0688 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0689 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0690 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0691 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0692 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0693 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0694 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0695 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0696 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0697 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0698 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0699 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0700 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0701 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0702 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0703 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0704 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0705 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0706 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0707 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0708 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0709 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0710 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0711 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0712 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0713 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0714 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0715 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0716 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0717 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0718 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0719 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0720 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0721 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0722 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0723 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0724 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0725 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0726 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0727 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0728 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0729 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0730 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0731 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0732 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0733 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0734 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0735 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0736 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0737 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0738 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0739 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0740 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0741 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0742 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0743 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0744 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0745 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0746 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0747 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0748 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0749 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0750 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0751 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0752 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0753 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0754 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0755 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0756 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0757 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0758 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0759 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0760 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0761 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0762 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0763 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0764 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0765 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0766 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0767 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0768 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0769 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0770 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0771 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0772 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0773 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0774 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0775 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0776 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0777 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0778 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0779 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0780 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0781 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0782 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0783 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0784 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0785 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0786 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0787 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0788 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0789 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0790 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0791 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0792 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0793 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0794 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0795 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0796 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0797 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0798 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0799 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0800 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0801 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0802 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0803 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0804 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0805 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0806 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0807 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0808 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0809 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0810 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0811 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0812 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0813 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0814 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0815 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0816 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0817 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0818 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0819 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0820 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0821 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0822 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0823 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0824 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0825 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0826 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0827 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0828 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0829 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0830 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0831 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0832 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0833 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0834 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0835 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0836 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0837 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0838 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0839 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0840 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0841 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0842 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0843 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0844 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0845 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0846 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0847 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0848 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0849 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0850 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0851 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0852 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0853 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0854 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0855 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0856 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0857 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0858 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0859 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0860 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0861 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0862 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0863 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0864 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0865 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0866 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0867 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0868 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0869 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0870 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0871 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0872 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0873 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0874 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0875 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0876 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0877 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0878 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0879 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0880 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0881 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0882 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0883 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0884 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0885 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0886 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0887 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0888 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0889 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0890 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0891 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0892 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0893 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0894 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0895 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0896 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0897 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0898 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0899 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0900 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0901 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0902 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0903 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0904 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0905 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0906 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0907 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0908 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0909 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0910 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0911 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0912 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0913 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0914 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0915 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0916 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0917 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0918 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0919 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0920 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0921 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0922 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0923 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0924 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0925 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0926 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0927 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0928 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0929 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0930 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0931 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0932 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0933 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0934 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0935 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0936 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0937 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0938 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0939 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0940 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0941 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0942 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0943 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0944 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0945 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0946 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0947 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0948 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0949 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0950 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0951 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0952 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0953 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0954 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0955 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0956 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0957 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0958 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0959 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0960 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0961 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0962 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0963 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0964 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0965 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0966 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0967 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0968 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0969 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0970 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0971 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0972 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0973 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0974 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0975 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0976 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0977 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0978 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0979 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0980 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0981 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0982 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0983 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0984 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0985 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0986 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0987 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0988 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0989 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0990 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0991 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0992 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0993 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0994 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0995 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0996 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0997 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0998 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0999 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1000 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1001 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1002 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1003 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1004 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1005 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1006 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1007 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1008 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1009 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1010 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1011 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1012 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1013 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1014 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1015 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1016 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1017 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1018 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1019 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1020 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1021 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1022 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1023 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1024 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1025 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1026 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1027 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1028 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1029 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1030 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1031 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1032 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1033 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1034 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1035 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1036 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1037 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1038 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1039 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1040 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1041 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1042 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1043 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1044 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1045 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1046 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1047 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1048 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1049 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1050 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1051 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1052 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1053 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1054 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1055 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1056 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1057 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1058 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1059 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1060 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1061 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1062 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1063 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1064 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1065 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1066 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1067 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1068 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1069 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1070 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1071 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1072 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1073 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1074 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1075 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1076 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1077 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1078 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1079 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1080 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1081 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1082 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1083 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1084 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1085 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1086 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1087 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1088 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1089 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1090 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1091 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1092 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1093 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1094 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1095 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1096 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1097 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1098 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1099 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1100 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1101 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1102 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1103 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1104 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1105 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1106 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1107 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1108 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1109 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1110 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1111 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1112 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1113 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1114 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1115 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1116 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1117 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1118 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1119 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1120 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1121 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1122 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1123 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1124 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1125 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1126 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1127 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1128 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1129 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1130 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1131 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1132 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1133 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1134 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1135 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1136 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1137 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1138 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1139 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1140 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1141 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1142 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1143 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1144 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1145 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1146 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1147 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1148 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1149 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1150 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1151 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1152 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1153 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1154 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1155 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1156 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1157 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1158 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1159 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1160 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1161 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1162 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1163 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1164 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1165 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1166 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1167 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1168 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1169 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1170 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1171 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1172 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1173 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1174 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1175 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1176 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1177 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1178 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1179 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1180 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1181 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1182 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1183 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1184 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1185 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1186 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1187 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1188 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1189 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1190 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1191 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1192 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1193 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1194 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1195 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1196 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1197 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1198 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1199 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1200 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1201 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1202 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1203 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1204 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1205 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1206 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1207 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1208 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1209 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1210 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1211 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1212 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1213 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1214 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1215 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1216 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1217 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1218 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1219 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1220 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1221 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1222 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1223 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1224 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1225 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1226 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1227 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1228 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1229 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1230 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1231 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1232 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1233 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1234 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1235 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1236 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1237 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1238 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1239 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1240 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1241 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1242 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1243 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1244 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1245 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1246 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1247 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1248 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1249 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1250 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1251 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1252 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1253 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1254 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1255 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1256 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1257 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1258 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1259 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1260 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1261 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1262 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1263 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1264 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1265 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1266 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1267 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1268 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1269 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1270 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1271 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1272 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1273 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1274 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1275 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1276 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1277 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1278 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1279 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1280 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1281 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1282 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1283 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1284 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1285 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1286 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1287 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1288 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1289 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1290 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1291 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1292 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1293 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1294 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1295 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1296 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1297 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1298 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1299 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1300 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1301 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1302 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1303 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1304 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1305 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1306 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1307 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1308 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1309 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1310 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1311 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1312 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1313 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1314 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1315 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1316 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1317 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1318 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1319 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1320 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1321 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1322 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1323 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1324 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1325 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1326 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1327 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1328 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1329 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1330 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1331 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1332 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1333 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1334 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1335 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1336 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1337 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1338 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1339 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1340 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1341 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1342 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1343 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1344 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1345 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1346 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1347 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1348 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1349 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1350 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1351 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1352 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1353 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1354 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1355 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1356 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1357 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1358 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1359 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1360 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1361 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1362 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1363 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1364 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1365 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1366 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1367 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1368 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1369 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1370 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1371 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1372 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1373 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1374 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1375 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1376 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1377 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1378 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1379 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1380 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1381 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1382 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1383 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1384 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1385 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1386 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1387 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1388 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1389 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1390 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1391 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1392 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1393 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1394 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1395 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1396 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1397 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1398 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1399 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1400 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1401 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1402 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1403 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1404 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1405 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1406 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1407 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1408 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1409 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1410 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1411 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1412 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1413 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1414 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1415 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1416 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1417 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1418 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1419 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1420 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1421 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1422 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1423 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1424 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1425 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1426 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1427 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1428 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1429 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1430 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1431 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1432 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1433 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1434 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1435 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1436 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1437 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1438 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1439 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1440 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1441 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1442 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1443 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1444 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1445 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1446 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1447 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1448 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1449 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1450 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1451 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1452 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1453 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1454 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1455 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1456 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1457 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1458 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1459 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1460 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1461 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1462 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1463 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1464 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1465 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1466 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1467 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1468 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1469 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1470 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1471 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1472 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1473 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1474 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1475 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1476 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1477 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1478 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1479 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1480 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1481 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1482 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1483 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1484 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1485 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1486 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1487 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1488 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1489 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1490 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1491 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1492 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1493 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1494 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1495 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1496 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1497 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1498 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1499 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1500 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1501 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1502 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1503 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1504 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1505 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1506 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1507 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1508 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1509 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1510 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1511 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1512 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1513 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1514 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1515 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1516 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1517 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1518 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1519 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1520 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1521 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1522 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1523 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1524 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1525 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1526 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1527 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1528 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1529 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1530 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1531 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1532 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1533 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1534 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1535 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1536 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1537 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1538 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1539 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1540 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1541 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1542 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1543 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1544 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1545 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1546 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1547 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1548 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1549 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1550 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1551 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1552 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1553 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1554 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1555 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1556 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1557 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1558 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1559 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1560 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1561 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1562 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1563 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1564 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1565 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1566 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1567 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1568 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1569 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1570 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1571 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1572 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1573 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1574 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1575 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1576 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1577 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1578 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1579 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1580 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1581 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1582 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1583 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1584 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1585 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1586 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1587 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1588 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1589 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1590 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1591 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1592 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1593 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1594 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1595 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1596 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1597 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1598 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1599 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1600 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1601 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1602 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1603 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1604 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1605 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1606 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1607 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1608 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1609 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1610 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1611 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1612 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1613 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1614 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1615 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1616 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1617 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1618 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1619 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1620 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1621 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1622 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1623 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1624 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1625 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1626 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1627 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1628 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1629 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1630 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1631 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1632 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1633 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1634 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1635 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1636 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1637 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1638 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1639 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1640 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1641 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1642 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1643 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1644 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1645 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1646 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1647 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1648 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1649 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1650 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1651 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1652 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1653 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1654 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1655 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1656 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1657 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1658 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1659 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1660 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1661 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1662 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1663 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1664 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1665 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1666 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1667 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1668 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1669 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1670 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1671 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1672 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1673 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1674 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1675 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1676 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1677 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1678 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1679 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1680 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1681 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1682 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1683 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1684 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1685 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1686 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1687 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1688 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1689 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1690 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1691 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1692 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1693 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1694 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1695 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1696 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1697 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1698 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1699 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1700 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1701 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1702 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1703 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1704 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1705 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1706 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1707 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1708 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1709 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1710 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1711 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1712 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1713 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1714 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1715 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1716 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1717 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1718 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1719 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1720 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1721 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1722 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1723 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1724 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1725 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1726 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1727 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1728 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1729 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1730 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1731 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1732 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1733 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1734 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1735 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1736 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1737 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1738 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1739 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1740 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1741 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1742 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1743 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1744 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1745 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1746 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1747 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1748 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1749 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1750 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1751 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1752 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1753 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1754 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1755 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1756 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1757 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1758 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1759 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1760 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1761 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1762 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1763 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1764 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1765 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1766 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1767 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1768 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1769 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1770 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1771 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1772 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1773 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1774 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1775 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1776 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1777 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1778 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1779 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1780 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1781 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1782 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1783 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1784 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1785 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1786 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1787 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1788 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1789 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1790 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1791 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1792 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1793 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1794 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1795 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1796 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1797 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1798 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1799 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1800 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1801 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1802 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1803 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1804 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1805 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1806 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1807 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1808 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1809 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1810 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1811 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1812 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1813 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1814 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1815 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1816 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1817 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1818 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1819 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1820 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1821 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1822 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1823 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1824 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1825 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1826 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1827 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1828 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1829 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1830 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1831 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1832 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1833 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1834 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1835 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1836 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1837 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1838 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1839 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1840 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1841 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1842 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1843 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1844 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1845 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1846 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1847 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1848 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1849 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1850 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1851 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1852 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1853 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1854 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1855 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1856 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1857 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1858 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1859 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1860 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1861 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1862 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1863 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1864 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1865 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1866 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1867 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1868 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1869 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1870 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1871 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1872 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1873 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1874 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1875 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1876 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1877 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1878 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1879 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1880 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1881 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1882 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1883 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1884 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1885 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1886 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1887 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1888 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1889 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1890 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1891 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1892 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1893 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1894 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1895 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1896 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1897 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1898 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1899 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1900 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1901 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1902 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1903 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1904 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1905 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1906 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1907 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1908 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1909 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1910 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1911 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1912 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1913 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1914 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1915 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1916 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1917 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1918 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1919 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1920 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1921 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1922 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1923 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1924 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1925 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1926 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1927 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1928 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1929 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1930 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1931 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1932 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1933 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1934 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1935 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1936 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1937 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1938 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1939 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1940 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1941 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1942 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1943 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1944 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1945 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1946 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1947 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1948 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1949 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1950 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1951 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1952 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1953 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1954 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1955 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1956 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1957 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1958 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1959 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1960 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1961 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1962 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1963 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1964 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1965 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1966 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1967 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1968 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1969 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1970 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1971 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1972 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1973 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1974 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1975 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1976 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1977 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1978 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1979 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1980 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1981 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1982 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1983 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1984 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1985 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1986 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1987 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1988 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1989 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1990 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1991 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1992 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1993 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1994 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1995 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1996 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1997 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1998 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n1999 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2000 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2001 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2002 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2003 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2004 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2005 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2006 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2007 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2008 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2009 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2010 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2011 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2012 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2013 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2014 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2015 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2016 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2017 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2018 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2019 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2020 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2021 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2022 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2023 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2024 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2025 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2026 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2027 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2028 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2029 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2030 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2031 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2032 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2033 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2034 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2035 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2036 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2037 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2038 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2039 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2040 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2041 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2042 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2043 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2044 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2045 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2046 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n2047 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| b00 | oof_generation | 완료 | — | 8 |  | — | 기존 c206 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b00/result.json) |
-| b01 | oof_generation | 완료 | — | 8 |  | — | 기존 c003 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b01/result.json) |
-| b02 | oof_generation | 완료 | — | 8 |  | — | 기존 c158 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b02/result.json) |
-| b03 | oof_generation | 완료 | — | 8 |  | — | 기존 c174 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b03/result.json) |
-| b04 | oof_generation | 완료 | — | 8 |  | — | 기존 c093 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b04/result.json) |
-| b05 | oof_generation | 완료 | — | 8 |  | — | 기존 c185 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b05/result.json) |
-| b06 | oof_generation | 완료 | — | 8 |  | — | 기존 c117 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b06/result.json) |
-| b07 | oof_generation | 대기 | — | 0 |  | — | 기존 c000 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b08 | oof_generation | 대기 | — | 0 |  | — | 기존 c186 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b09 | oof_generation | 대기 | — | 0 |  | — | 기존 c030 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b10 | oof_generation | 대기 | — | 0 |  | — | 기존 c142 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b11 | oof_generation | 대기 | — | 0 |  | — | 기존 c046 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b12 | oof_generation | 대기 | — | 0 |  | — | 기존 c081 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b13 | oof_generation | 대기 | — | 0 |  | — | 기존 c010 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b14 | oof_generation | 대기 | — | 0 |  | — | 기존 c191 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b15 | oof_generation | 대기 | — | 0 |  | — | 기존 c170 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b16 | oof_generation | 대기 | — | 0 |  | — | 기존 c128 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b17 | oof_generation | 대기 | — | 0 |  | — | 기존 c115 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b18 | oof_generation | 대기 | — | 0 |  | — | 기존 c038 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b19 | oof_generation | 대기 | — | 0 |  | — | 기존 c226 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b20 | oof_generation | 대기 | — | 0 |  | — | 기존 c014 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b21 | oof_generation | 대기 | — | 0 |  | — | 기존 c232 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b22 | oof_generation | 대기 | — | 0 |  | — | 기존 c136 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b23 | oof_generation | 대기 | — | 0 |  | — | 기존 c098 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b24 | oof_generation | 대기 | — | 0 |  | — | 기존 c223 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b25 | oof_generation | 대기 | — | 0 |  | — | 기존 c238 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b26 | oof_generation | 대기 | — | 0 |  | — | 기존 c127 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b27 | oof_generation | 대기 | — | 0 |  | — | 기존 c064 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b28 | oof_generation | 대기 | — | 0 |  | — | 기존 c183 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b29 | oof_generation | 대기 | — | 0 |  | — | 기존 c095 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b30 | oof_generation | 대기 | — | 0 |  | — | 기존 c215 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
-| b31 | oof_generation | 대기 | — | 0 |  | — | 기존 c151 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+### 보정 학습용 OOF 기초 모델
+
+| 기초 ID → 발전 모델 | 상태 | 확인된 새 학습 횟수 | 설명·근거 |
+|---|---|---:|---|
+| b00 → c206 | 완료 | 8 | 기존 c206 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b00/result.json) |
+| b01 → c003 | 완료 | 8 | 기존 c003 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b01/result.json) |
+| b02 → c158 | 완료 | 8 | 기존 c158 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b02/result.json) |
+| b03 → c174 | 완료 | 8 | 기존 c174 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b03/result.json) |
+| b04 → c093 | 완료 | 8 | 기존 c093 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b04/result.json) |
+| b05 → c185 | 완료 | 8 | 기존 c185 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b05/result.json) |
+| b06 → c117 | 완료 | 8 | 기존 c117 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b06/result.json) |
+| b07 → c000 | 대기 | 0 | 기존 c000 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b08 → c186 | 대기 | 0 | 기존 c186 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b09 → c030 | 대기 | 0 | 기존 c030 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b10 → c142 | 대기 | 0 | 기존 c142 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b11 → c046 | 대기 | 0 | 기존 c046 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b12 → c081 | 대기 | 0 | 기존 c081 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b13 → c010 | 대기 | 0 | 기존 c010 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b14 → c191 | 대기 | 0 | 기존 c191 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b15 → c170 | 대기 | 0 | 기존 c170 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b16 → c128 | 대기 | 0 | 기존 c128 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b17 → c115 | 대기 | 0 | 기존 c115 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b18 → c038 | 대기 | 0 | 기존 c038 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b19 → c226 | 대기 | 0 | 기존 c226 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b20 → c014 | 대기 | 0 | 기존 c014 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b21 → c232 | 대기 | 0 | 기존 c232 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b22 → c136 | 대기 | 0 | 기존 c136 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b23 → c098 | 대기 | 0 | 기존 c098 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b24 → c223 | 대기 | 0 | 기존 c223 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b25 → c238 | 대기 | 0 | 기존 c238 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b26 → c127 | 대기 | 0 | 기존 c127 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b27 → c064 | 대기 | 0 | 기존 c064 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b28 → c183 | 대기 | 0 | 기존 c183 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b29 → c095 | 대기 | 0 | 기존 c095 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b30 → c215 | 대기 | 0 | 기존 c215 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b31 → c151 | 대기 | 0 | 기존 c151 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |

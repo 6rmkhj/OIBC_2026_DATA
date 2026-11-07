@@ -53,6 +53,40 @@ FIELDS = ['campaign', 'id', 'kind', 'status', 'controller_status', 'completed_fo
           'recorded_model_fits', 'mean_W_ratio_vs_c000', 'primary_blend_W_change_pct',
           'recent_blend_W_change_pct', 'eligible', 'audit_gate_pass', 'started_kst', 'finished_kst',
           'metric_name', 'metric_value', 'evidence_path', 'note']
+FIELDS += ['base_id', 'source_generation_id', 'config_json', 'comparison_id', 'changed_settings',
+           'changed_setting_count', 'comparison_scope', 'primary_W', 'recent_W',
+           'primary_W_pct', 'recent_W_pct', 'primary_W_change_pct_vs_comparison',
+           'recent_W_change_pct_vs_comparison', 'primary_W_change_pct_vs_raw',
+           'recent_W_change_pct_vs_raw', 'blend_alpha']
+SETTING_NAMES = {'features':'입력', 'objective':'학습 손실', 'target':'학습 정답', 'weighting':'오차 가중치',
+    'half_life':'최근 자료 가중치 반감기', 'n_estimators':'트리 수', 'learning_rate':'학습률',
+    'num_leaves':'트리 최대 잎 수', 'min_child_samples':'잎 최소 표본 수', 'reg_lambda':'L2 규제',
+    'colsample_bytree':'입력 샘플 비율', 'subsample':'행 샘플 비율', 'base_id':'기초 모델',
+    'method':'보정 방법', 'mode':'보정 단위', 'shrink':'보정 적용 비율', 'bound':'보정 제한값'}
+
+
+def setting_value(value):
+    return '없음' if value is None else str(value)
+
+
+def config_changes(before, after):
+    return {k: (before.get(k), after.get(k)) for k in sorted(set(before) | set(after))
+            if k != 'id' and before.get(k) != after.get(k)}
+
+
+def describe_changes(changes, friendly=False):
+    return '; '.join(f'{SETTING_NAMES.get(k,k) if friendly else k}: {setting_value(a)}→{setting_value(b)}'
+                     for k, (a,b) in changes.items()) or '변경 없음(비교 기준 자체)'
+
+
+def percent_change(after, before):
+    return (after / before - 1) * 100 if after is not None and before is not None and before > 0 else None
+
+
+def direction(value):
+    if value is None:
+        return '미평가'
+    return '개선' if value < -1e-10 else '악화' if value > 1e-10 else '동일'
 
 
 def digest(data):
@@ -159,6 +193,7 @@ class Snapshot:
         manifest = self.read(f'{folder}/controller_manifest.json', required=True)
         protocol = self.read(f'{folder}/protocol.json', required=True)
         configs = self.read(f'{folder}/configs.json', required=True)
+        bases = {b['id']:b for b in self.read(f'{folder}/bases.json') or []}
         report = self.read(f'{folder}/report.json') or {}
         old_ranking = {r['id']: r for r in report.get('ranking', [])}
         audited_failed = {}
@@ -231,10 +266,34 @@ class Snapshot:
                 metric_name='mean W / c000 (실패 기록 독립 감사)' if diagnostic else 'mean W / c000',
                 metric_value=ranking.get('mean_W_ratio'),
                 evidence_path=f'{unit}/result.json' if result else failed_audit_path if diagnostic else '', note=note)
+            row.update(_config=config, base_id=config.get('base_id',''),
+                source_generation_id=bases.get(config.get('base_id'),{}).get('source_id',''),
+                config_json=json.dumps(config, ensure_ascii=False, sort_keys=True, separators=(',',':')))
+            # Failed/partial jobs must not acquire successful comparison metrics from receipts.
+            if status == 'completed' and result and result.get('status') == 'PASS':
+                row['blend_alpha'] = result.get('blend',{}).get('alpha')
+                for fold in ('primary','recent'):
+                    record = result.get('folds',{}).get(fold,{})
+                    row[f'{fold}_W'] = record.get('score',{}).get('W')
+                    row[f'{fold}_W_pct'] = record.get('score',{}).get('W_pct')
+                    row[f'{fold}_W_change_pct_vs_raw'] = percent_change(
+                        row[f'{fold}_W'], record.get('raw_score',{}).get('W'))
             self.rows.append(row)
             data_rows.append(row)
+        # Choose by frozen configuration and ID only, never by a good score.
+        # A future row therefore keeps the same comparator as it completes.
+        for index, row in enumerate(data_rows):
+            earlier = [r for r in data_rows[:index] if r['base_id'] == row['base_id']]
+            comparator = min(earlier, key=lambda r: (len(config_changes(r['_config'],row['_config'])), r['id'])) if earlier else row
+            changes = config_changes(comparator['_config'],row['_config'])
+            row.update(comparison_id=comparator['id'], changed_settings=describe_changes(changes),
+                changed_setting_count=len(changes), _changes=changes,
+                comparison_scope='기준 자체' if comparator is row else '단일 설정 차이' if len(changes)==1 else '여러 설정 동시 변경')
+            if row['status']=='completed' and comparator['status']=='completed':
+                for fold in ('primary','recent'):
+                    row[f'{fold}_W_change_pct_vs_comparison'] = percent_change(row.get(f'{fold}_W'),comparator.get(f'{fold}_W'))
         base_rows = []
-        for base in self.read(f'{folder}/bases.json') or []:
+        for base in bases.values():
             job = state.get('jobs', {}).get(base['id'], {})
             result = self.read(f"{folder}/bases/{base['id']}/result.json")
             fit_count = 0
@@ -252,6 +311,8 @@ class Snapshot:
                 started_kst=stamp(job.get('launched_utc')), finished_kst=stamp(job.get('finished_utc')),
                 evidence_path=f"{folder}/bases/{base['id']}/result.json" if result else '',
                 note=f"기존 {base['source_id']} 설정 재사용; 보정 학습용 시간 순서 OOF 생성")
+            row.update(base_id=base['id'], source_generation_id=base['source_id'],
+                       config_json=json.dumps(base['config'],ensure_ascii=False,sort_keys=True,separators=(',',':')))
             self.rows.append(row)
             base_rows.append(row)
         completion_fits = 0
@@ -290,6 +351,7 @@ class Snapshot:
             process_identity_matches=alive, completion=completion,
             independent_completion=check, best=best, stop_reason=state.get('stop_reason'))
         item.update(audited_failed_gate_count=sum(x in errors for x in audited_failed), failed_audit_path=failed_audit_path)
+        item.update(configs=configs, base_specs=bases, protocol=protocol)
         self.campaigns.append(item)
         return item
 
@@ -331,6 +393,116 @@ class Snapshot:
             self.campaigns.append(dict(campaign, kind='historical', rows=rows, counts=dict(Counter(r['status'] for r in rows)),
                                        candidate_count=len(rows), status=campaign.get('status', '과거 기록')))
 
+    def explain_experiments(self, old, new):
+        lines = ['## 무엇을 바꾸며 실험하는가', '',
+            '**현재는 기존 발전량 모델의 예측에 보정을 더하는 단계입니다.** 앞선 `c000~c255`는 발전량 모델 자체의 입력·학습 방식을 비교했고, '
+            '연장 `n0000~n2047`은 그중 고정한 32개 기초 모델(`b00~b31`)마다 64개 보정 설정(중앙값 4개·트리 60개)을 비교합니다. '
+            'ID는 고정된 실행 큐의 번호이며, 번호가 커진다고 모델이 누적 개선되는 것은 아닙니다.', '',
+            '1. **발전량 모델**: 날씨·태양고도 등의 입력에서 기초 예측을 만듭니다. 예: `b00`은 앞선 `c206` 설정입니다.',
+            '2. **오차 보정**: 학습 마감일 이후에 만든 과거 예측(시간 순서 OOF)의 오차를 배워 기초 예측에 제한된 보정량을 더합니다.',
+            '3. **최고 제출 모델과 혼합**: 보정 예측에 가중치 `alpha`, 기존 최고 예측에 `1-alpha`를 줍니다. '
+            '`alpha`는 primary에서만 정하고 recent에는 그대로 적용합니다.', '',
+            '**각 행의 결과는 동일한 설정을 5개 학습 마감일에서 평가한 값입니다.** 일부 설정은 함께 바뀌는 조합 탐색입니다. '
+            '그 경우 점수 차이를 한 변수의 효과로 단정하지 않습니다. 가능한 모든 조합을 평가한 완전요인실험은 아닙니다. '
+            '아래 설명은 기존 설정과 저장된 결과를 읽어 생성하며 새 학습·후보 선택을 하지 않습니다.', '',
+            '### 바뀌는 설정과 의미', '',
+            '| 단계 / 설정 키 | 무엇을 바꾸는가 |', '|---|---|',
+            '| 발전 모델 `features` | `station`: 관측소별 확장 입력 목록 904개. `rich`: 그 부분집합인 요약·물리 입력 100개. rich가 더 많은 입력이라는 뜻은 아니며, 실제 학습에서는 학습 기간의 상수 열을 제거합니다. |',
+            '| 발전 모델 `target` + `weighting` | `original_cf`+`legacy`: 기존 정규화 정답·태양고도 가중치. `exact_energy`+`monetary`: 그룹 실제 발전량으로 만든 정답·가격과 벌점 계수를 반영한 오차 가중치. 이 두 키는 함께 바뀌므로 각각의 효과를 분리하지 않습니다. |',
+            '| 발전 모델 `objective` | `regression_l1`: 절대 오차, `regression_l2`: 제곱 오차를 줄이도록 학습. 공식 평가 지표를 바꾸는 설정이 아닙니다. |',
+            '| 공통 `half_life` | 학습 자료가 반감기만큼 오래되면 시간 가중치를 절반으로 줄입니다. 학습 기간을 잘라내는 설정은 아닙니다. `없음`은 시간 감쇠 없음. 발전 모델: 90/180/365일, 보정: 180/365일을 비교합니다. 보정 단계에서는 OOF 오차의 가중치이며 발전 모델 가중치를 바꾸지 않습니다. |',
+            '| 보정 `base_id` | 어떤 기초 발전량 모델을 보정하는지. 예: `b00→c206`, `b01→c003`. 기초 모델 교체는 내부 설정 여러 개의 변경일 수 있습니다. 전체 표와 CSV에 연결 ID를 적습니다. |',
+            '| 보정 `method` | `median`: 정규화된 OOF 오차의 가중 중앙값 하나를 적용. 가중치에는 금액·보정 단위·시간 감쇠·중복 횟수를 반영합니다. `tree`: 날씨와 시점 조건에 따라 보정량을 다르게 예측하는 작은 LightGBM 모델. median에서는 입력·트리 설정을 사용하지 않습니다. |',
+            '| 보정 `features` | `core`: 날씨·태양고도·그룹·기초 예측/설비용량(14개). `season`: core+연중 위치·시간(17개). `age`: season+발전 모델 학습 마감 이후 일수·학습 이력 길이(19개). 기상예보 발표 후 경과시간이 아닙니다. |',
+            '| 보정 `mode` | `additive`: 설비용량×태양고도 정규화값을 보정 단위로 사용. `multiplicative`: 기초 예측량을 사용하되 너무 작으면 하한을 적용합니다. |',
+            '| 보정 `shrink` / `bound` | 학습한 정규화 보정값을 ±bound로 제한한 뒤 shrink만큼 적용합니다. `shrink=0.5`는 보정량의 절반. `bound=0.2`는 발전량의 무조건 20%가 아닙니다. 보정량 = shrink × 제한된 보정값 × mode별 단위. 마지막에 물리적 출력 범위로 제한하고 밤은 0입니다. |',
+            '| 트리 `num_leaves` / `min_child_samples` | 잎 수와 한 잎의 최소 표본 수. 잎이 많고 최소 표본이 작을수록 복잡한 조건을 표현할 수 있지만 항상 성능이 좋아지는 것은 아닙니다. |',
+            '| 트리 `n_estimators` / `learning_rate` | 트리 개수와 단계별 학습률. 반복 횟수·갱신 크기를 함께 결정합니다. |',
+            '| 트리 `reg_lambda` / `colsample_bytree` / `subsample` | 규제 강도·트리별 입력 사용 비율·행 사용 비율. 보정 트리의 입력 비율 0.9, 행 비율 0.8은 고정입니다. |', '',
+            f"실제 모든 설정값: {self.link(old['folder']+'/configs.json','발전 모델 256개')} · "
+            f"{self.link(new['folder']+'/configs.json','보정 2,048개')} · {self.link(new['folder']+'/bases.json','기초 모델 연결표')}", '']
+        active = next((r for r in new['rows'] if r['id']==new['current_job']), None)
+        if active:
+            c = active['_config']
+            lines += ['### 지금 실행하는 설정', '',
+                f"`{active['id']}`: **{LABELS.get(active['status'],active['status'])}**. 기초 `{active['base_id']}` → `{active['source_generation_id']}`, "
+                f"보정 `{c['method']}`, 입력 `{c['features']}`, 단위 `{c['mode']}`, 반감기 {setting_value(c['half_life'])}, "
+                f"적용 비율 {c['shrink']}, 제한값 {c['bound']}.", '',
+                f"설정이 가장 가까운 앞선 동일 기초 모델 실험 `{active['comparison_id']}`와의 차이: "
+                f"{describe_changes(active['_changes'],friendly=True)}. {active['comparison_scope']}. 완료 전에는 결과 차이를 표시하지 않습니다.", '']
+        elif new['current_job'] in new['base_specs']:
+            base=new['base_specs'][new['current_job']]
+            lines += ['### 지금 실행하는 설정', '',
+                f"`{base['id']}` → 발전 모델 `{base['source_id']}`: **보정 학습용 과거 예측(OOF)을 준비하는 단계**입니다. "
+                '고정한 기초 모델 설정을 여러 과거 학습 마감일에 적용해 그 이후의 예측 오차를 모읍니다. '
+                '기존 일치 모델은 재사용하며, 이 단계 자체를 보정 후보 성능 개선으로 집계하지 않습니다.', '']
+        lines += ['### 실제 결과: 설정 변경 전 → 후', '',
+            '아래는 **두 실험이 모두 정상 완료된 경우**만 비교합니다. 설명 예시는 점수 순위와 무관하게 각 변경 유형에서 ID가 가장 앞선 쌍을 택합니다. '
+            '기초 모델·나머지 설정이 같은 쌍만 “한 설정”으로 표시하며, 묶음 변경은 따로 표시합니다. 전체 실험에는 각각의 비교 ID와 차이를 적습니다.', '',
+            '**표의 수치는 혼합 전 예측의 W_pct(낮을수록 좋음)**입니다. 괄호는 같은 기간의 W 상대 변화 `(후/전−1)×100`이며, W_pct의 퍼센트포인트 차이가 아닙니다. '
+            '혼합 성능과 alpha는 아래 및 전체 CSV에서 별도로 확인합니다.', '',
+            '| 실험 전 → 후 | 바뀐 설정 | primary W_pct 전 → 후 (W 상대 변화) | recent W_pct 전 → 후 (W 상대 변화) | 해석 |',
+            '|---|---|---:|---:|---|']
+        for item, keys in [(old,('features',)),(old,('target','weighting')),
+                           (old,('half_life',)),(old,('num_leaves',)),
+                           (new,('half_life',)),(new,('features',)),(new,('shrink',)),
+                           (new,('reg_lambda',)),(new,('mode','bound'))]:
+            pair = self.first_pair(item, keys)
+            if not pair:
+                continue
+            a,b = pair
+            values=[]
+            changes=[]
+            for fold in ('primary','recent'):
+                delta=percent_change(b.get(f'{fold}_W'),a.get(f'{fold}_W'))
+                changes.append(delta)
+                values.append(f"{number(a.get(f'{fold}_W_pct'))} → {number(b.get(f'{fold}_W_pct'))} ({number(delta)}%)")
+            refs=f"{self.link(a['evidence_path'],a['id'])} → {self.link(b['evidence_path'],b['id'])}"
+            lines.append(f"| {refs} | {cell(describe_changes(config_changes(a['_config'],b['_config']),friendly=True))} "
+                         f"({'한 설정' if len(keys)==1 else str(len(keys))+'개 함께 변경'}) | {values[0]} | {values[1]} | "
+                         f"primary {direction(changes[0])}, recent {direction(changes[1])} |")
+        lines += ['', '쌍이 없는 변경 유형은 억지로 단일 효과를 계산하지 않습니다. 예시의 개선·악화는 해당 기초 모델과 기간에서의 관찰입니다. '
+            '전체 평균이나 미래 성능 보장으로 일반화할 수 없고, 별도 확인 실험이나 여러 시드 반복 결과도 아닙니다. '
+            '저장 실패 후보는 이 정상 완료 비교에서 제외되어 있습니다.', '',
+            '### 왜 단독 오차 개선이 최종 점수 개선과 다른가', '']
+        best=new.get('best')
+        if best:
+            c=best['_config']
+            lines += [f"현재 저장된 결과의 평균 W/c000 최저 설정 `{best['id']}`는 `{best['base_id']}→{best['source_generation_id']}`에 "
+                f"`{c['method']}` / `{c['features']}` / `{c['mode']}` 보정, 반감기 {setting_value(c['half_life'])}, "
+                f"shrink={c['shrink']}, bound={c['bound']}를 적용합니다. 나머지 트리 설정은 전체 CSV의 `config_json`에 있습니다.", '',
+                '| 비교 단계 | primary W 상대 변화 | recent W 상대 변화 |', '|---|---:|---:|',
+                f"| 같은 기초 모델의 보정 전 → 보정 후 | {number(best.get('primary_W_change_pct_vs_raw'))}% | {number(best.get('recent_W_change_pct_vs_raw'))}% |",
+                f"| 기존 최고 제출 예측 → 혼합 후 (alpha={number(best.get('blend_alpha'),6)}) | {number(best.get('primary_blend_W_change_pct'))}% | {number(best.get('recent_blend_W_change_pct'))}% |", '']
+        lines += ['보정 전 모델을 이겼더라도 기존 최고 제출 예측을 이긴 것은 아닙니다. 특히 alpha=0이면 후보가 혼합에 기여하지 않아 '
+            '혼합 결과는 기존 최고와 같습니다. 이 문서의 수치는 모두 과거 개발 자료의 내부 오차이며 새 공식 점수가 아닙니다.', '',
+            '### 평가 기간과 읽는 방법', '', '| 평가 ID | 학습·보정 정답 사용 마감 (KST) | 이후 평가 구간 (KST) |', '|---|---|---|']
+        for fold,window in new['protocol']['folds'].items():
+            lines.append(f"| {fold} | {window['origin']} 00:00까지 | ({window['origin']} 00:00, {window['end']} 00:00] |")
+        lines += ['', '위 마감은 발전 모델과 OOF 보정기의 학습 정답에 적용합니다. **혼합 alpha는 별도로 primary 평가 정답을 사용해 정합니다.** '
+            '따라서 primary 혼합 결과는 계수를 선택한 자료에서의 값이며, recent는 그 계수를 변경 없이 적용한 후속 기간 평가입니다.', '',
+            '기간은 서로 겹치며 모두 이미 노출된 과거 자료입니다. 시간 순서를 지킨 OOF도 독립적인 미사용 평가셋을 뜻하지 않습니다. '
+            '같은 기간 안의 전후 비교에만 위 상대 변화식을 적용합니다.', '']
+        return lines
+
+    @staticmethod
+    def first_pair(item, keys):
+        # Group on all unchanged settings. The earliest pair is stable as later jobs finish.
+        groups={}
+        pairs=[]
+        for row in sorted(item['rows'], key=lambda r:r['id']):
+            if row['status']!='completed' or any(row.get(f'{f}_W') is None for f in ('primary','recent')):
+                continue
+            config=row['_config']
+            if keys==('features',) and config.get('method')=='median':
+                continue
+            signature=json.dumps({k:v for k,v in config.items() if k not in ('id',*keys)},sort_keys=True)
+            for prior in groups.get(signature,[]):
+                if set(config_changes(prior['_config'],config))==set(keys):
+                    pairs.append((prior,row))
+            groups.setdefault(signature,[]).append(row)
+        return min(pairs,key=lambda pair:(pair[0]['id'],pair[1]['id'])) if pairs else None
+
     def render(self, catalog, old, new):
         now_kst = stamp(self.created)
         failed = new['serialization_failures']
@@ -351,7 +523,9 @@ class Snapshot:
             pending = sum(c.get(k,0) for k in ('pending','deferred_budget','budget_reserved','skipped_dependency'))
             other = item['candidate_count']-done-bad-running-pending
             lines.append(f"| {item['label']} | {done}/{item['candidate_count']} | {bad} | {running} | {pending} | {other} | {item['eligible']} |")
-        lines += ['', f"연장 보정용 OOF 기초 설정은 {sum(r['status']=='completed' for r in new['bases'])}/{len(new['bases'])}개 완료됐습니다. 완료 영수증에서 확인되는 실제 모델 학습은 기존 {old['recorded_model_fits']:,}회, 연장 {new['recorded_model_fits']:,}회입니다. 재사용 예측과 중앙값 보정은 학습 횟수에서 제외하며, 영수증 없이 끝난 학습은 세지 않습니다.", '', '## 현재 확인된 문제', '']
+        lines += ['', f"연장 보정용 OOF 기초 설정은 {sum(r['status']=='completed' for r in new['bases'])}/{len(new['bases'])}개 완료됐습니다. 완료 영수증에서 확인되는 실제 모델 학습은 기존 {old['recorded_model_fits']:,}회, 연장 {new['recorded_model_fits']:,}회입니다. 재사용 예측과 중앙값 보정은 학습 횟수에서 제외하며, 영수증 없이 끝난 학습은 세지 않습니다.", '']
+        lines += self.explain_experiments(old,new)
+        lines += ['## 현재 확인된 문제', '']
         if failed:
             lines += [f"**{len(failed)}개 보정 실험이 결과 JSON 저장 중 실패했습니다.** NumPy 불리언을 JSON으로 저장하는 타입 오류이며, 해당 실험의 학습 영수증은 남아 있어도 최종 `result.json`이 없습니다.", '',
                       '실패 ID: ' + ', '.join(f'`{x}`' for x in failed) + '.', '',
@@ -367,9 +541,12 @@ class Snapshot:
         else:
             lines.append('현재 스냅샷에서 해당 타입 오류로 실패한 작업은 없습니다. 완료 결과가 없는 작업은 대기·부분 결과·실패로 구분합니다.')
         lines += ['', '## 성능 숫자 읽는 법', '',
-            '- **W / W_pct는 낮을수록 좋은 내부 오차 지표**입니다. W는 SMP와 벌점 계수를 적용한 절대 오차 합입니다. W_pct는 평가 자료의 발전량·가격 규모로 정규화한 값입니다.',
+            '- **W / W_pct는 낮을수록 좋은 내부 오차 지표**입니다. `W = Σ(SMP × 벌점계수 × |예측−실적|)`, '
+            '`W_pct = 100 × W / Σ(SMP × 벌점계수 × 실적)`입니다. 같은 기간의 W 상대 변화와 W_pct의 퍼센트포인트 차이를 구분합니다.',
+            '- 다섯 기간 평균 W/c000는 각 기간의 비율을 평균한 값입니다. 기간 전체를 합친 오차율이 아닙니다.',
             '- `c000`은 단일 모델 비교용 기준입니다. **c000 대비 개선률은 기존 최고 제출 모델 대비 개선률이 아닙니다.**',
-            '- primary에서 정한 혼합 계수를 recent에 그대로 적용합니다. 다섯 시점의 안정성 기준과 두 기간의 개선 조건을 함께 통과해야 적격 후보가 됩니다.',
+            '- primary에서 정한 혼합 계수를 recent에 그대로 적용합니다. 후보별로 계수를 따로 정하므로 혼합 비교에는 계수 변화도 포함됩니다. '
+            '다섯 시점의 안정성 기준·최소 혼합 계수·두 기간의 개선 조건을 함께 통과해야 적격 후보가 됩니다. primary/recent 두 열만으로 적격을 판단하지 않습니다.',
             '- 모든 과거 기간은 이미 노출된 자료이며 평가 기간도 겹칩니다. 독립적인 미사용 홀드아웃이나 새 공식 리더보드 점수로 해석할 수 없습니다.',
             '- 탐색 정답은 2025-03-01까지입니다. 후기 2025년 3–5월 평가는 후보·계수를 고정한 뒤에만 사용하며 재선택에 쓰지 않습니다.', '',
             '아래는 **정상적으로 최종 기록이 저장된 실험 중** 다섯 기간 평균 W/c000가 가장 낮은 실험입니다. 최종 제출 권장 순위가 아닙니다.', '',
@@ -415,8 +592,42 @@ class Snapshot:
         detail = ['# 전체 실험·시도 상태표', '', f'확인 시각: **{now_kst}**.', '',
             '[프로젝트 요약](../../README.md) · [필터링 가능한 전체 CSV](experiments.csv)', '',
             '현재 단계의 ID는 고정된 전체 설정 큐를 포함합니다. `pending`은 아직 실행되지 않았다는 뜻이며 실패가 아닙니다. 과거 표의 `keep`/`discard`는 당시 탐색 결정이지 공식 점수 상승이나 실패를 뜻하지 않습니다. 같은 ID의 재시도는 별도 과거 로그 행으로 남깁니다.', '',
-            '현재 5개 기간 검증에서 결과 저장이 실패한 실험은 완료 영수증 수와 별도로 `failed`로 표시합니다. 모델의 과학적 적격 여부를 최종 결과 없이 추정하지 않습니다.', '']
+            '현재 5개 기간 검증에서 결과 저장이 실패한 실험은 완료 영수증 수와 별도로 `failed`로 표시합니다. 모델의 과학적 적격 여부를 최종 결과 없이 추정하지 않습니다.', '',
+            '## 설정과 결과 비교 읽는 법', '',
+            '설정 키의 한국어 설명·평가 날짜·대표 전후 비교는 [프로젝트 README](../../README.md#무엇을-바꾸며-실험하는가)에 있습니다. '
+            '아래 현재 실험 표는 **앞선 ID 중 설정 차이가 가장 적은 실험**을 비교 대상으로 고릅니다(동률이면 ID순, 점수는 선택에 사용하지 않음). '
+            '연장 단계는 동일한 기초 모델 안에서만 비교합니다. 비교 대상은 실험 설계의 공식 대조군을 뜻하지 않습니다.', '',
+            '`primary/recent` 칸: **혼합 전 W_pct (비교 ID 대비 W 상대 변화)**. 낮을수록 좋으며 음수는 개선, 양수는 악화입니다. '
+            '두 결과가 모두 정상 완료된 경우만 상대 변화를 계산합니다. 여러 설정이 바뀐 행은 각각의 효과를 분리할 수 없습니다. '
+            '대기·실패 행도 설정 차이는 표시하지만 혼합 전 전후 점수를 성공으로 추정하지 않습니다.', '',
+            'CSV에는 각 실험의 전체 `config_json`, `base_id→source_generation_id`, `comparison_id`, `changed_settings`, '
+            'primary/recent 원래 W와 W_pct, 비교 대상·보정 전 기초 모델 대비 W 변화, `blend_alpha`, 최고 제출 대비 혼합 W 변화를 따로 제공합니다. '
+            '실패 후보의 감사로 복원한 혼합 수치는 기존 `audit_gate_pass`와 근거를 함께 확인하세요. '
+            '과거 캠페인은 평가 방식이 달라 자동으로 공통 기준을 붙이지 않고 기존 변경 설명·지표 단위·근거를 보존합니다.', '']
         for item in self.campaigns:
+            if item['kind']=='current':
+                detail += [f"## {item['label']}", '',
+                    '| ID / 상태 | 기초 / 비교 ID | 바뀐 설정 | primary W_pct (W 변화) | recent W_pct (W 변화) | alpha / 최고 제출 대비 혼합 W 변화 primary, recent | 완료 기간 / 학습 횟수 | 비고·근거 |',
+                    '|---|---|---|---:|---:|---|---|---|']
+                for r in item['rows']:
+                    scores=[]
+                    for fold in ('primary','recent'):
+                        delta=r.get(f'{fold}_W_change_pct_vs_comparison')
+                        scores.append(number(r.get(f'{fold}_W_pct')) + (f' ({number(delta)}%)' if delta is not None else ''))
+                    base=f"{r['base_id']}→{r['source_generation_id']} / " if r['base_id'] else ''
+                    blend=f"{number(r.get('blend_alpha'),6)} / {number(r.get('primary_blend_W_change_pct'))}%, {number(r.get('recent_blend_W_change_pct'))}%"
+                    detail.append(f"| {r['id']} / {LABELS.get(r['status'],r['status'])} | {base}{r['comparison_id']} | "
+                        f"{cell(r['changed_settings'])} ({r['comparison_scope']}) | {scores[0]} | {scores[1]} | {blend} | "
+                        f"{r['completed_folds']}/{r['expected_folds']} / {r['recorded_model_fits']} | {cell(r['note'])} "
+                        f"{self.link(r['evidence_path'],'기록',prefix='../../')} |")
+                if item['bases']:
+                    detail += ['', '### 보정 학습용 OOF 기초 모델', '',
+                        '| 기초 ID → 발전 모델 | 상태 | 확인된 새 학습 횟수 | 설명·근거 |','|---|---|---:|---|']
+                    for r in item['bases']:
+                        detail.append(f"| {r['id']} → {r['source_generation_id']} | {LABELS.get(r['status'],r['status'])} | "
+                            f"{r['recorded_model_fits']} | {cell(r['note'])} {self.link(r['evidence_path'],'기록',prefix='../../')} |")
+                detail.append('')
+                continue
             detail += [f"## {item['label']}", '', item.get('note','현재 고정된 실행 큐'), '',
                        '| ID | 종류 | 상태 | 완료 기간 / 예정 | 확인된 모델 학습 | 지표 | 값 | 비고·근거 |', '|---|---|---|---:|---:|---|---:|---|']
             for r in item['rows'] + item.get('bases', []):
