@@ -1,0 +1,93 @@
+{
+  "verification_status": "PASS",
+  "utc": "2026-11-07T08:49:19.343304+00:00",
+  "scope": "Final history formatting, translated status labels, and four appended historical experiment families; no model or reporting output mutation",
+  "generator_sha256": "896de8d8d49d891a8d8a8d67e6b17559ac65170d1e4bfb757617de81b2fc795f",
+  "catalog_sha256": "0e3fdbb59d52290af2e92e9491d13160fe2a809723529e6d6defb2fa0f2518d1",
+  "previous_reporting_review_sha256": "aad150cfb31bb25e8c4e0f6479b16456e1ef84fba0914bdc7fa92f7132983b77",
+  "previous_targeted_safety_checks": 28,
+  "prior_safety_review_scope": "Terminal status, heartbeat, STOP, manual edit preservation and publication scope remain covered by the prior review; this addendum checks subsequent history formatting and status label changes.",
+  "added_family_checks": [
+    {
+      "id": "initial_model_validation_E0_E7",
+      "rows": 34,
+      "metric": "W_ref_pct",
+      "status_counts": {
+        "unseen_site_diagnostic": 1,
+        "historical_development_comparison": 32,
+        "nondeployable_rolling_observation_diagnostic": 1
+      }
+    },
+    {
+      "id": "initial_E5_calibration",
+      "rows": 10,
+      "metric": "W_ref_pct",
+      "status_counts": {
+        "forward_calibration_comparison": 6,
+        "calibration_fit_period_baseline": 2,
+        "in_sample_calibration_diagnostic": 2
+      }
+    },
+    {
+      "id": "initial_composition_candidates",
+      "rows": 10,
+      "metric": "gap_pct_E1",
+      "status_counts": {
+        "historical_composition_comparison": 10
+      }
+    },
+    {
+      "id": "initial_forecast_provider_ablation",
+      "rows": 25,
+      "metric": "W_over_revenue",
+      "status_counts": {
+        "historical_forecast_input_comparison": 16,
+        "perfect_weather_diagnostic_only": 3,
+        "observation_trained_forecast_fed_diagnostic": 6
+      }
+    }
+  ],
+  "new_rows_checked_against_source_csv": 79,
+  "evidence_file_hashes_verified": {
+    "analysis_outputs/tables/results_table.csv": "46ea8977bf8f8efc12e23b192209f1b2e099d2d6cd3f73fd9d2abce745c5fc6a",
+    "analysis_outputs/reports/model_validation_report.md": "00565b7a60b31f85d0d3f46f5ec0307fd39c47f46984551060e2cd8f8e446e83",
+    "analysis_outputs/reports/ANALYSIS_MEMO.md": "57845a7c663fe9ee3e0e75ac644b83f96a390218b1c9efc8e9725c31f84b09b5",
+    "analysis_outputs/reports/verify_l1_calib_repro_report.md": "1d8114c9fd79bb2768b54d590506ba342fc73307f4a3fb68385df0d88fbb6193",
+    "analysis_outputs/tables/E5_calibration.csv": "0879bdb13df360af991a6ee1d9a9a1bb452c2be700585df7355ff0dbd57628bc",
+    "analysis_outputs/reports/verify_l1_calib_report.md": "1679d3c1ed972bb233f5da0aa02c583cfdd43a02367020e1277b781eb23a2db8",
+    "analysis_outputs/tables/comp_compositions_summary.csv": "48f0434392ded3a6adf381d49c1c6a43c9652cd64bfeacf2719b77a64b7062d5",
+    "analysis_outputs/reports/composition_report.md": "9bf1b3843d9cc47fb09dcdc09107f126f985dc84c84522f06d28da879ab6cd4b",
+    "analysis_outputs/reports/verify_composition_report.md": "659855c865d6ff80cde4f49396f5d6b96f872467f3bb1ba6cc86f44795a32730",
+    "analysis_outputs/reports/verify_composition_math_report.md": "22b3b2999bbb27a68ee095acd58b165ba480c07d036ecb44cde8e92d292e26f3",
+    "analysis_outputs/tables/vcm_recomputed_gaps.csv": "bd9859f08d1003d6f6a7190768aa7167cc72de37298ce52b9327bb9cd2dac5dc",
+    "analysis_outputs/tables/model_results.csv": "6c34027a47636d84a63ad2298b312ae0460d8256b105ad755452562ce55365f1",
+    "analysis_outputs/reports/forecast_skill_report.md": "ec8ce430d5c14564d2f16ba09bdacddc6f601f90f7beb0bcea68a3b4491963bf",
+    "analysis_outputs/reports/verify_forecast_input_report.md": "aee4b0d2aa0cb0d529f5b87af8fcdd5ea4e6dbe15bb45ed092e43d0be5e126df",
+    "analysis_outputs/reports/verify_round_provider_report.md": "26dcd2246339a16dad2bd3313f721c6433a4ffebdca6fb9028222e7a07933727"
+  },
+  "historical_campaigns": 36,
+  "historical_rows_after_expansion": 243,
+  "expected_total_document_rows": 2579,
+  "award_rows_checked": 10,
+  "award_id_plus_conditions_distinct": 10,
+  "new_historical_statuses_have_korean_labels": true,
+  "scientific_units_review": {
+    "E0_E7_and_E5_W_ref_pct_are_percent": true,
+    "E5_fit_period_and_in_sample_rows_separate_from_forward_rows": true,
+    "composition_gap_is_percent_above_pooled_lower_bound_not_total_W_pct": true,
+    "provider_W_over_revenue_is_ratio_not_percent": true,
+    "provider_daylight_single_year_training_not_comparable_to_E0_E7_two_year_training": true,
+    "E3_rolling_observed_target_diagnostic_marked_nondeployable": true,
+    "three_perfect_weather_rows_marked_not_submission_candidates": true,
+    "historical_composition_selection_exposure_disclosed": true,
+    "historical_record_counts_not_model_fit_counts": true
+  },
+  "production_files_modified": false,
+  "generated_reports_modified": false,
+  "actual_model_fits": 0,
+  "saved_model_replays": 0,
+  "raw_late_target_values_loaded": false,
+  "network_requests": 0,
+  "publication_actions": 0,
+  "outcome": "GO for final regeneration and scoped publication, subject to publisher snapshot freshness and exact source hashes."
+}
