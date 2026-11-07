@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "status": "PASS_REPORTING_ONLY",
+  "created_utc": "2026-11-07T16:02:33.195081+00:00",
+  "campaign": "research_23kst_20261108",
+  "source_sha256": {
+    "submission/research_reporting_v2/update_readme.py": "f392d7e8806ed8b200797c9e7036cc8cc7947f2ec9755ba97460a0a08cb07f2a",
+    "submission/research_reporting_v2/publish_readme.py": "24c471810a1b9548b2f06a836838f25a8514ffd0617abec56a1d17d30698ada2",
+    "submission/research_reporting_v2/test_update_readme.py": "211fc70de76a377414a98aec419a885d17274d19a9e0144bcd8f1ffaebd9aff7",
+    "submission/research_reporting_v2/test_publish_readme.py": "4b7e1651ade7ea2fc9c355d7a302ab2630f9e787886fb2d5c5cfed613270adab",
+    "submission/research_reporting_v2/README.md": "5b3917194377454a062c89623ca8294cd8743f91e3683e5a1a7351bf95dd5065",
+    "submission/research_reporting/update_readme.py": "651be8197f8f7784cb7d90f27ab9536d50c835473d5cea324822c2f094863f10",
+    "submission/research_reporting/history_catalog.json": "0e3fdbb59d52290af2e92e9491d13160fe2a809723529e6d6defb2fa0f2518d1",
+    "submission/score_push_22h/checkpoint_git.py": "89d2e4276195847792b7cf31d5d22339fee0a8bd0fb904110a38e996b51ea109"
+  },
+  "deadline_utc": "2026-11-08T14:00:00Z",
+  "search_stop_utc": "2026-11-08T12:00:00Z",
+  "snapshot_manifest": "analysis_outputs/experiment_overview_v2/snapshot_manifest.json",
+  "snapshot_schema_version": 2,
+  "maximum_snapshot_age_seconds": 900,
+  "maximum_future_clock_seconds": 120,
+  "required_outputs": [
+    "README.md",
+    "analysis_outputs/experiment_overview_v2/README.md",
+    "analysis_outputs/experiment_overview_v2/experiments.csv"
+  ],
+  "optional_csv_parts": "analysis_outputs/experiment_overview_v2/experiments_part_001.csv through consecutive part064",
+  "maximum_output_file_bytes": 2097152,
+  "maximum_changed_commit_bytes": 52428800,
+  "prior_root_readme_ownership": "First migration requires rootREADME hash to match original overview snapshot; later generations verify every prior v2 output and preserve manual changes.",
+  "old_sources_and_old_overview_unchanged": true,
+  "publication_mode": "Default local dry-run; explicit --publish only",
+  "shared_publication_state": ".git/codex-checkpoints/state.json",
+  "shared_publication_lock": ".git/codex-checkpoints/publisher.lock",
+  "shared_publication_ref": "refs/heads/codex/checkpoints",
+  "work_head_and_index_preserved": true,
+  "author": {
+    "name": "Codex",
+    "email": "codex@openai.com"
+  },
+  "old_pending_commit_rule": "Resume exact saved pending commit first; requested_readme_snapshot_in_commit must be true before claiming current README publication.",
+  "new_campaign_scope": [
+    "pinned Python source and reviewed reporting code",
+    "authorization/CAMPAIGN/protocol/configs/bases/jobs/controller/launch/verification/reporting contracts",
+    "independent audit JSON",
+    "complete trial/base receipt and transform metadata",
+    "recovered diagnostic summaries",
+    "complete new-seed validation diagnostics",
+    "assemble and shared search-data manifests",
+    "terminal completion metadata"
+  ],
+  "excluded": [
+    "raw data",
+    "model artifacts",
+    "individual predictions",
+    "submission ZIPs",
+    "controller/supervisor state",
+    "logs",
+    "automation identifiers"
+  ],
+  "recovery_policy": "RECOVERED_DIAGNOSTIC summaries must remain eligible=false and real_model_fits=0; old failures remain unchanged.",
+  "validation_policy": "New-seed validation remains diagnostics_only=true and eligible=false, with both new seeds and primary/recent receipts.",
+  "novel_trial_policy": "All declared search seeds and folds must have matching config/seed/fold receipts before completed trial publication.",
+  "tests": {
+    "generator_unittest_cases": 9,
+    "publication_unittest_cases": 16,
+    "all_passed": true,
+    "commands": [
+      "/workspace/.venvs/oibc-2026/bin/python -B submission/research_reporting_v2/test_update_readme.py",
+      "/workspace/.venvs/oibc-2026/bin/python -B submission/research_reporting_v2/test_publish_readme.py"
+    ],
+    "production_metadata_read_only_integration_rows": 2896,
+    "new_frozen_config_comparators_checked": 288,
+    "historical_campaigns": 36,
+    "csv_parts_checked": 2,
+    "completion_outcomes_and_process_alignment_checked": true,
+    "interval_overlap_and_old_failure_exposure_text_checked": true
+  },
+  "audit_sha256": {
+    "analysis_outputs/research_23kst_20261108/independent_reporting_publication.json": "3eb31f900c998bdc0d803bddc99de5ecc5296eb5a2c4941424df74ffd92a6c09",
+    "analysis_outputs/research_23kst_20261108/independent_reporting_generator.json": "dfc794a66bcb9d5e6b05a29fee3394f225cf09168673d77865ecc7bff8b57736",
+    "analysis_outputs/research_23kst_20261108/independent_reporting_generator_initial.json": "d7e90eda28515e639306e05ae93140c4ed212df085d48e6172eb8cdf4074583a"
+  },
+  "private_anchor_requirement": "The launch-ready marker and automation must pin this contract and all publication-code hashes before execution; this contract does not hash itself.",
+  "runtime_release_note": "Reporting checks alone do not authorize a model launch or assert scientific validation. Root checks the separate runtime, model, deadline and handoff contracts.",
+  "all_history_previously_exposed": true,
+  "official_score_verified": false,
+  "production_reports_generated_during_review": false,
+  "actual_model_fits_during_review": 0,
+  "network_requests_during_review": 0,
+  "publication_actions_during_review": 0,
+  "supersedes_reporting_contract_sha256": "3bc1d715ce051b7fc46709cfbe1b17bf55e941b3068a2be2afe0984984ef7f03",
+  "updated_utc": "2026-11-07T16:08:17.156886+00:00",
+  "completion_reporting_policy": "Actual completion job ID is completion. Process execution status and exact terminal result kind are separate; budget-only checkpoints are not candidate validation success."
+}

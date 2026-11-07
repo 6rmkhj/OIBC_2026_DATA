@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "status": "READY_FOR_EXTERNAL_TERMINAL_VERIFICATION",
+  "created_utc": "2026-11-07T16:09:13.969674+00:00",
+  "source_sha256": {
+    "submission/score_push_23kst/verify_completion.py": "51dc0187754e3b9b03388e0ad9cb228ee4d8364acc62640df6bd7a42db544389",
+    "submission/score_push_23kst/test_verify_completion.py": "5e9b8ebeacea99794d22ebaa7d7d886c6dabd45fb984c3982f69c1eed309dcb8",
+    "submission/score_push_10h/verify_trial.py": "f2b6591eab1ff3c591b5af9bf2e24c18824ec1a76f8ecb92b020dc37de83be80"
+  },
+  "protocol_sha256": "b767ae0f4b9d3519e65730c2b2b8812803e54c683c5df17da9b20e82eb14cde2",
+  "argv": [
+    "/workspace/.venvs/oibc-2026/bin/python",
+    "/workspace/OIBC_2026_DATA/submission/score_push_23kst/verify_completion.py"
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "working_directory": "/workspace/OIBC_2026_DATA",
+  "execution": "External command after controller and all owned processes are terminal; never run inside its completion or finalizer job",
+  "deadline_utc": "2026-11-08T14:00:00Z",
+  "terminal_gate": [
+    "phase finished; exact controller/manifest/input pins and deadline",
+    "all declared job ids present; only declared finalizer may be extra",
+    "recorded identities and same-boot groups dead; unreadable process scan fails closed",
+    "controller receipt hash/nonce/status/exit code verified",
+    "pending jobs or unfinished completion yield CHECKPOINT_ONLY"
+  ],
+  "checkpoint_behavior": {
+    "status": "CHECKPOINT_ONLY",
+    "exit_code": 0,
+    "model_fits": 0,
+    "late_targets_loaded": false,
+    "writes_terminal_receipt": false,
+    "means_completed_candidate": false
+  },
+  "terminal_behavior": {
+    "verification_status": "PASS or FAIL",
+    "outcomes": [
+      "NO_QUALIFYING_RECIPE",
+      "INSUFFICIENT_COMPLETED_COVERAGE",
+      "ENSEMBLE_GATE_FAILED",
+      "EXPORTED_UNSCORED_CANDIDATE"
+    ],
+    "budget_or_partial_result": "CHECKPOINT_ONLY",
+    "validation_failure_exit_code": 1,
+    "no_qualifier_is_improvement": false,
+    "official_improvement_claim": false,
+    "receipt": "/workspace/OIBC_2026_DATA/analysis_outputs/research_23kst_20261108/independent_completion_check.json"
+  },
+  "scope": [
+    "Frozen prior sources, prepared data, 288 configs and four raw bases",
+    "All committed 48-fold-receipt recipes: hashes, scores, 3-seed gates and independent ranking",
+    "11 disjoint quarterly periods separate from five overlapping annual stress periods",
+    "Recovered12 remain diagnostics only; missing committed summaries reported explicitly",
+    "Selected recipes and required cross-base generation sources replayed with one inference thread",
+    "OOF origin strictly before target and outer cutoff, horizon/subset duplicate weights and train-only feature masks",
+    "Exact pooled/group mixing and explicit anchoring metadata; equal base and seed ensemble weights",
+    "Primary-only canonical L1 alpha; same recent transfer; minimum recipe and per-base coverage",
+    "Frozen recipe then frozen late predictions before descriptive late target scoring",
+    "Deployed saved-model predictions, exact forecast keys/rounding/composition/ZIP and protected best hash"
+  ],
+  "prelaunch_checks": {
+    "nofit_fixture_tests": 31,
+    "test_status": "PASS",
+    "test_wall_seconds": 3.366,
+    "checkpoint_cli_exit_code": 0,
+    "checkpoint_cli_status": "CHECKPOINT_ONLY",
+    "actual_cached_generation_replay": {
+      "source_id": "c206",
+      "fold": "primary",
+      "rows": 17568,
+      "models": 1,
+      "status": "PASS"
+    },
+    "quarter_boundary_and_disjoint_key_check": {
+      "periods": 11,
+      "rows": 48192,
+      "status": "PASS"
+    },
+    "full_terminal_candidate_branch": "Await real campaign completion artifacts; not claimed as executed"
+  },
+  "actual_model_fits": 0,
+  "network_actions": 0,
+  "prelaunch_native_replays": 1,
+  "late_target_values_loaded": false,
+  "original_artifacts_modified": false
+}

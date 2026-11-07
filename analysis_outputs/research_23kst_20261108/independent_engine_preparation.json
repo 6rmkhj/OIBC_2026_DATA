@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-07T16:00:24.985721+00:00",
+  "author": "science implementation agent; separate audit agent review required",
+  "source_sha256": {
+    "submission/score_push_23kst/engine.py": "0356216719890bb7dce4dbb15e240ac84ff43d18937e9845269270dbe7a38f87",
+    "submission/score_push_23kst/features.py": "9fdc060fc8dcb22a83aa90184507359fa73bb683af1f6322f3ac9697d944a679",
+    "submission/score_push_23kst/test_engine.py": "40ca07fc2d3991780646987189ca490d29d666ae957f3925a993cb0db61b1b3a"
+  },
+  "synthetic_tests": {
+    "count": 18,
+    "exit_code": 0,
+    "wall_seconds": 1.8537867949926294,
+    "command": [
+      "/workspace/.venvs/oibc-2026/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "submission/score_push_23kst",
+      "-p",
+      "test_engine.py",
+      "-q"
+    ],
+    "output": "----------------------------------------------------------------------\nRan 18 tests in 0.530s\n\nOK\n",
+    "coverage": [
+      "true-gate strict NumPy JSON serialization and NaN rejection",
+      "signed-target exact weighted-L1 identity",
+      "post-horizon duplicate counts",
+      "group-season weight totals",
+      "target-free features under y/price perturbation",
+      "chronological OOF and outer cutoff constraints",
+      "correction inversion/clipping/night zero",
+      "anchor objective and group-mixture algebra",
+      "same-weight corrected and raw ensemble",
+      "primary-only alpha",
+      "minimum completed coverage",
+      "storage exit75 marker without PASS result"
+    ]
+  },
+  "real_data_integration": {
+    "performed_before_receipt_utc": true,
+    "repeated_for_receipt": false,
+    "source": "existing immutable 22h origin receipts/predictions and 10h search tables",
+    "base_ids": [
+      "b00",
+      "b02",
+      "b09",
+      "b22"
+    ],
+    "origins": [
+      "2022-06-01",
+      "2023-06-01",
+      "2023-12-01",
+      "2024-03-01"
+    ],
+    "verified_receipt_and_prediction_pins": 32,
+    "exact_same_origin_key_target_history_alignment": true,
+    "outer_cutoff_kst": "2024-06-01 00:00:00+09:00",
+    "all_age_rows": 26524,
+    "horizon_92day_rows": 10192,
+    "weather_active_features": 25,
+    "rich_active_features": 109,
+    "all_age_negative_residual_targets": 10396,
+    "horizon_negative_residual_targets": 4940,
+    "weight_mean": 1.0,
+    "tested_feature_families": [
+      "weather_spread",
+      "rich_spread"
+    ],
+    "tested_weighting": [
+      "money",
+      "horizon",
+      "horizon_groupseason"
+    ],
+    "real_model_fits": 0,
+    "model_inference_replays": 0
+  },
+  "activity": {
+    "real_model_fits": 0,
+    "model_inference_replays": 0,
+    "late_march_may_target_values_loaded": false,
+    "old_files_modified": false,
+    "protocol_prepare_called": false
+  },
+  "limitations": [
+    "This is the implementation owner preflight receipt, not independent approval.",
+    "The eight new Sep/Dec2024 generation fits and the complete new shared assembly remain unexecuted; runtime native receipts will verify them.",
+    "No claim of completed novel recipes, unseen holdout performance, or official score improvement."
+  ]
+}
