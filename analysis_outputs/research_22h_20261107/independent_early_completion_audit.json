@@ -1,0 +1,526 @@
+{
+  "status": "EARLY_QUEUE_COMPLETION_VERIFIED_WITH_UNRESOLVED_SERIALIZATION_FAILURES",
+  "created_kst": "2026-11-08T00:07:21.456859+09:00",
+  "summary_ko": "두 학습 큐가 조기 소진되어 종료됐다. 연장 2048개 중 2036개는 정상 기록, 12개는 결과 JSON 저장 실패다. 종료 검증 PASS는 빈 후보 목록과 종료 상태에 대한 확인이며 새 후보 ZIP이나 공식 성능 개선 검증이 아니다.",
+  "planned_window": {
+    "hours": 22,
+    "scope": "준비를 포함한 계획 구간",
+    "overall_deadline_kst": "2026-11-08T05:56:33+09:00",
+    "training_queue_finished_before_deadline": true,
+    "scheduled_monitoring_remains_enabled_until_overall_deadline": true,
+    "new_learning_campaign_started": false
+  },
+  "actual_execution": [
+    {
+      "stage": "기존 단계",
+      "started_kst": "2026-11-07T08:16:15.655606+09:00",
+      "finished_kst": "2026-11-07T16:37:01.871812+09:00",
+      "controller_elapsed_seconds": 30046.216206,
+      "elapsed_scope": "컨트롤러 실행 구간: 학습·예측·보고·대기를 포함하며 순수 학습 CPU 시간이 아님",
+      "attempted_configurations": 256,
+      "normal_completed_configurations": 256,
+      "failed_configurations": 0,
+      "time_limit_configurations": 0,
+      "recorded_real_model_fits": 1280,
+      "controller_job_counts": {
+        "completed": 308
+      },
+      "stop_reason": "queue_exhausted"
+    },
+    {
+      "stage": "연장 단계",
+      "started_kst": "2026-11-07T16:37:04.117160+09:00",
+      "finished_kst": "2026-11-08T00:00:53.648719+09:00",
+      "controller_elapsed_seconds": 26629.531559,
+      "elapsed_scope": "컨트롤러 실행 구간: 학습·예측·보고·대기를 포함하며 순수 학습 CPU 시간이 아님",
+      "attempted_configurations": 2048,
+      "normal_completed_configurations": 2036,
+      "failed_configurations": 12,
+      "time_limit_configurations": 0,
+      "recorded_real_model_fits": 9856,
+      "controller_job_counts": {
+        "completed": 2198,
+        "failed": 12
+      },
+      "stop_reason": "queue_exhausted"
+    }
+  ],
+  "controller_elapsed_sum_seconds": 56675.747765,
+  "elapsed_sum_limit": "두 컨트롤러 실행 구간의 합이며 준비·사전 작업을 포함하지 않는다. 계획 22시간을 실제 학습 시간으로 보고하지 않는다.",
+  "new_fit_accounting": {
+    "calibration_tree_fits_with_receipts": 9600,
+    "of_which_failed_summary_recipe_fits": 60,
+    "new_generation_fits": 256,
+    "reused_generation_models": 128,
+    "median_zero_fit_fold_receipts": 640,
+    "real_model_fits": 9856,
+    "count_scope": "실제 학습 영수증 기준. 완료 후보 개수와 다른 단위이며 실패한 결과 요약의 학습도 포함."
+  },
+  "terminal_verification": {
+    "status": "PASS",
+    "outcome": "NO_QUALIFYING_RECIPE",
+    "verified_kst": "2026-11-08T00:02:06.703091+09:00",
+    "verifier_sha256": "e3610c650f9c1e9e2390893bc8658d61fe7223907f8647949ac00b5d94ad3d20",
+    "finalizer_finished_kst": "2026-11-08T00:00:51.672771+09:00",
+    "finalizer_exit_code": 0,
+    "live_training_engines": 0,
+    "recorded_process_identity_check": "PID/start_ticks/boot_id와 종료 상태 확인. 실제 활성 학습 프로세스 없음.",
+    "no_qualifying_recipe_scope": "정상 저장된 결과에서 동결 후보 목록이 비었다는 뜻. 저장 실패 12개는 선택에서 제외되었으므로 개선 가능성이 전혀 없다는 뜻이 아님.",
+    "late_targets_loaded": false,
+    "model_fits_during_external_verification": 0,
+    "candidate_zip_verified": false,
+    "official_improvement_verified": false
+  },
+  "candidate_zip": {
+    "expected_path": "submission/research_22h_candidate_20261107/submission_files.zip",
+    "exists": false,
+    "exported": false
+  },
+  "protected_best": {
+    "path": "submission/renew_candidate_20261105/submission_files.zip",
+    "sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434",
+    "preserved": true
+  },
+  "failures": {
+    "ids": [
+      "n0132",
+      "n0135",
+      "n0142",
+      "n0169",
+      "n0171",
+      "n0173",
+      "n0174",
+      "n0186",
+      "n0188",
+      "n0191",
+      "n0582",
+      "n1450"
+    ],
+    "cause": "NumPy boolean JSON serialization TypeError after all five folds; result.json absent",
+    "development_gate_pass_independently_confirmed": 12,
+    "final_selection_included": 0,
+    "additional_seed_stability_or_submission_validation_completed": false,
+    "frozen_source_modified": false,
+    "experiments_retrained": false
+  },
+  "saved_prediction_diagnostics": {
+    "compared_to": "보존한 기존 최고 제출의 저장 예측과 각 실패 레시피의 고정 alpha 혼합 예측",
+    "all_12_failed_recipes_included": true,
+    "point_and_interval_summary": [
+      {
+        "id": "n0132",
+        "alpha": 0.07729715982398282,
+        "primary": {
+          "relative_W_change_percent": -0.08491253175957096,
+          "ci95": [
+            -0.3172195941247281,
+            0.1492734477486059
+          ],
+          "group_relative_changes": {
+            "G1": -0.19153548693393802,
+            "G2": 0.02174336752191182
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.023388114949293257,
+          "ci95": [
+            -0.2805664510236545,
+            0.24324991255549386
+          ],
+          "group_relative_changes": {
+            "G1": 0.06049697111671197,
+            "G2": -0.10954195764420427
+          },
+          "months_improved": 5,
+          "months_worsened": 4
+        }
+      },
+      {
+        "id": "n0135",
+        "alpha": 0.03746186289470463,
+        "primary": {
+          "relative_W_change_percent": -0.012348118644001984,
+          "ci95": [
+            -0.13108106276230658,
+            0.10016711304989541
+          ],
+          "group_relative_changes": {
+            "G1": -0.05115829089743594,
+            "G2": 0.02647404508416632
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.0012799541572207898,
+          "ci95": [
+            -0.13819119530487559,
+            0.13732582585242425
+          ],
+          "group_relative_changes": {
+            "G1": 0.04897224128522428,
+            "G2": -0.05289127083176661
+          },
+          "months_improved": 5,
+          "months_worsened": 4
+        }
+      },
+      {
+        "id": "n0142",
+        "alpha": 0.0785030230525361,
+        "primary": {
+          "relative_W_change_percent": -0.08751948026966519,
+          "ci95": [
+            -0.3511617871494541,
+            0.18854702017529956
+          ],
+          "group_relative_changes": {
+            "G1": -0.27971254758640685,
+            "G2": 0.10473297040388284
+          },
+          "months_improved": 5,
+          "months_worsened": 7
+        },
+        "recent": {
+          "relative_W_change_percent": -0.09322106869431109,
+          "ci95": [
+            -0.3645859428558471,
+            0.1869961049049897
+          ],
+          "group_relative_changes": {
+            "G1": -0.016202114158301383,
+            "G2": -0.17232307841751124
+          },
+          "months_improved": 5,
+          "months_worsened": 4
+        }
+      },
+      {
+        "id": "n0169",
+        "alpha": 0.05433599909153836,
+        "primary": {
+          "relative_W_change_percent": -0.03919173883045842,
+          "ci95": [
+            -0.22093613146221955,
+            0.1469817567685926
+          ],
+          "group_relative_changes": {
+            "G1": -0.2063684188611769,
+            "G2": 0.12803659505318965
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.05709231631992436,
+          "ci95": [
+            -0.22357921005817025,
+            0.11662295712139678
+          ],
+          "group_relative_changes": {
+            "G1": -0.016154153142601733,
+            "G2": -0.09913769334706236
+          },
+          "months_improved": 5,
+          "months_worsened": 4
+        }
+      },
+      {
+        "id": "n0171",
+        "alpha": 0.03898871724009827,
+        "primary": {
+          "relative_W_change_percent": -0.01999458750435174,
+          "ci95": [
+            -0.1700833325400111,
+            0.13164456329338592
+          ],
+          "group_relative_changes": {
+            "G1": -0.12681195361876887,
+            "G2": 0.08685578278579882
+          },
+          "months_improved": 5,
+          "months_worsened": 7
+        },
+        "recent": {
+          "relative_W_change_percent": -0.11653769206510936,
+          "ci95": [
+            -0.27883267213132273,
+            0.052801556672508326
+          ],
+          "group_relative_changes": {
+            "G1": -0.07836554473610116,
+            "G2": -0.15574224355982308
+          },
+          "months_improved": 6,
+          "months_worsened": 3
+        }
+      },
+      {
+        "id": "n0173",
+        "alpha": 0.020974555629916146,
+        "primary": {
+          "relative_W_change_percent": -0.006515637854942138,
+          "ci95": [
+            -0.09232125646788304,
+            0.07704839097434485
+          ],
+          "group_relative_changes": {
+            "G1": -0.05183709827110739,
+            "G2": 0.038819825878249926
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.04445761569663433,
+          "ci95": [
+            -0.11886226105274754,
+            0.032860441384680535
+          ],
+          "group_relative_changes": {
+            "G1": -0.03674424942850042,
+            "G2": -0.05237959772321799
+          },
+          "months_improved": 7,
+          "months_worsened": 2
+        }
+      },
+      {
+        "id": "n0174",
+        "alpha": 0.02810167390248303,
+        "primary": {
+          "relative_W_change_percent": -0.008995763070771923,
+          "ci95": [
+            -0.12350812152407412,
+            0.1021372363187515
+          ],
+          "group_relative_changes": {
+            "G1": -0.06243779666776091,
+            "G2": 0.04446278291866639
+          },
+          "months_improved": 5,
+          "months_worsened": 7
+        },
+        "recent": {
+          "relative_W_change_percent": -0.04898452456557578,
+          "ci95": [
+            -0.1541077263038985,
+            0.057402918498309786
+          ],
+          "group_relative_changes": {
+            "G1": -0.0339046855223174,
+            "G2": -0.06447221304191253
+          },
+          "months_improved": 5,
+          "months_worsened": 4
+        }
+      },
+      {
+        "id": "n0186",
+        "alpha": 0.05489079562060979,
+        "primary": {
+          "relative_W_change_percent": -0.03847107717122467,
+          "ci95": [
+            -0.23128872149730853,
+            0.15711400827814737
+          ],
+          "group_relative_changes": {
+            "G1": -0.12615547517389697,
+            "G2": 0.049240413348190876
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.08628400260336748,
+          "ci95": [
+            -0.30603712735273064,
+            0.1397892375062196
+          ],
+          "group_relative_changes": {
+            "G1": -0.017868655892006032,
+            "G2": -0.15654971126405795
+          },
+          "months_improved": 6,
+          "months_worsened": 3
+        }
+      },
+      {
+        "id": "n0188",
+        "alpha": 0.027221783382406967,
+        "primary": {
+          "relative_W_change_percent": -0.008059984824949814,
+          "ci95": [
+            -0.094756360562492,
+            0.07268188004388879
+          ],
+          "group_relative_changes": {
+            "G1": -0.026589029154434948,
+            "G2": 0.010474784564628192
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.01976568259023806,
+          "ci95": [
+            -0.12378206410216701,
+            0.08834087424272904
+          ],
+          "group_relative_changes": {
+            "G1": 0.022217066199084083,
+            "G2": -0.06288389709918187
+          },
+          "months_improved": 6,
+          "months_worsened": 3
+        }
+      },
+      {
+        "id": "n0191",
+        "alpha": 0.0209175698631706,
+        "primary": {
+          "relative_W_change_percent": -0.007038161284031436,
+          "ci95": [
+            -0.07546127507847518,
+            0.057514874767312825
+          ],
+          "group_relative_changes": {
+            "G1": -0.03540833919824113,
+            "G2": 0.021340782380306126
+          },
+          "months_improved": 6,
+          "months_worsened": 6
+        },
+        "recent": {
+          "relative_W_change_percent": -0.010484661847243589,
+          "ci95": [
+            -0.08606016991810553,
+            0.06698324557763587
+          ],
+          "group_relative_changes": {
+            "G1": 0.016372503163447388,
+            "G2": -0.03806820593207821
+          },
+          "months_improved": 6,
+          "months_worsened": 3
+        }
+      },
+      {
+        "id": "n0582",
+        "alpha": 0.02888728394822993,
+        "primary": {
+          "relative_W_change_percent": -0.012052996714892794,
+          "ci95": [
+            -0.1186964456008027,
+            0.09166976000298806
+          ],
+          "group_relative_changes": {
+            "G1": -0.021796375151326604,
+            "G2": -0.0023066077925528766
+          },
+          "months_improved": 5,
+          "months_worsened": 7
+        },
+        "recent": {
+          "relative_W_change_percent": -0.007079205071943787,
+          "ci95": [
+            -0.11321064550613337,
+            0.10377055766572121
+          ],
+          "group_relative_changes": {
+            "G1": 0.018878730493030488,
+            "G2": -0.03373919914517093
+          },
+          "months_improved": 5,
+          "months_worsened": 4
+        }
+      },
+      {
+        "id": "n1450",
+        "alpha": 0.049343493960900424,
+        "primary": {
+          "relative_W_change_percent": -0.03684885526879063,
+          "ci95": [
+            -0.25152562910724685,
+            0.16802973244572264
+          ],
+          "group_relative_changes": {
+            "G1": -0.10770356063480534,
+            "G2": 0.034027742615591446
+          },
+          "months_improved": 5,
+          "months_worsened": 7
+        },
+        "recent": {
+          "relative_W_change_percent": -0.009966148157236914,
+          "ci95": [
+            -0.18245800812055293,
+            0.1657785597096975
+          ],
+          "group_relative_changes": {
+            "G1": -0.011000242120628091,
+            "G2": -0.008904086081241646
+          },
+          "months_improved": 7,
+          "months_worsened": 2
+        }
+      }
+    ],
+    "all_24_ci95_include_zero": true,
+    "replicates": 10000,
+    "unit": "월요일–일요일 완전한 주, 두 그룹을 함께 재표집; 경계 부분 주는 고정",
+    "common_improved_months": {
+      "primary": [
+        "2024-04"
+      ],
+      "recent": [
+        "2024-06",
+        "2024-07",
+        "2024-09",
+        "2025-01"
+      ]
+    },
+    "common_worsened_months": {
+      "primary": [
+        "2023-07",
+        "2023-08",
+        "2023-12"
+      ],
+      "recent": [
+        "2024-10"
+      ]
+    },
+    "group_changes": "primary G1은 12/12 개선, G2는 1/12 개선. recent G1은 7/12, G2는 12/12 개선.",
+    "weather_changes": "주간 0°C 이하에서 두 기간 모두 12/12 악화. 10–20°C·30°C 초과·적설 조건의 방향이 기간 사이에 뒤집히는 구간이 있다.",
+    "interpretation": "소폭의 전체 오차 감소가 안정적인 미래 개선을 입증하지 않는다. 선택·alpha 추정에 조건부인 기술적 신뢰구간이며 모든 구간이 0을 포함한다.",
+    "analysis_wall_seconds": 1.754541740010609,
+    "analysis_cpu_seconds": 1.752224305,
+    "new_model_fits": 0,
+    "new_coefficient_optimization": 0
+  },
+  "limitations": [
+    "All12 recipes were identified after an exposed2048-configuration search; these intervals do not adjust for candidate selection, multiple comparisons, or the data-dependent primary alpha.",
+    "Alphas are frozen from the earlier audit in every resample. Primary estimates are partly optimized on the evaluated primary outcomes and are optimistic as future-performance evidence.",
+    "The five original development folds overlap and cannot be treated as independent replications. This analysis reports primary/recent separately and does not pool a fivefold confidence interval.",
+    "Complete-week resampling preserves within-week dependence and covariance between the two groups, but does not account for dependence spanning multiple weeks or future distribution changes. Partial edge weeks are held fixed, conditioning away their uncertainty.",
+    "Monthly and weather slices are descriptive, with no multiplicity-adjusted tests; small or missing bins must not be used to choose coefficients or models.",
+    "Failed summaries remain uncommitted and omitted from finalization. This audit does not repair, promote, refit, seed-validate, deploy, upload, or select these recipes.",
+    "No March-May2025 late-audit target values were read; the search boundary is2025-03-01 00:00KST inclusive.",
+    "Local error changes and proxy revenue effects are not official leaderboard improvements; no independent test or new official score is claimed.",
+    "모든 과거 기간은 이미 노출되었고 다섯 개발 평가 기간은 겹친다. primary 혼합 계수는 primary 평가 정답으로 선택되어 recent에 변경 없이 적용됐다.",
+    "학습 정답의 시간 경계와 이후 평가 라벨을 구분했으며 후기 2025년 3–5월 정답은 열지 않았다.",
+    "기존 최고 점수는 사용자 보고값이다. 리더보드 업로드·신규 공식 점수 확인·유료 구매를 수행하지 않았다."
+  ],
+  "evidence_sha256": {
+    "analysis_outputs/research_22h_20261107/independent_completion_check.json": "508024b62dfc1dbb7fd095e6400bf6391aeccb49f3f2c38560929267e3944610",
+    "analysis_outputs/research_22h_20261107/hourly_checks/20261107T150152Z_science.json": "740676c089e4a11999435b776568878433992c5be0edb5fda4cfe45bbababbc5",
+    "analysis_outputs/research_22h_20261107/hourly_checks/20261107T125827Z_failed_candidates_science.json": "816a3190085cc10c717d23dc7c9a52f8014c0d1f843a415ddfd9d1389a7f60ac",
+    "analysis_outputs/research_22h_20261107/hourly_checks/20261107T150446Z_postrun_science.json": "9fd3863e15fff2ade43a48106aa904a61fafebf50b84c0e112de67d69459e967",
+    "analysis_outputs/research_22h_20261107/final_verification_contract.json": "8eab2c8b4cfa8bf3519287b65b127644a59d4e1cb93791e71fd7529e3e24cbd7",
+    "analysis_outputs/research_22h_20261107/completion/result.json": "13509dd1c76af51f2092e4c5d6e45ffe049c4d68f341685b593008a68112ce9c",
+    "analysis_outputs/research_22h_20261107/completion/shortlist.json": "39b84db8736bf84133e324f6ee710a6cc3abd6c122605f6ca9bca8b333f7015a"
+  },
+  "publication_scope": "완료 검증과 집계 분석만 공개. 개별 예측·모델·원본 데이터·ZIP·프로세스 상태 원문·자동화 식별자는 포함하지 않음"
+}

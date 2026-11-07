@@ -1,0 +1,75 @@
+{
+  "verification_status": "PASS",
+  "utc": "2026-11-07T15:07:51.729455+00:00",
+  "postrun_artifact": "analysis_outputs/research_22h_20261107/hourly_checks/20261107T150446Z_postrun_science.json",
+  "postrun_sha256": "9fd3863e15fff2ade43a48106aa904a61fafebf50b84c0e112de67d69459e967",
+  "fixed_failed_audit_sha256": "816a3190085cc10c717d23dc7c9a52f8014c0d1f843a415ddfd9d1389a7f60ac",
+  "analysis_script_sha256": "f3e40dfbe7663afa8aa1a6280ddaa0bbe6c40a28a1738f9ea54d7e66249a412c",
+  "source_artifact_hashes_verified": 107,
+  "all_fixed_failed_candidates": [
+    "n0132",
+    "n0135",
+    "n0142",
+    "n0169",
+    "n0171",
+    "n0173",
+    "n0174",
+    "n0186",
+    "n0188",
+    "n0191",
+    "n0582",
+    "n1450"
+  ],
+  "recipes_checked": 12,
+  "recipe_periods_checked": 24,
+  "point_and_stratum_metric_records_recomputed": 732,
+  "additive_partition_checks": 144,
+  "frozen_alphas_exact": true,
+  "prior_gate_audit_point_changes_match": true,
+  "monthly_group_weather_and_night_metrics_match_saved_predictions": true,
+  "weather_missing_bins_explicit_and_exhaustive": true,
+  "calendar_week_checks": {
+    "primary": {
+      "complete_joint_weeks": 51,
+      "fixed_boundary_weeks": 2,
+      "fixed_boundary_group_hour_rows": 432,
+      "period_start": "2023-06-01 01:00:00+09:00",
+      "period_end": "2024-06-01 00:00:00+09:00"
+    },
+    "recent": {
+      "complete_joint_weeks": 38,
+      "fixed_boundary_weeks": 2,
+      "fixed_boundary_group_hour_rows": 336,
+      "period_start": "2024-06-01 01:00:00+09:00",
+      "period_end": "2025-03-01 00:00:00+09:00"
+    }
+  },
+  "bootstrap_method_review": {
+    "bootstrap_reruns": 0,
+    "source_formula_reviewed": true,
+    "shared_counts_across_recipes": true,
+    "joint_two_group_complete_weeks": true,
+    "fixed_boundary_delta_reference_and_generation_denominator_in_every_draw": true,
+    "percentile_interval_orientation_correct": true,
+    "intervals_including_zero": 24,
+    "exact_bootstrap_quantiles_not_independently_recomputed": true
+  },
+  "interpretation": "All12 audited frozen blends improve the point estimate in both development periods, but every24 conditional95% week-block interval includes zero. This does not establish stable improvement or prove no effect. Their earlier deterministic development gates remain passed; scientific uncertainty and serialization failure are separate issues.",
+  "caveats": [
+    "Candidate and primary-alpha selection on exposed history are not adjusted by these intervals.",
+    "Partial boundary weeks are held fixed, and longer-than-week dependence/future shifts are not represented.",
+    "Monthly/weather slices are descriptive and not grounds for reselection.",
+    "Missing weather bins have zero rows here; their unchanged counts are empty-bin bookkeeping, not evidence of performance.",
+    "No candidate was promoted, repaired, refitted, exported or officially scored by this review."
+  ],
+  "review_activity": {
+    "analysis_threads": 1,
+    "model_fits": 0,
+    "model_replays": 0,
+    "bootstrap_repeats": 0,
+    "new_alpha_fits": 0,
+    "late_target_values_loaded": false,
+    "original_artifacts_modified": false,
+    "new_review_receipt_only": true
+  }
+}
