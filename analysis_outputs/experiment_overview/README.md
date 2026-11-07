@@ -1,6 +1,6 @@
 # 전체 실험·시도 상태표
 
-확인 시각: **2026-11-07 17:49:32 KST**.
+확인 시각: **2026-11-07 18:04:24 KST**.
 
 [프로젝트 요약](../../README.md) · [필터링 가능한 전체 CSV](experiments.csv)
 
@@ -1117,76 +1117,76 @@ model_results.csv의 25개 명명된 비교를 모두 보존했습니다. 150개
 | n0342 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9763 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0342/result.json) |
 | n0343 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9662 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0343/result.json) |
 | n0344 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9903 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0344/result.json) |
-| n0345 | calibration | 결과 기록 후 종료 확인 중 | 5/5 | 5 | mean W / c000 | 0.9410 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0345/result.json) |
-| n0346 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0347 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0348 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0349 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0350 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0351 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0352 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0353 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0354 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0355 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0356 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0357 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0358 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0359 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0360 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0361 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0362 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0363 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0364 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0365 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0366 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0367 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0368 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0369 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0370 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0371 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0372 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0373 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0374 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0375 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0376 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0377 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0378 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0379 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0380 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0381 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0382 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0383 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0384 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0385 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0386 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0387 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0388 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0389 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0390 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0391 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0392 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0393 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0394 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0395 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0396 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0397 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0398 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0399 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0400 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0401 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0402 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0403 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0404 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0405 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0406 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0407 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0408 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0409 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0410 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0411 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0412 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0413 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
-| n0414 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
+| n0345 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9410 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0345/result.json) |
+| n0346 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9953 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0346/result.json) |
+| n0347 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9372 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0347/result.json) |
+| n0348 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9398 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0348/result.json) |
+| n0349 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9446 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0349/result.json) |
+| n0350 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9566 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0350/result.json) |
+| n0351 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0183 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0351/result.json) |
+| n0352 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9887 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0352/result.json) |
+| n0353 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9439 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0353/result.json) |
+| n0354 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9555 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0354/result.json) |
+| n0355 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9653 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0355/result.json) |
+| n0356 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9354 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0356/result.json) |
+| n0357 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9609 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0357/result.json) |
+| n0358 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0281 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0358/result.json) |
+| n0359 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9455 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0359/result.json) |
+| n0360 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9893 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0360/result.json) |
+| n0361 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9948 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0361/result.json) |
+| n0362 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9362 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0362/result.json) |
+| n0363 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0063 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0363/result.json) |
+| n0364 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9440 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0364/result.json) |
+| n0365 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0039 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0365/result.json) |
+| n0366 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9390 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0366/result.json) |
+| n0367 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9949 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0367/result.json) |
+| n0368 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9999 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0368/result.json) |
+| n0369 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0021 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0369/result.json) |
+| n0370 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9467 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0370/result.json) |
+| n0371 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9502 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0371/result.json) |
+| n0372 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9695 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0372/result.json) |
+| n0373 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9680 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0373/result.json) |
+| n0374 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9550 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0374/result.json) |
+| n0375 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9915 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0375/result.json) |
+| n0376 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0293 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0376/result.json) |
+| n0377 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9735 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0377/result.json) |
+| n0378 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9809 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0378/result.json) |
+| n0379 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9404 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0379/result.json) |
+| n0380 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9455 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0380/result.json) |
+| n0381 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9411 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0381/result.json) |
+| n0382 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9419 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0382/result.json) |
+| n0383 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9380 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0383/result.json) |
+| n0384 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9619 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0384/result.json) |
+| n0385 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9617 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0385/result.json) |
+| n0386 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9606 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0386/result.json) |
+| n0387 | calibration | 완료 | 5/5 | 0 | mean W / c000 | 0.9599 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0387/result.json) |
+| n0388 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9396 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0388/result.json) |
+| n0389 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9656 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0389/result.json) |
+| n0390 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9681 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0390/result.json) |
+| n0391 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9922 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0391/result.json) |
+| n0392 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0231 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0392/result.json) |
+| n0393 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9700 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0393/result.json) |
+| n0394 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9543 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0394/result.json) |
+| n0395 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9829 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0395/result.json) |
+| n0396 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9381 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0396/result.json) |
+| n0397 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9860 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0397/result.json) |
+| n0398 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9915 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0398/result.json) |
+| n0399 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9635 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0399/result.json) |
+| n0400 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9754 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0400/result.json) |
+| n0401 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9596 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0401/result.json) |
+| n0402 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9370 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0402/result.json) |
+| n0403 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9571 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0403/result.json) |
+| n0404 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0145 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0404/result.json) |
+| n0405 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9484 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0405/result.json) |
+| n0406 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 1.0176 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0406/result.json) |
+| n0407 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9587 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0407/result.json) |
+| n0408 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9380 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0408/result.json) |
+| n0409 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9917 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0409/result.json) |
+| n0410 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9404 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0410/result.json) |
+| n0411 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9410 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0411/result.json) |
+| n0412 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9536 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0412/result.json) |
+| n0413 | calibration | 완료 | 5/5 | 5 | mean W / c000 | 0.9623 |  [기록](../../analysis_outputs/research_22h_20261107/trials/n0413/result.json) |
+| n0414 | calibration | 진행 중 | 3/5 | 3 | mean W / c000 | — |  — |
 | n0415 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
 | n0416 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
 | n0417 | calibration | 대기 | 0/5 | 0 | mean W / c000 | — |  — |
@@ -2826,7 +2826,7 @@ model_results.csv의 25개 명명된 비교를 모두 보존했습니다. 150개
 | b03 | oof_generation | 완료 | — | 8 |  | — | 기존 c174 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b03/result.json) |
 | b04 | oof_generation | 완료 | — | 8 |  | — | 기존 c093 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b04/result.json) |
 | b05 | oof_generation | 완료 | — | 8 |  | — | 기존 c185 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b05/result.json) |
-| b06 | oof_generation | 대기 | — | 0 |  | — | 기존 c117 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
+| b06 | oof_generation | 완료 | — | 8 |  | — | 기존 c117 설정 재사용; 보정 학습용 시간 순서 OOF 생성 [기록](../../analysis_outputs/research_22h_20261107/bases/b06/result.json) |
 | b07 | oof_generation | 대기 | — | 0 |  | — | 기존 c000 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
 | b08 | oof_generation | 대기 | — | 0 |  | — | 기존 c186 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
 | b09 | oof_generation | 대기 | — | 0 |  | — | 기존 c030 설정 재사용; 보정 학습용 시간 순서 OOF 생성 — |
