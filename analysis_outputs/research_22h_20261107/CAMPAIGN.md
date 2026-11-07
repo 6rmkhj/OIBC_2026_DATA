@@ -35,9 +35,9 @@
 
 ## GitHub 기록
 
-계획된 대상은 `https://github.com/6rmkhj/OIBC_2026_DATA`의 `main`이다. 자동 승인 검토가 공개 저장소와 파일 범위에 대한 구체적 승인 부족을 이유로 자동 push 실행을 거절했다. 따라서 실제 게시와 주기 push는 사용자 범위 확인을 기다리며 비활성 상태이다. 현재 감독기는 로컬 학습만 수행한다. 게시 명령을 포함한 원래 제안은 `continuation_spec_publish_proposal.json`에 보존하며 실행하지 않는다.
+대상은 `https://github.com/6rmkhj/OIBC_2026_DATA`의 `main`이다. 자동 승인 검토의 최초 보류 이후 사용자가 `main`에 1시간마다 공개 푸시를 명시적으로 승인했다. 첫 커밋 `80421bdf9d39bda1d2079bc904548b577d0954be`는 2026-11-07 07:16:48 UTC에 main 반영을 확인했다. 작성자와 커미터의 GitHub 계정은 모두 `codex`로 확인했다.
 
-승인 후 적용할 계획은 약 1시간마다 변경된 코드·고정 설정·완료 실험의 검증 기록을 커밋하고 일반 fast-forward push하는 것이다. 작성자와 커미터는 모두 `Codex <codex@openai.com>`이며 GitHub의 `codex` 계정에 연결되는 이메일임을 확인했다. 변경 내용이 없으면 빈 커밋을 만들지 않는다.
+기존 매시간 점검 자동화가 약 1시간마다 변경된 코드·고정 설정·완료 실험의 검증 기록을 커밋하고 일반 fast-forward push한다. 작성자와 커미터는 모두 `Codex <codex@openai.com>`이다. 변경 내용이 없으면 빈 커밋을 만들지 않는다. 로컬 학습 감독기는 학습 연결만 담당하며 고정 spec을 변경하지 않는다. 게시 명령을 포함한 초기 제안 `continuation_spec_publish_proposal.json`은 실행하지 않는다.
 
 독립 Git index와 로컬 `codex/checkpoints` 브랜치를 사용해 사용자의 작업 브랜치와 staging 영역을 보존한다. 예상치 못한 원격 변경이 있으면 강제 push하지 않고 충돌을 기록한다. 대형 모델·데이터·예측 파일·제출 ZIP·실행 중 상태·로그·자동화 식별자는 게시 대상에서 제외한다. 각 커밋의 파일 목록과 해시를 `analysis_outputs/github_checkpoints_20261107/`의 새 감사 기록으로 남긴다. 대형 모델이 제외되므로 GitHub 기록만으로 학습 산출물 전체를 복원할 수 있는 것은 아니다.
 
