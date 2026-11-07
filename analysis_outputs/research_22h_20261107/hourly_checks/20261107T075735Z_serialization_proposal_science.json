@@ -1,0 +1,127 @@
+{
+  "utc": "2026-11-07T07:57:35.581262+00:00",
+  "status": "UNAPPLIED_REPAIR_PROPOSAL",
+  "issue": "NumPy boolean is not JSON serializable when both preceding gates pass",
+  "source_path": "submission/score_push_22h/engine.py",
+  "source_sha256": "7e0996b144cae3bdebeb23f1eef8685525c24485d694f9e94ed5e672a60967fe",
+  "old_line": "robust=robust,eligible=robust and blend[\"eligible\"] and np.mean(list(reference_ratios.values()))<1,",
+  "proposed_line": "robust=robust,eligible=bool(robust and blend[\"eligible\"] and np.mean(list(reference_ratios.values()))<1),",
+  "gate_meaning_unchanged": true,
+  "branch_cases": [
+    {
+      "robust": false,
+      "blend_eligible": false,
+      "mean_ratio": 0.925,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": false,
+      "blend_eligible": false,
+      "mean_ratio": 1.0,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": false,
+      "blend_eligible": false,
+      "mean_ratio": 1.0750000000000002,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": false,
+      "blend_eligible": true,
+      "mean_ratio": 0.925,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": false,
+      "blend_eligible": true,
+      "mean_ratio": 1.0,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": false,
+      "blend_eligible": true,
+      "mean_ratio": 1.0750000000000002,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": true,
+      "blend_eligible": false,
+      "mean_ratio": 0.925,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": true,
+      "blend_eligible": false,
+      "mean_ratio": 1.0,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": true,
+      "blend_eligible": false,
+      "mean_ratio": 1.0750000000000002,
+      "old_value": false,
+      "old_serializable": true,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": true,
+      "blend_eligible": true,
+      "mean_ratio": 0.925,
+      "old_value": true,
+      "old_serializable": false,
+      "proposed_value": true,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": true,
+      "blend_eligible": true,
+      "mean_ratio": 1.0,
+      "old_value": false,
+      "old_serializable": false,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    },
+    {
+      "robust": true,
+      "blend_eligible": true,
+      "mean_ratio": 1.0750000000000002,
+      "old_value": false,
+      "old_serializable": false,
+      "proposed_value": false,
+      "proposed_is_python_bool": true
+    }
+  ],
+  "cases": 12,
+  "all_proposed_values_json_serializable": true,
+  "actual_source_changed": false,
+  "runtime_or_manifest_changed": false,
+  "model_fits": 0,
+  "future_label_values_loaded": false,
+  "constraint": "User explicitly prohibits modifying running source and fixed manifests. This is a reviewable proposal only; activation requires an authorized versioned transition after in-flight work is terminal, preserving completed artifacts and all original files."
+}

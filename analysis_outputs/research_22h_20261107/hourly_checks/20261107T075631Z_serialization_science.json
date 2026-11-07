@@ -1,0 +1,25 @@
+{
+  "status": "LATENT_SERIALIZATION_FINDING",
+  "utc": "2026-11-07T07:56:31.701068+00:00",
+  "source_sha256": {
+    "submission/score_push_22h/engine.py": "7e0996b144cae3bdebeb23f1eef8685525c24485d694f9e94ed5e672a60967fe",
+    "submission/score_push_10h/engine.py": "c51a62cfb6cd011ee2054db05d2420c695a847a007343e258060b67bac592a95"
+  },
+  "location": {
+    "line": 415,
+    "source": "robust=robust,eligible=robust and blend[\"eligible\"] and np.mean(list(reference_ratios.values()))<1,"
+  },
+  "trigger": "Both robust and blend eligible are PythonTrue; final NumPy mean comparison evaluates",
+  "reproduction": "json.dumps({eligible: True and True and numpy.mean([0.9,0.95]) < 1})",
+  "result_type": "numpy.bool",
+  "error_type": "TypeError",
+  "error": "Object of type bool is not JSON serializable",
+  "impact": "A future candidate passing the first two gates can finish all five fits but fail while committing result.json, so ranking may omit it. Current audited89 committed results were valid and no fully eligible candidate existed.",
+  "serialization_only_conversion_reproduced": true,
+  "possible_conversion": "Wrap final logical result with builtin bool, without changing gates or numerical scores",
+  "frozen_source_edited": false,
+  "models_refit": 0,
+  "late_targets_read": false,
+  "repair_status": "Reported to root and science owner; no repair or process action by auditor",
+  "related_science_audit": "hourly_checks/20261107T075514Z_science.json"
+}

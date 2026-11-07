@@ -1,0 +1,313 @@
+{
+  "id": "n0042",
+  "base_id": "b00",
+  "config": {
+    "id": "n0042",
+    "base_id": "b00",
+    "method": "tree",
+    "features": "age",
+    "mode": "additive",
+    "half_life": 365,
+    "shrink": 0.5,
+    "bound": 0.2,
+    "num_leaves": 7,
+    "min_child_samples": 200,
+    "n_estimators": 300,
+    "learning_rate": 0.05,
+    "reg_lambda": 2.0
+  },
+  "utc": "2026-11-07T07:45:49.784837+00:00",
+  "status": "PASS",
+  "folds": {
+    "early2022": {
+      "status": "PASS",
+      "utc": "2026-11-07T07:45:35.274917+00:00",
+      "config": {
+        "id": "n0042",
+        "base_id": "b00",
+        "method": "tree",
+        "features": "age",
+        "mode": "additive",
+        "half_life": 365,
+        "shrink": 0.5,
+        "bound": 0.2,
+        "num_leaves": 7,
+        "min_child_samples": 200,
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "reg_lambda": 2.0
+      },
+      "seed": 0,
+      "fold": "early2022",
+      "native_saved_model_replay": true,
+      "real_model_fits": 1,
+      "elapsed_seconds": 0.9494201269990299,
+      "score": {
+        "W": 619550937.4141918,
+        "W_pct": 14.42949843782853,
+        "revenue": 1831074397.0999908,
+        "S": 1769119303.3585718,
+        "rows": 17520
+      },
+      "raw_score": {
+        "W": 578833556.2882093,
+        "W_pct": 13.481180306308945,
+        "revenue": 1831074397.0999908,
+        "S": 1773191041.47117,
+        "rows": 17520
+      },
+      "files_sha256": {
+        "model.txt": "4298f9bb663ae98da8d3b4b99bae7ddc7e2a30c6648a54d8d3bf2ad782d30bf7",
+        "transform.json": "5a89921fb88bb5511b57c682e42e378bfe28fe038d4d2c3ce201d6c4d79e2c8d",
+        "predictions.parquet": "25743f3b7cd08903fb560e664dff88a359990aa330448a8e02e9b3c42508e10e"
+      }
+    },
+    "primary": {
+      "status": "PASS",
+      "utc": "2026-11-07T07:45:37.927479+00:00",
+      "config": {
+        "id": "n0042",
+        "base_id": "b00",
+        "method": "tree",
+        "features": "age",
+        "mode": "additive",
+        "half_life": 365,
+        "shrink": 0.5,
+        "bound": 0.2,
+        "num_leaves": 7,
+        "min_child_samples": 200,
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "reg_lambda": 2.0
+      },
+      "seed": 0,
+      "fold": "primary",
+      "native_saved_model_replay": true,
+      "real_model_fits": 1,
+      "elapsed_seconds": 2.5339698209936614,
+      "score": {
+        "W": 1066174677.9400007,
+        "W_pct": 13.004857614120752,
+        "revenue": 3546697701.5127397,
+        "S": 3440080233.7187395,
+        "rows": 17568
+      },
+      "raw_score": {
+        "W": 1034711574.8101643,
+        "W_pct": 12.621080748314393,
+        "revenue": 3546697701.5127397,
+        "S": 3443226544.031723,
+        "rows": 17568
+      },
+      "files_sha256": {
+        "model.txt": "313f520ff3636d7b69ac7f896328af25b4ee92a289094f9dcecc4581c232cb2c",
+        "transform.json": "a4e2f241a64c0c4c932aea3b550d3e6bda470162c86de1fa41f87bf7f2ce12ca",
+        "predictions.parquet": "8ac83734d41995fe19ea988d4f0ac250e6f4c0a51eedce26fa3f178bc8f86bd4"
+      }
+    },
+    "winter": {
+      "status": "PASS",
+      "utc": "2026-11-07T07:45:41.485293+00:00",
+      "config": {
+        "id": "n0042",
+        "base_id": "b00",
+        "method": "tree",
+        "features": "age",
+        "mode": "additive",
+        "half_life": 365,
+        "shrink": 0.5,
+        "bound": 0.2,
+        "num_leaves": 7,
+        "min_child_samples": 200,
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "reg_lambda": 2.0
+      },
+      "seed": 0,
+      "fold": "winter",
+      "native_saved_model_replay": true,
+      "real_model_fits": 1,
+      "elapsed_seconds": 3.403802941000322,
+      "score": {
+        "W": 1707656931.6627736,
+        "W_pct": 12.53044481991368,
+        "revenue": 5960860972.818407,
+        "S": 5790095279.65213,
+        "rows": 17568
+      },
+      "raw_score": {
+        "W": 1699494723.8395765,
+        "W_pct": 12.470552172367867,
+        "revenue": 5960860972.818407,
+        "S": 5790911500.434449,
+        "rows": 17568
+      },
+      "files_sha256": {
+        "model.txt": "5d6c35fff4cb1d2c99244dd2206fd42d3c6b4c61ac3ca05b70c0d0d16a32af79",
+        "transform.json": "10092189be03dd0747bbc971885412a2fa0c12b7ffaf3070d3180448e0398870",
+        "predictions.parquet": "1b35591f8a5cf1c7af12331fa09514f0a765edc1aaae8a6dd27395784aeae311"
+      }
+    },
+    "spring": {
+      "status": "PASS",
+      "utc": "2026-11-07T07:45:45.360368+00:00",
+      "config": {
+        "id": "n0042",
+        "base_id": "b00",
+        "method": "tree",
+        "features": "age",
+        "mode": "additive",
+        "half_life": 365,
+        "shrink": 0.5,
+        "bound": 0.2,
+        "num_leaves": 7,
+        "min_child_samples": 200,
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "reg_lambda": 2.0
+      },
+      "seed": 0,
+      "fold": "spring",
+      "native_saved_model_replay": true,
+      "real_model_fits": 1,
+      "elapsed_seconds": 3.7138042750011664,
+      "score": {
+        "W": 1839447689.7045393,
+        "W_pct": 11.768592126529503,
+        "revenue": 6766593926.537982,
+        "S": 6582649157.567528,
+        "rows": 17520
+      },
+      "raw_score": {
+        "W": 1838299326.489842,
+        "W_pct": 11.761245019915641,
+        "revenue": 6766593926.537982,
+        "S": 6582763993.888998,
+        "rows": 17520
+      },
+      "files_sha256": {
+        "model.txt": "89cf5171a69a787fc857c6bb1c06ed5cb27bf229db4b61d15554435cfaf7dc50",
+        "transform.json": "61cb543f9c11f6d2e9a75183974caacfb270420a0506d2750e5fb4499c54c518",
+        "predictions.parquet": "4b31210e236a54b0e9dbf2b75864646aae69a471603902f952216590ff2472be"
+      }
+    },
+    "recent": {
+      "status": "PASS",
+      "utc": "2026-11-07T07:45:49.756943+00:00",
+      "config": {
+        "id": "n0042",
+        "base_id": "b00",
+        "method": "tree",
+        "features": "age",
+        "mode": "additive",
+        "half_life": 365,
+        "shrink": 0.5,
+        "bound": 0.2,
+        "num_leaves": 7,
+        "min_child_samples": 200,
+        "n_estimators": 300,
+        "learning_rate": 0.05,
+        "reg_lambda": 2.0
+      },
+      "seed": 0,
+      "fold": "recent",
+      "native_saved_model_replay": true,
+      "real_model_fits": 1,
+      "elapsed_seconds": 4.267255151993595,
+      "score": {
+        "W": 1412632969.3370423,
+        "W_pct": 11.454233967490953,
+        "revenue": 5289489854.18509,
+        "S": 5148226557.251386,
+        "rows": 13104
+      },
+      "raw_score": {
+        "W": 1434030206.784177,
+        "W_pct": 11.627731945591,
+        "revenue": 5289489854.18509,
+        "S": 5146086833.506672,
+        "rows": 13104
+      },
+      "files_sha256": {
+        "model.txt": "8c326105b47baaf985bf20fcd426891c28c6d69a5a39ee210cf945448bbb7316",
+        "transform.json": "b4137955557ad15aaf63c446b602bb2e7929855f50bc048e6d5201b2e6982c95",
+        "predictions.parquet": "68e7422ced8301aaa34afbb3012469c0f0e75bb37bc58e1f3c9b52b4115b49b5"
+      }
+    }
+  },
+  "blend": {
+    "alpha": 0.0,
+    "scores": {
+      "primary": {
+        "reference": {
+          "W": 980451119.833828,
+          "W_pct": 11.959229078372204,
+          "revenue": 3546697701.5127397,
+          "S": 3448652589.529357,
+          "rows": 17568
+        },
+        "component": {
+          "W": 1066174677.9400007,
+          "W_pct": 13.004857614120752,
+          "revenue": 3546697701.5127397,
+          "S": 3440080233.7187395,
+          "rows": 17568
+        },
+        "blend": {
+          "W": 980451119.833828,
+          "W_pct": 11.959229078372204,
+          "revenue": 3546697701.5127397,
+          "S": 3448652589.529357,
+          "rows": 17568
+        }
+      },
+      "recent": {
+        "reference": {
+          "W": 1356730507.1796594,
+          "W_pct": 11.000952828788678,
+          "revenue": 5289489854.18509,
+          "S": 5153816803.467124,
+          "rows": 13104
+        },
+        "component": {
+          "W": 1412632969.3370423,
+          "W_pct": 11.454233967490953,
+          "revenue": 5289489854.18509,
+          "S": 5148226557.251386,
+          "rows": 13104
+        },
+        "blend": {
+          "W": 1356730507.1796594,
+          "W_pct": 11.000952828788678,
+          "revenue": 5289489854.18509,
+          "S": 5153816803.467124,
+          "rows": 13104
+        }
+      }
+    },
+    "primary_only_alpha": true,
+    "recent_unchanged_transfer": true,
+    "eligible": false
+  },
+  "raw_ratios": {
+    "early2022": 1.0703438504620986,
+    "primary": 1.0304076071977921,
+    "winter": 1.00480272619191,
+    "spring": 1.0006246878286629,
+    "recent": 0.9850789492816067
+  },
+  "baseline_ratios": {
+    "early2022": 0.8866305270568962,
+    "primary": 0.9881691654621496,
+    "winter": 0.9813492616060125,
+    "spring": 0.9316486643978967,
+    "recent": 0.8947354480029469
+  },
+  "mean_W_ratio": 0.9365066133051803,
+  "worst_raw_W_ratio": 1.0703438504620986,
+  "robust": false,
+  "eligible": false,
+  "all_history_previously_exposed": true,
+  "march_may_targets_loaded": false,
+  "protocol_sha256": "c9475db374cc81101844ee6612499e8a39e77e424efcc15de946ab379809c8be"
+}
