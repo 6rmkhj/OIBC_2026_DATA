@@ -1,6 +1,6 @@
 # 전체 연구·실험 현황
 
-확인: **2026-11-08 16:18:46 KST**.
+확인: **2026-11-08 17:06:07 KST**.
 
 [요약](../../README.md)
 
@@ -3105,15 +3105,15 @@
 
 | ID / 종류 | 상태 | 기초 / 비교 | 설정 변화 | primary / recent W_pct | 새 학습 | 판정·근거 |
 |---|---|---|---|---:|---:|---|
-| t000 / deterministic_transport | 완료 | protected_reference /  | 기준 설정 (기준 설정) | 11.9501 / 10.9875 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t000/result.json` (로컬 근거) |
-| t001 / deterministic_transport | 완료 | protected_reference / t000 | budget: 0.1→0.25 (단일 설정 차이) | 11.9501 / 10.9875 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t001/result.json` (로컬 근거) |
-| t002 / deterministic_transport | 완료 | protected_reference / t000 | context: global→cloud_trend3 (단일 설정 차이) | 11.9436 / 10.9896 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t002/result.json` (로컬 근거) |
-| t003 / deterministic_transport | 완료 | protected_reference / t001 | context: global→cloud_trend3 (단일 설정 차이) | 11.9425 / 10.9898 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t003/result.json` (로컬 근거) |
-| t004 / deterministic_transport | 완료 | protected_reference / t000 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9486 / 10.9816 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t004/result.json` (로컬 근거) |
-| t005 / deterministic_transport | 완료 | protected_reference / t001 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9486 / 10.9816 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t005/result.json` (로컬 근거) |
-| t006 / deterministic_transport | 완료 | protected_reference / t002 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9409 / 10.9838 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t006/result.json` (로컬 근거) |
-| t007 / deterministic_transport | 완료 | protected_reference / t003 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9402 / 10.9833 | 1 | 개발 기준 통과 `analysis_outputs/research_novel_20261108/trials/t007/result.json` (로컬 근거) |
-| s000 / deterministic_transport | 완료 | protected_reference /  | 기준 설정 (기준 설정) | 11.9570 / 11.0006 | 1 | 개발 기준 미통과 `analysis_outputs/research_novel_20261108/trials/s000/result.json` (로컬 근거) |
-| s001 / deterministic_transport | 완료 | protected_reference / s000 | budget: 0.1→0.25 (단일 설정 차이) | 11.9570 / 11.0006 | 1 | 개발 기준 미통과 `analysis_outputs/research_novel_20261108/trials/s001/result.json` (로컬 근거) |
-| s002 / deterministic_transport | 완료 | protected_reference / s000 | context: global→cloud_contrast3 (단일 설정 차이) | 11.9554 / 11.0005 | 1 | 개발 기준 미통과 `analysis_outputs/research_novel_20261108/trials/s002/result.json` (로컬 근거) |
-| s003 / deterministic_transport | 완료 | protected_reference / s001 | context: global→cloud_contrast3 (단일 설정 차이) | 11.9554 / 11.0005 | 1 | 개발 기준 미통과 `analysis_outputs/research_novel_20261108/trials/s003/result.json` (로컬 근거) |
+| t000 / deterministic_transport | 완료 | protected_reference /  | 기준 설정 (기준 설정) | 11.9501 / 10.9875 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t000/result.json) |
+| t001 / deterministic_transport | 완료 | protected_reference / t000 | budget: 0.1→0.25 (단일 설정 차이) | 11.9501 / 10.9875 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t001/result.json) |
+| t002 / deterministic_transport | 완료 | protected_reference / t000 | context: global→cloud_trend3 (단일 설정 차이) | 11.9436 / 10.9896 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t002/result.json) |
+| t003 / deterministic_transport | 완료 | protected_reference / t001 | context: global→cloud_trend3 (단일 설정 차이) | 11.9425 / 10.9898 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t003/result.json) |
+| t004 / deterministic_transport | 완료 | protected_reference / t000 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9486 / 10.9816 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t004/result.json) |
+| t005 / deterministic_transport | 완료 | protected_reference / t001 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9486 / 10.9816 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t005/result.json) |
+| t006 / deterministic_transport | 완료 | protected_reference / t002 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9409 / 10.9838 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t006/result.json) |
+| t007 / deterministic_transport | 완료 | protected_reference / t003 | shifts: [-1, 1]→[-2, -1, 1, 2] (단일 설정 차이) | 11.9402 / 10.9833 | 1 | 개발 기준 통과 [근거](../../analysis_outputs/research_novel_20261108/trials/t007/result.json) |
+| s000 / deterministic_transport | 완료 | protected_reference /  | 기준 설정 (기준 설정) | 11.9570 / 11.0006 | 1 | 개발 기준 미통과 [근거](../../analysis_outputs/research_novel_20261108/trials/s000/result.json) |
+| s001 / deterministic_transport | 완료 | protected_reference / s000 | budget: 0.1→0.25 (단일 설정 차이) | 11.9570 / 11.0006 | 1 | 개발 기준 미통과 [근거](../../analysis_outputs/research_novel_20261108/trials/s001/result.json) |
+| s002 / deterministic_transport | 완료 | protected_reference / s000 | context: global→cloud_contrast3 (단일 설정 차이) | 11.9554 / 11.0005 | 1 | 개발 기준 미통과 [근거](../../analysis_outputs/research_novel_20261108/trials/s002/result.json) |
+| s003 / deterministic_transport | 완료 | protected_reference / s001 | context: global→cloud_contrast3 (단일 설정 차이) | 11.9554 / 11.0005 | 1 | 개발 기준 미통과 [근거](../../analysis_outputs/research_novel_20261108/trials/s003/result.json) |
