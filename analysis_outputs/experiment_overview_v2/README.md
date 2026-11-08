@@ -1,6 +1,6 @@
 # 전체 연구·실험 상태표
 
-확인 시각: **2026-11-08 13:05:39 KST**.
+확인 시각: **2026-11-08 13:58:15 KST**.
 
 [프로젝트 요약](../../README.md)
 
@@ -3106,41 +3106,41 @@ model_results.csv의 25개 명명된 비교를 모두 보존했습니다. 150개
 | r0241 / new_calibration | 완료 | b02 / r0117 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.8846 / 11.7904 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0241/result.json) |
 | r0242 / new_calibration | 완료 | b09 / r0118 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6568 / 12.0613 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0242/result.json) |
 | r0243 / new_calibration | 완료 | b22 / r0119 | weighting: money→horizon_groupseason (단일 설정 차이) | 13.1700 / 11.7154 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0243/result.json) |
-| r0244 / new_calibration | 완료 | b00 / r0144 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6502 / 11.4631 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0244/result.json` (로컬 근거) |
-| r0245 / new_calibration | 완료 | b02 / r0145 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.8077 / 11.9608 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0245/result.json` (로컬 근거) |
-| r0246 / new_calibration | 완료 | b09 / r0146 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6614 / 12.3570 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0246/result.json` (로컬 근거) |
-| r0247 / new_calibration | 완료 | b22 / r0147 | group_mix: 0.0→1.0 (단일 설정 차이) | 13.0753 / 11.8790 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0247/result.json` (로컬 근거) |
-| r0248 / new_calibration | 완료 | b00 / r0180 | features: weather_spread→rich_spread (단일 설정 차이) | 12.6499 / 11.4724 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0248/result.json` (로컬 근거) |
-| r0249 / new_calibration | 완료 | b02 / r0181 | features: weather_spread→rich_spread (단일 설정 차이) | 12.8242 / 11.9707 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0249/result.json` (로컬 근거) |
-| r0250 / new_calibration | 완료 | b09 / r0182 | features: weather_spread→rich_spread (단일 설정 차이) | 12.6810 / 12.3622 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0250/result.json` (로컬 근거) |
-| r0251 / new_calibration | 완료 | b22 / r0183 | features: weather_spread→rich_spread (단일 설정 차이) | 13.0831 / 11.8735 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0251/result.json` (로컬 근거) |
-| r0252 / new_calibration | 완료 | b00 / r0156 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.7939 / 11.5280 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0252/result.json` (로컬 근거) |
-| r0253 / new_calibration | 완료 | b02 / r0157 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.8173 / 11.8832 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0253/result.json` (로컬 근거) |
-| r0254 / new_calibration | 완료 | b09 / r0158 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6371 / 12.1387 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0254/result.json` (로컬 근거) |
-| r0255 / new_calibration | 완료 | b22 / r0159 | group_mix: 0.0→1.0 (단일 설정 차이) | 13.0911 / 11.8369 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0255/result.json` (로컬 근거) |
-| r0256 / new_calibration | 완료 | b00 / r0144 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6469 / 11.4872 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0256/result.json` (로컬 근거) |
-| r0257 / new_calibration | 완료 | b02 / r0145 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.8262 / 11.9777 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0257/result.json` (로컬 근거) |
-| r0258 / new_calibration | 완료 | b09 / r0146 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6850 / 12.3669 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0258/result.json` (로컬 근거) |
-| r0259 / new_calibration | 완료 | b22 / r0147 | weighting: money→horizon_groupseason (단일 설정 차이) | 13.0966 / 11.8575 | 48 / 48 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0259/result.json` (로컬 근거) |
-| r0260 / new_calibration | 진행 중 | b00 / r0148 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 34 / 102 | 미평가 — |
-| r0261 / new_calibration | 대기 | b02 / r0149 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0262 / new_calibration | 대기 | b09 / r0150 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0263 / new_calibration | 대기 | b22 / r0151 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0264 / new_calibration | 대기 | b00 / r0152 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0265 / new_calibration | 대기 | b02 / r0153 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0266 / new_calibration | 대기 | b09 / r0154 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0267 / new_calibration | 대기 | b22 / r0155 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0268 / new_calibration | 대기 | b00 / r0176 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0269 / new_calibration | 대기 | b02 / r0177 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0270 / new_calibration | 대기 | b09 / r0178 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0271 / new_calibration | 대기 | b22 / r0179 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0272 / new_calibration | 대기 | b00 / r0208 | group_mix: 0.0→1.0 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0273 / new_calibration | 대기 | b02 / r0209 | group_mix: 0.0→1.0 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0274 / new_calibration | 대기 | b09 / r0210 | group_mix: 0.0→1.0 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0275 / new_calibration | 대기 | b22 / r0211 | group_mix: 0.0→1.0 (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0276 / new_calibration | 대기 | b00 / r0200 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0277 / new_calibration | 대기 | b02 / r0201 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
-| r0278 / new_calibration | 대기 | b09 / r0202 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
+| r0244 / new_calibration | 완료 | b00 / r0144 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6502 / 11.4631 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0244/result.json) |
+| r0245 / new_calibration | 완료 | b02 / r0145 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.8077 / 11.9608 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0245/result.json) |
+| r0246 / new_calibration | 완료 | b09 / r0146 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6614 / 12.3570 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0246/result.json) |
+| r0247 / new_calibration | 완료 | b22 / r0147 | group_mix: 0.0→1.0 (단일 설정 차이) | 13.0753 / 11.8790 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0247/result.json) |
+| r0248 / new_calibration | 완료 | b00 / r0180 | features: weather_spread→rich_spread (단일 설정 차이) | 12.6499 / 11.4724 | 48 / 144 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0248/result.json) |
+| r0249 / new_calibration | 완료 | b02 / r0181 | features: weather_spread→rich_spread (단일 설정 차이) | 12.8242 / 11.9707 | 48 / 144 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0249/result.json) |
+| r0250 / new_calibration | 완료 | b09 / r0182 | features: weather_spread→rich_spread (단일 설정 차이) | 12.6810 / 12.3622 | 48 / 144 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0250/result.json) |
+| r0251 / new_calibration | 완료 | b22 / r0183 | features: weather_spread→rich_spread (단일 설정 차이) | 13.0831 / 11.8735 | 48 / 144 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0251/result.json) |
+| r0252 / new_calibration | 완료 | b00 / r0156 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.7939 / 11.5280 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0252/result.json) |
+| r0253 / new_calibration | 완료 | b02 / r0157 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.8173 / 11.8832 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0253/result.json) |
+| r0254 / new_calibration | 완료 | b09 / r0158 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6371 / 12.1387 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0254/result.json) |
+| r0255 / new_calibration | 완료 | b22 / r0159 | group_mix: 0.0→1.0 (단일 설정 차이) | 13.0911 / 11.8369 | 48 / 96 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0255/result.json) |
+| r0256 / new_calibration | 완료 | b00 / r0144 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6469 / 11.4872 | 48 / 48 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0256/result.json) |
+| r0257 / new_calibration | 완료 | b02 / r0145 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.8262 / 11.9777 | 48 / 48 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0257/result.json) |
+| r0258 / new_calibration | 완료 | b09 / r0146 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6850 / 12.3669 | 48 / 48 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0258/result.json) |
+| r0259 / new_calibration | 완료 | b22 / r0147 | weighting: money→horizon_groupseason (단일 설정 차이) | 13.0966 / 11.8575 | 48 / 48 | 개발 기준 미통과 [근거](../../analysis_outputs/research_23kst_20261108/trials/r0259/result.json) |
+| r0260 / new_calibration | 완료 | b00 / r0148 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.7925 / 11.5581 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0260/result.json` (로컬 근거) |
+| r0261 / new_calibration | 완료 | b02 / r0149 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.8083 / 11.8720 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0261/result.json` (로컬 근거) |
+| r0262 / new_calibration | 완료 | b09 / r0150 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6529 / 12.1486 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0262/result.json` (로컬 근거) |
+| r0263 / new_calibration | 완료 | b22 / r0151 | weighting: money→horizon_groupseason (단일 설정 차이) | 13.1255 / 11.8435 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0263/result.json` (로컬 근거) |
+| r0264 / new_calibration | 완료 | b00 / r0152 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.7674 / 11.4583 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0264/result.json` (로컬 근거) |
+| r0265 / new_calibration | 완료 | b02 / r0153 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.8299 / 11.7785 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0265/result.json` (로컬 근거) |
+| r0266 / new_calibration | 완료 | b09 / r0154 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6235 / 12.0572 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0266/result.json` (로컬 근거) |
+| r0267 / new_calibration | 완료 | b22 / r0155 | weighting: money→horizon_groupseason (단일 설정 차이) | 13.1267 / 11.7653 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0267/result.json` (로컬 근거) |
+| r0268 / new_calibration | 완료 | b00 / r0176 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6599 / 11.4670 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0268/result.json` (로컬 근거) |
+| r0269 / new_calibration | 완료 | b02 / r0177 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.7939 / 11.9646 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0269/result.json` (로컬 근거) |
+| r0270 / new_calibration | 완료 | b09 / r0178 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.5956 / 12.3447 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0270/result.json` (로컬 근거) |
+| r0271 / new_calibration | 완료 | b22 / r0179 | weighting: money→horizon_groupseason (단일 설정 차이) | 13.0572 / 11.8212 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0271/result.json` (로컬 근거) |
+| r0272 / new_calibration | 완료 | b00 / r0208 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6502 / 11.4631 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0272/result.json` (로컬 근거) |
+| r0273 / new_calibration | 완료 | b02 / r0209 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.8077 / 11.9608 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0273/result.json` (로컬 근거) |
+| r0274 / new_calibration | 완료 | b09 / r0210 | group_mix: 0.0→1.0 (단일 설정 차이) | 12.6614 / 12.3570 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0274/result.json` (로컬 근거) |
+| r0275 / new_calibration | 완료 | b22 / r0211 | group_mix: 0.0→1.0 (단일 설정 차이) | 13.0753 / 11.8790 | 48 / 96 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0275/result.json` (로컬 근거) |
+| r0276 / new_calibration | 완료 | b00 / r0200 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.6522 / 11.4833 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0276/result.json` (로컬 근거) |
+| r0277 / new_calibration | 완료 | b02 / r0201 | weighting: money→horizon_groupseason (단일 설정 차이) | 12.8173 / 11.9682 | 48 / 144 | 개발 기준 미통과 `analysis_outputs/research_23kst_20261108/trials/r0277/result.json` (로컬 근거) |
+| r0278 / new_calibration | 진행 중 | b09 / r0202 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 3 / 9 | 미평가 — |
 | r0279 / new_calibration | 대기 | b22 / r0203 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
 | r0280 / new_calibration | 대기 | b00 / r0204 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
 | r0281 / new_calibration | 대기 | b02 / r0205 | weighting: money→horizon_groupseason (단일 설정 차이) | — / — | 0 / 0 | 미평가 — |
