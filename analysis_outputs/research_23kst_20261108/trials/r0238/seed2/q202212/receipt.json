@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "utc": "2026-11-08T02:47:45.349834+00:00",
+  "config": {
+    "id": "r0238",
+    "base_id": "b09",
+    "features": "weather_spread",
+    "weighting": "horizon_groupseason",
+    "group_mix": 0.5,
+    "mode": "additive",
+    "shrink": 0.5,
+    "bound": 0.2,
+    "regularization": "anchored",
+    "num_leaves": 7,
+    "n_estimators": 240,
+    "learning_rate": 0.03,
+    "min_child_samples": 500,
+    "reg_lambda": 20.0,
+    "anchor_penalty": 0.25
+  },
+  "seed": 2,
+  "fold": "q202212",
+  "model_params": {
+    "num_leaves": 7,
+    "n_estimators": 240,
+    "learning_rate": 0.03,
+    "min_child_samples": 500,
+    "reg_lambda": 20.0,
+    "objective": "regression_l1",
+    "colsample_bytree": 0.9,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "n_jobs": 4,
+    "verbose": -1,
+    "random_state": 2,
+    "deterministic": true,
+    "force_col_wise": true
+  },
+  "model_files": [
+    "pooled.txt",
+    "G1.txt",
+    "G2.txt"
+  ],
+  "real_model_fits": 3,
+  "native_saved_model_replay": true,
+  "elapsed_seconds": 1.5764302989991847,
+  "score": {
+    "W": 158710054.19417405,
+    "W_pct": 12.302658607834902,
+    "revenue": 519017399.12814856,
+    "S": 503146393.7087312,
+    "rows": 4320
+  },
+  "raw_score": {
+    "W": 165698511.94120604,
+    "W_pct": 12.84437986357731,
+    "revenue": 519017399.12814856,
+    "S": 502447547.93402797,
+    "rows": 4320
+  },
+  "files_sha256": {
+    "pooled.txt": "efe8553219698d81c3537265f19748efa4698d38ded3f92d8058d76bc844d3b7",
+    "G1.txt": "0699e97cc98071e0087a289ceb3efb6f6523e9fbb1bf0e83e89bc9cfa8bdd97a",
+    "G2.txt": "1b8f0d78d135f4e897393668ba6acb4c76954e5cc667b5660e8baa820e595c02",
+    "transform.json": "0f968b5eca43bbe8cfc40d5451130f95596ae08647e80daff2029c48a649eff5",
+    "predictions.parquet": "db87f35bda97cf17fa7b04d7a47c3c299acdd0e3cedafd230915e5d6ef28b1a7"
+  }
+}
