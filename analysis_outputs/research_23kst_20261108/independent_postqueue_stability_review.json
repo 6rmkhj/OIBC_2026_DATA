@@ -1,0 +1,83 @@
+{
+  "status": "PASS_READ_ONLY_SCIENCE_AND_OUTPUT_REVIEW",
+  "created_utc": "2026-11-08T06:07:46.989120+00:00",
+  "scope": "Independent source review plus output hash, coverage, ratio arithmetic, CI ordering and summary reconciliation; did not execute analysis or repeat bootstrap",
+  "analysis_source_sha256": "2f3c72c7bb8635ee819de607ba93981b4693ad947f01d07c6aded9da447bbb29",
+  "summary_path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_summary.json",
+  "summary_sha256": "ce865837d2839f46a85d3599c233fa29a5102d6a3c680fecd49bc792c28ac2cf",
+  "artifact_freeze_manifest_sha256": "32400bb92dd7fc06d4cdc0cae14d5b9ff49273667ae65086f4513eeb1052bdc9",
+  "detail_files_verified": [
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b00_part1.json",
+      "sha256": "491361716a1efa2c77cc67e44ec7ea2644f961f1663233e2009b2b9d09826a0e",
+      "bytes": 440745
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b00_part2.json",
+      "sha256": "8febbfbbab4892eec7e6f7621c1ce89c33898b09cd664190c4028e56f01f2ecb",
+      "bytes": 442152
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b02_part1.json",
+      "sha256": "265e3588f5a41b209dfa93e1a962ab50582b04c1e220780f5143fb8ee83b970e",
+      "bytes": 443083
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b02_part2.json",
+      "sha256": "bdbf9cdcad2259b07115f9b782d9e88c240e230b4e0eaa17b092e21b224eb9cb",
+      "bytes": 446195
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b09_part1.json",
+      "sha256": "123bd874f7e3feca1e2067a49eb33248d713576c71b4f990e7f986619c1450ac",
+      "bytes": 450239
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b09_part2.json",
+      "sha256": "a43740d087b2e5a9c5757044231da5fadd77c23492148c875e14d3e80cd3e80a",
+      "bytes": 449977
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b22_part1.json",
+      "sha256": "b65c41ba14bdf6949d533fd4216c77c991362880d651f565aba6d9a2969604ff",
+      "bytes": 449294
+    },
+    {
+      "path": "analysis_outputs/research_23kst_20261108/independent_postqueue_stability_b22_part2.json",
+      "sha256": "3aa3d9d426e12482e3b63f8902a0f5145daa2f84ba224273cb6f349749d98e81",
+      "bytes": 448553
+    }
+  ],
+  "checks": {
+    "score": "W=sum(smp*k*absolute error); baseline-specific relative change, no revenue denominator substituted",
+    "three_seed_aggregation": "Arithmetic mean prediction before absolute error; identical base predictions across seeds asserted and fold W reproduced",
+    "alpha": "Saved primary alpha applied unchanged to primary and recent; no alpha optimization in analysis",
+    "chronology": "Reads saved prediction columns only through 2025-03-01 00:00KST; no training imports/native inference/late-label reader",
+    "join_and_time": "Unique ts,grp predictions and weather, cross-seed template alignment; metadata schemas independently observed Asia/Seoul timezone; subtract one hour for hour-ending month/week",
+    "strata": "Month points, group and fixed forecast cloud/rain/temperature strata; daylight weather finite checks, night separate",
+    "paired_bootstrap": "2000 whole-calendar-week resamples per scope, common multiplicities for both predictions and groups/weather; ratio of resampled monetary error sums",
+    "periods": "Primary/recent kept separate; only disjoint quarter target windows concatenated; difference from equal-quarter selection metric explicitly documented",
+    "conditional_limits": "Intervals condition on saved models and selected alpha, unadjusted many comparisons, previously exposed history and overlapping periods, exchangeability/seasonality caveat",
+    "selection": "All288 included; zero eligible and no candidate/coefficients/reselection changes",
+    "outputs": "8 hash-matching detail parts,36 recipes each,288 unique IDs,5 comparison types per recipe; every output point-ratio and CI ordering checked; all-strata aggregate counts reconciled"
+  },
+  "analysis_attempt_correction": {
+    "earlier_source_sha256": "821b3907bcd45d1fd184ca71477e6317c1a71de69a883ae40e902ab475a92ca4",
+    "issue": "Initial analysis reader expected p_reference on quarter prediction files; metadata independently confirms quarter files omit this annual-only column",
+    "resolution": "Read protected reference only for primary/recent; quarter comparison remains corrected prediction versus raw base. Retry preserves prior input manifest and demands identical artifact hash and file-stat maps",
+    "classification": "Analysis-only schema retry; not a training failure or new training run"
+  },
+  "activity": {
+    "model_fits": 0,
+    "prediction_inference": 0,
+    "analysis_execution": 0,
+    "bootstrap_reruns": 0,
+    "late_target_values_loaded": false,
+    "analysis_or_training_sources_modified": false,
+    "existing_outputs_modified": false
+  },
+  "limits": [
+    "Read-only review and output reconciliation do not independently recompute bootstrap intervals or certify official leaderboard improvement.",
+    "Analysis itself recomputed8064 fold/blend W checks from11232 saved prediction files; reviewer inspected implementation/output evidence without repeating those reads."
+  ]
+}
