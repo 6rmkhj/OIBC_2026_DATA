@@ -1,6 +1,6 @@
 # OIBC 2026 · 모델 개선 실험 현황
 
-**마지막 확인: 2026-11-08 21:58:28 KST**. 저장 기록이며 실시간 화면은 아닙니다.
+**마지막 확인: 2026-11-08 23:04:12 KST**. 저장 기록이며 실시간 화면은 아닙니다.
 
 [전체 실험·설정 비교](analysis_outputs/experiment_overview_v3/README.md) · [전체 CSV](analysis_outputs/experiment_overview_v3/experiments.csv)
 
