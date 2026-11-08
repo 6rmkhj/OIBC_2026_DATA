@@ -1,0 +1,48 @@
+{
+  "status": "PASS_READ_ONLY_ENGINE_SCIENCE_REVIEW",
+  "created_utc": "2026-11-08T07:11:06Z",
+  "scope": "Read-only engine/dataflow/selection/export source review and actual input Parquet schema inspection before launch. No real-data fit, inference, label decoding, or engine execution in this review.",
+  "reviewer_independence": "Reviewer did not implement engine.py or verify_completion.py. Reviewer authored transport.py; its separate independent root review is linked, so this is not a claim of independent reimplementation of transport mathematics.",
+  "source_sha256": {
+    "submission/score_push_novel/engine.py": "48072900cc12d5947e9f0c2d4e3a4c4ea5a95534d4078e5331c315ec1c2478c0",
+    "submission/score_push_novel/transport.py": "06278ace397f58e8b4ba81bdaccbe5ce505db06ee8b24f724db87f05b4680fd2",
+    "submission/score_push_novel/test_engine_nofit.py": "597bc10a3e8bbd3c813c403d3eac923bd534a74ad7d234f034c337b3cda42f43",
+    "submission/score_push_novel/test_transport.py": "7568c1b8fc41a5d7302f054c31e1f4a99f31c5fe5311c4a10a836c3835e740ce",
+    "submission/score_push_novel/verify_completion.py": "40a7c6946d2eb34e08d145aeb1d7dc37a53679193200d3dea3d4636c425244df",
+    "submission/score_push_novel/test_verify_completion.py": "85b2f29e84a453884c64dbe8c242cc477b9ba5ccd3a8a3485d90883b715f4510"
+  },
+  "separate_transport_review": {
+    "path": "analysis_outputs/research_novel_20261108/independent_transport_root_review.json",
+    "sha256": "a720ba2bb7d2c947efdaeb824ecd60be3f8931236567b13969857a6e63c02008"
+  },
+  "checks": {
+    "reference_semantics": "PRIMARY/RECENT use saved champion p_reference. latest/test read final calibrated p and rename it to p_reference; final caches' own p_reference is correctly not used.",
+    "actual_application_schema": "Observed final latest/test prediction, coverage, and evaluation schemas contain all projected keys/power/night/cosz/cloud columns, with Asia/Seoul timestamps. Latest full prediction/coverage rows4416, daylight feature rows2594; test full rows17520, feature rows9617. Engine joins one-to-one, verifies all daylight features, fills night solar only.",
+    "fit_boundary": "Engine passes only PRIMARY 2023-06-01<ts<=2024-06-01KST to transport.fit; model is persisted before recent read; replay/predict receive frames without y/smp/k.",
+    "chronology_limit": "Champion weather coefficients already used full PRIMARY. Engine and protocol explicitly label PRIMARY in-sample and RECENT development selection. This is not all-lineage OOF or an untouched holdout.",
+    "physical_design": "Temporal scenarios conserve KST hour-ending day/group energy; spatial scenarios conserve hourly G1+G2. Convex nonidentity mass is bounded per fixed forecast-only context. Engine independently checks capacity, night, finite values and family-specific conservation before scoring and export.",
+    "training_objective": "Monetary L1 normalized by reference W, coefficient penalty0.0005, training month/group W at most1.001reference. No alpha refit. Partial-fit marker prohibits automatic retraining; completed results require matching saved artifact hashes.",
+    "predefined_coverage": "Exactly12 predefined arms. Completion refuses selection unless every declared arm has a completed result; empty eligible set is explicitly NO_QUALIFYING_RECIPE.",
+    "selection": "Eligible thresholds: primary<=1, recent<=.9999, recent calendar-quarter worst<=1.005, recent group worst<=1.001, physicalPASS. Rank recent ratio, then worst recent-quarter ratio, then fixedID. At mostone candidate.",
+    "future_label_barriers": "Selection/model/protocol hash is persisted first; both latest and test saved predictions and their hashes are frozen next; first March-May y/smp/k decode occurs below both barriers. Later audit neither changes candidate nor coefficients. Retry checks same selection/prediction hashes.",
+    "export": "New candidate directory only, refuses partial-existing candidate. Protected composition bytes unchanged, keys17520 aligned, cached champion reference rounded3decimals exactly matches original forecast, candidate rounded3decimals, validator self-check required, original best hash checked by protocol.",
+    "late_diagnostic_policy": "Late ratio>=1 marks NOT_RECOMMENDED; otherwise remains UNSCORED_CANDIDATE_REQUIRES_OFFICIAL_EVALUATION. No official upload or official score assertion.",
+    "synthetic_test_source_coverage": "Reviewed nofit engine tests cover primary-only fitting, label-free prediction, no refitting completed/partial trials, tamper refusal, all12 requirement, empty shortlist, both-freeze-before-late-decode, and immutable resume after audit. Separate transport11 synthetic tests previously passed.",
+    "protocol_release": "All seven engine source_paths entries currently exist; prepare must run only after final source tree and reviews are frozen. Any later source hash change invalidates this review's exact-byte scope."
+  },
+  "blockers": [],
+  "activity": {
+    "real_data_model_fits": 0,
+    "real_data_prediction_inference": 0,
+    "late_target_values_decoded": false,
+    "engine_commands_executed": 0,
+    "source_files_modified": 0,
+    "previous_campaign_files_modified": 0
+  },
+  "limits": [
+    "Source/schema review does not replace fresh runtime preflight, actual data preparation checks, or independent external terminal verification.",
+    "Existing higher-level deployment references were inherited; exact byte pins and comparison to protected original ZIP are mandatory.",
+    "Conservation is checked on full-precision model predictions; mandatory three-decimal CSV rounding can introduce bounded quantization differences.",
+    "All historical periods were already exposed and multiple candidate comparisons remain development selection; no actual official improvement is claimed."
+  ]
+}

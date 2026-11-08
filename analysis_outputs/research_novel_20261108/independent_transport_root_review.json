@@ -1,0 +1,20 @@
+{
+  "status": "PASS_READ_ONLY_MATH_REVIEW",
+  "reviewer": "root",
+  "source_sha256": "06278ace397f58e8b4ba81bdaccbe5ce505db06ee8b24f724db87f05b4680fd2",
+  "test_source_sha256": "7568c1b8fc41a5d7302f054c31e1f4a99f31c5fe5311c4a10a836c3835e740ce",
+  "checks": {
+    "declared_scope": "8 temporal and4 spatial fixed arms; config dictionaries must exactly match declared values",
+    "temporal": "KST hour-ending days, complete24-hour/group units, forecast-only scenario shifts, capped-simplex projection to originaldailyenergy, shared perdaygroup context coefficients, identityfallback for incomplete/degenerate units",
+    "spatial": "PairedG1/G2 same-timestamp feasible transfers; scenario deltas sumzero; shared context preserves total",
+    "physical": "Every scenario obeys nonnegative/staticcapacity/night bounds; convex weights nonnegative,sum<=budget preserve constraints without posthoc prediction clipping",
+    "objective": "Linear-program constraints correctly represent absolute monetary error and permonth/group regret; identityweights feasible; coefficientpenalty fixed",
+    "validation_separation": "predict/make_design never read y,smp,k; fit receives only caller-provided training frame and performs no file IO",
+    "numerics": "Finite inputs and nonnegative lossweights required; solver result and actual training environment risks rechecked; only tiny coefficient-rounding residue canonicalized",
+    "resource_use": "HiGHS solver1 thread and BLAS1 within CPU4 maximum; no parallel model fits"
+  },
+  "test_evidence": "Math implementer reports11 passing synthetictests, including conservation, label-independent application, identityfeasibility and binding group-risk constraint. Root inspected source and tests; no redundant realdata fit.",
+  "real_model_fits_by_reviewer": 0,
+  "original_artifacts_modified": false,
+  "remaining_requirements": ["Engine must enforce primary-only timestamp cutoff and pin inputs", "All candidate weights/predictions must freeze before late labels", "External terminal verifier must replay saved weights and validate actual artifacts"]
+}

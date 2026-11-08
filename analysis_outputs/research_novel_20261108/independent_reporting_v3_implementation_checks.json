@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-08T07:09:44Z",
+  "scope": "New reporting v3 implementation and fixture checks; old frozen reporting sources and prior overview outputs are preserved.",
+  "status": "IMPLEMENTATION_CHECKS_PASSED_PRODUCTION_CAPTURE_NOT_YET_EXERCISED",
+  "source_sha256": {
+    "submission/research_reporting_v3/README.md": "ff0c65deeb0e6e4419597308f3d4296556d0d53db230471ffbe3f61a654b7424",
+    "submission/research_reporting_v3/publish_readme.py": "1bf077e27f7881345cb3b1f6d827b30bdefe6697f1fb5f392b170f0913282d08",
+    "submission/research_reporting_v3/test_publish_readme.py": "81504742854689bbc550e0e4d2f522ecf4e2ac03031a763bc7dd46db8ed3c8b4",
+    "submission/research_reporting_v3/test_update_readme.py": "4fb56340bc8fb0e71fa71fbf13b797a4719d3338dcec101ce772666dda4cfd32",
+    "submission/research_reporting_v3/update_readme.py": "cb0ff5bcba98bccbf79cf49eb85a8039ac4fcae3827300f93bac1ab23dde006f"
+  },
+  "fixture_tests": {
+    "commands": [
+      "/workspace/.venvs/oibc-2026/bin/python -B submission/research_reporting_v3/test_update_readme.py",
+      "/workspace/.venvs/oibc-2026/bin/python -B submission/research_reporting_v3/test_publish_readme.py"
+    ],
+    "generator_tests_passed": 8,
+    "publisher_tests_passed": 11,
+    "total_tests_passed": 19,
+    "failed": 0,
+    "covered_invariants": [
+      "Comparison IDs use configuration distance and ID ties, not observed scores; before/after deltas require two completed results.",
+      "A missing or mismatching trial receipt does not become a successful completed result.",
+      "Initial root README migration requires the previous v2 snapshot hash; later output ownership protects manual changes.",
+      "Public capture excludes learned model JSON, predictions, ZIPs, runtime state, logs and raw selection records.",
+      "Private artifact hashes are verified without adding those artifact bytes to public evidence.",
+      "Embedded learned coefficients and model payloads in public JSON are rejected.",
+      "Snapshot scope, hashes, age, timezone and CSV part sequence are checked.",
+      "The requested snapshot flag distinguishes a recovered old pending commit from a commit containing the requested current snapshot."
+    ]
+  },
+  "separate_readonly_workspace_review": {
+    "reviewed_utc": "2026-11-08T07:08:51Z",
+    "evidence_source": "Runtime reviewer independently ran the real-workspace read-only integration check and reported its results before this record was written.",
+    "status": "PASS",
+    "historical_and_completed_campaign_rows": 2897,
+    "historical_groups": 36,
+    "prior_campaign_statuses_checked": true,
+    "new_trial_rows": 0,
+    "new_trial_rows_reason": "New protocol/configuration preparation had not yet completed at the time of the read-only integration check.",
+    "csv_parts": 2,
+    "all_output_files_below_2_mib": true,
+    "root_readme_written": false,
+    "review_blockers": []
+  },
+  "execution_boundaries": {
+    "new_model_fits": 0,
+    "inference_executed": false,
+    "network_or_publication_executed": false,
+    "production_root_readme_or_overviews_written": false,
+    "prior_frozen_sources_modified": false,
+    "training_or_controller_started": false
+  },
+  "limitations": [
+    "No completed novel trial existed during the real-workspace integration check; actual novel result capture still needs verification after preparation and execution.",
+    "This record does not certify candidate quality, candidate ZIP validation, official score improvement or successful GitHub publication.",
+    "Production README generation and publication remain gated on the reviewed frozen reporting contract and the prepared campaign."
+  ]
+}

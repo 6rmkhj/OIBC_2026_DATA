@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "created_utc": "2026-11-08T07:13:36.326213+00:00",
+  "status": "prepared_not_launched",
+  "deadline_utc": "2026-11-08T14:00:00Z",
+  "deadline_kst": "2026-11-08T23:00:00+09:00",
+  "search_stop_utc": "2026-11-08T12:00:00Z",
+  "completion_reserve_seconds": 7200,
+  "controller_manifest": "/workspace/OIBC_2026_DATA/analysis_outputs/research_novel_20261108/controller_manifest.json",
+  "controller_manifest_sha256": "ac489dc33aae7ee99bdd9078fbc970f3501ccb17acaa14cbf8b83f20a88b5b07",
+  "controller_sha256": "24fc06ed96e48f8ac5d725357aa44be6fc968f8ce18e88c993aa49c6fb3597ae",
+  "original_controller_sha256": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+  "prior_controller_sha256": {
+    "research_10h_20261107": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+    "research_22h_20261107": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+    "research_23kst_20261108": "24fc06ed96e48f8ac5d725357aa44be6fc968f8ce18e88c993aa49c6fb3597ae"
+  },
+  "prepare_runtime_sha256": "6f36aea0b88292674c6baee10311f45bd66884cd8a8c8a81ec03a742d27e1fb8",
+  "state_dir": "/workspace/OIBC_2026_DATA/analysis_outputs/research_novel_20261108/controller_state",
+  "thread_limits": {
+    "ML_parallel_fits": 1,
+    "CPU": 4,
+    "BLAS": 1
+  },
+  "queued_search_jobs": 12,
+  "queued_completion_jobs": 1,
+  "fixed_input_count": 49,
+  "prior_campaigns": [
+    {
+      "state_dir": "/workspace/OIBC_2026_DATA/analysis_outputs/research_10h_20261107/controller_state",
+      "state_sha256": "e0cc7adf0085edf3578adc303179283494d0edcd46428914ad3105d691fc36dc",
+      "manifest_sha256": "b8c8d4de12e4f75c67ebf7429f608526691dfd4b421ee27a0e8778f485c38558",
+      "controller_sha256": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+      "finished_utc": "2026-11-07T07:37:01.871812+00:00",
+      "jobs": 308,
+      "supervisor_state_sha256": null
+    },
+    {
+      "state_dir": "/workspace/OIBC_2026_DATA/analysis_outputs/research_22h_20261107/controller_state",
+      "state_sha256": "5f0299bf8c70e54fa77dcac1fe855289e2efc511a7518f2e26203f727ed30476",
+      "manifest_sha256": "6b0817440b5e22c4847151f505faf5859ca34b75e802639c6b53f32c6b42bfef",
+      "controller_sha256": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac",
+      "finished_utc": "2026-11-07T15:00:53.648719+00:00",
+      "jobs": 2210,
+      "supervisor_state_sha256": "f3c99bc9676aa870f95b7d093acf265bde272ff2818737cedf3836edac80013c"
+    },
+    {
+      "state_dir": "/workspace/OIBC_2026_DATA/analysis_outputs/research_23kst_20261108/controller_state",
+      "state_sha256": "4cd909fd2ce11595d2423f51f5cccf5b8295e902fac54242ce8c9933fb2f16d0",
+      "manifest_sha256": "eb3f035f78ad4115827c2402f18d58ab1fa93f6b7ade52390b3542fad028d055",
+      "controller_sha256": "24fc06ed96e48f8ac5d725357aa44be6fc968f8ce18e88c993aa49c6fb3597ae",
+      "finished_utc": "2026-11-08T05:30:41.291759+00:00",
+      "jobs": 308,
+      "supervisor_state_sha256": null
+    }
+  ],
+  "fresh_preflight_required_before_launch": true,
+  "preflight_argv": [
+    "/workspace/.venvs/oibc-2026/bin/python",
+    "/workspace/OIBC_2026_DATA/submission/score_push_novel/prepare_runtime.py",
+    "preflight",
+    "--manifest",
+    "/workspace/OIBC_2026_DATA/analysis_outputs/research_novel_20261108/controller_manifest.json",
+    "--state-dir",
+    "/workspace/OIBC_2026_DATA/analysis_outputs/research_novel_20261108/controller_state"
+  ],
+  "start_or_resume_argv": [
+    "/workspace/.venvs/oibc-2026/bin/python",
+    "/workspace/OIBC_2026_DATA/submission/score_push_novel/controller.py",
+    "--manifest",
+    "/workspace/OIBC_2026_DATA/analysis_outputs/research_novel_20261108/controller_manifest.json",
+    "--state-dir",
+    "/workspace/OIBC_2026_DATA/analysis_outputs/research_novel_20261108/controller_state",
+    "--detach"
+  ],
+  "completed_jobs_reused": true,
+  "automatic_job_retries": false,
+  "stop_files_respected": true,
+  "official_score_available": false,
+  "uploaded": false
+}

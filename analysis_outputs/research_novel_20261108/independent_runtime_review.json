@@ -1,0 +1,42 @@
+{
+  "status": "PASS_READ_ONLY_RUNTIME_DIFF_REVIEW",
+  "reviewed_utc": "2026-11-08T07:05:55.693971+00:00",
+  "scope": "Independent read-only source diff and test-case review of the new runtime adaptation; no model operations or test rerun.",
+  "source_sha256": {
+    "submission/score_push_novel/controller.py": "24fc06ed96e48f8ac5d725357aa44be6fc968f8ce18e88c993aa49c6fb3597ae",
+    "submission/score_push_novel/prepare_runtime.py": "6f36aea0b88292674c6baee10311f45bd66884cd8a8c8a81ec03a742d27e1fb8",
+    "submission/score_push_novel/test_prepare_runtime.py": "bf1a633daa65ce2fe18ab465d2eb019766555252f8ef898b5ed61d5e7cca843a"
+  },
+  "reviewed_test_evidence": {
+    "path": "analysis_outputs/research_novel_20261108/independent_runtime_preparation.json",
+    "sha256": "0404bf88b75523cc1638a25efa00966e93b296cd4fbe586d82e65b66eda8d810",
+    "reported_tests_passed": 18,
+    "reported_test_exit_code": 0,
+    "test_execution_by_this_reviewer": false
+  },
+  "checks": {
+    "controller": "Exact byte equality with frozen23kst controller preserves existing serial queue, worker identity/adoption, STOP, separate worker deadline watchdog, completed-job reuse and report-only finalizer.",
+    "prior_campaign_hashes": "Three known campaign names have explicit expected controller hashes. The completed23kst controller is correctly accepted with24fc... rather than oldc42...; unknown campaign or source directory names fail closed.",
+    "preflight": "Existing strict PID/start-ticks/boot/process-group inspection, access-error rejection, old supervisor/STOP checks, state/input/source integrity and one-live-worker adoption logic were not weakened.",
+    "budgets": "Hard deadline2026-11-08T14:00Z and search stop12:00Z plus7200second completion reserve remain unchanged.",
+    "source_and_output_scope": "OUT moves to research_novel_20261108; copied controller and adapted helper/tests are new files. Frozen23kst controller and preparation helper hashes remain unchanged.",
+    "tests": "18 temporary fake-command tests retain prior16 checks and add accepted/mismatched third-prior controller hash and unknown-prior rejection. Temporary fixture STOP removal is confined to its own generated test directory.",
+    "syntax": "AST parsing succeeds for all three new runtime files."
+  },
+  "blocking_findings": [],
+  "activity": {
+    "model_fits": 0,
+    "model_imports": 0,
+    "prediction_inference": 0,
+    "production_launches": 0,
+    "test_reruns": 0,
+    "existing_source_or_result_edits": 0,
+    "publication_actions": 0
+  },
+  "limits": [
+    "Review covers runtime adaptation, not model mathematics, reporting or candidate validity.",
+    "Fresh full preflight must be run immediately before each production launch/resume; controller--detach does not invoke this stricter gate itself.",
+    "No new manifest/protocol or launch-ready release was certified here. Root must freeze those artifacts with these reviewed source hashes and verify current process state before launch.",
+    "Test pass counts and prior live-process scan are reviewed implementation evidence; this reviewer did not repeat the fake-process test suite or independently rescan production processes."
+  ]
+}

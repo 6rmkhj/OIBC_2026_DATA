@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-08T07:13:42.853088+00:00",
+  "status": "REVISION_CHECKS_PASSED_PRELAUNCH",
+  "authorization_scope": "Requested pre-freeze reporting corrections and a confirmed shared-validator publication integration fix; no production report generation or publication.",
+  "previous_audit": {
+    "path": "analysis_outputs/research_novel_20261108/independent_reporting_v3_implementation_checks.json",
+    "sha256": "d67a243f962b7ed2acc93a833caedb3e18cc857836ab67e6c3f57ac02a1a6b71",
+    "preserved": true
+  },
+  "source_revisions": {
+    "submission/research_reporting_v3/update_readme.py": {
+      "before_sha256": "cb0ff5bcba98bccbf79cf49eb85a8039ac4fcae3827300f93bac1ab23dde006f",
+      "after_sha256": "1fe49a23c065422ebec536d8ce37dbbe69e873b32cc906e3b79a07fc24745879"
+    },
+    "submission/research_reporting_v3/publish_readme.py": {
+      "before_sha256": "1bf077e27f7881345cb3b1f6d827b30bdefe6697f1fb5f392b170f0913282d08",
+      "after_sha256": "4be4da851f7865ee7e4df4c5df37de7b89999700829860451a6ee309dffd5963"
+    },
+    "submission/research_reporting_v3/test_update_readme.py": {
+      "before_sha256": "4fb56340bc8fb0e71fa71fbf13b797a4719d3338dcec101ce772666dda4cfd32",
+      "after_sha256": "85600306b358aec7357275ac85c7b08213b06f3446f902418dec9a533604e6c7"
+    },
+    "submission/research_reporting_v3/test_publish_readme.py": {
+      "before_sha256": "81504742854689bbc550e0e4d2f522ecf4e2ac03031a763bc7dd46db8ed3c8b4",
+      "after_sha256": "09604ed077012294fd8656046a9cee5c60c86ed13432d5ca301bff64051b756e"
+    }
+  },
+  "changes": [
+    "The root report now distinguishes structural export and independent validation from recommendation. It displays selected ID, recorded candidate ZIP path, latest W ratio/change, and paired weekly confidence interval from completion result/audit metadata.",
+    "An exported but late-worsening NOT_RECOMMENDED fixture must remain explicitly not recommended even when independent verification is PASS.",
+    "NO_QUALIFYING_RECIPE is explained as failure to pass every fixed gate, not proof that no individual period had a point improvement.",
+    "The configuration glossary explains temporal/spatial transport, shift direction, global/cloud contexts, fixed plus/minus 10 cloud cuts, mixture budget and transfer fraction, and links the new CAMPAIGN document.",
+    "Actual fit seconds fall back to valid timezone-aware receipt training start/end timestamps, never controller observation time.",
+    "Public source capture allows submission/validate_artifacts.py only at its fixed SHA256 89e4a757bdada17cc523c948a59408caadc641566d454533021e9c5a3475031f. A fixture rejects changed validator bytes even with an internally matching replacement pin."
+  ],
+  "verification": {
+    "generator_fixture_tests_passed": 11,
+    "publisher_fixture_tests_passed": 12,
+    "total_fixture_tests_passed": 23,
+    "failed": 0,
+    "readonly_workspace_command": "/workspace/.venvs/oibc-2026/bin/python -B submission/research_reporting_v3/update_readme.py --check",
+    "readonly_workspace_exit_code": 0,
+    "readonly_snapshot_id": "fe4d993dc2a9fb8c",
+    "experiment_rows": 2909,
+    "historical_groups": 36,
+    "novel_pending_rows": 12,
+    "protected_best_sha256_matches": true,
+    "prospective_output_bytes": {
+      "README.md": 10768,
+      "analysis_outputs/experiment_overview_v3/README.md": 804640,
+      "analysis_outputs/experiment_overview_v3/experiments.csv": 2091295,
+      "analysis_outputs/experiment_overview_v3/experiments_part_001.csv": 1987988
+    },
+    "all_outputs_below_2_mib": true,
+    "unchanged_root_readme_sha256": "31b43c876316fe260aa3136579af669c35534bfd0d1f2a7b0841f31ed582ac58",
+    "production_v3_snapshot_exists": false
+  },
+  "execution_boundaries": {
+    "production_readme_generated": false,
+    "network_or_publication_executed": false,
+    "training_or_inference_executed": false,
+    "contracts_or_pins_modified_by_this_revision": false,
+    "prior_frozen_sources_or_overviews_modified": false
+  },
+  "limitations": [
+    "Actual novel trial outcomes did not yet exist; late-worsening behavior was checked with a realistic isolated fixture, not claimed as a campaign result.",
+    "The supervising reviewer must update the prelaunch reporting contract/pins with predecessor provenance and confirm actual stage capture before production generation/publication.",
+    "This audit is not candidate quality validation or evidence of an official score improvement."
+  ]
+}

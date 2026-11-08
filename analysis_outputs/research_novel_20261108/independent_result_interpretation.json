@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "created_utc": "2026-11-08T07:18:47.603172+00:00",
+  "status": "PASS_AGGREGATE_INTERPRETATION_NOT_MODEL_IMPROVEMENT",
+  "scope": "Independent interpretation of completed result JSON and immutable completion/audit records only. No model fit, inference, individual prediction decode or late-label decode performed. File-byte hashing was used to verify immutable artifacts. This reviewer authored transport.py and independently reviewed engine integration; numerical external verification is a separate report.",
+  "reviewed_source_sha256": {
+    "submission/score_push_novel/engine.py": "48072900cc12d5947e9f0c2d4e3a4c4ea5a95534d4078e5331c315ec1c2478c0",
+    "submission/score_push_novel/transport.py": "06278ace397f58e8b4ba81bdaccbe5ce505db06ee8b24f724db87f05b4680fd2"
+  },
+  "source_result_sha256": {
+    "analysis_outputs/research_novel_20261108/trials/s000/result.json": "d31c067d710d99dc1088a3d4e56195c40d13506ba873b0a1a330388f0fa656f0",
+    "analysis_outputs/research_novel_20261108/trials/s001/result.json": "d3c2f9b58ec9fec5b22f1c803b99f73ee251b4ede94064e96039e561f970ae79",
+    "analysis_outputs/research_novel_20261108/trials/s002/result.json": "bab6909073883bf2cd1557ec20a4fbf37396dc77858df7529fa12ef89d57a08c",
+    "analysis_outputs/research_novel_20261108/trials/s003/result.json": "89369e94c5106fd016f3b73591ca65990245271fe064d74c50baf5cc21a6f9ec",
+    "analysis_outputs/research_novel_20261108/trials/t000/result.json": "35d6ccf7b01db1ed21ce19828f61ca7f9b760935ed7959eaff513b25d3c7f5ca",
+    "analysis_outputs/research_novel_20261108/trials/t001/result.json": "d4acd71d2ef8a50e64c05c6da900efd080221ba25fdfaecee45c5056ff5851a1",
+    "analysis_outputs/research_novel_20261108/trials/t002/result.json": "fe0b58d36ac2bc14c200124bda11e0a95fe3422afab7dcba045d83da5494d819",
+    "analysis_outputs/research_novel_20261108/trials/t003/result.json": "89ba44a0bf97016c5a6ed2cf8bf5c140ec586e3e2cfc2d965555b099f5b3a387",
+    "analysis_outputs/research_novel_20261108/trials/t004/result.json": "33e0ec4a6ee4c6b89f3ef1eace49e693e8f08af1a551331065a5d88ecb8409d9",
+    "analysis_outputs/research_novel_20261108/trials/t005/result.json": "9b6afe1261543f243df2dfdfbefc050162f9f95b828fba0558024b85ab12d994",
+    "analysis_outputs/research_novel_20261108/trials/t006/result.json": "47a42291334ea762174074d99c49316c5bac9a20a04538cf64de143aa6309865",
+    "analysis_outputs/research_novel_20261108/trials/t007/result.json": "d1e8d54d9f7825a72a7f447852bb0584ff7af1fc311d60b56837eb35e8f6539d"
+  },
+  "completion_sha256": "4af459ada38bae54977afa79089c0641caa7e146cce94f9c7286bb0a8c88ceb9",
+  "completion_audit_sha256": "f8e2ee12e1481e882bee8697d1c3ec81619171c8ca50568c3cd25ce979c61f6a",
+  "checks": {
+    "all_12_completed_before_interpretation": true,
+    "all_12_status_PASS": true,
+    "aggregate_ratios_recomputed_from_W": true,
+    "eligibility_gates_independently_recomputed": true,
+    "rank_and_exact_tie_rule_recomputed": true,
+    "completion_artifact_hashes_match": true,
+    "selection_then_prediction_freeze_then_late_audit_timestamp_order": true,
+    "no_late_reselection_recorded": true
+  },
+  "totals": {
+    "completed": 12,
+    "failed": 0,
+    "eligible": 8,
+    "temporal_eligible": 8,
+    "spatial_eligible": 0,
+    "real_model_fits": 12
+  },
+  "all_trial_aggregate_summary": [
+    {
+      "id": "s000",
+      "config": {
+        "id": "s000",
+        "family": "spatial",
+        "context": "global",
+        "budget": 0.1,
+        "transfer_fraction": 0.1
+      },
+      "status": "PASS",
+      "eligible": false,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.01829616293692604,
+      "recent_W_relative_change_pct": -0.0029373514809027945,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": 0.014401109977169035,
+        "sep_nov": -0.0076574662529749205,
+        "dec_feb": -0.01860914654177037
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.041757579739953865,
+        "G2": 0.03693280894521145
+      },
+      "failed_gates": [
+        "recent"
+      ]
+    },
+    {
+      "id": "s001",
+      "config": {
+        "id": "s001",
+        "family": "spatial",
+        "context": "global",
+        "budget": 0.25,
+        "transfer_fraction": 0.1
+      },
+      "status": "PASS",
+      "eligible": false,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.01829616293692604,
+      "recent_W_relative_change_pct": -0.0029373514809027945,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": 0.014401109977169035,
+        "sep_nov": -0.0076574662529749205,
+        "dec_feb": -0.01860914654177037
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.041757579739953865,
+        "G2": 0.03693280894521145
+      },
+      "failed_gates": [
+        "recent"
+      ]
+    },
+    {
+      "id": "s002",
+      "config": {
+        "id": "s002",
+        "family": "spatial",
+        "context": "cloud_contrast3",
+        "budget": 0.1,
+        "transfer_fraction": 0.1
+      },
+      "status": "PASS",
+      "eligible": false,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.03235741095337641,
+      "recent_W_relative_change_pct": -0.00414023282253595,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": 0.010889178541217959,
+        "sep_nov": -0.007642838242860606,
+        "dec_feb": -0.018577527053398324
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.04734778688391117,
+        "G2": 0.04023591305046814
+      },
+      "failed_gates": [
+        "recent"
+      ]
+    },
+    {
+      "id": "s003",
+      "config": {
+        "id": "s003",
+        "family": "spatial",
+        "context": "cloud_contrast3",
+        "budget": 0.25,
+        "transfer_fraction": 0.1
+      },
+      "status": "PASS",
+      "eligible": false,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.03235741095337641,
+      "recent_W_relative_change_pct": -0.00414023282253595,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": 0.010889178541217959,
+        "sep_nov": -0.007642838242860606,
+        "dec_feb": -0.018577527053398324
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.04734778688391117,
+        "G2": 0.04023591305046814
+      },
+      "failed_gates": [
+        "recent"
+      ]
+    },
+    {
+      "id": "t000",
+      "config": {
+        "id": "t000",
+        "family": "temporal",
+        "shifts": [
+          -1,
+          1
+        ],
+        "context": "global",
+        "budget": 0.1
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.07628051882955234,
+      "recent_W_relative_change_pct": -0.12193563041468236,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.12303703026808055,
+        "sep_nov": -0.09366154300229912,
+        "dec_feb": -0.16143979658953533
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.03449469869851729,
+        "G2": -0.21174149018629018
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t001",
+      "config": {
+        "id": "t001",
+        "family": "temporal",
+        "shifts": [
+          -1,
+          1
+        ],
+        "context": "global",
+        "budget": 0.25
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.07628051882955234,
+      "recent_W_relative_change_pct": -0.12193563041468236,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.12303703026808055,
+        "sep_nov": -0.09366154300229912,
+        "dec_feb": -0.16143979658953533
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.03449469869851729,
+        "G2": -0.21174149018629018
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t002",
+      "config": {
+        "id": "t002",
+        "family": "temporal",
+        "shifts": [
+          -1,
+          1
+        ],
+        "context": "cloud_trend3",
+        "budget": 0.1
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.13068350854567035,
+      "recent_W_relative_change_pct": -0.10354105506940048,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.05051002531684112,
+        "sep_nov": -0.14950709362019365,
+        "dec_feb": -0.10582808416806921
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.08343193467316157,
+        "G2": -0.12419404687759039
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t003",
+      "config": {
+        "id": "t003",
+        "family": "temporal",
+        "shifts": [
+          -1,
+          1
+        ],
+        "context": "cloud_trend3",
+        "budget": 0.25
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.14001306314104234,
+      "recent_W_relative_change_pct": -0.10163475117886955,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.04990659334181968,
+        "sep_nov": -0.15869251878678492,
+        "dec_feb": -0.08617261093639694
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.07812697444662398,
+        "G2": -0.12577831940635553
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t004",
+      "config": {
+        "id": "t004",
+        "family": "temporal",
+        "shifts": [
+          -2,
+          -1,
+          1,
+          2
+        ],
+        "context": "global",
+        "budget": 0.1
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.08926161081994621,
+      "recent_W_relative_change_pct": -0.1762131276712542,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.1474534520483628,
+        "sep_nov": -0.14579541539189167,
+        "dec_feb": -0.25758042470517273
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.08371458819137478,
+        "G2": -0.2712133833018382
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t005",
+      "config": {
+        "id": "t005",
+        "family": "temporal",
+        "shifts": [
+          -2,
+          -1,
+          1,
+          2
+        ],
+        "context": "global",
+        "budget": 0.25
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.08926161081994621,
+      "recent_W_relative_change_pct": -0.1762131276712542,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.1474534520483628,
+        "sep_nov": -0.14579541539189167,
+        "dec_feb": -0.25758042470517273
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.08371458819137478,
+        "G2": -0.2712133833018382
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t006",
+      "config": {
+        "id": "t006",
+        "family": "temporal",
+        "shifts": [
+          -2,
+          -1,
+          1,
+          2
+        ],
+        "context": "cloud_trend3",
+        "budget": 0.1
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.15360341055007387,
+      "recent_W_relative_change_pct": -0.15636955079407766,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.07781529138202181,
+        "sep_nov": -0.2035556756215251,
+        "dec_feb": -0.19001937368392507
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.1537958089585123,
+        "G2": -0.1590129020694775
+      },
+      "failed_gates": []
+    },
+    {
+      "id": "t007",
+      "config": {
+        "id": "t007",
+        "family": "temporal",
+        "shifts": [
+          -2,
+          -1,
+          1,
+          2
+        ],
+        "context": "cloud_trend3",
+        "budget": 0.25
+      },
+      "status": "PASS",
+      "eligible": true,
+      "real_model_fits": 1,
+      "primary_W_relative_change_pct": -0.15880985864366037,
+      "recent_W_relative_change_pct": -0.16038166265097686,
+      "recent_quarter_W_relative_change_pct": {
+        "jun_aug": -0.08981788883524189,
+        "sep_nov": -0.2217880623371693,
+        "dec_feb": -0.16307243896673818
+      },
+      "recent_group_W_relative_change_pct": {
+        "G1": -0.16185255877225746,
+        "G2": -0.1588709846628067
+      },
+      "failed_gates": []
+    }
+  ],
+  "single_configuration_comparisons": [
+    {
+      "before_id": "t000",
+      "after_id": "t004",
+      "changed_configuration_key": "shifts",
+      "single_configuration_change": true,
+      "comparison_chosen_by_predefined_configuration_not_score": true,
+      "primary_after_vs_before_W_pct": -0.012991001593809504,
+      "recent_after_vs_before_W_pct": -0.05434376166494337
+    },
+    {
+      "before_id": "t000",
+      "after_id": "t002",
+      "changed_configuration_key": "context",
+      "single_configuration_change": true,
+      "comparison_chosen_by_predefined_configuration_not_score": true,
+      "primary_after_vs_before_W_pct": -0.054444520278662534,
+      "recent_after_vs_before_W_pct": 0.018417032269679723
+    },
+    {
+      "before_id": "t004",
+      "after_id": "t006",
+      "changed_configuration_key": "context",
+      "single_configuration_change": true,
+      "comparison_chosen_by_predefined_configuration_not_score": true,
+      "primary_after_vs_before_W_pct": -0.06439928356800628,
+      "recent_after_vs_before_W_pct": 0.01987860558980703
+    },
+    {
+      "before_id": "t002",
+      "after_id": "t003",
+      "changed_configuration_key": "budget",
+      "single_configuration_change": true,
+      "comparison_chosen_by_predefined_configuration_not_score": true,
+      "primary_after_vs_before_W_pct": -0.009341762738690473,
+      "recent_after_vs_before_W_pct": 0.0019082797435121535
+    },
+    {
+      "before_id": "t006",
+      "after_id": "t007",
+      "changed_configuration_key": "budget",
+      "single_configuration_change": true,
+      "comparison_chosen_by_predefined_configuration_not_score": true,
+      "primary_after_vs_before_W_pct": -0.005214457678426321,
+      "recent_after_vs_before_W_pct": -0.004018395403737607
+    }
+  ],
+  "identical_prediction_pairs": [
+    {
+      "lower_budget_id": "t000",
+      "higher_budget_id": "t001",
+      "prediction_file_bytes_identical": {
+        "primary": true,
+        "recent": true
+      }
+    },
+    {
+      "lower_budget_id": "t004",
+      "higher_budget_id": "t005",
+      "prediction_file_bytes_identical": {
+        "primary": true,
+        "recent": true
+      }
+    },
+    {
+      "lower_budget_id": "s000",
+      "higher_budget_id": "s001",
+      "prediction_file_bytes_identical": {
+        "primary": true,
+        "recent": true
+      }
+    },
+    {
+      "lower_budget_id": "s002",
+      "higher_budget_id": "s003",
+      "prediction_file_bytes_identical": {
+        "primary": true,
+        "recent": true
+      }
+    }
+  ],
+  "selection": {
+    "chosen_id": "t004",
+    "exact_tie_with": "t005",
+    "ranking": "recent W ratio, then worst recent-quarter W ratio, then fixed ID",
+    "chosen_due_to_fixed_ID_tiebreak": true,
+    "configuration": {
+      "id": "t004",
+      "family": "temporal",
+      "shifts": [
+        -2,
+        -1,
+        1,
+        2
+      ],
+      "context": "global",
+      "budget": 0.1
+    },
+    "primary_W_relative_change_pct": -0.08926161081994621,
+    "recent_W_relative_change_pct": -0.1762131276712542,
+    "recent_W_pct_before": 11.000952828788678,
+    "recent_W_pct_after": 10.981567705735431,
+    "recent_W_pct_point_difference": -0.019385123053247355
+  },
+  "post_selection_late_audit": {
+    "period": "2025-03-01 exclusive through 2025-06-01 inclusive, KST hour-ending timestamps",
+    "W_relative_change_pct": 0.1014156754662654,
+    "W_pct_before": 9.390466994080926,
+    "W_pct_after": 9.399990399612411,
+    "weekly_bootstrap": {
+      "replicates": 2000,
+      "random_seed": 20261108,
+      "weeks": 14,
+      "relative_W_change_pct": 0.1014156754662654,
+      "CI95": [
+        -0.1488701523543795,
+        0.4108990123171644
+      ],
+      "zero_in_CI": true,
+      "unit": "KST whole calendar week, same resampled blocks across both groups and baseline/candidate",
+      "selection_use": false,
+      "conditional_on_saved_model_and_development_selection": true
+    },
+    "used_for_selection": false,
+    "coefficients_changed": false,
+    "recommendation": "NOT_RECOMMENDED"
+  },
+  "interpretation_ko": [
+    "하루·그룹별 총발전량을 바꾸지 않고 시간대별 형태를 옮긴 temporal 8개는 recent 전체, 3개 분기, 2개 그룹에서 모두 점 오차가 감소했다.",
+    "global 시간 이동을 ±1시간에서 ±2시간까지 넓힌 t004는 t000보다 primary와 recent W가 모두 감소했다. 이는 이번 고정 비교 안에서 시간 형태 보정이 신호를 가진다는 근거이며, 미래 일반화의 증명은 아니다.",
+    "cloud context를 추가하면 primary가 더 좋아졌지만 동일 이동 범위의 recent 전체는 global보다 나빴다. 자유도가 늘어난 학습 개선이 다음 기간 개선으로 그대로 이어지지 않았다.",
+    "budget 0.10→0.25 확장은 global temporal과 spatial에서 예측 바이트까지 동일했다. 더 큰 허용 변경폭 자체가 개선을 만들지는 않았다. cloud temporal에서는 설정에 따라 recent 효과 방향이 달랐다.",
+    "spatial 4개는 recent 전체 W가 약 0.00294~0.00414%만 감소하여 0.01% 최소 개선 문턱을 넘지 못했다. Jun–Aug와 G2의 점 오차는 모두 악화했다.",
+    "t004와 t005는 recent와 최악 분기 점수가 정확히 같아 미리 고정한 ID 규칙으로 t004가 선택됐다. 후기 성적을 보고 선택하거나 계수를 바꾸지 않았다.",
+    "선정 뒤에만 확인한 March–May W는 0.101416% 악화했다. 주 단위 부트스트랩 95% 구간은 0을 포함한다. recent의 0.176213% 개선을 일반화 개선 또는 공식 점수 개선으로 발표해서는 안 된다.",
+    "따라서 새 ZIP은 검증 가능한 진단 산출물로 보존하되 NOT_RECOMMENDED 판정과 기존 최고 제출 보존을 유지한다. 실패한 가설 결과도 실험 현황에 명시해야 한다."
+  ],
+  "execution_time": {
+    "planned_deadline_utc": "2026-11-08T14:00:00Z",
+    "controller_started_utc": "2026-11-08T07:16:17.942217+00:00",
+    "controller_finished_utc": "2026-11-08T07:17:28.952110+00:00",
+    "controller_wall_seconds": 71.009893,
+    "summed_trial_process_wall_seconds": 54.367344,
+    "note": "Actual controller wall time and summed trial worker intervals, not claimed model CPU time or full planned duration. Preparation excluded. No live process assertion is made by this aggregate review."
+  },
+  "limitations": [
+    "Primary is in-sample for transport fitting and part of champion development.",
+    "Recent is used for selecting among 12 predefined arms and is a development period, not an untouched holdout.",
+    "All historical periods were already exposed in previous research, and historical evaluation periods overlap.",
+    "Late audit was excluded from this campaign selection but is still historically exposed. Its interval is conditional on the fixed selected model and does not correct for earlier research selection.",
+    "A temporal gain in three recent quarters does not imply improvement in a fourth season or under distribution shift.",
+    "W relative change percent and normalized W percentage-point change are different quantities.",
+    "No official leaderboard evaluation or upload was performed."
+  ],
+  "public_safe": {
+    "model_coefficients_included": false,
+    "individual_predictions_included": false,
+    "raw_runtime_state_included": false,
+    "automation_identifiers_included": false
+  }
+}

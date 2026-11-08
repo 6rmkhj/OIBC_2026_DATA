@@ -1,0 +1,74 @@
+{
+  "status": "PASS_RUNTIME_IMPLEMENTATION_CHECKS_NO_PRODUCTION_LAUNCH",
+  "checked_utc": "2026-11-08T07:04:40.396422+00:00",
+  "scope": "Copied serial controller and adapted preparation gate only. No campaign manifest was built and no production command was launched.",
+  "source_sha256": {
+    "submission/score_push_novel/controller.py": "24fc06ed96e48f8ac5d725357aa44be6fc968f8ce18e88c993aa49c6fb3597ae",
+    "submission/score_push_novel/prepare_runtime.py": "6f36aea0b88292674c6baee10311f45bd66884cd8a8c8a81ec03a742d27e1fb8",
+    "submission/score_push_novel/test_prepare_runtime.py": "bf1a633daa65ce2fe18ab465d2eb019766555252f8ef898b5ed61d5e7cca843a"
+  },
+  "controller_byte_identical_to": "submission/score_push_23kst/controller.py",
+  "changes": [
+    "New namespace only; old sources, states, manifests and results remain unchanged.",
+    "Explicit expected controller hash for each of three prior campaigns; unknown prior campaign/source paths rejected.",
+    "All old campaigns and process groups must be terminal before fresh preflight; STOP markers never removed.",
+    "Same hard deadline14UTC/search stop12UTC, CPU4/BLAS1 serial queue and complete-worker adoption behavior."
+  ],
+  "tests": {
+    "passed": 18,
+    "exit_code": 0,
+    "elapsed_seconds": 16.737,
+    "command": [
+      "/workspace/.venvs/oibc-2026/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "submission/score_push_novel",
+      "-p",
+      "test_prepare_runtime.py",
+      "-v"
+    ],
+    "scope": "Temporary fake process commands only, no ML imports or fits",
+    "covers": [
+      "Source and manifest changes",
+      "STOP and storage priority",
+      "Unknown prior campaign and third prior controller hash",
+      "Live prior identity, orphan process group and access denial",
+      "Duplicate IDs and late dependencies",
+      "Safe worker adoption, completed work/report reuse",
+      "Hard deadline and completion reservation"
+    ]
+  },
+  "actual_prior_campaigns": [
+    {
+      "campaign": "research_10h_20261107",
+      "phase": "finished",
+      "state_sha256": "e0cc7adf0085edf3578adc303179283494d0edcd46428914ad3105d691fc36dc",
+      "controller_sha256": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac"
+    },
+    {
+      "campaign": "research_22h_20261107",
+      "phase": "finished",
+      "state_sha256": "5f0299bf8c70e54fa77dcac1fe855289e2efc511a7518f2e26203f727ed30476",
+      "controller_sha256": "c42ef72565eb49e1a0f72cb8098ca3c0a3a43e76514d18ef859db02c71d295ac"
+    },
+    {
+      "campaign": "research_23kst_20261108",
+      "phase": "finished",
+      "state_sha256": "4cd909fd2ce11595d2423f51f5cccf5b8295e902fac54242ce8c9933fb2f16d0",
+      "controller_sha256": "24fc06ed96e48f8ac5d725357aa44be6fc968f8ce18e88c993aa49c6fb3597ae"
+    }
+  ],
+  "actual_prior_recorded_processes_and_groups_terminal": true,
+  "actual_known_old_learning_entrypoints_terminal": true,
+  "actual_model_fits": 0,
+  "production_launches": 0,
+  "original_sources_or_states_modified": false,
+  "root_readme_modified": false,
+  "publication_actions": 0,
+  "limits": [
+    "Fresh full manifest/source/input preflight must be performed immediately before first launch and each resume.",
+    "This implementation/test evidence is not a model scientific review or complete campaign launch-ready authorization."
+  ]
+}

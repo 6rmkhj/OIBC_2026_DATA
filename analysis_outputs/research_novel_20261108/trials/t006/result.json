@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "id": "t006",
+  "config": {
+    "id": "t006",
+    "family": "temporal",
+    "shifts": [
+      -2,
+      -1,
+      1,
+      2
+    ],
+    "context": "cloud_trend3",
+    "budget": 0.1
+  },
+  "created_utc": "2026-11-08T07:16:56.381387+00:00",
+  "real_model_fits": 1,
+  "metrics": {
+    "primary": {
+      "reference": {
+        "W": 980451119.833828,
+        "W_pct": 11.959229078372204,
+        "revenue": 3546697701.5127397,
+        "S": 3448652589.529357,
+        "rows": 17568
+      },
+      "candidate": {
+        "W": 978945113.4749868,
+        "W_pct": 11.940859294632327,
+        "revenue": 3546697701.5127397,
+        "S": 3448803190.165241,
+        "rows": 17568
+      },
+      "ratio": 0.9984639658944993
+    },
+    "recent": {
+      "reference": {
+        "W": 1356730507.1796594,
+        "W_pct": 11.000952828788678,
+        "revenue": 5289489854.18509,
+        "S": 5153816803.467124,
+        "rows": 13104
+      },
+      "candidate": {
+        "W": 1354608993.7800963,
+        "W_pct": 10.983750688267232,
+        "revenue": 5289489854.18509,
+        "S": 5154028954.80708,
+        "rows": 13104
+      },
+      "ratio": 0.9984363044920592
+    }
+  },
+  "recent_quarter_ratios": {
+    "jun_aug": 0.9992218470861798,
+    "sep_nov": 0.9979644432437847,
+    "dec_feb": 0.9980998062631607
+  },
+  "recent_group_ratios": {
+    "G1": 0.9984620419104149,
+    "G2": 0.9984098709793052
+  },
+  "physical_checks": {
+    "primary": {
+      "status": "PASS",
+      "finite": true,
+      "nonnegative_within_1e-7": true,
+      "own_capacity_within_1e-7": true,
+      "night_exact_zero": true,
+      "conservation": "group_day_energy",
+      "maximum_energy_difference": 1.4551915228366852e-11
+    },
+    "recent": {
+      "status": "PASS",
+      "finite": true,
+      "nonnegative_within_1e-7": true,
+      "own_capacity_within_1e-7": true,
+      "night_exact_zero": true,
+      "conservation": "group_day_energy",
+      "maximum_energy_difference": 1.4551915228366852e-11
+    }
+  },
+  "gate_checks": {
+    "primary": true,
+    "recent": true,
+    "recent_quarters": true,
+    "recent_groups": true,
+    "physical": true
+  },
+  "eligible": true,
+  "rank": [
+    0.9984363044920592,
+    0.9992218470861798,
+    "t006"
+  ],
+  "model_sha256": "be14d7d7d9d742a08d1a86bbd5a55f53c2003e7c61adeb4e02416f1ac61cf0e3",
+  "receipt_sha256": "e06a71adddf7032057697463b16fceb2d5b3a1f5b10fa1ebc35a6df83d2c17a3",
+  "primary_in_sample": true,
+  "recent_is_development_selection": true,
+  "all_history_previously_exposed": true,
+  "official_improvement_verified": false
+}

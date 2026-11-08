@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-11-08T07:10:45.794601+00:00",
+  "review_scope": "Engine synthetic orchestration tests and readonly real-input column projection; no production fit/inference/preparation launched",
+  "test_command": "/workspace/.venvs/oibc-2026/bin/python -B -m unittest discover -s submission/score_push_novel -p test_engine_nofit.py -v",
+  "tests_passed": 9,
+  "production_model_fits": 0,
+  "production_inference_calls": 0,
+  "source_sha256": {
+    "submission/score_push_novel/engine.py": "48072900cc12d5947e9f0c2d4e3a4c4ea5a95534d4078e5331c315ec1c2478c0",
+    "submission/score_push_novel/test_engine_nofit.py": "597bc10a3e8bbd3c813c403d3eac923bd534a74ad7d234f034c337b3cda42f43"
+  },
+  "readonly_input_join_checks": {
+    "primary": {
+      "rows": 17568,
+      "target_values_read": true,
+      "target_scope": "PRIMARY"
+    },
+    "recent": {
+      "rows": 13104,
+      "target_values_read": true,
+      "target_scope": "already-exposed development period"
+    },
+    "latest": {
+      "rows": 4416,
+      "target_values_read": false,
+      "columns_excluded": [
+        "y",
+        "smp",
+        "k"
+      ]
+    },
+    "test": {
+      "rows": 17520,
+      "target_values_read": false,
+      "columns_excluded": [
+        "y",
+        "smp",
+        "k"
+      ]
+    }
+  },
+  "reference_zip_alignment": {
+    "rows": 17520,
+    "keys_exact": true,
+    "reference_equals_best_forecast_at_3_decimals": true,
+    "best_zip_sha256": "ff14806cd8e0f1de7d85a1763ac16ff13a3668c5232ecf8da5faccf358050434"
+  },
+  "checks": [
+    "Primary fit only, model persisted before recent read",
+    "Prediction receives no labels",
+    "Completed result reuse never refits",
+    "Partial fit refuses automatic retraining",
+    "All twelve success records required for selection",
+    "Empty shortlist does not export",
+    "Selection and both prediction files frozen before first late-label decode",
+    "Completion retry preserves frozen audit and predictions",
+    "Strict JSON refuses nonfinite values without replacing existing artifact"
+  ],
+  "late_individual_target_values_read": false
+}

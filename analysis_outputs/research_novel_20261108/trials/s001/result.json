@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "id": "s001",
+  "config": {
+    "id": "s001",
+    "family": "spatial",
+    "context": "global",
+    "budget": 0.25,
+    "transfer_fraction": 0.1
+  },
+  "created_utc": "2026-11-08T07:17:14.159303+00:00",
+  "real_model_fits": 1,
+  "metrics": {
+    "primary": {
+      "reference": {
+        "W": 980451119.833828,
+        "W_pct": 11.959229078372204,
+        "revenue": 3546697701.5127397,
+        "S": 3448652589.529357,
+        "rows": 17568
+      },
+      "candidate": {
+        "W": 980271734.8994262,
+        "W_pct": 11.957040998334024,
+        "revenue": 3546697701.5127397,
+        "S": 3448670528.022797,
+        "rows": 17568
+      },
+      "ratio": 0.9998170383706307
+    },
+    "recent": {
+      "reference": {
+        "W": 1356730507.1796594,
+        "W_pct": 11.000952828788678,
+        "revenue": 5289489854.18509,
+        "S": 5153816803.467124,
+        "rows": 13104
+      },
+      "candidate": {
+        "W": 1356690655.2360148,
+        "W_pct": 11.000629692137847,
+        "revenue": 5289489854.18509,
+        "S": 5153820788.661489,
+        "rows": 13104
+      },
+      "ratio": 0.999970626485191
+    }
+  },
+  "recent_quarter_ratios": {
+    "jun_aug": 1.0001440110997717,
+    "sep_nov": 0.9999234253374703,
+    "dec_feb": 0.9998139085345823
+  },
+  "recent_group_ratios": {
+    "G1": 0.9995824242026005,
+    "G2": 1.0003693280894521
+  },
+  "physical_checks": {
+    "primary": {
+      "status": "PASS",
+      "finite": true,
+      "nonnegative_within_1e-7": true,
+      "own_capacity_within_1e-7": true,
+      "night_exact_zero": true,
+      "conservation": "hourly_total_energy",
+      "maximum_energy_difference": 3.637978807091713e-12
+    },
+    "recent": {
+      "status": "PASS",
+      "finite": true,
+      "nonnegative_within_1e-7": true,
+      "own_capacity_within_1e-7": true,
+      "night_exact_zero": true,
+      "conservation": "hourly_total_energy",
+      "maximum_energy_difference": 3.637978807091713e-12
+    }
+  },
+  "gate_checks": {
+    "primary": true,
+    "recent": false,
+    "recent_quarters": true,
+    "recent_groups": true,
+    "physical": true
+  },
+  "eligible": false,
+  "rank": [
+    0.999970626485191,
+    1.0001440110997717,
+    "s001"
+  ],
+  "model_sha256": "05a98800659dc2d7e836caa4c5cbd3e1d727af35e2df8a503e6a89074e2e3f11",
+  "receipt_sha256": "183cc43e017312f9ff88e675e2839f3956a7f101ce1ef5d58b15fbba6067eebb",
+  "primary_in_sample": true,
+  "recent_is_development_selection": true,
+  "all_history_previously_exposed": true,
+  "official_improvement_verified": false
+}

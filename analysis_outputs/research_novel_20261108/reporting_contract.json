@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "status": "PASS_REPORTING_ONLY",
+  "created_utc": "2026-11-08T07:11:38.348479+00:00",
+  "campaign": "research_novel_20261108",
+  "source_sha256": {
+    "submission/research_reporting_v3/update_readme.py": "1fe49a23c065422ebec536d8ce37dbbe69e873b32cc906e3b79a07fc24745879",
+    "submission/research_reporting_v3/publish_readme.py": "4be4da851f7865ee7e4df4c5df37de7b89999700829860451a6ee309dffd5963",
+    "submission/research_reporting_v3/test_update_readme.py": "85600306b358aec7357275ac85c7b08213b06f3446f902418dec9a533604e6c7",
+    "submission/research_reporting_v3/test_publish_readme.py": "09604ed077012294fd8656046a9cee5c60c86ed13432d5ca301bff64051b756e",
+    "submission/research_reporting_v3/README.md": "ff0c65deeb0e6e4419597308f3d4296556d0d53db230471ffbe3f61a654b7424",
+    "submission/research_reporting/update_readme.py": "651be8197f8f7784cb7d90f27ab9536d50c835473d5cea324822c2f094863f10",
+    "submission/research_reporting/history_catalog.json": "0e3fdbb59d52290af2e92e9491d13160fe2a809723529e6d6defb2fa0f2518d1",
+    "submission/research_reporting_v2/update_readme.py": "f392d7e8806ed8b200797c9e7036cc8cc7947f2ec9755ba97460a0a08cb07f2a",
+    "submission/research_reporting_v2/publish_readme.py": "24c471810a1b9548b2f06a836838f25a8514ffd0617abec56a1d17d30698ada2",
+    "submission/score_push_22h/checkpoint_git.py": "89d2e4276195847792b7cf31d5d22339fee0a8bd0fb904110a38e996b51ea109"
+  },
+  "deadline_utc": "2026-11-08T14:00:00Z",
+  "search_stop_utc": "2026-11-08T12:00:00Z",
+  "snapshot_manifest": "analysis_outputs/experiment_overview_v3/snapshot_manifest.json",
+  "snapshot_schema_version": 3,
+  "maximum_snapshot_age_seconds": 900,
+  "maximum_future_clock_seconds": 120,
+  "required_outputs": [
+    "README.md",
+    "analysis_outputs/experiment_overview_v3/README.md",
+    "analysis_outputs/experiment_overview_v3/experiments.csv"
+  ],
+  "optional_csv_parts": "analysis_outputs/experiment_overview_v3/experiments_part_001.csv through consecutive part064",
+  "maximum_output_file_bytes": 2097152,
+  "maximum_changed_commit_bytes": 52428800,
+  "prior_root_readme_ownership": "First v3 migration requires root README to match the current v2 snapshot. Later v3 generations verify every owned prior output, reject unexpected or shrinking ownership, and preserve manual edits.",
+  "old_sources_and_old_overviews_unchanged": true,
+  "publication_mode": "Local dry-run by default; explicit --publish only",
+  "shared_publication_state": ".git/codex-checkpoints/state.json",
+  "shared_publication_lock": ".git/codex-checkpoints/publisher.lock",
+  "shared_publication_ref": "refs/heads/codex/checkpoints",
+  "work_head_and_index_preserved": true,
+  "author": {
+    "name": "Codex",
+    "email": "codex@openai.com"
+  },
+  "old_pending_commit_rule": "Resume the exact saved pending commit first. Claim current publication only when requested_readme_snapshot_in_commit is true; otherwise regenerate and retry the same wrapper once.",
+  "new_campaign_scope": [
+    "Explicitly pinned Python sources and reviewed reporting code",
+    "authorization/CAMPAIGN/protocol/configs/bases/jobs/controller/launch/verification/reporting/selection contracts and prepare result",
+    "Independent audit JSON",
+    "Completed trial public result and receipt metadata",
+    "Completion result/audit/budget metadata",
+    "Owned README/overview/CSV/snapshot metadata"
+  ],
+  "excluded": [
+    "Raw data",
+    "Model artifact bytes and learned parameter values",
+    "Individual predictions",
+    "Submission ZIP bytes",
+    "Raw controller/supervisor state",
+    "Logs",
+    "Automation identifiers",
+    "Raw completion selection_frozen.json"
+  ],
+  "private_trial_artifact_verification": {
+    "mode": "HASH_ONLY_NO_PUBLIC_CAPTURE",
+    "required_files": [
+      "model.json",
+      "primary.parquet",
+      "recent.parquet"
+    ],
+    "requirements": "Result and receipt identities/configs match, status PASS, real_model_fits equals1, both metric folds exist, all private artifact bytes match their receipt hashes and result model hash matches. Private bytes are never added to public evidence.",
+    "public_records_must_not_embed_learned_model_payload": true
+  },
+  "novel_trial_policy": "12 deterministic transport settings; one primary-only fit per trial, no alpha optimization, same coefficients applied unchanged to recent. Protocol owns precise scientific acceptance gates.",
+  "comparison_policy": "Protocol explicit comparison ID or nearest earlier same-family setting by number of config differences with ID tie break, never selected by score. Deltas require two completed results.",
+  "completion_policy": "Controller execution status and terminal scientific result remain separate. CHECKPOINT_ONLY is incomplete, not candidate validation. Publication does not assert efficacy or official improvement.",
+  "history_policy": "Preserve36groups and completed10h/22h/23kst rows, prior12JSON failures versus recovered diagnostics, previously exposed and overlapping periods, confidence intervals containing0 where recorded, and user-reported official feedback as unverified.",
+  "tests": {
+    "generator_fixture_tests": 11,
+    "publisher_fixture_tests": 12,
+    "all_passed": true,
+    "historical_read_only_integration_rows": 2909,
+    "historical_groups": 36,
+    "csv_files": 2,
+    "new_real_trial_rows_available_at_review": 12,
+    "new_real_trial_capture_exercised": false,
+    "new_real_trial_status": "all12pending",
+    "real12configuration_read_only_integration_passed": true
+  },
+  "audit_sha256": {
+    "analysis_outputs/research_novel_20261108/independent_reporting_v3_implementation_checks.json": "d67a243f962b7ed2acc93a833caedb3e18cc857836ab67e6c3f57ac02a1a6b71",
+    "analysis_outputs/research_novel_20261108/independent_reporting_runtime_plan_review.json": "625ce552a50c28bd9a3ca459a1356ebc879ebc3d15c691531f8bbceabe9d331c",
+    "analysis_outputs/research_novel_20261108/independent_reporting_v3_prelaunch_revision_checks.json": "6535478cfc0162ec7ea4e7f4c934900711d935295ac0e176abb8e738147fe8b8",
+    "analysis_outputs/research_novel_20261108/independent_reporting_runtime_plan_revision_review.json": "a2633ebd783bd44091d4f728d9d9c742884319be5c58cd5b64bcbd4643e9d906"
+  },
+  "private_anchor_requirement": "Before generation or publication, launch-ready marker and automation must pin this contract and source hashes. This contract does not hash itself. Engine/runtime scientific release is separate.",
+  "first_production_generation_gate": "Satisfied by independent read-only check of12actual prepared configurations on2026-11-08T07:14:23Z; runtime and launch-ready freeze remain separate.",
+  "all_history_previously_exposed": true,
+  "official_score_verified": false,
+  "production_reports_generated_during_review": false,
+  "actual_model_fits_during_review": 0,
+  "network_requests_during_review": 0,
+  "publication_actions_during_review": 0,
+  "updated_utc": "2026-11-08T07:14:58.535591+00:00",
+  "supersedes_reporting_contract_sha256": "5e9457d1ac14b69e48ca94c542f0faa63436ba26ffa4b141c7f5389af1c35def",
+  "revision_reason": "Parent requested visible late nonrecommendation, latest paired CI, configuration glossary and actual fit duration; actual protocol exposed a shared-validator publication source allowance missing from initial implementation. All changes precede launch-ready freeze.",
+  "completion_display_policy": "README must show selected ID, recommendation, candidate ZIP path, latest W ratio/change and paired weekly95%CI. Export or format validation does not override NOT_RECOMMENDED; no qualifying recipe does not imply no individual period point improvement.",
+  "configuration_explanation_policy": "Explain temporal/spatial conservation, shifts, global/cloud contexts, fixed±10cloud boundaries, budget cap and transfer_fraction; link newCAMPAIGN.",
+  "actual_fit_duration_policy": "Use valid elapsed seconds, else timezone-aware receipt fit_finished_utc minus fit_started_utc; do not confuse controller wall interval with active fit time.",
+  "shared_source_sha256": {
+    "submission/validate_artifacts.py": "89e4a757bdada17cc523c948a59408caadc641566d454533021e9c5a3475031f"
+  }
+}
